@@ -32,4 +32,6 @@ Creation and prediction on test set           ->> sistema
 
 Creation of data set: all the subsections belonging to a paragraph (with the exception of "References") have been considered and each of their text has been processed with a cleaning phase (identical to those applied in the training and test sets).
 
-##
+## Predict Data set
+
+All subsection in data set are predicted by different classifiers: '1' = 'PD' or '0' = 'N_PD'.

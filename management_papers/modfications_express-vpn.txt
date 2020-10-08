@@ -1,0 +1,26 @@
+Recommended changes if you need more ip addresses:
+
+###################################################################
+FILE: commands.py
+
+# expressvpn connect [ALIAS]
+
+VPN_CONNECT = 'expressvpn connect'
+
+VPN_LIST = 'expressvpn list all'
+
+VPN_DISCONNECT = 'expressvpn disconnect'
+
+###################################################################
+FILE: wrapper.py
+
+def random_connect():
+    # activation_check()
+    disconnect()
+    vpn_list = run_command(VPN_LIST)[0:63]
+    print_output(vpn_list)
+    aliases = extract_aliases(vpn_list)
+    random.shuffle(aliases)
+    selected_alias = aliases[0]
+    print('Selected alias : {}'.format(selected_alias))
+    connect_alias(selected_alias)  # might raise a ConnectException.
