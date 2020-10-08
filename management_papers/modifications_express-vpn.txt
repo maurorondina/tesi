@@ -1,7 +1,7 @@
 Recommended changes if you need more ip addresses:
 
 ###################################################################
-FILE: commands.py
+FILE: expressvpn-python/expressvpn/commands.py
 
 # expressvpn connect [ALIAS]
 
@@ -12,7 +12,7 @@ VPN_LIST = 'expressvpn list all'
 VPN_DISCONNECT = 'expressvpn disconnect'
 
 ###################################################################
-FILE: wrapper.py
+FILE: expressvpn-python/expressvpn/wrapper.py
 
 def random_connect():
     # activation_check()
