@@ -4,3 +4,13 @@ Incontri/
 
 .DS_Store
 link utili.txt
+
+data/papers/
+data/papers-parquets/
+data/.DS_Store
+
+prediction_pd/.ipynb_checkpoints/
+prediction_pd/dask-worker-space/
+prediction_pd/.DS_Store
+prediciton_pd/AI_4.4-computeClassifier.ipynb
+prediction_pd/resources/tdidf_bigram.pkl
