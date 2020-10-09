@@ -3,3 +3,9 @@
 2539		http://www.aaai.org/Papers/AAAI/2000/AAAI00-124.pdf		An Iterative Algorithm for Synthesizing Invariants
 2548		http://www.aaai.org/Papers/AAAI/2000/AAAI00-027.pdf		A Game-Theoretic Approach to Constraint Satisfaction
 2552		http://www.aaai.org/Papers/AAAI/2000/AAAI00-059.pdf		Answering Queries Using Views over Description Logics Knowledge Bases
+2553		http://www.aaai.org/Papers/AAAI/2000/AAAI00-005.pdf		A Mechanism for Group Decision Making in Collaborative Activity
+2554		http://www.aaai.org/Papers/AAAI/2000/AAAI00-200.pdf		Adaptive User Interfaces through Dynamic Design Automation
+2556		http://www.aaai.org/Papers/AAAI/2000/AAAI00-130.pdf		A Method for Clustering the Experiences of a Mobile Robot that Accords with Human Judgments
+2560		http://www.aaai.org/Papers/AAAI/2000/AAAI00-009.pdf		An Algorithm for Multi-Unit Combinatorial Auctions
+2563		http://www.aaai.org/Papers/AAAI/2000/AAAI00-138.pdf		Change Detection in Heuristic Search
+2564		http://www.aaai.org/Papers/AAAI/2000/AAAI00-102.pdf		A Quantitative Study of Small Disjuncts
