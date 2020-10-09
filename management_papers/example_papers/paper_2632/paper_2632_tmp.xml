@@ -1,0 +1,1125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pdf2xml SYSTEM "pdf2xml.dtd">
+
+<pdf2xml producer="poppler" version="0.90.1">
+<page number="1" position="absolute" top="0" left="0" height="1188" width="918">
+	<fontspec id="0" size="21" family="Times" color="#000000"/>
+	<fontspec id="1" size="18" family="Times" color="#000000"/>
+	<fontspec id="2" size="13" family="Times" color="#000000"/>
+	<fontspec id="3" size="0" family="Times" color="#000000"/>
+	<fontspec id="4" size="15" family="Times" color="#000000"/>
+	<fontspec id="5" size="11" family="Times" color="#000000"/>
+	<fontspec id="6" size="15" family="Times" color="#000000"/>
+	<fontspec id="7" size="13" family="Times" color="#000000"/>
+	<fontspec id="8" size="15" family="Times" color="#000000"/>
+	<fontspec id="9" size="16" family="Times" color="#000000"/>
+	<fontspec id="10" size="12" family="Helvetica" color="#000000"/>
+	<fontspec id="11" size="12" family="ArialMT" color="#000000"/>
+<text top="145" left="318" width="282" height="19" font="0">Human-Guided Simple Search</text>
+<text top="188" left="225" width="124" height="16" font="1">David Anderson</text>
+<text top="185" left="349" width="7" height="12" font="2">1</text>
+<text top="188" left="357" width="134" height="16" font="1">, Emily Anderson</text>
+<text top="185" left="491" width="7" height="12" font="2">1</text>
+<text top="188" left="499" width="85" height="16" font="1">, Neal Lesh</text>
+<text top="185" left="584" width="7" height="12" font="2">1</text>
+<text top="188" left="591" width="90" height="16" font="1">, Joe Marks</text>
+<text top="185" left="681" width="7" height="12" font="2">1</text>
+<text top="188" left="689" width="5" height="16" font="1">,</text>
+<text top="209" left="270" width="107" height="16" font="1">Brian Mirtich</text>
+<text top="205" left="377" width="7" height="12" font="2">1</text>
+<text top="209" left="384" width="136" height="16" font="1">, David Ratajczak</text>
+<text top="205" left="521" width="7" height="12" font="2">1</text>
+<text top="209" left="528" width="102" height="16" font="1">, Kathy Ryall</text>
+<text top="205" left="630" width="7" height="12" font="2">1</text>
+<text top="214" left="637" width="4" height="0" font="3">;</text>
+<text top="205" left="641" width="7" height="12" font="2">2</text>
+<text top="227" left="384" width="149" height="14" font="4">ââââââââââ</text>
+<text top="242" left="230" width="6" height="10" font="5">1</text>
+<text top="245" left="236" width="453" height="14" font="4">MERL â Mitsubishi Electric Research Laboratory, Cambridge, MA 02139</text>
+<text top="260" left="223" width="6" height="10" font="5">2</text>
+<text top="263" left="230" width="465" height="14" font="4">University of Virginia, Dept. of Computer Science, Charlottesville, VA 22903</text>
+<text top="279" left="384" width="150" height="14" font="4">Contact: lesh@merl.com</text>
+<text top="329" left="232" width="56" height="14" font="6">Abstract</text>
+<text top="356" left="96" width="328" height="12" font="2">Scheduling, routing, and layout tasks are examples of hard</text>
+<text top="371" left="96" width="328" height="12" font="2">operations-research problems that have broad application in</text>
+<text top="386" left="96" width="46" height="12" font="2">industry.</text>
+<text top="386" left="155" width="268" height="12" font="2">Typical algorithms for these problems combine</text>
+<text top="401" left="96" width="328" height="12" font="2">some form of gradient descent to find local minima with some</text>
+<text top="416" left="96" width="328" height="12" font="2">strategy for escaping nonoptimal local minima. Our idea is to</text>
+<text top="431" left="96" width="328" height="12" font="2">divide these two subtasks cleanly between human and com-</text>
+<text top="446" left="96" width="328" height="12" font="2">puter: in our paradigm of human-guided simple search the</text>
+<text top="461" left="96" width="328" height="12" font="2">computer is responsible only for finding local minima using</text>
+<text top="476" left="96" width="328" height="12" font="2">a simple hill-climbing search; using visualization and inter-</text>
+<text top="491" left="96" width="328" height="12" font="2">action techniques, the human user identifies promising re-</text>
+<text top="506" left="96" width="328" height="12" font="2">gions of the search space for the computer to explore, and</text>
+<text top="521" left="96" width="328" height="12" font="2">intervenes to help it escape nonoptimal local minima. We</text>
+<text top="536" left="96" width="328" height="12" font="2">have applied our approach to the problem of capacitated ve-</text>
+<text top="550" left="96" width="328" height="12" font="2">hicle routing with time windows, a commercially important</text>
+<text top="565" left="96" width="328" height="12" font="2">problem with a rich research history. Despite its simplicity,</text>
+<text top="580" left="96" width="328" height="12" font="2">our prototype system is competitive with the majority of pre-</text>
+<text top="595" left="96" width="328" height="12" font="2">viously reported systems on benchmark academic problems,</text>
+<text top="610" left="96" width="328" height="12" font="2">and has the advantage of keeping a human tightly in the loop</text>
+<text top="625" left="96" width="287" height="12" font="2">to handle the complexities of real-world applications.</text>
+<text top="665" left="211" width="97" height="16" font="1">Introduction</text>
+<text top="689" left="81" width="358" height="14" font="4">Most previous research on scheduling, routing, and layout</text>
+<text top="705" left="81" width="358" height="14" font="4">problems has focused on developing fully automatic solu-</text>
+<text top="722" left="81" width="358" height="14" font="4">tion methods. There are, however, at least two reasons for</text>
+<text top="738" left="81" width="358" height="14" font="4">developing cooperative, interactive systems for optimization</text>
+<text top="754" left="81" width="357" height="14" font="4">problems like these. First, human users may have knowl-</text>
+<text top="771" left="81" width="357" height="14" font="4">edge of various amorphous real-word constraints and objec-</text>
+<text top="787" left="81" width="358" height="14" font="4">tives that are not represented in the objective function given</text>
+<text top="804" left="81" width="358" height="14" font="4">to computer algorithms. In vehicle-routing problems, for</text>
+<text top="820" left="81" width="358" height="14" font="4">example, human experts may know the flexibility or im-</text>
+<text top="837" left="81" width="358" height="14" font="4">portance of certain customers, or the variability of certain</text>
+<text top="853" left="81" width="358" height="14" font="4">routes. The second reason to involve people in the optimiza-</text>
+<text top="870" left="81" width="358" height="14" font="4">tion process is to leverage their abilities in areas in which</text>
+<text top="886" left="81" width="358" height="14" font="4">humans (currently) outperform computers, such as visual</text>
+<text top="902" left="81" width="358" height="14" font="4">perception, learning from experience, and strategic assess-</text>
+<text top="919" left="81" width="358" height="14" font="4">ment. Although both motivations seem equally important,</text>
+<text top="935" left="81" width="358" height="14" font="4">we have used the second, more quantitative consideration to</text>
+<text top="952" left="81" width="212" height="14" font="4">drive our current round of research.</text>
+<text top="968" left="96" width="343" height="14" font="4">In this paper, we present a new cooperative paradigm</text>
+<text top="985" left="81" width="358" height="14" font="4">for optimization, human-guided simple search (HuGSS).</text>
+<text top="1001" left="81" width="358" height="14" font="4">In our current framework, the computer performs a very</text>
+<text top="1029" left="81" width="70" height="12" font="2">Copyright c</text>
+<text top="1038" left="141" width="14" height="0" font="3"></text>
+<text top="1029" left="161" width="278" height="12" font="2">2000, American Association for Artificial Intelli-</text>
+<text top="1044" left="81" width="228" height="12" font="2">gence (www.aaai.org). All rights reserved.</text>
+<text top="329" left="479" width="358" height="14" font="4">simple, hill-climbing search. One or more people interac-</text>
+<text top="345" left="479" width="358" height="14" font="4">tively âsteerâ the search process by repeatedly initiating fo-</text>
+<text top="362" left="479" width="358" height="14" font="4">cused searches, manually editing solutions, or backtracking</text>
+<text top="378" left="479" width="358" height="14" font="4">to previous solutions. When invoking a focused search, the</text>
+<text top="394" left="479" width="358" height="14" font="4">user determines which modifications to the current solution</text>
+<text top="411" left="479" width="358" height="14" font="4">should be considered, how to evaluate them, and what type</text>
+<text top="427" left="479" width="179" height="14" font="4">of hill-climbing search to use.</text>
+<text top="445" left="494" width="343" height="14" font="4">We have designed and implemented a prototype system</text>
+<text top="461" left="479" width="359" height="14" font="4">that supports HuGSS for the capacitated-vehicle-routing-</text>
+<text top="478" left="479" width="358" height="14" font="8">with-time-windows (CVRTW) problem. Below, we describe</text>
+<text top="494" left="479" width="358" height="14" font="4">the CVRTW problem and our prototype, and report results</text>
+<text top="511" left="479" width="312" height="14" font="4">from 48 hours of controlled testing with our system.</text>
+<text top="546" left="583" width="151" height="16" font="1">Sample Application</text>
+<text top="573" left="479" width="255" height="15" font="9">Problem Description and Definitions</text>
+<text top="598" left="479" width="358" height="14" font="4">We chose vehicle routing as our initial problem domain for</text>
+<text top="614" left="479" width="358" height="14" font="4">three reasons: it is commercially important; it has a rich re-</text>
+<text top="631" left="479" width="358" height="14" font="4">search history, which facilitates comparison with previous</text>
+<text top="647" left="479" width="358" height="14" font="4">work; and routing problems are ones for which the human</text>
+<text top="664" left="479" width="358" height="14" font="4">capabilities of vision, learning, and judgment should be use-</text>
+<text top="680" left="479" width="358" height="14" font="4">ful. In the CVRTW problem (Solomon 1987), trucks deliver</text>
+<text top="697" left="479" width="358" height="14" font="4">goods from a single central depot to customers at fixed geo-</text>
+<text top="713" left="479" width="358" height="14" font="4">graphic locations. Each customer requires a certain quantity</text>
+<text top="729" left="479" width="358" height="14" font="4">of goods, and specifies a time window within which deliv-</text>
+<text top="746" left="479" width="358" height="14" font="4">ery of the goods must commence. All trucks have the same</text>
+<text top="762" left="479" width="358" height="14" font="4">capacity, and travel one unit of distance in one unit of time.</text>
+<text top="779" left="479" width="358" height="14" font="4">Delivery takes a constant amount of time, and each customer</text>
+<text top="795" left="479" width="358" height="14" font="4">can receive only one delivery. All trucks must return to the</text>
+<text top="812" left="479" width="358" height="14" font="4">depot by a fixed time. A solution to a CVRTW problem is</text>
+<text top="828" left="479" width="358" height="14" font="4">an ordered list of customers assigned to each truck, and is</text>
+<text top="844" left="479" width="358" height="14" font="8">feasible if it satisfies all the constraints. The optimization</text>
+<text top="861" left="479" width="358" height="14" font="4">problem is first to minimize the number of trucks required</text>
+<text top="877" left="479" width="358" height="14" font="4">to construct a feasible solution; and second to minimize the</text>
+<text top="894" left="479" width="215" height="14" font="4">total distance traveled by the trucks.</text>
+<text top="911" left="494" width="343" height="14" font="4">As we describe below, users can force the system to con-</text>
+<text top="928" left="479" width="358" height="14" font="4">sider infeasible solutions. Thus we needed to extend the</text>
+<text top="944" left="479" width="358" height="14" font="4">classical objective function for CVRTW to rank infeasible</text>
+<text top="961" left="479" width="358" height="14" font="4">as well as feasible solutions. We define the maximum late-</text>
+<text top="977" left="479" width="358" height="14" font="8">ness of a truck as the maximum tardiness with which it ar-</text>
+<text top="994" left="479" width="358" height="14" font="4">rives at any of its customers; or if a truck has insufficient</text>
+<text top="1010" left="479" width="358" height="14" font="4">capacity to service its customers, we assign it an infinite</text>
+<text top="1026" left="479" width="358" height="14" font="4">maximum-lateness value. We optimize infeasible solutions</text>
+<text top="1043" left="479" width="358" height="14" font="4">by minimizing the sum of the maximum latenesses over all</text>
+<text top="77" left="75" width="66" height="11" font="10">From: AAAI-</text>
+<text top="77" left="141" width="13" height="11" font="11">00</text>
+<text top="77" left="154" width="144" height="11" font="10"> Proceedings. Copyright Â© </text>
+<text top="77" left="298" width="27" height="11" font="11">2000</text>
+<text top="77" left="325" width="227" height="11" font="10">, AAAI (www.aaai.org). All rights reserved. </text>
+</page>
+<page number="2" position="absolute" top="0" left="0" height="1188" width="918">
+	<fontspec id="12" size="10" family="Times" color="#000000"/>
+<text top="86" left="81" width="358" height="14" font="4">the routes. We rank any feasible solution as better than any</text>
+<text top="102" left="81" width="114" height="14" font="4">infeasible solution.</text>
+<text top="119" left="96" width="343" height="14" font="4">We define a 1-ply move as the transfer of a customer from</text>
+<text top="135" left="81" width="357" height="14" font="4">its current route onto another route. Such a move requires</text>
+<text top="151" left="81" width="358" height="14" font="4">that both routes be re-optimized for distance (if feasible) or</text>
+<text top="168" left="81" width="200" height="14" font="4">maximum lateness (if infeasible).</text>
+<text top="165" left="281" width="6" height="10" font="5">1</text>
+<text top="168" left="291" width="147" height="14" font="4">An n-ply move is simply</text>
+<text top="184" left="81" width="194" height="14" font="4">a combination of n 1-ply moves.</text>
+<text top="215" left="81" width="144" height="15" font="9">HuGSS for CVRTW</text>
+<text top="236" left="81" width="358" height="14" font="4">In our system, the user controls the optimization process by</text>
+<text top="253" left="81" width="235" height="14" font="4">performing the following three actions:</text>
+<text top="276" left="77" width="317" height="14" font="4">1. Edit the current solution by making a 1-ply move.</text>
+<text top="299" left="77" width="362" height="14" font="4">2. Invoke a focused local search, starting from the current</text>
+<text top="315" left="96" width="343" height="14" font="4">solution. The user controls which n-ply moves are con-</text>
+<text top="331" left="96" width="342" height="14" font="4">sidered, how they are evaluated, and what type of search</text>
+<text top="348" left="96" width="45" height="14" font="4">is used.</text>
+<text top="370" left="77" width="362" height="14" font="4">3. Revert to an earlier solution, or to an initial seed solution</text>
+<text top="387" left="96" width="240" height="14" font="4">generated randomly prior to the session.</text>
+<text top="410" left="96" width="344" height="14" font="4">We now describe each type of action in the context of our</text>
+<text top="427" left="81" width="358" height="14" font="4">implemented system, followed by a description of the visu-</text>
+<text top="443" left="81" width="358" height="14" font="4">alization and interface (see Figures 1 and 2) that support</text>
+<text top="459" left="81" width="81" height="14" font="4">these actions.</text>
+<text top="476" left="81" width="358" height="14" font="6">Manual edits: To edit the current solution manually, the</text>
+<text top="492" left="81" width="358" height="14" font="4">user simply selects a customer and a route. The system</text>
+<text top="509" left="81" width="358" height="14" font="4">transfers the customer to the route and re-optimizes both af-</text>
+<text top="525" left="81" width="359" height="14" font="4">fected routes. Moving the last customer off a truckâs route</text>
+<text top="542" left="81" width="358" height="14" font="4">eliminates that truck. Also, the user can create infeasible so-</text>
+<text top="558" left="81" width="358" height="14" font="4">lutions by assigning customers with conflicting constraints,</text>
+<text top="574" left="81" width="291" height="14" font="4">or with too much total demand, to a single truck.</text>
+<text top="591" left="81" width="358" height="14" font="6">Focused searches: The principal feature of our system is the</text>
+<text top="607" left="81" width="358" height="14" font="4">following set of methods for allowing users to repeatedly in-</text>
+<text top="624" left="81" width="358" height="14" font="4">voke deep, focused searches into regions of the search space</text>
+<text top="640" left="81" width="358" height="14" font="4">they feel are promising. The user determines which moves</text>
+<text top="657" left="81" width="246" height="14" font="4">the hill-climbing engine will evaluate by:</text>
+<text top="690" left="81" width="8" height="0" font="3"></text>
+<text top="680" left="96" width="343" height="14" font="8">Setting a priority (high, medium, or low) for each cus-</text>
+<text top="697" left="96" width="343" height="14" font="8">tomer. The user controls which customers can be moved,</text>
+<text top="713" left="96" width="343" height="14" font="4">and the routes onto which they can be moved, by assign-</text>
+<text top="729" left="96" width="343" height="14" font="4">ing priorities to them. The search engine will only con-</text>
+<text top="746" left="96" width="343" height="14" font="4">sider moving high-priority customers, and only consider</text>
+<text top="762" left="96" width="343" height="14" font="4">moving them onto routes that have no low-priority cus-</text>
+<text top="779" left="96" width="343" height="14" font="4">tomers. For example, the user can restrict the search en-</text>
+<text top="795" left="96" width="343" height="14" font="4">gine to exchanging customers between a pair of routes by</text>
+<text top="812" left="96" width="343" height="14" font="4">setting all the customers on those routes to high priority</text>
+<text top="828" left="96" width="232" height="14" font="4">and all other customers to low priority.</text>
+<text top="860" left="81" width="8" height="0" font="3"></text>
+<text top="850" left="96" width="343" height="14" font="8">Deciding which n-ply moves (1-ply to 5-ply) to enable. In</text>
+<text top="867" left="96" width="344" height="14" font="4">general, deeper searches are more likely to produce good</text>
+<text top="883" left="96" width="162" height="14" font="4">results, but take more time.</text>
+<text top="916" left="81" width="8" height="0" font="3"></text>
+<text top="906" left="96" width="343" height="14" font="8">Setting an upper bound on the number of moves that the</text>
+<text top="922" left="96" width="343" height="14" font="8">computer can consider. The search is stopped when all</text>
+<text top="938" left="96" width="343" height="14" font="4">enabled moves have been considered, or when this user-</text>
+<text top="955" left="96" width="188" height="14" font="4">supplied upper limit is reached.</text>
+<text top="981" left="99" width="5" height="9" font="12">1</text>
+<text top="984" left="105" width="333" height="12" font="2">Computing the route for a truck once customers have been as-</text>
+<text top="999" left="81" width="358" height="12" font="2">signed to it is an instance of the Traveling Salesman Problem with</text>
+<text top="1014" left="81" width="358" height="12" font="2">Time Windows. Although an NP-hard problem, the instances that</text>
+<text top="1029" left="81" width="358" height="12" font="2">arose in our experiments are small enough that exhaustive search is</text>
+<text top="1044" left="81" width="49" height="12" font="2">practical.</text>
+<text top="286" left="555" width="205" height="14" font="4">Figure 1: The Optimization Table.</text>
+<text top="323" left="494" width="343" height="14" font="4">Focusing the search dramatically reduces the number of</text>
+<text top="339" left="479" width="358" height="14" font="4">moves that the search engine evaluates. In one example from</text>
+<text top="356" left="479" width="357" height="14" font="4">our experiments, we focused the search on two of 12 routes</text>
+<text top="372" left="479" width="358" height="14" font="4">(20 of 100 customers), which decreased the number of 1-ply</text>
+<text top="389" left="479" width="358" height="14" font="4">moves considered by a factor of 30, 2-ply moves by a factor</text>
+<text top="405" left="479" width="278" height="14" font="4">of 222, and 3-ply moves by a factor of 18,432.</text>
+<text top="422" left="494" width="343" height="14" font="4">In addition to determining which moves are evaluated, the</text>
+<text top="439" left="479" width="358" height="14" font="4">user determines how they are evaluated by selecting an ob-</text>
+<text top="455" left="479" width="357" height="14" font="4">jective function. We currently support two objective func-</text>
+<text top="472" left="479" width="357" height="14" font="4">tions: the standard CVRTW objective function modified to</text>
+<text top="488" left="479" width="358" height="14" font="4">assess infeasible solutions; and a function we call minimize-</text>
+<text top="505" left="479" width="150" height="14" font="8">routes, which removes 2</text>
+<text top="515" left="632" width="12" height="0" font="3"></text>
+<text top="505" left="646" width="19" height="14" font="8">len</text>
+<text top="502" left="665" width="6" height="10" font="5">2</text>
+<text top="505" left="677" width="160" height="14" font="4">from the cost attributed to</text>
+<text top="521" left="479" width="164" height="14" font="4">each route that contains len</text>
+<text top="531" left="646" width="12" height="0" font="3">&lt;</text>
+<text top="521" left="661" width="176" height="14" font="4">6 customers. The idea behind</text>
+<text top="537" left="479" width="358" height="14" font="4">this objective function is to encourage a short route to be-</text>
+<text top="554" left="479" width="358" height="14" font="4">come shorter, even if it increases the total distance traveled,</text>
+<text top="570" left="479" width="284" height="14" font="4">in the hope of eventually eliminating that route.</text>
+<text top="588" left="494" width="343" height="14" font="4">Finally, the user can select between greedy or steepest-</text>
+<text top="604" left="479" width="358" height="14" font="4">descent search mode. In greedy mode, the search engine</text>
+<text top="621" left="479" width="358" height="14" font="4">immediately adopts any move that improves the current so-</text>
+<text top="637" left="479" width="357" height="14" font="4">lution under the given objective function. It considers 1-ply</text>
+<text top="654" left="479" width="358" height="14" font="4">moves (if enabled) first, then 2-ply moves (if enabled), and</text>
+<text top="670" left="479" width="358" height="14" font="4">so on. Within a ply, the moves are evaluated in a random</text>
+<text top="686" left="479" width="358" height="14" font="4">order. As soon a move is adopted, the search engine begins,</text>
+<text top="703" left="479" width="186" height="14" font="4">again, to evaluate 1-ply moves.</text>
+<text top="720" left="494" width="343" height="14" font="4">In steepest-descent mode, moves are considered in the</text>
+<text top="736" left="479" width="358" height="14" font="4">same order as in greedy mode, but only the best move is</text>
+<text top="753" left="479" width="359" height="14" font="4">adopted. The best move is defined as the one that decreases</text>
+<text top="769" left="479" width="358" height="14" font="4">the cost of the solution the most, under the given objective</text>
+<text top="786" left="479" width="358" height="14" font="4">function. If no move decreases the cost of the solution, then</text>
+<text top="802" left="479" width="351" height="14" font="4">the best move is the one that increases the cost the least.</text>
+<text top="799" left="831" width="6" height="10" font="5">2</text>
+<text top="819" left="479" width="358" height="14" font="4">Making the least-bad move provides useful information to</text>
+<text top="835" left="479" width="357" height="14" font="4">the user, and can always be undone by reverting to the pre-</text>
+<text top="852" left="479" width="88" height="14" font="4">vious solution.</text>
+<text top="869" left="479" width="358" height="14" font="6">Switching among candidate solutions: The third type of</text>
+<text top="885" left="479" width="358" height="14" font="4">action the user can perform is to switch candidate solutions,</text>
+<text top="902" left="479" width="358" height="14" font="4">either to backtrack to a previous solution, or to load a pre-</text>
+<text top="918" left="479" width="358" height="14" font="4">computed, âseedâ solution. The seed solutions are generated</text>
+<text top="935" left="479" width="358" height="14" font="4">prior to the session using our hill-climbing search engine.</text>
+<text top="951" left="479" width="358" height="14" font="4">They are intended to be used both as starting points for find-</text>
+<text top="967" left="479" width="358" height="14" font="4">ing more optimal solutions and to give users a sense of how</text>
+<text top="984" left="479" width="308" height="14" font="4">various combinations of customers can be serviced.</text>
+<text top="1011" left="498" width="5" height="9" font="12">2</text>
+<text top="1014" left="503" width="334" height="12" font="2">However, we never adopt a move that increases the infeasibil-</text>
+<text top="1029" left="479" width="358" height="12" font="2">ity of a solution. Finding and ranking all infeasible moves is not</text>
+<text top="1044" left="479" width="216" height="12" font="2">worth the added computational expense.</text>
+</page>
+<page number="3" position="absolute" top="0" left="0" height="1188" width="918">
+<text top="670" left="346" width="225" height="14" font="4">Figure 2: A snapshot of our interface.</text>
+<text top="709" left="81" width="210" height="15" font="9">Interface and Implementation</text>
+<text top="731" left="81" width="358" height="14" font="4">For our initial implementation we have used a tabletop dis-</text>
+<text top="747" left="81" width="358" height="14" font="4">play, which we call the Optimization Table (see Figure 1).</text>
+<text top="763" left="81" width="358" height="14" font="4">We project an image down onto a whiteboard. This allows</text>
+<text top="780" left="81" width="358" height="14" font="4">users to annotate candidate solutions by drawing or placing</text>
+<text top="796" left="81" width="358" height="14" font="4">tokens on the board, a very useful feature. In addition, sev-</text>
+<text top="813" left="81" width="305" height="14" font="4">eral users can comfortably use the system together.</text>
+<text top="829" left="96" width="343" height="14" font="4">For this kind of problem, creating an effective visualiza-</text>
+<text top="846" left="81" width="358" height="14" font="4">tion is an intrinsic challenge in bringing the human into the</text>
+<text top="862" left="81" width="358" height="14" font="4">loop. Figure 2 shows our attempt to convey the spatial, tem-</text>
+<text top="879" left="81" width="358" height="14" font="4">poral, and capacity-related information needed for CVRTW.</text>
+<text top="895" left="81" width="358" height="14" font="4">The central depot is the black circle at the center of the dis-</text>
+<text top="911" left="81" width="358" height="14" font="4">play. The other circles represent customers. The pie slices</text>
+<text top="928" left="81" width="358" height="14" font="4">in the customer circles indicate the time windows during</text>
+<text top="944" left="81" width="358" height="14" font="4">which they are willing to accept delivery. The truck routes</text>
+<text top="961" left="81" width="358" height="14" font="4">are shown by polylines, each in a different color. At the</text>
+<text top="977" left="81" width="358" height="14" font="4">userâs option, the first and last segments of each route can</text>
+<text top="994" left="81" width="358" height="14" font="4">be hidden, as they are in the figure, to avoid visual clutter</text>
+<text top="1010" left="81" width="358" height="14" font="4">around the depot. The search-control operations described</text>
+<text top="1026" left="81" width="358" height="14" font="4">in the previous subsection are supported by mouse opera-</text>
+<text top="1043" left="81" width="358" height="14" font="4">tions and pull-down menus. Detailed information about in-</text>
+<text top="710" left="479" width="359" height="14" font="4">dividual customers and trucks can also be accessed through</text>
+<text top="726" left="479" width="161" height="14" font="4">standard interface widgets.</text>
+<text top="745" left="494" width="343" height="14" font="4">The interface was written in Tcl, and the hill-climbing</text>
+<text top="761" left="479" width="358" height="14" font="4">algorithm in C++. We use a branch-and-bound algorithm</text>
+<text top="778" left="479" width="358" height="14" font="4">to optimize truck routes during move evaluation. We care-</text>
+<text top="794" left="479" width="357" height="14" font="4">fully crafted several pruning rules and caching procedures to</text>
+<text top="810" left="479" width="153" height="14" font="4">streamline this algorithm.</text>
+<text top="848" left="554" width="208" height="16" font="1">Experimental Investigation</text>
+<text top="877" left="479" width="358" height="14" font="4">Four test subjects participated in our experiments. Three</text>
+<text top="893" left="479" width="357" height="14" font="4">of them are authors of this paper. The fourth tester is a</text>
+<text top="910" left="479" width="358" height="14" font="4">Ph.D. student unaffiliated with this project, who received</text>
+<text top="926" left="479" width="250" height="14" font="4">five hours of training prior to his first test.</text>
+<text top="944" left="494" width="343" height="14" font="4">The Solomon datasets (Solomon 1987) were our source</text>
+<text top="961" left="479" width="358" height="14" font="4">of benchmark CVRTW problems for our experiments. This</text>
+<text top="977" left="479" width="358" height="14" font="4">corpus consists of 56 problem instances, each with 100 cus-</text>
+<text top="994" left="479" width="358" height="14" font="4">tomers, divided into three categories according to the spatial</text>
+<text top="1010" left="479" width="358" height="14" font="4">distribution of customers: C-type (clustered), R-type (ran-</text>
+<text top="1026" left="479" width="357" height="14" font="4">dom), and RC-type (a mix of the two.) There are two prob-</text>
+<text top="1043" left="479" width="358" height="14" font="4">lem sets for each category: the C1, R1, RC1 sets have a</text>
+</page>
+<page number="4" position="absolute" top="0" left="0" height="1188" width="918">
+<text top="86" left="81" width="358" height="14" font="4">narrow scheduling horizon, while the C2, R2, and RC2 sets</text>
+<text top="102" left="81" width="193" height="14" font="4">have a large scheduling horizon.</text>
+<text top="119" left="96" width="344" height="14" font="4">As we developed and refined our system, we tested users</text>
+<text top="135" left="81" width="358" height="14" font="4">informally on a selection of R1 and RC1 problems. In the</text>
+<text top="152" left="81" width="358" height="14" font="4">second, more controlled, phase of experimentation, we ran</text>
+<text top="168" left="81" width="358" height="14" font="4">two tests on each of the RC1 problems. During this phase,</text>
+<text top="184" left="81" width="358" height="14" font="4">subjects worked only on problem instances to which they</text>
+<text top="201" left="81" width="358" height="14" font="4">had no previous exposure. In each test, the user spent 90</text>
+<text top="217" left="81" width="357" height="14" font="4">minutes working on the problem without reference to the</text>
+<text top="234" left="81" width="358" height="14" font="4">precomputed seed solutions. Then, after an arbitrarily long</text>
+<text top="250" left="81" width="357" height="14" font="4">break, the user spent another 90 minutes working on the</text>
+<text top="267" left="81" width="358" height="14" font="4">same problem, this time with the precomputed seed solu-</text>
+<text top="283" left="81" width="358" height="14" font="4">tions available for perusal. We recorded logs for a total of</text>
+<text top="300" left="81" width="358" height="14" font="4">79.4 hours of test sessions, 48 hours of which were the con-</text>
+<text top="316" left="81" width="120" height="14" font="4">trolled experiments.</text>
+<text top="333" left="96" width="343" height="14" font="4">We generated the seed solutions using the settings we</text>
+<text top="349" left="81" width="358" height="14" font="4">found to be the most effective on a small sample of the</text>
+<text top="365" left="81" width="358" height="14" font="4">Solomon problem instances. In particular, we used greedy</text>
+<text top="382" left="81" width="358" height="14" font="4">search with 1-ply and 2-ply moves enabled and all customers</text>
+<text top="398" left="81" width="358" height="14" font="4">set to high priority; we used the minimize-routes objective</text>
+<text top="415" left="81" width="358" height="14" font="4">function, and started the search from an initial solution in</text>
+<text top="431" left="81" width="358" height="14" font="4">which each customer is assigned its own truck, and searched</text>
+<text top="448" left="81" width="358" height="14" font="4">until we reached a local optimum. Multiple runs produce</text>
+<text top="464" left="81" width="358" height="14" font="4">varied results due to the random order in which moves are</text>
+<text top="481" left="81" width="358" height="14" font="4">considered in the greedy search. We ran the algorithm re-</text>
+<text top="497" left="81" width="358" height="14" font="4">peatedly until we had generated 1000 solutions or a 10-hour</text>
+<text top="513" left="81" width="358" height="14" font="4">time limit was reached. On average, it took 8.4 hours to</text>
+<text top="530" left="81" width="358" height="14" font="4">generate the seed solutions for a problem. We ran all our</text>
+<text top="546" left="81" width="188" height="14" font="4">experiments on a 500 MHz PC.</text>
+<text top="577" left="81" width="92" height="15" font="9">Observations</text>
+<text top="599" left="81" width="358" height="14" font="6">User strategies: During a session, the user repeatedly in-</text>
+<text top="615" left="81" width="358" height="14" font="4">vokes the hill-climbing engine to perform focused searches.</text>
+<text top="632" left="81" width="358" height="14" font="4">This simple mechanism supports a surprisingly broad range</text>
+<text top="648" left="81" width="358" height="14" font="4">of optimization strategies. For example, consider the goal of</text>
+<text top="665" left="81" width="358" height="14" font="4">truck reduction. A user might start by browsing the precom-</text>
+<text top="681" left="81" width="358" height="14" font="4">puted seed solutions for one with a âvulnerableâ route, e.g.,</text>
+<text top="698" left="81" width="358" height="14" font="4">one that might be eliminated because it has a small num-</text>
+<text top="714" left="81" width="358" height="14" font="4">ber of loosely constrained customers, and nearby routes that</text>
+<text top="730" left="81" width="358" height="14" font="4">have available capacity and slack in their schedules. Having</text>
+<text top="747" left="81" width="358" height="14" font="4">identified such a solution, the user can shift customers off</text>
+<text top="763" left="81" width="358" height="14" font="4">the vulnerable route by invoking a steepest-descent search:</text>
+<text top="780" left="81" width="358" height="14" font="4">setting the routeâs customers to high priority and the cus-</text>
+<text top="796" left="81" width="358" height="14" font="4">tomers of nearby routes to medium priority will cause the</text>
+<text top="813" left="81" width="358" height="14" font="4">search algorithm to return the least costly feasible move of a</text>
+<text top="829" left="81" width="358" height="14" font="4">customer off the vulnerable route and onto one of the nearby</text>
+<text top="846" left="81" width="359" height="14" font="4">routes. An alternative strategy for shortening and eliminat-</text>
+<text top="862" left="81" width="358" height="14" font="4">ing routes is to set all the customers in the neighborhood of</text>
+<text top="878" left="81" width="358" height="14" font="4">a vulnerable route to high priority, and to use the minimize-</text>
+<text top="895" left="81" width="358" height="14" font="4">routes objective function and a high search ply: a search</text>
+<text top="911" left="81" width="358" height="14" font="4">with these parameters would consider compound moves, in-</text>
+<text top="928" left="81" width="358" height="14" font="4">volving multiple customers on different routes, that have the</text>
+<text top="944" left="81" width="358" height="14" font="4">net effect of shortening the vulnerable route. A third alterna-</text>
+<text top="961" left="81" width="359" height="14" font="4">tive, which users often had to resort to, is to manually move</text>
+<text top="977" left="81" width="359" height="14" font="4">a customer off a vulnerable route, even if the move produces</text>
+<text top="994" left="81" width="358" height="14" font="4">an infeasible solution; fixing the resulting infeasibility then</text>
+<text top="1010" left="81" width="358" height="14" font="4">becomes a subproblem for which there is another suite of</text>
+<text top="1026" left="81" width="60" height="14" font="4">strategies.</text>
+<text top="1043" left="81" width="358" height="14" font="6">User behaviors: During test sessions, our users spent more</text>
+<text top="90" left="510" width="25" height="12" font="2">User</text>
+<text top="90" left="557" width="36" height="12" font="2">Moves</text>
+<text top="90" left="611" width="48" height="12" font="2">Searches</text>
+<text top="90" left="676" width="40" height="12" font="2">Percent</text>
+<text top="90" left="740" width="40" height="12" font="2">Percent</text>
+<text top="105" left="557" width="17" height="12" font="2">per</text>
+<text top="105" left="611" width="17" height="12" font="2">per</text>
+<text top="105" left="676" width="28" height="12" font="2">steep</text>
+<text top="105" left="740" width="66" height="12" font="2">in infeasible</text>
+<text top="120" left="557" width="24" height="12" font="2">hour</text>
+<text top="120" left="611" width="24" height="12" font="2">hour</text>
+<text top="120" left="676" width="45" height="12" font="2">searches</text>
+<text top="120" left="740" width="30" height="12" font="2">space</text>
+<text top="136" left="510" width="10" height="12" font="2">A</text>
+<text top="136" left="557" width="13" height="12" font="2">53</text>
+<text top="136" left="611" width="13" height="12" font="2">47</text>
+<text top="136" left="676" width="13" height="12" font="2">30</text>
+<text top="136" left="740" width="13" height="12" font="2">78</text>
+<text top="151" left="510" width="9" height="12" font="2">B</text>
+<text top="151" left="557" width="13" height="12" font="2">46</text>
+<text top="151" left="611" width="13" height="12" font="2">53</text>
+<text top="151" left="676" width="13" height="12" font="2">99</text>
+<text top="151" left="740" width="13" height="12" font="2">52</text>
+<text top="166" left="510" width="9" height="12" font="2">C</text>
+<text top="166" left="557" width="20" height="12" font="2">107</text>
+<text top="166" left="611" width="20" height="12" font="2">101</text>
+<text top="166" left="676" width="13" height="12" font="2">87</text>
+<text top="166" left="740" width="13" height="12" font="2">60</text>
+<text top="181" left="510" width="10" height="12" font="2">D</text>
+<text top="181" left="557" width="13" height="12" font="2">26</text>
+<text top="181" left="611" width="13" height="12" font="2">72</text>
+<text top="181" left="676" width="13" height="12" font="2">99</text>
+<text top="181" left="740" width="13" height="12" font="2">76</text>
+<text top="206" left="545" width="227" height="14" font="4">Table 1: User styles: action and mode</text>
+<text top="244" left="500" width="25" height="12" font="2">User</text>
+<text top="244" left="552" width="96" height="12" font="2">Customer priority</text>
+<text top="244" left="701" width="85" height="12" font="2">Search ply used</text>
+<text top="259" left="546" width="24" height="12" font="2">high</text>
+<text top="259" left="588" width="26" height="12" font="2">med.</text>
+<text top="259" left="633" width="20" height="12" font="2">low</text>
+<text top="259" left="670" width="7" height="12" font="2">1</text>
+<text top="259" left="709" width="7" height="12" font="2">2</text>
+<text top="259" left="740" width="7" height="12" font="2">3</text>
+<text top="259" left="771" width="7" height="12" font="2">4</text>
+<text top="259" left="803" width="7" height="12" font="2">5</text>
+<text top="274" left="500" width="10" height="12" font="2">A</text>
+<text top="274" left="546" width="13" height="12" font="2">34</text>
+<text top="274" left="588" width="13" height="12" font="2">50</text>
+<text top="274" left="633" width="13" height="12" font="2">16</text>
+<text top="274" left="670" width="13" height="12" font="2">83</text>
+<text top="274" left="709" width="13" height="12" font="2">84</text>
+<text top="274" left="740" width="13" height="12" font="2">87</text>
+<text top="274" left="771" width="13" height="12" font="2">84</text>
+<text top="274" left="803" width="13" height="12" font="2">83</text>
+<text top="289" left="500" width="9" height="12" font="2">B</text>
+<text top="289" left="546" width="13" height="12" font="2">16</text>
+<text top="289" left="588" width="7" height="12" font="2">8</text>
+<text top="289" left="633" width="13" height="12" font="2">77</text>
+<text top="289" left="670" width="20" height="12" font="2">100</text>
+<text top="289" left="709" width="13" height="12" font="2">95</text>
+<text top="289" left="740" width="13" height="12" font="2">81</text>
+<text top="289" left="771" width="13" height="12" font="2">76</text>
+<text top="289" left="803" width="13" height="12" font="2">65</text>
+<text top="304" left="500" width="9" height="12" font="2">C</text>
+<text top="304" left="546" width="13" height="12" font="2">17</text>
+<text top="304" left="588" width="13" height="12" font="2">13</text>
+<text top="304" left="633" width="13" height="12" font="2">70</text>
+<text top="304" left="670" width="13" height="12" font="2">94</text>
+<text top="304" left="709" width="13" height="12" font="2">89</text>
+<text top="304" left="740" width="13" height="12" font="2">53</text>
+<text top="304" left="771" width="13" height="12" font="2">26</text>
+<text top="304" left="803" width="13" height="12" font="2">11</text>
+<text top="319" left="500" width="10" height="12" font="2">D</text>
+<text top="319" left="546" width="13" height="12" font="2">40</text>
+<text top="319" left="588" width="13" height="12" font="2">29</text>
+<text top="319" left="633" width="13" height="12" font="2">31</text>
+<text top="319" left="670" width="13" height="12" font="2">99</text>
+<text top="319" left="709" width="13" height="12" font="2">99</text>
+<text top="319" left="740" width="13" height="12" font="2">39</text>
+<text top="319" left="771" width="13" height="12" font="2">10</text>
+<text top="319" left="803" width="7" height="12" font="2">0</text>
+<text top="349" left="479" width="358" height="14" font="4">Table 2: User styles: depth and focus. The numbers indicate</text>
+<text top="365" left="479" width="358" height="14" font="4">the fraction of customers assigned high, medium, or low pri-</text>
+<text top="382" left="479" width="358" height="14" font="4">orities, and the frequency with which the various ply moves</text>
+<text top="398" left="479" width="358" height="14" font="4">were enabled. E.g., on average, subject A assigned 34%</text>
+<text top="414" left="479" width="358" height="14" font="4">of the customers to have high priority, and included 3-ply</text>
+<text top="431" left="479" width="142" height="14" font="4">moves 87% of the time.</text>
+<text top="460" left="479" width="358" height="14" font="4">time thinking than the search algorithm spent searching. On</text>
+<text top="476" left="479" width="358" height="14" font="4">average, the search algorithm was in use 31% of the time; the</text>
+<text top="493" left="479" width="358" height="14" font="4">range was 11% to 61%. Solution improvements were made</text>
+<text top="509" left="479" width="358" height="14" font="4">throughout the sessions. Averaging over all the test runs, a</text>
+<text top="526" left="479" width="358" height="14" font="4">new best solution was found a little over five times per hour.</text>
+<text top="542" left="479" width="358" height="14" font="4">Of course, improving the current solution was much more</text>
+<text top="559" left="479" width="359" height="14" font="4">common than finding a new best solution. Focused searches</text>
+<text top="575" left="479" width="358" height="14" font="4">yielded an average of 23 improvements per hour, and manual</text>
+<text top="591" left="479" width="358" height="14" font="4">adjustment yielded an average of 20 improvements per hour.</text>
+<text top="609" left="494" width="343" height="14" font="4">Tables 1 and 2 show what features of the system were</text>
+<text top="625" left="479" width="358" height="14" font="4">used, as well as how usage varied among the test subjects.</text>
+<text top="641" left="479" width="358" height="14" font="4">(Note that some of the variation is very likely due to dif-</text>
+<text top="658" left="479" width="358" height="14" font="4">ferences in the nature of the individual problems.) Three</text>
+<text top="674" left="479" width="358" height="14" font="4">of the four users primarily used steepest-descent search in-</text>
+<text top="691" left="479" width="358" height="14" font="4">stead of greedy search. We feel that steepest-descent mode</text>
+<text top="707" left="479" width="358" height="14" font="4">was preferred largely because it makes the least-bad move</text>
+<text top="724" left="479" width="358" height="14" font="4">if no good move is available, which turned out to be a very</text>
+<text top="740" left="479" width="358" height="14" font="4">useful feature for shifting customers onto or off of specific</text>
+<text top="756" left="479" width="359" height="14" font="4">routes. The minimize-routes objective function was almost</text>
+<text top="773" left="479" width="358" height="14" font="4">never used. Everyone spent at least half of the time working</text>
+<text top="789" left="479" width="357" height="14" font="4">on infeasible solutions. All four users made substantial use</text>
+<text top="806" left="479" width="358" height="14" font="4">of 1-ply, 2-ply, and 3-ply searches, but only two users fre-</text>
+<text top="822" left="479" width="358" height="14" font="4">quently used 5-ply search. There was a wide range among</text>
+<text top="839" left="479" width="358" height="14" font="4">the users in terms of how often the different priorities were</text>
+<text top="855" left="479" width="358" height="14" font="4">used, and in how many searches were invoked, on average,</text>
+<text top="871" left="479" width="53" height="14" font="4">per hour.</text>
+<text top="888" left="494" width="343" height="14" font="4">During the controlled experiments, each user did better</text>
+<text top="905" left="479" width="358" height="14" font="4">than some other user on at least one data set. The one user</text>
+<text top="921" left="479" width="357" height="14" font="4">who was not an inventor of the system (User D in the tables)</text>
+<text top="938" left="479" width="358" height="14" font="4">turned out to have the best record. He generated three of the</text>
+<text top="954" left="479" width="358" height="14" font="4">eight best results on the RC1 problem instances, which are</text>
+<text top="971" left="479" width="105" height="14" font="4">shown in Table 3.</text>
+<text top="1003" left="479" width="138" height="15" font="9">Quantitative results</text>
+<text top="1026" left="479" width="357" height="14" font="6">HuGSS vs. unguided simple search: Our results show that</text>
+<text top="1043" left="479" width="358" height="14" font="4">human guidance provided a significant boost to the simple</text>
+</page>
+<page number="5" position="absolute" top="0" left="0" height="1188" width="918">
+	<fontspec id="13" size="13" family="Times" color="#000000"/>
+	<fontspec id="14" size="10" family="Times" color="#000000"/>
+<text top="90" left="163" width="59" height="12" font="2">Best found</text>
+<text top="90" left="246" width="75" height="12" font="2">Best found by</text>
+<text top="90" left="355" width="50" height="12" font="2">Best pub.</text>
+<text top="105" left="166" width="53" height="12" font="2">by simple</text>
+<text top="105" left="244" width="77" height="12" font="2">human-guided</text>
+<text top="105" left="359" width="43" height="12" font="2">solution</text>
+<text top="120" left="175" width="34" height="12" font="2">search</text>
+<text top="120" left="246" width="74" height="12" font="2">simple search</text>
+<text top="136" left="157" width="24" height="12" font="2">Veh.</text>
+<text top="136" left="200" width="26" height="12" font="2">Dist.</text>
+<text top="136" left="244" width="24" height="12" font="2">Veh.</text>
+<text top="136" left="292" width="26" height="12" font="2">Dist.</text>
+<text top="136" left="343" width="24" height="12" font="2">Veh.</text>
+<text top="136" left="391" width="26" height="12" font="2">Dist.</text>
+<text top="151" left="98" width="38" height="12" font="2">RC101</text>
+<text top="151" left="157" width="13" height="12" font="2">15</text>
+<text top="151" left="200" width="27" height="12" font="13">1631</text>
+<text top="151" left="244" width="13" height="12" font="2">15</text>
+<text top="151" left="292" width="27" height="12" font="2">1662</text>
+<text top="151" left="343" width="13" height="12" font="2">14</text>
+<text top="151" left="391" width="27" height="12" font="2">1669</text>
+<text top="166" left="98" width="38" height="12" font="2">RC102</text>
+<text top="166" left="157" width="13" height="12" font="2">13</text>
+<text top="166" left="200" width="27" height="12" font="2">1499</text>
+<text top="166" left="244" width="13" height="12" font="13">12</text>
+<text top="166" left="292" width="27" height="12" font="2">1569</text>
+<text top="166" left="343" width="13" height="12" font="2">12</text>
+<text top="166" left="391" width="27" height="12" font="2">1555</text>
+<text top="181" left="98" width="38" height="12" font="2">RC103</text>
+<text top="181" left="157" width="13" height="12" font="2">11</text>
+<text top="181" left="200" width="27" height="12" font="2">1293</text>
+<text top="181" left="244" width="13" height="12" font="2">11</text>
+<text top="181" left="292" width="27" height="12" font="13">1224</text>
+<text top="181" left="343" width="13" height="12" font="2">11</text>
+<text top="181" left="391" width="27" height="12" font="2">1110</text>
+<text top="196" left="98" width="38" height="12" font="2">RC104</text>
+<text top="196" left="157" width="13" height="12" font="2">10</text>
+<text top="196" left="200" width="27" height="12" font="2">1156</text>
+<text top="196" left="244" width="13" height="12" font="2">10</text>
+<text top="196" left="292" width="27" height="12" font="13">1136</text>
+<text top="196" left="343" width="13" height="12" font="2">10</text>
+<text top="196" left="391" width="27" height="12" font="2">1136</text>
+<text top="211" left="98" width="38" height="12" font="2">RC105</text>
+<text top="211" left="157" width="13" height="12" font="2">14</text>
+<text top="211" left="200" width="27" height="12" font="2">1558</text>
+<text top="211" left="244" width="13" height="12" font="13">13</text>
+<text top="211" left="292" width="27" height="12" font="2">1691</text>
+<text top="211" left="343" width="13" height="12" font="2">13</text>
+<text top="211" left="391" width="27" height="12" font="2">1637</text>
+<text top="226" left="98" width="38" height="12" font="2">RC106</text>
+<text top="226" left="157" width="13" height="12" font="2">12</text>
+<text top="226" left="200" width="27" height="12" font="2">1407</text>
+<text top="226" left="244" width="13" height="12" font="13">11</text>
+<text top="226" left="292" width="27" height="12" font="2">1475</text>
+<text top="226" left="343" width="13" height="12" font="2">11</text>
+<text top="226" left="391" width="27" height="12" font="2">1432</text>
+<text top="241" left="98" width="38" height="12" font="2">RC107</text>
+<text top="241" left="157" width="13" height="12" font="2">11</text>
+<text top="241" left="200" width="27" height="12" font="2">1247</text>
+<text top="241" left="244" width="13" height="12" font="2">11</text>
+<text top="241" left="292" width="27" height="12" font="13">1236</text>
+<text top="241" left="343" width="13" height="12" font="2">11</text>
+<text top="241" left="391" width="27" height="12" font="2">1231</text>
+<text top="256" left="98" width="38" height="12" font="2">RC108</text>
+<text top="256" left="157" width="13" height="12" font="2">10</text>
+<text top="256" left="200" width="27" height="12" font="2">1191</text>
+<text top="256" left="244" width="13" height="12" font="2">10</text>
+<text top="256" left="292" width="27" height="12" font="13">1185</text>
+<text top="256" left="343" width="13" height="12" font="2">10</text>
+<text top="256" left="391" width="27" height="12" font="2">1140</text>
+<text top="271" left="98" width="24" height="12" font="2">Ave.</text>
+<text top="271" left="157" width="23" height="12" font="2">12.0</text>
+<text top="271" left="200" width="27" height="12" font="2">1373</text>
+<text top="271" left="244" width="30" height="12" font="2">11.63</text>
+<text top="271" left="292" width="27" height="12" font="2">1397</text>
+<text top="271" left="343" width="30" height="12" font="2">11.50</text>
+<text top="271" left="391" width="27" height="12" font="2">1364</text>
+<text top="293" left="81" width="358" height="14" font="4">Table 3: Best solutions found during 800 hours of simple</text>
+<text top="309" left="81" width="358" height="14" font="4">search compared to 67.2 hours of precomputation and 79.4</text>
+<text top="326" left="81" width="357" height="14" font="4">hours of human-guided search. The best published solutions</text>
+<text top="342" left="81" width="159" height="14" font="4">are shown for comparison.</text>
+<text top="376" left="81" width="358" height="14" font="4">search in almost all cases. Table 3 compares the best scores</text>
+<text top="392" left="81" width="358" height="14" font="4">on the RC1 datasets found by the hill-climbing engine alone</text>
+<text top="409" left="81" width="306" height="14" font="4">with the best scores found using the HuGSS system.</text>
+<text top="406" left="387" width="6" height="10" font="5">3</text>
+<text top="409" left="397" width="42" height="14" font="4">For the</text>
+<text top="425" left="81" width="358" height="14" font="4">hill-climbing engine, the scores are the best found in approx-</text>
+<text top="441" left="81" width="358" height="14" font="4">imately 100 hours of computation on a 500 MHz Pentium</text>
+<text top="458" left="81" width="357" height="14" font="4">PC. The scores for the HuGSS system are the best found in</text>
+<text top="474" left="81" width="357" height="14" font="4">at most 10 hours of precomputation and 10 hours of guided</text>
+<text top="491" left="81" width="357" height="14" font="4">searching. (The table includes scores from all logged testing</text>
+<text top="507" left="81" width="357" height="14" font="4">and training sessions, as well as those from the controlled</text>
+<text top="524" left="81" width="358" height="14" font="4">experiments.) On three of the problems, the human-guided</text>
+<text top="540" left="81" width="358" height="14" font="4">solution uses one fewer truck; on four of the five remaining</text>
+<text top="556" left="81" width="358" height="14" font="4">problems, the human-guided solution has a lower distance</text>
+<text top="573" left="81" width="358" height="14" font="4">value. The only dataset on which the unguided hill-climbing</text>
+<text top="589" left="81" width="358" height="14" font="4">search prevailed was RC101, which is the most heavily con-</text>
+<text top="606" left="81" width="358" height="14" font="4">strained of all the problems. The very narrow time windows</text>
+<text top="622" left="81" width="358" height="14" font="4">facilitate extremely fast computer searches (a new local op-</text>
+<text top="639" left="81" width="358" height="14" font="4">timum is found every six seconds), while making visualiza-</text>
+<text top="655" left="81" width="112" height="14" font="4">tion more difficult.</text>
+<text top="673" left="96" width="343" height="14" font="4">The HuGSS results in Table 3 reflect the combined bene-</text>
+<text top="689" left="81" width="358" height="14" font="4">fit of precomputed seed solutions and human-guided search.</text>
+<text top="706" left="81" width="358" height="14" font="4">To tease these two factors apart, we considered the solu-</text>
+<text top="722" left="81" width="358" height="14" font="4">tions produced by the first 90 minutes of each controlled</text>
+<text top="739" left="81" width="358" height="14" font="4">experiment, during which precomputed seed solutions were</text>
+<text top="755" left="81" width="357" height="14" font="4">not available to the user. In Table 4 we report these re-</text>
+<text top="772" left="81" width="358" height="14" font="4">sults in two ways: the average of the two scores available</text>
+<text top="788" left="81" width="358" height="14" font="4">for each dataset represents what can be achieved with 1.5</text>
+<text top="804" left="81" width="358" height="14" font="4">hours of pure guided search (i.e., guided search without the</text>
+<text top="821" left="81" width="358" height="14" font="4">benefit of precomputed seed solutions); the best of the two</text>
+<text top="837" left="81" width="358" height="14" font="4">scores for each dataset represents what can be achieved in</text>
+<text top="854" left="81" width="358" height="14" font="4">3.0 hours of pure guided search, albeit using two people for</text>
+<text top="870" left="81" width="358" height="14" font="4">separate 1.5-hour sessions. The table also shows the average</text>
+<text top="887" left="81" width="358" height="14" font="4">results obtained by the hill-climbing engine without human</text>
+<text top="903" left="81" width="58" height="14" font="4">guidance.</text>
+<text top="900" left="139" width="6" height="10" font="5">4</text>
+<text top="903" left="153" width="286" height="14" font="4">From this data we can conclude that 1.5 hours</text>
+<text top="935" left="99" width="5" height="9" font="12">3</text>
+<text top="938" left="105" width="333" height="12" font="2">To interpret the scores correctly, it is important to recall that</text>
+<text top="953" left="81" width="358" height="12" font="2">the primary objective is to minimize the number of trucks, which</text>
+<text top="968" left="81" width="358" height="12" font="2">often works against the secondary concern of minimizing total dis-</text>
+<text top="983" left="81" width="358" height="12" font="2">tance traveled. Additionally, it is standard practice in the literature</text>
+<text top="998" left="81" width="358" height="12" font="2">to report results by averaging the trucks and distances over many</text>
+<text top="1013" left="81" width="101" height="12" font="2">problem instances.</text>
+<text top="1026" left="99" width="5" height="9" font="12">4</text>
+<text top="1029" left="105" width="334" height="12" font="2">We estimated the average value of computer-only search for</text>
+<text top="1044" left="81" width="357" height="12" font="7">N hours of computation by taking the best score found in N hours</text>
+<text top="86" left="479" width="358" height="14" font="4">of pure human-guided searching is comparable to about 5.0</text>
+<text top="102" left="479" width="358" height="14" font="4">hours of unguided hill climbing. However, 3.0 hours of pure</text>
+<text top="119" left="479" width="358" height="14" font="4">guided searching is better than 20.0 hours of unguided hill</text>
+<text top="135" left="479" width="358" height="14" font="4">climbing, which indicates that additional time is of more</text>
+<text top="151" left="479" width="358" height="14" font="4">benefit to the guided regime than to the unguided one. The</text>
+<text top="168" left="479" width="359" height="14" font="4">average score for 3.0 hours of guided search with precom-</text>
+<text top="184" left="479" width="358" height="14" font="4">puted seed solutions is also shown: the seed solutions impart</text>
+<text top="201" left="479" width="358" height="14" font="4">a distinct benefit, but are not the sole factor behind the dom-</text>
+<text top="217" left="479" width="283" height="14" font="4">inance of HuGSS over unguided simple search.</text>
+<text top="258" left="611" width="28" height="12" font="2">Time</text>
+<text top="258" left="745" width="24" height="12" font="2">Veh.</text>
+<text top="258" left="793" width="26" height="12" font="2">Dist.</text>
+<text top="274" left="497" width="47" height="12" font="2">Our hill-</text>
+<text top="274" left="611" width="35" height="12" font="2">1 hour</text>
+<text top="274" left="745" width="30" height="12" font="2">12.35</text>
+<text top="274" left="793" width="27" height="12" font="2">1424</text>
+<text top="289" left="497" width="48" height="12" font="2">climbing</text>
+<text top="289" left="611" width="40" height="12" font="2">2 hours</text>
+<text top="289" left="745" width="30" height="12" font="2">12.23</text>
+<text top="289" left="793" width="27" height="12" font="2">1416</text>
+<text top="304" left="497" width="73" height="12" font="2">search engine</text>
+<text top="304" left="611" width="40" height="12" font="2">5 hours</text>
+<text top="304" left="745" width="30" height="12" font="2">12.15</text>
+<text top="304" left="793" width="27" height="12" font="2">1403</text>
+<text top="318" left="497" width="29" height="12" font="2">alone</text>
+<text top="318" left="611" width="50" height="12" font="2">8.4 hours</text>
+<text top="318" left="745" width="30" height="12" font="2">12.13</text>
+<text top="318" left="793" width="27" height="12" font="2">1390</text>
+<text top="333" left="611" width="46" height="12" font="2">20 hours</text>
+<text top="333" left="745" width="30" height="12" font="2">12.06</text>
+<text top="333" left="793" width="27" height="12" font="2">1388</text>
+<text top="349" left="497" width="41" height="12" font="2">HuGSS</text>
+<text top="349" left="611" width="50" height="12" font="2">1.5 hours</text>
+<text top="349" left="745" width="30" height="12" font="2">12.13</text>
+<text top="349" left="793" width="27" height="12" font="2">1432</text>
+<text top="364" left="497" width="72" height="12" font="2">(w/out seeds)</text>
+<text top="364" left="611" width="40" height="12" font="2">3 hours</text>
+<text top="364" left="745" width="30" height="12" font="2">12.00</text>
+<text top="364" left="793" width="27" height="12" font="2">1413</text>
+<text top="379" left="497" width="41" height="12" font="2">HuGSS</text>
+<text top="379" left="611" width="101" height="12" font="2">10 hours precomp-</text>
+<text top="379" left="745" width="30" height="12" font="2">11.88</text>
+<text top="379" left="793" width="27" height="12" font="2">1389</text>
+<text top="394" left="497" width="65" height="12" font="2">(with seeds)</text>
+<text top="394" left="611" width="103" height="12" font="2">utation and 3 hours</text>
+<text top="409" left="611" width="91" height="12" font="2">guided search on</text>
+<text top="424" left="611" width="100" height="12" font="2">500 MHz machine</text>
+<text top="440" left="497" width="41" height="12" font="2">HuGSS</text>
+<text top="440" left="611" width="96" height="12" font="2">90 min. precomp-</text>
+<text top="440" left="745" width="30" height="12" font="2">11.88</text>
+<text top="440" left="793" width="27" height="12" font="2">1380</text>
+<text top="455" left="497" width="70" height="12" font="2">(pilot experi-</text>
+<text top="455" left="611" width="105" height="12" font="2">utation and 90 min.</text>
+<text top="470" left="497" width="59" height="12" font="2">ments with</text>
+<text top="470" left="611" width="91" height="12" font="2">guided search on</text>
+<text top="485" left="497" width="82" height="12" font="2">newest system)</text>
+<text top="485" left="611" width="100" height="12" font="2">500 MHz machine</text>
+<text top="503" left="497" width="58" height="12" font="2">Carltonâ95</text>
+<text top="500" left="555" width="5" height="9" font="14">a</text>
+<text top="503" left="611" width="4" height="12" font="2">-</text>
+<text top="503" left="745" width="30" height="12" font="2">13.25</text>
+<text top="503" left="793" width="27" height="12" font="2">1402</text>
+<text top="519" left="497" width="61" height="12" font="2">Rochat and</text>
+<text top="519" left="611" width="82" height="12" font="2">44 min. on 100</text>
+<text top="519" left="745" width="30" height="12" font="2">12.38</text>
+<text top="519" left="793" width="27" height="12" font="2">1369</text>
+<text top="534" left="497" width="59" height="12" font="2">Taillardâ95</text>
+<text top="534" left="611" width="76" height="12" font="2">MHz machine</text>
+<text top="549" left="497" width="61" height="12" font="2">Chiang and</text>
+<text top="549" left="611" width="4" height="12" font="2">-</text>
+<text top="549" left="745" width="30" height="12" font="2">11.88</text>
+<text top="549" left="793" width="27" height="12" font="2">1397</text>
+<text top="566" left="497" width="57" height="12" font="2">Russellâ97</text>
+<text top="563" left="554" width="5" height="9" font="14">b</text>
+<text top="581" left="497" width="42" height="12" font="2">Taillard</text>
+<text top="581" left="611" width="84" height="12" font="2">3.1 hours on 50</text>
+<text top="581" left="745" width="30" height="12" font="2">11.88</text>
+<text top="581" left="793" width="27" height="12" font="2">1381</text>
+<text top="596" left="497" width="49" height="12" font="7">et. al.â97</text>
+<text top="596" left="611" width="76" height="12" font="2">MHz machine</text>
+<text top="612" left="497" width="79" height="12" font="2">De Backer and</text>
+<text top="612" left="611" width="4" height="12" font="2">-</text>
+<text top="612" left="745" width="30" height="12" font="2">14.25</text>
+<text top="612" left="793" width="27" height="12" font="2">1385</text>
+<text top="627" left="497" width="57" height="12" font="2">Furnonâ97</text>
+<text top="642" left="497" width="48" height="12" font="2">Shawâ98</text>
+<text top="642" left="611" width="75" height="12" font="2">1 hour on 100</text>
+<text top="642" left="745" width="30" height="12" font="2">12.00</text>
+<text top="642" left="793" width="27" height="12" font="2">1361</text>
+<text top="657" left="611" width="80" height="12" font="2">MIPS machine</text>
+<text top="673" left="497" width="48" height="12" font="2">Shawâ98</text>
+<text top="673" left="611" width="80" height="12" font="2">2 hours on 100</text>
+<text top="673" left="745" width="30" height="12" font="2">12.00</text>
+<text top="673" left="793" width="27" height="12" font="2">1360</text>
+<text top="688" left="611" width="80" height="12" font="2">MIPS machine</text>
+<text top="703" left="497" width="69" height="12" font="2">Cordone and</text>
+<text top="703" left="611" width="65" height="12" font="2">12.1 min on</text>
+<text top="703" left="745" width="30" height="12" font="2">12.38</text>
+<text top="703" left="793" width="27" height="12" font="2">1409</text>
+<text top="718" left="497" width="91" height="12" font="2">Wolfer-Calvoâ98</text>
+<text top="715" left="588" width="5" height="9" font="14">c</text>
+<text top="718" left="611" width="103" height="12" font="2">18 Mflops Pentium</text>
+<text top="734" left="497" width="69" height="12" font="2">Gambardella</text>
+<text top="734" left="611" width="54" height="12" font="2">30 min on</text>
+<text top="734" left="745" width="30" height="12" font="2">11.92</text>
+<text top="734" left="793" width="27" height="12" font="2">1388</text>
+<text top="749" left="497" width="82" height="12" font="2">and Taillardâ99</text>
+<text top="749" left="611" width="109" height="12" font="2">167MHz, 70 Mflops</text>
+<text top="764" left="611" width="83" height="12" font="2">Sun UltraSparc</text>
+<text top="779" left="497" width="33" height="12" font="2">Kilby,</text>
+<text top="779" left="611" width="69" height="12" font="2">48.3 min. on</text>
+<text top="779" left="745" width="30" height="12" font="2">12.12</text>
+<text top="779" left="793" width="27" height="12" font="2">1388</text>
+<text top="794" left="497" width="62" height="12" font="2">Prosser and</text>
+<text top="794" left="611" width="64" height="12" font="2">25 Mflops/s</text>
+<text top="809" left="497" width="48" height="12" font="2">Shawâ99</text>
+<text top="806" left="544" width="5" height="9" font="14">c</text>
+<text top="809" left="611" width="73" height="12" font="2">Digital Alpha</text>
+<text top="824" left="497" width="84" height="12" font="2">Homberger and</text>
+<text top="824" left="611" width="80" height="12" font="2">5 hours on 200</text>
+<text top="824" left="745" width="23" height="12" font="2">11.5</text>
+<text top="824" left="793" width="27" height="12" font="2">1407</text>
+<text top="839" left="497" width="62" height="12" font="2">Gehringâ99</text>
+<text top="839" left="611" width="76" height="12" font="2">MHz machine</text>
+<text top="858" left="497" width="79" height="12" font="2">Best published</text>
+<text top="858" left="611" width="82" height="12" font="2">About 15 years</text>
+<text top="858" left="745" width="23" height="12" font="2">11.5</text>
+<text top="858" left="793" width="27" height="12" font="2">1364</text>
+<text top="873" left="497" width="48" height="12" font="2">solutions</text>
+<text top="873" left="611" width="116" height="12" font="2">on multiple machines</text>
+<text top="894" left="479" width="5" height="9" font="14">a</text>
+<text top="896" left="489" width="198" height="12" font="2">As reported by (Taillard et al. 1997).</text>
+<text top="910" left="479" width="5" height="9" font="14">b</text>
+<text top="913" left="489" width="245" height="12" font="2">As reported in (Homberger &amp; Gehring 1999).</text>
+<text top="925" left="479" width="5" height="9" font="14">c</text>
+<text top="928" left="488" width="299" height="12" font="2">As reported in (Gambardella, Taillard, &amp; Agazzi 1999).</text>
+<text top="956" left="479" width="358" height="14" font="4">Table 4: Reported results. The numbers are averages over</text>
+<text top="973" left="479" width="302" height="14" font="4">the eight instances in Solomonâs RC1 problem set.</text>
+<text top="1014" left="479" width="357" height="12" font="2">of computation randomly sampled from the 100 hours of unguided</text>
+<text top="1029" left="479" width="358" height="12" font="2">search we recorded for each problem instance. We repeated this</text>
+<text top="1044" left="479" width="314" height="12" font="2">1000 times for each problem and report the average result.</text>
+</page>
+<page number="6" position="absolute" top="0" left="0" height="1188" width="918">
+<text top="86" left="81" width="358" height="14" font="6">HuGSS vs. state-of-the-art techniques: The Solomon</text>
+<text top="102" left="81" width="358" height="14" font="4">datasets are a very useful benchmark for comparing all the</text>
+<text top="119" left="81" width="358" height="14" font="4">different heuristic-search techniques that have been applied</text>
+<text top="135" left="81" width="358" height="14" font="4">to the CVRTW problem, including tabu search and its vari-</text>
+<text top="151" left="81" width="357" height="14" font="4">ants, evolutionary strategies, constraint programming, and</text>
+<text top="168" left="81" width="358" height="14" font="4">ant-colony optimization. Table 4 includes performance data</text>
+<text top="184" left="81" width="358" height="14" font="4">for these techniques and others. The scores we obtained with</text>
+<text top="201" left="81" width="358" height="14" font="4">the full HuGSS approach (i.e., with precomputed seed solu-</text>
+<text top="217" left="81" width="358" height="14" font="4">tions) are competitive with those obtained by the state-of-</text>
+<text top="234" left="81" width="358" height="14" font="4">the-art techniques, dominating several of them, and being</text>
+<text top="250" left="81" width="358" height="14" font="4">clearly dominated only by the results from a recent genetic</text>
+<text top="267" left="81" width="246" height="14" font="4">algorithm (Homberger &amp; Gehring 1999).</text>
+<text top="284" left="96" width="343" height="14" font="4">However, the full HuGSS technique uses between one</text>
+<text top="301" left="81" width="358" height="14" font="4">and two orders of magnitude more computational effort than</text>
+<text top="317" left="81" width="359" height="14" font="4">other techniques. Other algorithms may benefit from a com-</text>
+<text top="334" left="81" width="358" height="14" font="4">parable amount of computation, but there is not enough in-</text>
+<text top="350" left="81" width="358" height="14" font="4">formation in the cited papers to accurately assess how much</text>
+<text top="366" left="81" width="143" height="14" font="4">benefit to expect, if any.</text>
+<text top="384" left="96" width="343" height="14" font="4">To test whether the HuGSS approach for this problem can</text>
+<text top="401" left="81" width="358" height="14" font="4">be effective with less computational effort, we ran a pilot set</text>
+<text top="417" left="81" width="358" height="14" font="4">of experiments with the latest version of our system (its im-</text>
+<text top="433" left="81" width="358" height="14" font="4">provements over the system described above are listed in the</text>
+<text top="450" left="81" width="359" height="14" font="4">concluding section of this paper). In these experiments, we</text>
+<text top="466" left="81" width="358" height="14" font="4">used only 90 minutes of precomputation and 90 minutes of</text>
+<text top="483" left="81" width="358" height="14" font="4">guided search. We ran one test per problem, with three of</text>
+<text top="499" left="81" width="358" height="14" font="4">the test subjects from the first set of experiments. (In some</text>
+<text top="516" left="81" width="358" height="14" font="4">cases, the subjects worked on a problem instance that they</text>
+<text top="532" left="81" width="358" height="14" font="4">had worked on some months earlier.) As shown in Table 4,</text>
+<text top="548" left="81" width="358" height="14" font="4">we achieved comparable results with our new system with</text>
+<text top="565" left="81" width="358" height="14" font="4">significantly less computational and human effort, thus clos-</text>
+<text top="581" left="81" width="266" height="14" font="4">ing the gap with the state-of-the-art systems.</text>
+<text top="599" left="96" width="343" height="14" font="4">In summary, these results suggest that human guid-</text>
+<text top="615" left="81" width="359" height="14" font="4">ance can replace the painstakingly crafted, problem-specific</text>
+<text top="632" left="81" width="358" height="14" font="4">heuristics that are the essence of other approaches without</text>
+<text top="648" left="81" width="307" height="14" font="4">significant compromise in the quality of the results.</text>
+<text top="701" left="221" width="79" height="16" font="1">Versatility</text>
+<text top="728" left="81" width="358" height="14" font="4">Because the user is directing the search, our system can be</text>
+<text top="745" left="81" width="358" height="14" font="4">used for tasks other than the classic CVRTW optimization</text>
+<text top="761" left="81" width="358" height="14" font="4">task. For example, it can be used to balance routes. Many of</text>
+<text top="777" left="81" width="357" height="14" font="4">the best solutions found by state-of-the-art methods might be</text>
+<text top="794" left="81" width="358" height="14" font="4">unsuitable for real use because they assign only one or two</text>
+<text top="810" left="81" width="358" height="14" font="4">customers to a truck. The users of our system can direct the</text>
+<text top="827" left="81" width="358" height="14" font="4">hill-climbing engine to find the lowest cost way of moving</text>
+<text top="843" left="81" width="358" height="14" font="8">N customers to a particular truck, by only enabling N-ply</text>
+<text top="860" left="81" width="358" height="14" font="4">moves and setting the priorities so that the search engine</text>
+<text top="876" left="81" width="329" height="14" font="4">only considers moving customers onto the target truck.</text>
+<text top="894" left="96" width="343" height="14" font="4">Alternatively, it may be desirable to have a lightly loaded</text>
+<text top="910" left="81" width="358" height="14" font="4">truck as a backup if other trucks encounter significant de-</text>
+<text top="927" left="81" width="358" height="14" font="4">lays. This can be accomplished by the same means used</text>
+<text top="943" left="81" width="358" height="14" font="4">in attempting to eliminate a truck. Similarly, if there simply</text>
+<text top="960" left="81" width="358" height="14" font="4">are not enough trucks to satisfy all the customersâ needs, our</text>
+<text top="976" left="81" width="358" height="14" font="4">system can be used to explore various infeasible options. It</text>
+<text top="992" left="81" width="358" height="14" font="4">is often easy to shift the infeasibility around the board, if in</text>
+<text top="1009" left="81" width="300" height="14" font="4">fact some customers are more flexible than others.</text>
+<text top="1026" left="96" width="343" height="14" font="4">Of course, other algorithms might be modified to solve</text>
+<text top="1043" left="81" width="358" height="14" font="4">any of these tasks. The ability of our system to handle these</text>
+<text top="86" left="479" width="358" height="14" font="4">tasks without any recoding (or even recompiling!) suggests</text>
+<text top="102" left="479" width="358" height="14" font="4">that it will be more effective at handling new tasks as they</text>
+<text top="119" left="479" width="358" height="14" font="4">arise. Furthermore, it demonstrates that our system can be</text>
+<text top="135" left="479" width="358" height="14" font="4">used to pursue an objective function that is known by the</text>
+<text top="151" left="479" width="358" height="14" font="4">human users but is difficult to describe to the computer al-</text>
+<text top="168" left="479" width="358" height="14" font="4">gorithm. In this regard, HuGSS is distinctly more versatile</text>
+<text top="184" left="479" width="215" height="14" font="4">than the algorithms cited in Table 4.</text>
+<text top="221" left="605" width="107" height="16" font="1">Related Work</text>
+<text top="247" left="479" width="358" height="14" font="4">The HuGSS paradigm is one way of dividing the work be-</text>
+<text top="263" left="479" width="358" height="14" font="4">tween human and computer in a cooperative optimization or</text>
+<text top="280" left="479" width="359" height="14" font="4">design system. Other interface paradigms organize the co-</text>
+<text top="296" left="479" width="126" height="14" font="4">operation differently.</text>
+<text top="314" left="494" width="343" height="14" font="4">In an iterative-repair paradigm, the computer detects and</text>
+<text top="330" left="479" width="358" height="14" font="4">resolves conflicts introduced by the human user. In a system</text>
+<text top="347" left="479" width="358" height="14" font="4">for scheduling space-shuttle operations (Chien et al. 1999),</text>
+<text top="363" left="479" width="358" height="14" font="4">the computer produces an initial schedule that the user iter-</text>
+<text top="380" left="479" width="358" height="14" font="4">atively refines by hand. The user can invoke a repair algo-</text>
+<text top="396" left="479" width="246" height="14" font="4">rithm to resolve any conflicts introduced.</text>
+<text top="414" left="494" width="343" height="14" font="4">Another way for the computer to address conflicts or</text>
+<text top="430" left="479" width="358" height="14" font="4">constraint violations is to not let the user introduce them</text>
+<text top="447" left="479" width="110" height="14" font="4">in the first place.</text>
+<text top="447" left="604" width="234" height="14" font="4">Constraint-based interfaces are popu-</text>
+<text top="463" left="479" width="358" height="14" font="4">lar in drawing applications, e.g., (Nelson 1985; Gleicher &amp;</text>
+<text top="479" left="479" width="358" height="14" font="4">Witkin 1994; Ryall, Marks, &amp; Shieber 1997). Typically</text>
+<text top="496" left="479" width="358" height="14" font="4">the user imposes geometric or topological constraints on a</text>
+<text top="512" left="479" width="358" height="14" font="4">nascent drawing such that subsequent user manipulation is</text>
+<text top="529" left="479" width="281" height="14" font="4">constrained to useful areas of the design space.</text>
+<text top="546" left="494" width="343" height="14" font="4">The interactive-evolution paradigm offers a different type</text>
+<text top="563" left="479" width="358" height="14" font="4">of cooperation: the computer generates successive popula-</text>
+<text top="579" left="479" width="357" height="14" font="4">tions of novel designs based on previous ones, and the user</text>
+<text top="596" left="479" width="358" height="14" font="4">selects which of the new designs to accept and which to re-</text>
+<text top="612" left="479" width="358" height="14" font="4">ject (Kochhar &amp; Friedell 1990; Sims 1991; Todd &amp; Latham</text>
+<text top="628" left="479" width="39" height="14" font="4">1992).</text>
+<text top="646" left="494" width="343" height="14" font="4">A related but very different line of inquiry takes human-</text>
+<text top="663" left="479" width="357" height="14" font="4">human collaboration as the model for cooperative human-</text>
+<text top="679" left="479" width="358" height="14" font="4">computer interaction, e.g., (Ferguson &amp; Allen 1998). The</text>
+<text top="695" left="479" width="358" height="14" font="4">emphasis in this work is on mixed-initiative interaction be-</text>
+<text top="712" left="479" width="358" height="14" font="4">tween the user and computer in which the computer has</text>
+<text top="728" left="479" width="358" height="14" font="4">some representation of the userâs goals and capabilities, and</text>
+<text top="745" left="479" width="358" height="14" font="4">can engage the human in a collaborative dialogue about the</text>
+<text top="761" left="479" width="273" height="14" font="4">problem at hand and approaches to solving it.</text>
+<text top="779" left="494" width="343" height="14" font="4">The HuGSS paradigm differs significantly from the</text>
+<text top="795" left="479" width="358" height="14" font="4">iterative-repair, constraint-based, and interactive-evolution</text>
+<text top="812" left="479" width="358" height="14" font="4">paradigms in affording the user much more control of the</text>
+<text top="828" left="479" width="358" height="14" font="4">optimization/design process. By setting customer priorities</text>
+<text top="844" left="479" width="358" height="14" font="4">and specifying the scope of the local search, the user decides</text>
+<text top="861" left="479" width="358" height="14" font="4">how much effort the computer will expend on particular sub-</text>
+<text top="877" left="479" width="358" height="14" font="4">problems. And there are no dialogue or mixed-initiative el-</text>
+<text top="894" left="479" width="358" height="14" font="4">ements in our system: the user is always in control, and the</text>
+<text top="910" left="479" width="358" height="14" font="4">computer has no representation of the userâs intentions or</text>
+<text top="927" left="479" width="51" height="14" font="4">abilities.</text>
+<text top="944" left="494" width="343" height="14" font="4">Other researchers have also allowed a user to interact with</text>
+<text top="961" left="479" width="358" height="14" font="4">a computer during its search for a solution to an optimization</text>
+<text top="977" left="479" width="358" height="14" font="4">or constraint-satisfaction problem, e.g., (Choueiry &amp; Falt-</text>
+<text top="994" left="479" width="358" height="14" font="4">ings 1995; Smith, Lassila, &amp; Becker 1996); one group has</text>
+<text top="1010" left="479" width="358" height="14" font="4">even applied this idea to a vehicle-routing problem (Brack-</text>
+<text top="1026" left="479" width="358" height="14" font="4">low et al. 1992). We believe, however, that HuGSS em-</text>
+<text top="1043" left="479" width="357" height="14" font="4">bodies a stronger notion of human guidance than previous</text>
+</page>
+<page number="7" position="absolute" top="0" left="0" height="1188" width="918">
+<text top="86" left="81" width="358" height="14" font="4">efforts. Furthermore, our work is the first rigorous investi-</text>
+<text top="102" left="81" width="359" height="14" font="4">gation of how human guidance can improve the performance</text>
+<text top="119" left="81" width="176" height="14" font="4">of an optimization algorithm.</text>
+<text top="150" left="142" width="235" height="16" font="1">Future Work And Conclusions</text>
+<text top="172" left="81" width="358" height="14" font="4">The contributions of this work are novel mechanisms for the</text>
+<text top="189" left="81" width="358" height="14" font="4">interactive control of simple search, an application of these</text>
+<text top="205" left="81" width="358" height="14" font="4">mechanisms to a vehicle-routing problem, and an empirical</text>
+<text top="222" left="81" width="149" height="14" font="4">study of that application.</text>
+<text top="238" left="96" width="343" height="14" font="4">We are currently making our hill-climbing engine more</text>
+<text top="254" left="81" width="358" height="14" font="4">efficient and our interface more interactive. The user now re-</text>
+<text top="271" left="81" width="358" height="14" font="4">ceives feedback from the hill-climbing engine that indicates</text>
+<text top="287" left="81" width="358" height="14" font="4">the current depth of the search and the best move found to</text>
+<text top="304" left="81" width="358" height="14" font="4">that point. The user can halt the search at any time, at which</text>
+<text top="320" left="81" width="358" height="14" font="4">point the system returns the best solution found so far. This</text>
+<text top="337" left="81" width="358" height="14" font="4">gives the user a much higher degree of control of the sys-</text>
+<text top="353" left="81" width="358" height="14" font="4">tem and effectively removes the need to decide, in advance,</text>
+<text top="369" left="81" width="358" height="14" font="4">the search depth, the maximum number of moves to evalu-</text>
+<text top="386" left="81" width="358" height="14" font="4">ate, and blurs the distinction between greedy and steepest-</text>
+<text top="402" left="81" width="358" height="14" font="4">descent search. Our pilot experiments (see Table 4) indicate</text>
+<text top="419" left="81" width="280" height="14" font="4">that these changes greatly improve our system.</text>
+<text top="435" left="96" width="343" height="14" font="4">We had two principal motivations for investigating</text>
+<text top="452" left="81" width="358" height="14" font="4">human-guided search: to exploit human perceptual and</text>
+<text top="468" left="81" width="358" height="14" font="4">pattern-recognition abilities to improve the performance of</text>
+<text top="485" left="81" width="358" height="14" font="4">search heuristics, and to create more versatile tools for solv-</text>
+<text top="501" left="81" width="358" height="14" font="4">ing real-world optimization problems. Our initial investi-</text>
+<text top="517" left="81" width="358" height="14" font="4">gations show that human guidance improves simple hill-</text>
+<text top="534" left="81" width="358" height="14" font="4">climbing search to world-class levels for at least one opti-</text>
+<text top="550" left="81" width="358" height="14" font="4">mization task. We are also encouraged by the systemâs plia-</text>
+<text top="567" left="81" width="358" height="14" font="4">bility and transparency: users pursued a variety of strategies,</text>
+<text top="583" left="81" width="358" height="14" font="4">developed their own usage styles, and were highly aware of</text>
+<text top="600" left="81" width="259" height="14" font="4">what the search engine was doing and why.</text>
+<text top="616" left="96" width="343" height="14" font="4">The separation made in HuGSS between the humanâs and</text>
+<text top="632" left="81" width="358" height="14" font="4">the computerâs roles has several pleasant consequences. The</text>
+<text top="649" left="81" width="357" height="14" font="4">optimization engine is more generic and reusable than those</text>
+<text top="665" left="81" width="358" height="14" font="4">used in state-of-the-art, problem-specific systems; and many</text>
+<text top="682" left="81" width="358" height="14" font="4">of the user-interface concepts are also easily generalized to</text>
+<text top="698" left="81" width="358" height="14" font="4">other problems. This raises the possibility of developing a</text>
+<text top="715" left="81" width="358" height="14" font="4">general toolkit for creating a family of human-guided opti-</text>
+<text top="731" left="81" width="89" height="14" font="4">mization tools.</text>
+<text top="763" left="190" width="140" height="16" font="1">Acknowledgments</text>
+<text top="785" left="81" width="358" height="14" font="4">We are very grateful to Wheeler Ruml for his help in making</text>
+<text top="801" left="81" width="358" height="14" font="4">our experiments possible and his prowess at optimization,</text>
+<text top="818" left="81" width="358" height="14" font="4">and to Kori Inkpen, Ken Perlin, Steve Powell, and Stacey</text>
+<text top="834" left="81" width="243" height="14" font="4">Scott for their comments and discussion.</text>
+<text top="866" left="218" width="83" height="16" font="1">References</text>
+<text top="888" left="89" width="350" height="14" font="4">Bracklow, J. W.; Graham, W. W.; Hassler, S. M.; Peck,</text>
+<text top="904" left="89" width="351" height="14" font="4">K. E.; and Powell, W. B. 1992. Interactive optimization</text>
+<text top="921" left="89" width="350" height="14" font="4">improves service and performance for Yellow Freight sys-</text>
+<text top="937" left="89" width="213" height="14" font="4">tem. INTERFACES 22(1):147â172.</text>
+<text top="957" left="89" width="350" height="14" font="4">Carlton, W. 1995. A Tabu Search Approach to the General</text>
+<text top="974" left="89" width="350" height="14" font="8">Vehicle Routing Problem. Ph.D. Dissertation, The Univer-</text>
+<text top="990" left="89" width="180" height="14" font="4">sity of Texas at Austin, Texas.</text>
+<text top="1010" left="89" width="351" height="14" font="4">Chiang, W.-C., and Russell, R. 1997. A reactive tabu</text>
+<text top="1026" left="89" width="350" height="14" font="4">search metaheuristic for the vehicle routing problem with</text>
+<text top="1043" left="89" width="332" height="14" font="4">time windows. INFORMS J. on Computing 9:417â430.</text>
+<text top="86" left="487" width="350" height="14" font="4">Chien, S.; Rabideau, G.; Willis, J.; and Mann, T. 1999. Au-</text>
+<text top="102" left="487" width="350" height="14" font="4">tomating planning and scheduling of shuttle payload oper-</text>
+<text top="119" left="487" width="273" height="14" font="4">ations. J. Artificial Intelligence 114:239â255.</text>
+<text top="141" left="487" width="351" height="14" font="4">Choueiry, B. Y., and Faltings, B. 1995. Using abstractions</text>
+<text top="157" left="487" width="350" height="14" font="4">for resource allocation. In IEEE 1995 International Con-</text>
+<text top="173" left="487" width="297" height="14" font="8">ference on Robotics and Automation, 1027â1033.</text>
+<text top="195" left="487" width="350" height="14" font="4">Cordone, R., and Wolfler-Calvo, R. 2000. A heuristic</text>
+<text top="212" left="487" width="350" height="14" font="4">for the vehicle routing problem with time windows. J. of</text>
+<text top="228" left="487" width="146" height="14" font="8">Heuristics, forthcoming.</text>
+<text top="250" left="487" width="350" height="14" font="4">De Backer, B., and Furnon, V. 1997. Meta-heuristics in</text>
+<text top="266" left="487" width="350" height="14" font="4">constraint programming experiments with tabu search on</text>
+<text top="283" left="487" width="350" height="14" font="4">the vehicle routing problem. In Proc. of the 2nd Intâl Con-</text>
+<text top="299" left="487" width="256" height="14" font="8">ference on Metaheuristics (MIC 97), 1â14.</text>
+<text top="321" left="487" width="350" height="14" font="4">Ferguson, G., and Allen, J. 1998. Trips: An integrated</text>
+<text top="337" left="487" width="350" height="14" font="4">intelligent problem-solving assistant. In Proc. 15th Nat.</text>
+<text top="354" left="487" width="115" height="14" font="8">Conf. AI, 567â572.</text>
+<text top="376" left="487" width="351" height="14" font="4">Gambardella, L.-M.; Taillard, E. D.; and Agazzi, G. 1999.</text>
+<text top="392" left="487" width="351" height="14" font="4">MACS-VRPTW: A multiple ant colony system for vehicle</text>
+<text top="409" left="487" width="350" height="14" font="4">routing problems with time windows. Technical Report</text>
+<text top="425" left="487" width="131" height="14" font="4">IDSIA-06-99, IDSIA.</text>
+<text top="447" left="487" width="351" height="14" font="4">Gleicher, M., and Witkin, A. 1994. Drawing with con-</text>
+<text top="463" left="487" width="217" height="14" font="4">straints. Visual Computer 11:39â51.</text>
+<text top="485" left="487" width="351" height="14" font="4">Homberger, J., and Gehring, H. 1999. Two evolutionary</text>
+<text top="501" left="487" width="350" height="14" font="4">metaheuristics for the vehicle routing problem with time</text>
+<text top="518" left="487" width="327" height="14" font="4">windows. INFORMS J. on Computing 37(3):297â318.</text>
+<text top="540" left="487" width="351" height="14" font="4">Kilby, P.; Prosser, P.; and Shaw, P. 1999. Guided local</text>
+<text top="556" left="487" width="351" height="14" font="4">search for the vehicle routing problem with time windows.</text>
+<text top="573" left="487" width="351" height="14" font="4">In Meta-heuristics - Advances and Trends in Local Search</text>
+<text top="589" left="487" width="351" height="14" font="8">Paradigms for Optimization. Kluwer Academic Publishers.</text>
+<text top="605" left="487" width="127" height="14" font="4">chapter 32, 473â486.</text>
+<text top="627" left="487" width="351" height="14" font="4">Kochhar, S., and Friedell, M. 1990. User control in coop-</text>
+<text top="644" left="487" width="350" height="14" font="4">erative computer-aided design. In Proc. of the 1990 ACM</text>
+<text top="660" left="487" width="350" height="14" font="8">SIGGRAPH Symposium on User Interface Software and</text>
+<text top="677" left="487" width="201" height="14" font="8">Technology (UIST â90), 143â151.</text>
+<text top="698" left="487" width="350" height="14" font="4">Nelson, G. 1985. Juno, a constraint based graphics system.</text>
+<text top="715" left="487" width="351" height="14" font="8">Computer Graphics (Proc. of SIGGRAPH â85) 19(3):235â</text>
+<text top="731" left="487" width="26" height="14" font="4">243.</text>
+<text top="753" left="487" width="351" height="14" font="4">Rochat, Y., and Taillard, E. D. 1995. Probabilistic diversi-</text>
+<text top="769" left="487" width="351" height="14" font="4">fication and intensification in local search for vehicle rout-</text>
+<text top="786" left="487" width="208" height="14" font="4">ing. J. of Heuristics 1(1):147â167.</text>
+<text top="808" left="487" width="350" height="14" font="4">Ryall, K.; Marks, J.; and Shieber, S. 1997. Glide: An</text>
+<text top="824" left="487" width="351" height="14" font="4">interactive system for graph drawing. In Proc. of the 1997</text>
+<text top="841" left="487" width="350" height="14" font="8">ACM SIGGRAPH Symposium on User Interface Software</text>
+<text top="857" left="487" width="220" height="14" font="8">and Technology (UIST â97), 97â104.</text>
+<text top="879" left="487" width="351" height="14" font="4">Shaw, P. 1998. A new local search algorithm providing</text>
+<text top="895" left="487" width="350" height="14" font="4">high quality solutions to vehicle routing problems. Techni-</text>
+<text top="912" left="487" width="301" height="14" font="4">cal report, APES group, University of Strathclyde.</text>
+<text top="933" left="487" width="350" height="14" font="4">Sims, K. 1991. Artificial evolution for computer graphics.</text>
+<text top="950" left="487" width="351" height="14" font="8">Comp. Graphics (Proc. of SIGGRAPH â91) 25(3):319â328.</text>
+<text top="972" left="487" width="351" height="14" font="4">Smith, S.; Lassila, O.; and Becker, M. 1996. Configurable,</text>
+<text top="988" left="487" width="350" height="14" font="4">mixed-initiative systems for planning and scheduling. In</text>
+<text top="1005" left="487" width="350" height="14" font="4">Tate, A., ed., Advanced Planning Technology. Menlo Park,</text>
+<text top="1021" left="487" width="243" height="14" font="4">CA: AAAI Press. ISBN 0-929280-98-9.</text>
+<text top="1043" left="487" width="350" height="14" font="4">Solomon, M. M. 1987. Algorithms for the vehicle routing</text>
+</page>
+<page number="8" position="absolute" top="0" left="0" height="1188" width="918">
+<text top="90" left="291" width="63" height="12" font="2">first session</text>
+<text top="90" left="497" width="79" height="12" font="2">second session</text>
+<text top="90" left="655" width="93" height="12" font="2">pilot experiments</text>
+<text top="105" left="224" width="22" height="12" font="2">user</text>
+<text top="105" left="277" width="44" height="12" font="2">seedless</text>
+<text top="105" left="368" width="36" height="12" font="2">seeded</text>
+<text top="105" left="439" width="22" height="12" font="2">user</text>
+<text top="105" left="492" width="44" height="12" font="2">seedless</text>
+<text top="105" left="582" width="36" height="12" font="2">seeded</text>
+<text top="105" left="656" width="90" height="12" font="2">with new system</text>
+<text top="121" left="265" width="24" height="12" font="2">Veh.</text>
+<text top="121" left="307" width="26" height="12" font="2">Dist.</text>
+<text top="121" left="352" width="24" height="12" font="2">Veh.</text>
+<text top="121" left="394" width="26" height="12" font="2">Dist.</text>
+<text top="121" left="479" width="24" height="12" font="2">Veh.</text>
+<text top="121" left="521" width="26" height="12" font="2">Dist.</text>
+<text top="121" left="566" width="24" height="12" font="2">Veh.</text>
+<text top="121" left="608" width="26" height="12" font="2">Dist.</text>
+<text top="121" left="681" width="24" height="12" font="2">Veh.</text>
+<text top="121" left="723" width="26" height="12" font="2">Dist.</text>
+<text top="136" left="168" width="38" height="12" font="2">RC101</text>
+<text top="136" left="224" width="9" height="12" font="2">C</text>
+<text top="136" left="265" width="13" height="12" font="2">15</text>
+<text top="136" left="307" width="27" height="12" font="2">1678</text>
+<text top="136" left="352" width="13" height="12" font="2">15</text>
+<text top="136" left="394" width="27" height="12" font="2">1666</text>
+<text top="136" left="439" width="9" height="12" font="2">B</text>
+<text top="136" left="479" width="13" height="12" font="2">15</text>
+<text top="136" left="521" width="27" height="12" font="2">1690</text>
+<text top="136" left="566" width="13" height="12" font="2">15</text>
+<text top="136" left="608" width="27" height="12" font="2">1662</text>
+<text top="136" left="653" width="9" height="12" font="2">C</text>
+<text top="136" left="681" width="13" height="12" font="2">15</text>
+<text top="136" left="723" width="27" height="12" font="2">1629</text>
+<text top="151" left="168" width="38" height="12" font="2">RC102</text>
+<text top="151" left="224" width="10" height="12" font="2">D</text>
+<text top="151" left="265" width="13" height="12" font="2">12</text>
+<text top="151" left="307" width="27" height="12" font="2">1617</text>
+<text top="151" left="352" width="13" height="12" font="2">12</text>
+<text top="151" left="394" width="27" height="12" font="2">1569</text>
+<text top="151" left="439" width="10" height="12" font="2">A</text>
+<text top="151" left="479" width="13" height="12" font="2">13</text>
+<text top="151" left="521" width="27" height="12" font="2">1528</text>
+<text top="151" left="566" width="13" height="12" font="2">13</text>
+<text top="151" left="608" width="27" height="12" font="2">1528</text>
+<text top="151" left="653" width="9" height="12" font="2">B</text>
+<text top="151" left="681" width="13" height="12" font="2">13</text>
+<text top="151" left="723" width="27" height="12" font="2">1559</text>
+<text top="166" left="168" width="38" height="12" font="2">RC103</text>
+<text top="166" left="224" width="9" height="12" font="2">B</text>
+<text top="166" left="265" width="13" height="12" font="2">11</text>
+<text top="166" left="307" width="27" height="12" font="2">1323</text>
+<text top="166" left="352" width="13" height="12" font="2">11</text>
+<text top="166" left="394" width="27" height="12" font="2">1293</text>
+<text top="166" left="439" width="10" height="12" font="2">D</text>
+<text top="166" left="479" width="13" height="12" font="2">11</text>
+<text top="166" left="521" width="27" height="12" font="2">1420</text>
+<text top="166" left="566" width="13" height="12" font="2">11</text>
+<text top="166" left="608" width="27" height="12" font="2">1224</text>
+<text top="166" left="653" width="10" height="12" font="2">A</text>
+<text top="166" left="681" width="13" height="12" font="2">11</text>
+<text top="166" left="723" width="27" height="12" font="2">1281</text>
+<text top="181" left="168" width="38" height="12" font="2">RC104</text>
+<text top="181" left="224" width="9" height="12" font="2">C</text>
+<text top="181" left="265" width="13" height="12" font="2">10</text>
+<text top="181" left="307" width="27" height="12" font="2">1136</text>
+<text top="181" left="352" width="13" height="12" font="2">10</text>
+<text top="181" left="394" width="27" height="12" font="2">1136</text>
+<text top="181" left="439" width="9" height="12" font="2">B</text>
+<text top="181" left="479" width="13" height="12" font="2">10</text>
+<text top="181" left="521" width="27" height="12" font="2">1146</text>
+<text top="181" left="566" width="13" height="12" font="2">10</text>
+<text top="181" left="608" width="27" height="12" font="2">1140</text>
+<text top="181" left="653" width="9" height="12" font="2">B</text>
+<text top="181" left="681" width="13" height="12" font="2">10</text>
+<text top="181" left="723" width="27" height="12" font="2">1148</text>
+<text top="196" left="168" width="38" height="12" font="2">RC105</text>
+<text top="196" left="224" width="10" height="12" font="2">D</text>
+<text top="196" left="265" width="13" height="12" font="2">14</text>
+<text top="196" left="307" width="27" height="12" font="2">1733</text>
+<text top="196" left="352" width="13" height="12" font="2">13</text>
+<text top="196" left="394" width="27" height="12" font="2">1691</text>
+<text top="196" left="439" width="10" height="12" font="2">A</text>
+<text top="196" left="479" width="13" height="12" font="2">15</text>
+<text top="196" left="521" width="27" height="12" font="2">1707</text>
+<text top="196" left="566" width="13" height="12" font="2">14</text>
+<text top="196" left="608" width="27" height="12" font="2">1582</text>
+<text top="196" left="653" width="9" height="12" font="2">B</text>
+<text top="196" left="681" width="13" height="12" font="2">13</text>
+<text top="196" left="723" width="27" height="12" font="2">1642</text>
+<text top="211" left="168" width="38" height="12" font="2">RC106</text>
+<text top="211" left="224" width="10" height="12" font="2">A</text>
+<text top="211" left="265" width="13" height="12" font="2">12</text>
+<text top="211" left="307" width="27" height="12" font="2">1591</text>
+<text top="211" left="352" width="13" height="12" font="2">12</text>
+<text top="211" left="394" width="27" height="12" font="2">1385</text>
+<text top="211" left="439" width="9" height="12" font="2">C</text>
+<text top="211" left="479" width="13" height="12" font="2">12</text>
+<text top="211" left="521" width="27" height="12" font="2">1395</text>
+<text top="211" left="566" width="13" height="12" font="2">12</text>
+<text top="211" left="608" width="27" height="12" font="2">1395</text>
+<text top="211" left="653" width="9" height="12" font="2">C</text>
+<text top="211" left="681" width="13" height="12" font="2">12</text>
+<text top="211" left="723" width="27" height="12" font="2">1397</text>
+<text top="226" left="168" width="38" height="12" font="2">RC107</text>
+<text top="226" left="224" width="9" height="12" font="2">B</text>
+<text top="226" left="265" width="13" height="12" font="2">11</text>
+<text top="226" left="307" width="27" height="12" font="2">1284</text>
+<text top="226" left="352" width="13" height="12" font="2">11</text>
+<text top="226" left="394" width="27" height="12" font="2">1236</text>
+<text top="226" left="439" width="10" height="12" font="2">D</text>
+<text top="226" left="479" width="13" height="12" font="2">11</text>
+<text top="226" left="521" width="27" height="12" font="2">1359</text>
+<text top="226" left="566" width="13" height="12" font="2">11</text>
+<text top="226" left="608" width="27" height="12" font="2">1242</text>
+<text top="226" left="653" width="9" height="12" font="2">C</text>
+<text top="226" left="681" width="13" height="12" font="2">11</text>
+<text top="226" left="723" width="27" height="12" font="2">1232</text>
+<text top="241" left="168" width="38" height="12" font="2">RC108</text>
+<text top="241" left="224" width="9" height="12" font="2">C</text>
+<text top="241" left="265" width="13" height="12" font="2">11</text>
+<text top="241" left="307" width="27" height="12" font="2">1134</text>
+<text top="241" left="352" width="13" height="12" font="2">10</text>
+<text top="241" left="394" width="27" height="12" font="2">1218</text>
+<text top="241" left="439" width="10" height="12" font="2">A</text>
+<text top="241" left="479" width="13" height="12" font="2">11</text>
+<text top="241" left="521" width="27" height="12" font="2">1193</text>
+<text top="241" left="566" width="13" height="12" font="2">10</text>
+<text top="241" left="608" width="27" height="12" font="2">1246</text>
+<text top="241" left="653" width="10" height="12" font="2">A</text>
+<text top="241" left="681" width="13" height="12" font="2">10</text>
+<text top="241" left="723" width="27" height="12" font="2">1148</text>
+<text top="279" left="329" width="261" height="14" font="4">Table 5: Detailed results of the experiments</text>
+<text top="327" left="89" width="350" height="14" font="4">and scheduling problems with time window constraints.</text>
+<text top="344" left="89" width="223" height="14" font="8">Operations Research 35(2):254â265.</text>
+<text top="364" left="89" width="351" height="14" font="4">Taillard, E. D.; Badeau, P.; Gendreau, M.; Guertin, F.; and</text>
+<text top="381" left="89" width="350" height="14" font="4">Potvin, J. 1997. A tabu search heuristic for the vehicle</text>
+<text top="397" left="89" width="350" height="14" font="4">routing problem with soft time windows. Transportation</text>
+<text top="414" left="89" width="125" height="14" font="8">Science 31 170â186.</text>
+<text top="434" left="89" width="350" height="14" font="4">Todd, S., and Latham, W. 1992. Evolutionary Art and</text>
+<text top="450" left="89" width="174" height="14" font="8">Computers. Academic Press.</text>
+<text top="483" left="223" width="74" height="16" font="1">Appendix</text>
+<text top="506" left="81" width="358" height="14" font="4">Table 5 shows the actual scores attained during our con-</text>
+<text top="522" left="81" width="357" height="14" font="4">trolled experiments and the pilot experiments for our new</text>
+<text top="539" left="81" width="45" height="14" font="4">system.</text>
+</page>
+</pdf2xml>

@@ -1,0 +1,1708 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pdf2xml SYSTEM "pdf2xml.dtd">
+
+<pdf2xml producer="poppler" version="0.90.1">
+<page number="1" position="absolute" top="0" left="0" height="1188" width="918">
+	<fontspec id="0" size="21" family="Times" color="#000000"/>
+	<fontspec id="1" size="17" family="Times" color="#000000"/>
+	<fontspec id="2" size="14" family="Times" color="#000000"/>
+	<fontspec id="3" size="14" family="Courier" color="#000000"/>
+	<fontspec id="4" size="14" family="Times" color="#000000"/>
+	<fontspec id="5" size="13" family="Times" color="#000000"/>
+	<fontspec id="6" size="13" family="Times" color="#000000"/>
+	<fontspec id="7" size="14" family="Times" color="#000000"/>
+	<fontspec id="8" size="0" family="Times" color="#000000"/>
+	<fontspec id="9" size="12" family="Helvetica" color="#000000"/>
+	<fontspec id="10" size="12" family="ArialMT" color="#000000"/>
+<text top="149" left="330" width="258" height="19" font="0">Boosted Wrapper Induction</text>
+<text top="202" left="243" width="109" height="16" font="1">Dayne Freitag</text>
+<text top="221" left="256" width="82" height="13" font="2">Just Research</text>
+<text top="237" left="235" width="123" height="13" font="2">Pittsburgh, PA, USA</text>
+<text top="255" left="225" width="144" height="12" font="3">dayne@cs.cmu.edu</text>
+<text top="202" left="539" width="164" height="16" font="1">Nicholas Kushmerick</text>
+<text top="221" left="521" width="201" height="13" font="2">Department of Computer Science</text>
+<text top="237" left="517" width="208" height="13" font="2">University College Dublin, Ireland</text>
+<text top="255" left="572" width="99" height="12" font="3">nick@ucd.ie</text>
+<text top="329" left="232" width="56" height="13" font="4">Abstract</text>
+<text top="357" left="96" width="328" height="12" font="5">Recent work in machine learning for information extraction</text>
+<text top="372" left="96" width="327" height="12" font="5">has focused on two distinct sub-problems: the conventional</text>
+<text top="387" left="96" width="328" height="12" font="5">problem of filling template slots from natural language text,</text>
+<text top="401" left="96" width="328" height="12" font="5">and the problem of wrapper induction, learning simple ex-</text>
+<text top="416" left="96" width="328" height="12" font="5">traction procedures (âwrappersâ) for highly structured text</text>
+<text top="431" left="96" width="327" height="12" font="5">such as Web pages produced by CGI scripts. For suitably reg-</text>
+<text top="446" left="96" width="328" height="12" font="5">ular domains, existing wrapper induction algorithms can effi-</text>
+<text top="461" left="96" width="328" height="12" font="5">ciently learn wrappers that are simple and highly accurate, but</text>
+<text top="476" left="96" width="328" height="12" font="5">the regularity bias of these algorithms makes them unsuitable</text>
+<text top="491" left="96" width="328" height="12" font="5">for most conventional information extraction tasks. Boost-</text>
+<text top="506" left="96" width="328" height="12" font="6">ing is a technique for improving the performance of a simple</text>
+<text top="521" left="96" width="328" height="12" font="5">machine learning algorithm by repeatedly applying it to the</text>
+<text top="536" left="96" width="328" height="12" font="5">training set with different example weightings. We describe</text>
+<text top="551" left="96" width="328" height="12" font="5">an algorithm that learns simple, low-coverage wrapper-like</text>
+<text top="566" left="96" width="328" height="12" font="5">extraction patterns, which we then apply to conventional in-</text>
+<text top="581" left="96" width="328" height="12" font="5">formation extraction problems using boosting. The result is</text>
+<text top="596" left="96" width="328" height="12" font="5">BWI, a trainable information extraction system with a strong</text>
+<text top="611" left="96" width="328" height="12" font="5">precision bias and F1 performance better than state-of-the-art</text>
+<text top="626" left="96" width="157" height="12" font="5">techniques in many domains.</text>
+<text top="667" left="211" width="97" height="16" font="1">Introduction</text>
+<text top="691" left="81" width="358" height="13" font="7">Information extraction (IE) is the problem of converting text</text>
+<text top="707" left="81" width="358" height="13" font="2">such as newswire articles or Web pages into structured data</text>
+<text top="724" left="81" width="358" height="13" font="2">objects suitable for automatic processing. An example do-</text>
+<text top="740" left="81" width="359" height="13" font="2">main, first investigated in the Message Understanding Con-</text>
+<text top="757" left="81" width="358" height="13" font="2">ference (MUC) (Def 1995), is a collection of newspaper ar-</text>
+<text top="773" left="81" width="358" height="13" font="2">ticles describing terrorist incidents in Latin America. Given</text>
+<text top="789" left="81" width="358" height="13" font="2">an article, the goal might be to extract the name of the perpe-</text>
+<text top="806" left="81" width="358" height="13" font="2">trator and victim, and the instrument and location of the at-</text>
+<text top="822" left="81" width="358" height="13" font="2">tack. Research with this and similar domains demonstrated</text>
+<text top="839" left="81" width="357" height="13" font="2">the applicability of machine learning to IE (Soderland 1996;</text>
+<text top="855" left="81" width="254" height="13" font="2">Kim and Moldovan 1995; Huffman 1996).</text>
+<text top="872" left="96" width="343" height="13" font="2">The increasing importance of the Internet has brought at-</text>
+<text top="888" left="81" width="357" height="13" font="2">tention to all kinds of automatic document processing, in-</text>
+<text top="905" left="81" width="358" height="13" font="2">cluding IE. And it has given rise to problem domains in</text>
+<text top="921" left="81" width="357" height="13" font="2">which the kind of linguistically intensive approaches ex-</text>
+<text top="938" left="81" width="358" height="13" font="2">plored in MUC are difficult or unnecessary. Many doc-</text>
+<text top="954" left="81" width="358" height="13" font="2">uments from this realm, including email, Usenet posts,</text>
+<text top="971" left="81" width="358" height="13" font="2">and Web pages, rely on extra-linguistic structures, such</text>
+<text top="987" left="81" width="358" height="13" font="2">as HTML tags, document formatting, and ungrammatical</text>
+<text top="1004" left="81" width="357" height="13" font="2">stereotypic language, to convey essential information. Much</text>
+<text top="1029" left="81" width="70" height="12" font="5">Copyright c</text>
+<text top="1038" left="141" width="14" height="0" font="8"></text>
+<text top="1029" left="161" width="277" height="12" font="5">2000, American Association for Artificial Intelli-</text>
+<text top="1044" left="81" width="229" height="12" font="5">gence (www.aaai.org). All rights reserved.</text>
+<text top="329" left="479" width="358" height="13" font="2">recent work in IE, therefore, has focused on learning ap-</text>
+<text top="345" left="479" width="357" height="13" font="2">proaches that do not require linguistic information, but that</text>
+<text top="362" left="479" width="358" height="13" font="2">can exploit other kinds of regularities. To this end, several</text>
+<text top="378" left="479" width="358" height="13" font="2">distinct rule-learning algorithms (Soderland 1999; Califf</text>
+<text top="395" left="479" width="358" height="13" font="2">1998; Freitag 1998) and multi-strategy approaches (Freitag</text>
+<text top="411" left="479" width="358" height="13" font="2">2000) have been shown to be effective. Recently, statisti-</text>
+<text top="427" left="479" width="358" height="13" font="2">cal approaches using hidden Markov models have achieved</text>
+<text top="444" left="479" width="358" height="13" font="2">high performance levels (Leek 1997; Bikel et al. 1997;</text>
+<text top="460" left="479" width="178" height="13" font="2">Freitag and McCallum 1999).</text>
+<text top="479" left="494" width="343" height="13" font="2">At the same time, work on information integration</text>
+<text top="496" left="479" width="358" height="13" font="2">(Wiederhold 1996; Levy et al. 1998) has led to a need for</text>
+<text top="512" left="479" width="358" height="13" font="2">specialized wrapper procedures for extracting structured in-</text>
+<text top="528" left="479" width="358" height="13" font="2">formation from database-like Web pages. Recent research</text>
+<text top="545" left="479" width="358" height="13" font="2">(Kushmerick et al. 1997; Kushmerick 2000; Hsu and Dung</text>
+<text top="561" left="479" width="358" height="13" font="2">1998; Muslea et al. 2000) has shown that wrappers can be</text>
+<text top="578" left="479" width="357" height="13" font="2">automatically learned for many kinds of highly regular doc-</text>
+<text top="594" left="479" width="358" height="13" font="2">uments, such as Web pages generated by CGI scripts. These</text>
+<text top="611" left="479" width="358" height="13" font="7">wrapper induction techniques learn simple but highly accu-</text>
+<text top="627" left="479" width="359" height="13" font="2">rate contextual patterns, such as âto retrieve a URL, extract</text>
+<text top="644" left="479" width="98" height="13" font="2">the text between</text>
+<text top="644" left="581" width="81" height="12" font="3">&lt;A href=&#34;</text>
+<text top="644" left="666" width="22" height="13" font="2">and</text>
+<text top="644" left="691" width="18" height="12" font="3">&#34;&gt;</text>
+<text top="644" left="709" width="128" height="13" font="2">â. Wrapper induction</text>
+<text top="660" left="479" width="358" height="13" font="2">is harder for pages with complicated content or less rigidly-</text>
+<text top="676" left="479" width="357" height="13" font="2">structured formatting, but recent algorithms (Hsu and Dung</text>
+<text top="693" left="479" width="358" height="13" font="2">1998; Muslea et al. 2000) can discover small sets of such</text>
+<text top="709" left="479" width="358" height="13" font="2">patterns that are highly effective at handling such complica-</text>
+<text top="726" left="479" width="139" height="13" font="2">tions in many domains.</text>
+<text top="745" left="494" width="343" height="13" font="2">In this paper, we demonstrate that wrapper induction tech-</text>
+<text top="761" left="479" width="358" height="13" font="2">niques can be used to perform extraction in traditional (nat-</text>
+<text top="777" left="479" width="358" height="13" font="2">ural text) domains. We describe BWI, a trainable IE sys-</text>
+<text top="794" left="479" width="358" height="13" font="2">tem that performs information extraction in both traditional</text>
+<text top="810" left="479" width="358" height="13" font="2">(natural text) and wrapper (machine-generated or rigidly-</text>
+<text top="827" left="479" width="358" height="13" font="2">structured text) domains. BWI learns extraction rules com-</text>
+<text top="843" left="479" width="358" height="13" font="2">posed only of simple contextual patterns. Extraction is trig-</text>
+<text top="860" left="479" width="358" height="13" font="2">gered by specific token sequences preceding and follow-</text>
+<text top="876" left="479" width="358" height="13" font="2">ing the start or end of a target field. For example, BWI</text>
+<text top="893" left="479" width="151" height="13" font="2">might learn the pattern</text>
+<text top="903" left="639" width="6" height="0" font="8">h</text>
+<text top="893" left="645" width="125" height="12" font="3">[&lt; a href = &#34;]</text>
+<text top="903" left="771" width="4" height="0" font="8">;</text>
+<text top="893" left="777" width="54" height="12" font="3">[http]</text>
+<text top="903" left="831" width="6" height="0" font="8">i</text>
+<text top="909" left="479" width="358" height="13" font="2">for finding the beginning of a URL, and the pattern</text>
+<text top="935" left="479" width="6" height="0" font="8">h</text>
+<text top="926" left="485" width="72" height="12" font="3">[. html]</text>
+<text top="935" left="557" width="4" height="0" font="8">;</text>
+<text top="926" left="563" width="45" height="12" font="3">[&#34; &gt;]</text>
+<text top="935" left="608" width="6" height="0" font="8">i</text>
+<text top="925" left="618" width="219" height="13" font="2">for finding the end, which would ex-</text>
+<text top="942" left="479" width="39" height="13" font="2">tract â</text>
+<text top="943" left="518" width="225" height="12" font="3">http://xyz.com/index.html</text>
+<text top="942" left="743" width="53" height="13" font="2">â from â</text>
+<text top="952" left="802" width="4" height="0" font="8"></text>
+<text top="952" left="808" width="4" height="0" font="8"></text>
+<text top="952" left="815" width="4" height="0" font="8"></text>
+<text top="943" left="819" width="18" height="12" font="3">&lt;a</text>
+<text top="959" left="479" width="297" height="12" font="3">href=&#34;http://xyz.com/index.html&#34;&gt;</text>
+<text top="968" left="776" width="4" height="0" font="8"></text>
+<text top="968" left="783" width="4" height="0" font="8"></text>
+<text top="968" left="789" width="4" height="0" font="8"></text>
+<text top="958" left="793" width="10" height="13" font="2">â.</text>
+<text top="977" left="494" width="343" height="13" font="2">Of course, the documents used for traditional IE tasks do</text>
+<text top="994" left="479" width="357" height="13" font="2">not exhibit the kind of regular structure assumed in wrap-</text>
+<text top="1010" left="479" width="358" height="13" font="2">per induction. Consider the task of extracting the speakerâs</text>
+<text top="1027" left="479" width="358" height="13" font="2">name from a seminar announcement. A significant frac-</text>
+<text top="1043" left="479" width="358" height="13" font="2">tion of documents in the seminar announcement corpus we</text>
+<text top="77" left="75" width="66" height="11" font="9">From: AAAI-</text>
+<text top="77" left="141" width="13" height="11" font="10">00</text>
+<text top="77" left="154" width="144" height="11" font="9"> Proceedings. Copyright Â© </text>
+<text top="77" left="298" width="27" height="11" font="10">2000</text>
+<text top="77" left="325" width="227" height="11" font="9">, AAAI (www.aaai.org). All rights reserved. </text>
+</page>
+<page number="2" position="absolute" top="0" left="0" height="1188" width="918">
+	<fontspec id="11" size="10" family="cmr7" color="#000000"/>
+	<fontspec id="12" size="14" family="cmr10" color="#000000"/>
+	<fontspec id="13" size="14" family="Helvetica" color="#000000"/>
+<text top="86" left="81" width="358" height="13" font="2">use for experiments have the speakerâs name prefixed by</text>
+<text top="102" left="81" width="7" height="13" font="2">â</text>
+<text top="103" left="88" width="36" height="12" font="3">Who:</text>
+<text top="102" left="124" width="315" height="13" font="2">â. Similarly, many speaker names begin with hon-</text>
+<text top="119" left="81" width="95" height="13" font="2">orifics such as â</text>
+<text top="120" left="176" width="27" height="12" font="3">Dr.</text>
+<text top="119" left="203" width="235" height="13" font="2">â. These observations suggest that sim-</text>
+<text top="135" left="81" width="182" height="13" font="2">ple contextual patterns such as</text>
+<text top="145" left="267" width="6" height="0" font="8">h</text>
+<text top="136" left="273" width="63" height="12" font="3">[who :]</text>
+<text top="145" left="336" width="4" height="0" font="8">;</text>
+<text top="136" left="342" width="54" height="12" font="3">[dr .]</text>
+<text top="145" left="396" width="6" height="0" font="8">i</text>
+<text top="135" left="406" width="33" height="13" font="2">could</text>
+<text top="152" left="81" width="359" height="13" font="2">be used to identify the start of the speakerâs name with high</text>
+<text top="168" left="81" width="59" height="13" font="2">precision.</text>
+<text top="184" left="96" width="343" height="13" font="2">However, while such a pattern may have high precision,</text>
+<text top="201" left="81" width="358" height="13" font="2">it will generally have low recall: this pattern strongly in-</text>
+<text top="217" left="81" width="358" height="13" font="2">dicates the beginning of a speakerâs name, but it occurs in</text>
+<text top="234" left="81" width="358" height="13" font="2">only a fraction of documents. To apply wrapper induction</text>
+<text top="250" left="81" width="358" height="13" font="2">techniques to IE from natural text, we must generate many</text>
+<text top="267" left="81" width="358" height="13" font="2">such simple patterns, and then combine their predictions in</text>
+<text top="283" left="81" width="358" height="13" font="2">some reasonable way. Previous work on learning rules for</text>
+<text top="299" left="81" width="358" height="13" font="2">information extraction assume that the final extractor will</text>
+<text top="316" left="81" width="358" height="13" font="2">be some combination, typically a disjunction, of individ-</text>
+<text top="332" left="81" width="358" height="13" font="2">ual rules, each one covering only a fraction of the training</text>
+<text top="349" left="81" width="358" height="13" font="2">phrases. However, whereas previous techniques learn in-</text>
+<text top="365" left="81" width="358" height="13" font="2">dividual rules that cover as many of the training examples</text>
+<text top="382" left="81" width="357" height="13" font="2">as possible, BWI learns rules that individually have limited</text>
+<text top="398" left="81" width="358" height="13" font="2">power and coverage, but that can be learned efficiently and</text>
+<text top="415" left="81" width="137" height="13" font="2">are easy to understand.</text>
+<text top="431" left="96" width="343" height="13" font="7">Boosting is a procedure for improving the performance</text>
+<text top="447" left="81" width="358" height="13" font="2">of a âweakâ machine learning algorithm by repeatedly ap-</text>
+<text top="464" left="81" width="358" height="13" font="2">plying it to the training set, at each step modifying train-</text>
+<text top="480" left="81" width="358" height="13" font="2">ing example weights to emphasize examples on which the</text>
+<text top="497" left="81" width="358" height="13" font="2">weak learner has done poorly in previous steps (Schapire</text>
+<text top="513" left="81" width="358" height="13" font="2">and Singer 1998). The ability of boosting to improve upon</text>
+<text top="530" left="81" width="358" height="13" font="2">the performance of the underlying weak learner has been</text>
+<text top="546" left="81" width="354" height="13" font="2">verified in a wide range of empirical studies in recent years.</text>
+<text top="562" left="96" width="343" height="13" font="2">In this paper, we demonstrate that boosting can be used</text>
+<text top="579" left="81" width="358" height="13" font="2">effectively for information extraction. Our BWI algorithm</text>
+<text top="595" left="81" width="358" height="13" font="2">uses boosting to generate and combine the predictions from</text>
+<text top="612" left="81" width="359" height="13" font="2">numerous extraction patterns. The result is a trainable infor-</text>
+<text top="628" left="81" width="359" height="13" font="2">mation extraction system that, in our experiments, performs</text>
+<text top="645" left="81" width="358" height="13" font="2">better than previous rule learning approaches, and is com-</text>
+<text top="661" left="81" width="304" height="13" font="2">petitive with a state-of-the-art statistical technique.</text>
+<text top="678" left="96" width="343" height="13" font="2">In the remainder of this paper, we (1) formally describe</text>
+<text top="694" left="81" width="358" height="13" font="2">the extraction patterns BWI learns; (2) describe the BWI al-</text>
+<text top="710" left="81" width="358" height="13" font="2">gorithm; and (3) empirically evaluate BWI on eight docu-</text>
+<text top="727" left="81" width="103" height="13" font="2">ment collections.</text>
+<text top="759" left="186" width="147" height="16" font="1">Problem Statement</text>
+<text top="782" left="81" width="358" height="13" font="2">We begin by explaining how we treat IE as a classification</text>
+<text top="798" left="81" width="358" height="13" font="2">problem, and then describe the classifiers (wrappers) that</text>
+<text top="815" left="81" width="72" height="13" font="2">BWI learns.</text>
+<text top="853" left="81" width="261" height="13" font="4">Information Extraction as Classification.</text>
+<text top="853" left="357" width="82" height="13" font="2">We treat doc-</text>
+<text top="869" left="81" width="358" height="13" font="7">uments as sequences of tokens, and the IE task is to identify</text>
+<text top="886" left="81" width="358" height="13" font="2">one or more distinguished token subsequences called fields.</text>
+<text top="902" left="81" width="358" height="13" font="2">Specifically, IE involves identifying the boundaries that in-</text>
+<text top="919" left="81" width="358" height="13" font="2">dicate the beginning and end of each field; below, the sym-</text>
+<text top="935" left="81" width="25" height="13" font="2">bols</text>
+<text top="945" left="110" width="5" height="0" font="8">i</text>
+<text top="935" left="119" width="22" height="13" font="2">and</text>
+<text top="945" left="144" width="6" height="0" font="8">j</text>
+<text top="935" left="155" width="284" height="13" font="2">refer to boundaries. We cast this as a classifica-</text>
+<text top="952" left="81" width="358" height="13" font="2">tion problem, where instances correspond to boundariesâ</text>
+<text top="968" left="81" width="358" height="13" font="2">the space between any two adjacent tokensâand the goal is</text>
+<text top="985" left="81" width="285" height="13" font="2">to approximate two target extraction functions,</text>
+<text top="995" left="371" width="12" height="0" font="8">X</text>
+<text top="990" left="384" width="28" height="9" font="11">begin</text>
+<text top="985" left="417" width="22" height="13" font="2">and</text>
+<text top="1011" left="81" width="12" height="0" font="8">X</text>
+<text top="1006" left="93" width="19" height="9" font="11">end</text>
+<text top="1001" left="113" width="4" height="13" font="2">:</text>
+<text top="1046" left="145" width="12" height="0" font="8">X</text>
+<text top="1041" left="158" width="28" height="9" font="11">begin</text>
+<text top="1032" left="186" width="6" height="19" font="12">(</text>
+<text top="1046" left="192" width="5" height="0" font="8">i</text>
+<text top="1032" left="197" width="22" height="19" font="12">) =</text>
+<text top="1025" left="223" width="11" height="0" font="8"></text>
+<text top="1023" left="242" width="7" height="19" font="12">1</text>
+<text top="1027" left="264" width="9" height="13" font="2">if</text>
+<text top="1037" left="277" width="5" height="0" font="8">i</text>
+<text top="1027" left="286" width="79" height="13" font="2">begins a field</text>
+<text top="1040" left="242" width="7" height="19" font="12">0</text>
+<text top="1044" left="264" width="58" height="13" font="2">otherwise</text>
+<text top="86" left="479" width="59" height="13" font="2">Similarly,</text>
+<text top="96" left="541" width="12" height="0" font="8">X</text>
+<text top="91" left="554" width="19" height="9" font="11">end</text>
+<text top="86" left="576" width="261" height="13" font="2">is 1 for field-ending boundaries and 0 other-</text>
+<text top="102" left="479" width="31" height="13" font="2">wise.</text>
+<text top="119" left="494" width="153" height="13" font="2">To learn such a function</text>
+<text top="129" left="653" width="12" height="0" font="8">X</text>
+<text top="119" left="673" width="39" height="13" font="2">(either</text>
+<text top="129" left="718" width="12" height="0" font="8">X</text>
+<text top="124" left="730" width="28" height="9" font="11">begin</text>
+<text top="119" left="765" width="13" height="13" font="2">or</text>
+<text top="129" left="784" width="12" height="0" font="8">X</text>
+<text top="124" left="796" width="19" height="9" font="11">end</text>
+<text top="119" left="815" width="22" height="13" font="2">), a</text>
+<text top="135" left="479" width="256" height="13" font="2">learning algorithm is given a training set</text>
+<text top="145" left="741" width="23" height="0" font="8">fhi;</text>
+<text top="145" left="766" width="12" height="0" font="8">X</text>
+<text top="131" left="780" width="6" height="19" font="12">(</text>
+<text top="145" left="785" width="5" height="0" font="8">i</text>
+<text top="131" left="791" width="6" height="19" font="12">)</text>
+<text top="145" left="796" width="13" height="0" font="8">ig</text>
+<text top="135" left="815" width="22" height="13" font="2">and</text>
+<text top="152" left="479" width="245" height="13" font="2">must output a function that approximates</text>
+<text top="162" left="728" width="12" height="0" font="8">X</text>
+<text top="152" left="742" width="4" height="13" font="2">.</text>
+<text top="190" left="479" width="69" height="13" font="4">Wrappers.</text>
+<text top="190" left="563" width="235" height="13" font="2">A pattern is a sequence of tokens (e.g.,</text>
+<text top="191" left="801" width="36" height="12" font="3">[who</text>
+<text top="207" left="479" width="18" height="12" font="3">:]</text>
+<text top="207" left="504" width="13" height="13" font="2">or</text>
+<text top="207" left="521" width="54" height="12" font="3">[dr .]</text>
+<text top="207" left="575" width="262" height="13" font="2">). A pattern matches a token sequence in a</text>
+<text top="223" left="479" width="357" height="13" font="2">document if the tokens are identical. (Below we enrich this</text>
+<text top="239" left="479" width="358" height="13" font="2">notion of matching when we describe BWIâs use of wild-</text>
+<text top="256" left="479" width="40" height="13" font="2">cards.)</text>
+<text top="272" left="494" width="128" height="13" font="2">A boundary detector</text>
+<text top="282" left="627" width="8" height="0" font="8">d</text>
+<text top="268" left="642" width="12" height="19" font="12">=</text>
+<text top="282" left="660" width="18" height="0" font="8">h p;</text>
+<text top="282" left="680" width="7" height="0" font="8">s</text>
+<text top="282" left="687" width="6" height="0" font="8">i</text>
+<text top="272" left="698" width="139" height="13" font="2">is a pair of patterns: a</text>
+<text top="289" left="479" width="80" height="13" font="7">prefix pattern</text>
+<text top="299" left="563" width="8" height="0" font="8">p</text>
+<text top="289" left="575" width="115" height="13" font="2">and a suffix pattern</text>
+<text top="299" left="695" width="7" height="0" font="8">s</text>
+<text top="289" left="702" width="136" height="13" font="2">. A boundary detector</text>
+<text top="305" left="479" width="179" height="13" font="2">(hereafter, simply âdetectorâ)</text>
+<text top="315" left="662" width="8" height="0" font="8">d</text>
+<text top="301" left="676" width="12" height="19" font="12">=</text>
+<text top="315" left="693" width="17" height="0" font="8">hp;</text>
+<text top="315" left="713" width="13" height="0" font="8">si</text>
+<text top="305" left="730" width="107" height="13" font="7">matches a bound-</text>
+<text top="322" left="479" width="19" height="13" font="2">ary</text>
+<text top="332" left="504" width="5" height="0" font="8">i</text>
+<text top="322" left="515" width="9" height="13" font="2">if</text>
+<text top="332" left="530" width="8" height="0" font="8">p</text>
+<text top="322" left="544" width="163" height="13" font="2">matches the tokens before</text>
+<text top="332" left="712" width="5" height="0" font="8">i</text>
+<text top="322" left="723" width="22" height="13" font="2">and</text>
+<text top="332" left="751" width="7" height="0" font="8">s</text>
+<text top="322" left="764" width="73" height="13" font="2">matches the</text>
+<text top="338" left="479" width="72" height="13" font="2">tokens after</text>
+<text top="348" left="556" width="5" height="0" font="8">i</text>
+<text top="338" left="562" width="131" height="13" font="2">. We treat a detector</text>
+<text top="348" left="698" width="8" height="0" font="8">d</text>
+<text top="338" left="711" width="126" height="13" font="2">as a function from a</text>
+<text top="355" left="479" width="73" height="13" font="2">boundary to</text>
+<text top="365" left="557" width="8" height="0" font="8">f</text>
+<text top="351" left="565" width="7" height="19" font="12">0</text>
+<text top="365" left="572" width="4" height="0" font="8">;</text>
+<text top="351" left="579" width="7" height="19" font="12">1</text>
+<text top="365" left="586" width="8" height="0" font="8">g</text>
+<text top="355" left="594" width="4" height="13" font="2">:</text>
+<text top="365" left="605" width="8" height="0" font="8">d</text>
+<text top="351" left="613" width="6" height="19" font="12">(</text>
+<text top="365" left="619" width="5" height="0" font="8">i</text>
+<text top="351" left="624" width="38" height="19" font="12">) = 1</text>
+<text top="355" left="667" width="9" height="13" font="2">if</text>
+<text top="365" left="681" width="8" height="0" font="8">d</text>
+<text top="355" left="694" width="49" height="13" font="2">matches</text>
+<text top="365" left="748" width="5" height="0" font="8">i</text>
+<text top="355" left="753" width="84" height="13" font="2">, and 0 other-</text>
+<text top="371" left="479" width="268" height="13" font="2">wise. Finally, associated with every detector</text>
+<text top="381" left="751" width="8" height="0" font="8">d</text>
+<text top="371" left="763" width="74" height="13" font="2">is a numeric</text>
+<text top="387" left="479" width="100" height="13" font="7">confidence value</text>
+<text top="397" left="583" width="11" height="0" font="8">C</text>
+<text top="400" left="593" width="6" height="0" font="8">d</text>
+<text top="387" left="600" width="4" height="13" font="2">.</text>
+<text top="404" left="494" width="67" height="13" font="2">A wrapper</text>
+<text top="414" left="568" width="14" height="0" font="8">W</text>
+<text top="400" left="592" width="12" height="19" font="12">=</text>
+<text top="414" left="612" width="15" height="0" font="8">hF</text>
+<text top="414" left="627" width="4" height="0" font="8">;</text>
+<text top="414" left="634" width="15" height="0" font="8">A;</text>
+<text top="414" left="652" width="12" height="0" font="8">H</text>
+<text top="414" left="666" width="6" height="0" font="8">i</text>
+<text top="404" left="677" width="122" height="13" font="2">consists of two sets</text>
+<text top="414" left="806" width="10" height="0" font="8">F</text>
+<text top="400" left="825" width="12" height="19" font="12">=</text>
+<text top="430" left="479" width="8" height="0" font="8">f</text>
+<text top="430" left="487" width="10" height="0" font="8">F</text>
+<text top="425" left="496" width="6" height="9" font="11">1</text>
+<text top="430" left="503" width="4" height="0" font="8">;</text>
+<text top="430" left="510" width="10" height="0" font="8">F</text>
+<text top="425" left="519" width="6" height="9" font="11">2</text>
+<text top="430" left="526" width="4" height="0" font="8">;</text>
+<text top="430" left="533" width="4" height="0" font="8">:</text>
+<text top="430" left="539" width="4" height="0" font="8">:</text>
+<text top="430" left="546" width="4" height="0" font="8">:</text>
+<text top="430" left="553" width="4" height="0" font="8">;</text>
+<text top="430" left="559" width="10" height="0" font="8">F</text>
+<text top="432" left="569" width="7" height="0" font="8">T</text>
+<text top="430" left="578" width="8" height="0" font="8">g</text>
+<text top="420" left="590" width="22" height="13" font="2">and</text>
+<text top="430" left="615" width="11" height="0" font="8">A</text>
+<text top="416" left="631" width="12" height="19" font="12">=</text>
+<text top="430" left="648" width="8" height="0" font="8">f</text>
+<text top="430" left="655" width="11" height="0" font="8">A</text>
+<text top="425" left="666" width="6" height="9" font="11">1</text>
+<text top="430" left="673" width="4" height="0" font="8">;</text>
+<text top="430" left="680" width="11" height="0" font="8">A</text>
+<text top="425" left="691" width="6" height="9" font="11">2</text>
+<text top="430" left="698" width="4" height="0" font="8">;</text>
+<text top="430" left="704" width="4" height="0" font="8">:</text>
+<text top="430" left="711" width="4" height="0" font="8">:</text>
+<text top="430" left="717" width="4" height="0" font="8">:</text>
+<text top="430" left="724" width="4" height="0" font="8">;</text>
+<text top="430" left="731" width="11" height="0" font="8">A</text>
+<text top="432" left="742" width="7" height="0" font="8">T</text>
+<text top="430" left="751" width="8" height="0" font="8">g</text>
+<text top="420" left="763" width="74" height="13" font="2">of detectors,</text>
+<text top="437" left="479" width="85" height="13" font="2">and a function</text>
+<text top="447" left="567" width="12" height="0" font="8">H</text>
+<text top="433" left="585" width="12" height="19" font="12">: [</text>
+<text top="447" left="609" width="19" height="0" font="8">1;</text>
+<text top="433" left="631" width="12" height="19" font="12">+</text>
+<text top="447" left="642" width="15" height="0" font="8">1</text>
+<text top="433" left="657" width="4" height="19" font="12">]</text>
+<text top="447" left="665" width="15" height="0" font="8">!</text>
+<text top="433" left="685" width="12" height="19" font="12">[0</text>
+<text top="447" left="696" width="4" height="0" font="8">;</text>
+<text top="433" left="703" width="12" height="19" font="12">1]</text>
+<text top="437" left="715" width="107" height="13" font="2">. The intent is that</text>
+<text top="447" left="825" width="10" height="0" font="8">F</text>
+<text top="453" left="479" width="342" height="13" font="2">(the âforeâ detectors) identifies field-starting boundaries,</text>
+<text top="463" left="826" width="11" height="0" font="8">A</text>
+<text top="470" left="479" width="358" height="13" font="2">(the âaftâ detectors) identifies the field end boundaries, and</text>
+<text top="496" left="479" width="12" height="0" font="8">H</text>
+<text top="482" left="493" width="6" height="19" font="12">(</text>
+<text top="496" left="499" width="8" height="0" font="8">k</text>
+<text top="482" left="507" width="6" height="19" font="12">)</text>
+<text top="486" left="516" width="266" height="13" font="2">reflects the probability that a field has length</text>
+<text top="496" left="786" width="8" height="0" font="8">k</text>
+<text top="486" left="795" width="4" height="13" font="2">.</text>
+<text top="503" left="494" width="229" height="13" font="2">To perform extraction using wrapper</text>
+<text top="513" left="729" width="14" height="0" font="8">W</text>
+<text top="503" left="746" width="92" height="13" font="2">, every bound-</text>
+<text top="519" left="479" width="19" height="13" font="2">ary</text>
+<text top="529" left="504" width="5" height="0" font="8">i</text>
+<text top="519" left="516" width="267" height="13" font="2">in a document is first given a âforeâ score</text>
+<text top="529" left="789" width="10" height="0" font="8">F</text>
+<text top="515" left="800" width="6" height="19" font="12">(</text>
+<text top="529" left="806" width="5" height="0" font="8">i</text>
+<text top="515" left="811" width="26" height="19" font="12">) =</text>
+<text top="534" left="479" width="16" height="0" font="8">P</text>
+<text top="550" left="495" width="6" height="0" font="8">k</text>
+<text top="545" left="505" width="11" height="0" font="8">C</text>
+<text top="548" left="516" width="8" height="0" font="8">F</text>
+<text top="549" left="523" width="6" height="0" font="8">k</text>
+<text top="545" left="530" width="10" height="0" font="8">F</text>
+<text top="548" left="540" width="6" height="0" font="8">k</text>
+<text top="531" left="547" width="6" height="19" font="12">(</text>
+<text top="545" left="553" width="5" height="0" font="8">i</text>
+<text top="531" left="558" width="6" height="19" font="12">)</text>
+<text top="535" left="570" width="114" height="13" font="2">and an âaftâ score</text>
+<text top="545" left="690" width="11" height="0" font="8">A</text>
+<text top="531" left="701" width="6" height="19" font="12">(</text>
+<text top="545" left="707" width="5" height="0" font="8">i</text>
+<text top="531" left="712" width="26" height="19" font="12">) =</text>
+<text top="534" left="745" width="16" height="0" font="8">P</text>
+<text top="550" left="761" width="6" height="0" font="8">k</text>
+<text top="545" left="771" width="11" height="0" font="8">C</text>
+<text top="548" left="782" width="9" height="0" font="8">A</text>
+<text top="549" left="791" width="6" height="0" font="8">k</text>
+<text top="545" left="798" width="11" height="0" font="8">A</text>
+<text top="548" left="809" width="6" height="0" font="8">k</text>
+<text top="531" left="816" width="6" height="19" font="12">(</text>
+<text top="545" left="822" width="5" height="0" font="8">i</text>
+<text top="531" left="827" width="6" height="19" font="12">)</text>
+<text top="535" left="833" width="4" height="13" font="2">.</text>
+<text top="562" left="479" width="14" height="0" font="8">W</text>
+<text top="552" left="499" width="168" height="13" font="2">then classifies text fragment</text>
+<text top="562" left="670" width="15" height="0" font="8">hi;</text>
+<text top="562" left="688" width="6" height="0" font="8">j</text>
+<text top="562" left="695" width="6" height="0" font="8">i</text>
+<text top="552" left="704" width="65" height="13" font="2">as follows:</text>
+<text top="599" left="518" width="14" height="0" font="8">W</text>
+<text top="585" left="535" width="6" height="19" font="12">(</text>
+<text top="599" left="540" width="9" height="0" font="8">i;</text>
+<text top="599" left="552" width="6" height="0" font="8">j</text>
+<text top="585" left="559" width="22" height="19" font="12">) =</text>
+<text top="578" left="585" width="11" height="0" font="8"></text>
+<text top="577" left="604" width="31" height="19" font="12">1 if</text>
+<text top="591" left="640" width="10" height="0" font="8">F</text>
+<text top="577" left="651" width="6" height="19" font="12">(</text>
+<text top="591" left="657" width="5" height="0" font="8">i</text>
+<text top="577" left="662" width="6" height="19" font="12">)</text>
+<text top="591" left="668" width="11" height="0" font="8">A</text>
+<text top="577" left="679" width="6" height="19" font="12">(</text>
+<text top="591" left="685" width="6" height="0" font="8">j</text>
+<text top="577" left="692" width="6" height="19" font="12">)</text>
+<text top="591" left="698" width="12" height="0" font="8">H</text>
+<text top="577" left="712" width="6" height="19" font="12">(</text>
+<text top="591" left="717" width="6" height="0" font="8">j</text>
+<text top="591" left="743" width="5" height="0" font="8">i</text>
+<text top="577" left="748" width="6" height="19" font="12">)</text>
+<text top="591" left="758" width="12" height="0" font="8">&gt;</text>
+<text top="591" left="774" width="6" height="0" font="8"></text>
+<text top="593" left="604" width="84" height="19" font="12">0 otherwise</text>
+<text top="599" left="794" width="4" height="0" font="8">;</text>
+<text top="626" left="479" width="37" height="13" font="2">where</text>
+<text top="636" left="519" width="6" height="0" font="8"></text>
+<text top="626" left="532" width="136" height="13" font="2">is a numeric threshold.</text>
+<text top="642" left="494" width="121" height="13" font="2">The rationale is that</text>
+<text top="652" left="619" width="14" height="0" font="8">W</text>
+<text top="642" left="640" width="58" height="13" font="2">compares</text>
+<text top="652" left="701" width="6" height="0" font="8"></text>
+<text top="642" left="714" width="124" height="13" font="2">to an estimate of the</text>
+<text top="659" left="479" width="307" height="13" font="2">probability of correct classification. The value of</text>
+<text top="669" left="792" width="12" height="0" font="8">H</text>
+<text top="655" left="806" width="6" height="19" font="12">(</text>
+<text top="669" left="811" width="4" height="0" font="8"></text>
+<text top="655" left="816" width="6" height="19" font="12">)</text>
+<text top="659" left="827" width="10" height="13" font="2">is</text>
+<text top="675" left="479" width="358" height="13" font="2">proportional to a maximum-likelihood estimate that a frag-</text>
+<text top="692" left="479" width="359" height="13" font="2">ment is a particular length, given that it is a target fragment.</text>
+<text top="708" left="479" width="112" height="13" font="2">If we assume that</text>
+<text top="718" left="597" width="10" height="0" font="8">F</text>
+<text top="704" left="609" width="6" height="19" font="12">(</text>
+<text top="718" left="615" width="4" height="0" font="8"></text>
+<text top="704" left="619" width="6" height="19" font="12">)</text>
+<text top="708" left="631" width="22" height="13" font="2">and</text>
+<text top="718" left="658" width="11" height="0" font="8">A</text>
+<text top="704" left="669" width="6" height="19" font="12">(</text>
+<text top="718" left="675" width="4" height="0" font="8"></text>
+<text top="704" left="679" width="6" height="19" font="12">)</text>
+<text top="708" left="691" width="146" height="13" font="2">are also proportional to</text>
+<text top="724" left="479" width="358" height="13" font="2">the conditional probability of finding a beginning or ending</text>
+<text top="741" left="479" width="358" height="13" font="2">boundary, respectively, then the product of the three values</text>
+<text top="757" left="479" width="358" height="13" font="2">is proportional to a naive Bayesian estimate with uniform</text>
+<text top="774" left="479" width="39" height="13" font="2">priors.</text>
+<text top="790" left="494" width="68" height="13" font="2">By varying</text>
+<text top="800" left="566" width="6" height="0" font="8"></text>
+<text top="790" left="579" width="259" height="13" font="2">one can force a tradeoff between precision</text>
+<text top="807" left="479" width="358" height="13" font="2">and recall. In our experiments we use the full-recall setting</text>
+<text top="833" left="479" width="6" height="0" font="8"></text>
+<text top="819" left="495" width="26" height="19" font="12">= 0</text>
+<text top="823" left="521" width="316" height="13" font="2">, because (as our experiments demonstrate) BWI is</text>
+<text top="839" left="479" width="205" height="13" font="2">generally biased toward precision.</text>
+<text top="872" left="582" width="151" height="16" font="1">The BWI algorithm</text>
+<text top="895" left="479" width="118" height="13" font="2">Learning a wrapper</text>
+<text top="905" left="601" width="14" height="0" font="8">W</text>
+<text top="895" left="622" width="216" height="13" font="2">involves determining the âforeâ and</text>
+<text top="911" left="479" width="88" height="13" font="2">âaftâ detectors</text>
+<text top="921" left="571" width="10" height="0" font="8">F</text>
+<text top="911" left="587" width="22" height="13" font="2">and</text>
+<text top="921" left="613" width="11" height="0" font="8">A</text>
+<text top="911" left="625" width="107" height="13" font="2">, and the function</text>
+<text top="921" left="736" width="12" height="0" font="8">H</text>
+<text top="911" left="750" width="87" height="13" font="2">, given the ex-</text>
+<text top="928" left="479" width="63" height="13" font="2">ample sets</text>
+<text top="938" left="547" width="9" height="0" font="8">S</text>
+<text top="928" left="562" width="22" height="13" font="2">and</text>
+<text top="938" left="588" width="11" height="0" font="8">E</text>
+<text top="928" left="600" width="238" height="13" font="2">. In this section, we describe BWI, our</text>
+<text top="944" left="479" width="263" height="13" font="2">algorithm that solves problems of this form.</text>
+<text top="961" left="494" width="181" height="13" font="2">Fig. 1 lists BWI. The function</text>
+<text top="971" left="678" width="12" height="0" font="8">H</text>
+<text top="961" left="696" width="141" height="13" font="2">reflects the prior proba-</text>
+<text top="977" left="479" width="358" height="13" font="2">bility of various field lengths. BWI estimates these probabil-</text>
+<text top="994" left="479" width="259" height="13" font="2">ities by constructing a frequency histogram</text>
+<text top="1004" left="742" width="12" height="0" font="8">H</text>
+<text top="990" left="756" width="6" height="19" font="12">(</text>
+<text top="1004" left="762" width="8" height="0" font="8">k</text>
+<text top="990" left="770" width="6" height="19" font="12">)</text>
+<text top="994" left="780" width="58" height="13" font="2">recording</text>
+<text top="1010" left="479" width="188" height="13" font="2">the number of fields of length</text>
+<text top="1020" left="673" width="8" height="0" font="8">k</text>
+<text top="1010" left="687" width="150" height="13" font="2">were encountered in the</text>
+<text top="1027" left="479" width="123" height="13" font="2">training set. To learn</text>
+<text top="1037" left="606" width="10" height="0" font="8">F</text>
+<text top="1027" left="621" width="22" height="13" font="2">and</text>
+<text top="1037" left="646" width="11" height="0" font="8">A</text>
+<text top="1027" left="657" width="78" height="13" font="2">, BWI boosts</text>
+<text top="1026" left="738" width="95" height="14" font="13">LearnDetector</text>
+<text top="1027" left="833" width="4" height="13" font="2">,</text>
+<text top="1043" left="479" width="255" height="13" font="2">an algorithm for learning a single detector.</text>
+</page>
+<page number="3" position="absolute" top="0" left="0" height="1188" width="918">
+	<fontspec id="14" size="13" family="Helvetica" color="#000000"/>
+	<fontspec id="15" size="13" family="cmr9" color="#000000"/>
+	<fontspec id="16" size="13" family="Courier" color="#000000"/>
+	<fontspec id="17" size="14" family="Helvetica" color="#000000"/>
+	<fontspec id="18" size="7" family="cmr5" color="#000000"/>
+<text top="82" left="101" width="206" height="12" font="5">procedure BWI(example sets S and E)</text>
+<text top="106" left="121" width="9" height="0" font="8">F</text>
+<text top="106" left="136" width="14" height="0" font="8"> </text>
+<text top="97" left="154" width="59" height="12" font="14">AdaBoost</text>
+<text top="94" left="212" width="5" height="17" font="15">(</text>
+<text top="97" left="217" width="86" height="12" font="14">LearnDetector</text>
+<text top="106" left="303" width="4" height="0" font="8">;</text>
+<text top="106" left="309" width="8" height="0" font="8">S</text>
+<text top="94" left="318" width="5" height="17" font="15">)</text>
+<text top="121" left="121" width="10" height="0" font="8">A</text>
+<text top="121" left="136" width="14" height="0" font="8"> </text>
+<text top="112" left="153" width="59" height="12" font="14">AdaBoost</text>
+<text top="109" left="211" width="5" height="17" font="15">(</text>
+<text top="112" left="217" width="86" height="12" font="14">LearnDetector</text>
+<text top="121" left="302" width="4" height="0" font="8">;</text>
+<text top="121" left="309" width="10" height="0" font="8">E</text>
+<text top="109" left="320" width="5" height="17" font="15">)</text>
+<text top="136" left="121" width="12" height="0" font="8">H</text>
+<text top="136" left="138" width="14" height="0" font="8"> </text>
+<text top="127" left="155" width="148" height="12" font="5">field length histogram from</text>
+<text top="136" left="306" width="8" height="0" font="8">S</text>
+<text top="127" left="318" width="19" height="12" font="5">and</text>
+<text top="136" left="341" width="10" height="0" font="8">E</text>
+<text top="142" left="121" width="79" height="12" font="5">return wrapper</text>
+<text top="151" left="204" width="13" height="0" font="8">W</text>
+<text top="139" left="223" width="11" height="17" font="15">=</text>
+<text top="151" left="238" width="14" height="0" font="8">hF</text>
+<text top="151" left="252" width="4" height="0" font="8">;</text>
+<text top="151" left="258" width="14" height="0" font="8">A;</text>
+<text top="151" left="275" width="12" height="0" font="8">H</text>
+<text top="151" left="287" width="5" height="0" font="8">i</text>
+<text top="180" left="170" width="181" height="13" font="2">Figure 1: The BWI algorithm.</text>
+<text top="212" left="101" width="54" height="12" font="5">procedure</text>
+<text top="212" left="158" width="86" height="12" font="14">LearnDetector</text>
+<text top="212" left="244" width="68" height="12" font="5">(example set</text>
+<text top="221" left="315" width="8" height="0" font="8">Y</text>
+<text top="212" left="327" width="4" height="12" font="5">)</text>
+<text top="227" left="121" width="72" height="12" font="5">prefix pattern</text>
+<text top="236" left="197" width="7" height="0" font="8">p</text>
+<text top="236" left="208" width="14" height="0" font="8"> </text>
+<text top="228" left="225" width="16" height="11" font="16">[]</text>
+<text top="242" left="121" width="71" height="12" font="5">suffix pattern</text>
+<text top="251" left="196" width="6" height="0" font="8">s</text>
+<text top="251" left="206" width="14" height="0" font="8"> </text>
+<text top="243" left="224" width="16" height="11" font="16">[]</text>
+<text top="257" left="121" width="24" height="12" font="5">loop</text>
+<text top="272" left="141" width="72" height="12" font="5">prefix pattern</text>
+<text top="281" left="217" width="7" height="0" font="8">p</text>
+<text top="275" left="224" width="3" height="0" font="8">0</text>
+<text top="281" left="232" width="14" height="0" font="8"> </text>
+<text top="272" left="249" width="67" height="12" font="14">BestPreExt</text>
+<text top="269" left="317" width="5" height="17" font="15">(</text>
+<text top="281" left="322" width="5" height="0" font="8">h</text>
+<text top="281" left="327" width="11" height="0" font="8">p;</text>
+<text top="281" left="341" width="12" height="0" font="8">si</text>
+<text top="281" left="355" width="4" height="0" font="8">;</text>
+<text top="281" left="361" width="8" height="0" font="8">Y</text>
+<text top="269" left="372" width="5" height="17" font="15">)</text>
+<text top="287" left="141" width="71" height="12" font="5">suffix pattern</text>
+<text top="296" left="216" width="6" height="0" font="8">s</text>
+<text top="291" left="222" width="3" height="0" font="8">0</text>
+<text top="296" left="230" width="14" height="0" font="8"> </text>
+<text top="287" left="248" width="67" height="12" font="14">BestSufExt</text>
+<text top="284" left="314" width="5" height="17" font="15">(</text>
+<text top="296" left="320" width="5" height="0" font="8">h</text>
+<text top="296" left="325" width="11" height="0" font="8">p;</text>
+<text top="296" left="338" width="12" height="0" font="8">si</text>
+<text top="296" left="352" width="4" height="0" font="8">;</text>
+<text top="296" left="359" width="8" height="0" font="8">Y</text>
+<text top="284" left="370" width="5" height="17" font="15">)</text>
+<text top="302" left="141" width="8" height="12" font="5">if</text>
+<text top="302" left="153" width="33" height="12" font="14">score</text>
+<text top="299" left="186" width="5" height="17" font="15">(</text>
+<text top="311" left="191" width="12" height="0" font="8">hp</text>
+<text top="306" left="204" width="3" height="0" font="8">0</text>
+<text top="311" left="208" width="4" height="0" font="8">;</text>
+<text top="311" left="214" width="12" height="0" font="8">si</text>
+<text top="299" left="226" width="5" height="17" font="15">)</text>
+<text top="311" left="235" width="11" height="0" font="8">&gt;</text>
+<text top="302" left="249" width="33" height="12" font="14">score</text>
+<text top="299" left="282" width="5" height="17" font="15">(</text>
+<text top="311" left="288" width="5" height="0" font="8">h</text>
+<text top="311" left="293" width="11" height="0" font="8">p;</text>
+<text top="311" left="306" width="6" height="0" font="8">s</text>
+<text top="306" left="313" width="3" height="0" font="8">0</text>
+<text top="311" left="317" width="5" height="0" font="8">i</text>
+<text top="299" left="322" width="5" height="17" font="15">)</text>
+<text top="318" left="162" width="8" height="12" font="5">if</text>
+<text top="317" left="173" width="33" height="12" font="14">score</text>
+<text top="314" left="206" width="5" height="17" font="15">(</text>
+<text top="327" left="212" width="12" height="0" font="8">hp</text>
+<text top="321" left="224" width="3" height="0" font="8">0</text>
+<text top="327" left="228" width="4" height="0" font="8">;</text>
+<text top="327" left="234" width="12" height="0" font="8">si</text>
+<text top="314" left="246" width="5" height="17" font="15">)</text>
+<text top="327" left="255" width="11" height="0" font="8">&gt;</text>
+<text top="317" left="270" width="33" height="12" font="14">score</text>
+<text top="314" left="303" width="5" height="17" font="15">(</text>
+<text top="327" left="308" width="5" height="0" font="8">h</text>
+<text top="327" left="313" width="11" height="0" font="8">p;</text>
+<text top="327" left="326" width="12" height="0" font="8">si</text>
+<text top="314" left="338" width="5" height="17" font="15">)</text>
+<text top="342" left="182" width="7" height="0" font="8">p</text>
+<text top="342" left="193" width="14" height="0" font="8"> </text>
+<text top="333" left="210" width="39" height="12" font="5">the last</text>
+<text top="342" left="252" width="15" height="0" font="8">jpj</text>
+<text top="329" left="270" width="21" height="17" font="15">+ 1</text>
+<text top="333" left="294" width="49" height="12" font="5">tokens of</text>
+<text top="342" left="347" width="7" height="0" font="8">p</text>
+<text top="336" left="354" width="3" height="0" font="8">0</text>
+<text top="348" left="162" width="103" height="12" font="5">else return detector</text>
+<text top="357" left="268" width="16" height="0" font="8">hp;</text>
+<text top="357" left="287" width="12" height="0" font="8">si</text>
+<text top="363" left="141" width="21" height="12" font="5">else</text>
+<text top="378" left="162" width="8" height="12" font="5">if</text>
+<text top="377" left="173" width="33" height="12" font="14">score</text>
+<text top="374" left="206" width="5" height="17" font="15">(</text>
+<text top="387" left="212" width="16" height="0" font="8">hp;</text>
+<text top="387" left="230" width="6" height="0" font="8">s</text>
+<text top="381" left="237" width="3" height="0" font="8">0</text>
+<text top="387" left="240" width="5" height="0" font="8">i</text>
+<text top="374" left="246" width="5" height="17" font="15">)</text>
+<text top="387" left="255" width="11" height="0" font="8">&gt;</text>
+<text top="377" left="270" width="33" height="12" font="14">score</text>
+<text top="374" left="303" width="5" height="17" font="15">(</text>
+<text top="387" left="308" width="5" height="0" font="8">h</text>
+<text top="387" left="313" width="11" height="0" font="8">p;</text>
+<text top="387" left="326" width="12" height="0" font="8">si</text>
+<text top="374" left="338" width="5" height="17" font="15">)</text>
+<text top="402" left="182" width="6" height="0" font="8">s</text>
+<text top="402" left="192" width="14" height="0" font="8"> </text>
+<text top="393" left="210" width="41" height="12" font="5">the first</text>
+<text top="402" left="254" width="14" height="0" font="8">jsj</text>
+<text top="390" left="271" width="21" height="17" font="15">+ 1</text>
+<text top="393" left="295" width="49" height="12" font="5">tokens of</text>
+<text top="402" left="348" width="6" height="0" font="8">s</text>
+<text top="396" left="355" width="3" height="0" font="8">0</text>
+<text top="408" left="162" width="103" height="12" font="5">else return detector</text>
+<text top="417" left="268" width="16" height="0" font="8">hp;</text>
+<text top="417" left="287" width="12" height="0" font="8">si</text>
+<text top="446" left="128" width="82" height="13" font="2">Figure 2: The</text>
+<text top="445" left="214" width="95" height="14" font="13">LearnDetector</text>
+<text top="446" left="312" width="80" height="13" font="2">weak learner.</text>
+<text top="493" left="81" width="59" height="13" font="4">Boosting.</text>
+<text top="493" left="155" width="198" height="13" font="2">Freund and Shapireâs generalized</text>
+<text top="492" left="355" width="65" height="14" font="13">AdaBoost</text>
+<text top="493" left="423" width="16" height="13" font="2">al-</text>
+<text top="510" left="81" width="193" height="13" font="2">gorithm maintains a distribution</text>
+<text top="520" left="278" width="12" height="0" font="8">D</text>
+<text top="522" left="291" width="5" height="0" font="8">t</text>
+<text top="506" left="296" width="6" height="19" font="12">(</text>
+<text top="520" left="302" width="5" height="0" font="8">i</text>
+<text top="506" left="307" width="6" height="19" font="12">)</text>
+<text top="510" left="317" width="122" height="13" font="2">over the training ex-</text>
+<text top="526" left="81" width="105" height="13" font="2">amples. Initially,</text>
+<text top="536" left="191" width="12" height="0" font="8">D</text>
+<text top="531" left="204" width="6" height="9" font="11">0</text>
+<text top="526" left="215" width="149" height="13" font="2">is uniform. On iteration</text>
+<text top="536" left="369" width="5" height="0" font="8">t</text>
+<text top="526" left="375" width="64" height="13" font="2">, the weak</text>
+<text top="542" left="81" width="250" height="13" font="2">learner is invoked, resulting in hypothesis</text>
+<text top="552" left="335" width="8" height="0" font="8">d</text>
+<text top="554" left="343" width="5" height="0" font="8">t</text>
+<text top="542" left="352" width="87" height="13" font="2">(what we have</text>
+<text top="559" left="81" width="166" height="13" font="2">called a detector), a weight</text>
+<text top="569" left="251" width="11" height="0" font="8">C</text>
+<text top="571" left="262" width="6" height="0" font="8">d</text>
+<text top="572" left="268" width="4" height="0" font="8">t</text>
+<text top="559" left="278" width="82" height="13" font="2">is assigned to</text>
+<text top="569" left="365" width="8" height="0" font="8">d</text>
+<text top="571" left="373" width="5" height="0" font="8">t</text>
+<text top="559" left="378" width="61" height="13" font="2">, and then</text>
+<text top="575" left="81" width="224" height="13" font="2">the distribution is updated as follows:</text>
+<text top="611" left="110" width="12" height="0" font="8">D</text>
+<text top="613" left="122" width="5" height="0" font="8">t</text>
+<text top="606" left="127" width="15" height="9" font="11">+1</text>
+<text top="597" left="143" width="6" height="19" font="12">(</text>
+<text top="611" left="149" width="5" height="0" font="8">i</text>
+<text top="597" left="154" width="22" height="19" font="12">) =</text>
+<text top="611" left="179" width="12" height="0" font="8">D</text>
+<text top="613" left="192" width="5" height="0" font="8">t</text>
+<text top="597" left="197" width="6" height="19" font="12">(</text>
+<text top="611" left="203" width="5" height="0" font="8">i</text>
+<text top="597" left="208" width="6" height="19" font="12">)</text>
+<text top="601" left="214" width="22" height="13" font="2">exp</text>
+<text top="597" left="235" width="6" height="19" font="12">(</text>
+<text top="611" left="253" width="11" height="0" font="8">C</text>
+<text top="613" left="263" width="6" height="0" font="8">d</text>
+<text top="615" left="269" width="4" height="0" font="8">t</text>
+<text top="611" left="275" width="8" height="0" font="8">d</text>
+<text top="613" left="283" width="5" height="0" font="8">t</text>
+<text top="597" left="288" width="6" height="19" font="12">(</text>
+<text top="611" left="294" width="5" height="0" font="8">i</text>
+<text top="597" left="299" width="19" height="19" font="12">)(2</text>
+<text top="611" left="318" width="12" height="0" font="8">X</text>
+<text top="597" left="332" width="6" height="19" font="12">(</text>
+<text top="611" left="338" width="5" height="0" font="8">i</text>
+<text top="597" left="343" width="43" height="19" font="12">) 1))</text>
+<text top="611" left="386" width="8" height="0" font="8">=</text>
+<text top="611" left="393" width="12" height="0" font="8">N</text>
+<text top="613" left="405" width="5" height="0" font="8">t</text>
+<text top="627" left="81" width="37" height="13" font="2">where</text>
+<text top="637" left="122" width="12" height="0" font="8">X</text>
+<text top="623" left="136" width="6" height="19" font="12">(</text>
+<text top="637" left="142" width="5" height="0" font="8">i</text>
+<text top="623" left="147" width="6" height="19" font="12">)</text>
+<text top="637" left="158" width="10" height="0" font="8">2</text>
+<text top="637" left="174" width="8" height="0" font="8">f</text>
+<text top="623" left="182" width="7" height="19" font="12">1</text>
+<text top="637" left="189" width="4" height="0" font="8">;</text>
+<text top="623" left="196" width="7" height="19" font="12">0</text>
+<text top="637" left="203" width="8" height="0" font="8">g</text>
+<text top="627" left="215" width="84" height="13" font="2">is the label of</text>
+<text top="637" left="304" width="5" height="0" font="8">i</text>
+<text top="627" left="309" width="30" height="13" font="2">, and</text>
+<text top="637" left="344" width="12" height="0" font="8">N</text>
+<text top="639" left="356" width="5" height="0" font="8">t</text>
+<text top="627" left="366" width="74" height="13" font="2">is a normal-</text>
+<text top="643" left="81" width="84" height="13" font="2">ization factor.</text>
+<text top="643" left="174" width="65" height="14" font="13">AdaBoost</text>
+<text top="643" left="244" width="196" height="13" font="2">simply repeats this learn-update</text>
+<text top="660" left="81" width="31" height="13" font="2">cycle</text>
+<text top="670" left="118" width="9" height="0" font="8">T</text>
+<text top="660" left="134" width="305" height="13" font="2">times, and then returns a list of the learned weak</text>
+<text top="676" left="81" width="182" height="13" font="2">hypotheses with their weights.</text>
+<text top="714" left="81" width="25" height="13" font="4">The</text>
+<text top="714" left="112" width="101" height="14" font="17">LearnDetector</text>
+<text top="714" left="220" width="98" height="13" font="4">Weak Learner.</text>
+<text top="714" left="333" width="106" height="13" font="2">Fig. 2 shows the</text>
+<text top="731" left="81" width="150" height="13" font="2">weak learning algorithm</text>
+<text top="730" left="236" width="95" height="14" font="13">LearnDetector</text>
+<text top="731" left="331" width="4" height="13" font="2">.</text>
+<text top="730" left="344" width="95" height="14" font="13">LearnDetector</text>
+<text top="747" left="81" width="257" height="13" font="2">generates a single detector; BWI invokes</text>
+<text top="746" left="344" width="95" height="14" font="13">LearnDetector</text>
+<text top="763" left="81" width="114" height="13" font="2">(indirectly through</text>
+<text top="763" left="199" width="65" height="14" font="13">AdaBoost</text>
+<text top="763" left="264" width="5" height="13" font="2">)</text>
+<text top="773" left="274" width="9" height="0" font="8">T</text>
+<text top="763" left="290" width="149" height="13" font="2">times to learn the âforeâ</text>
+<text top="780" left="81" width="54" height="13" font="2">detectors</text>
+<text top="790" left="139" width="10" height="0" font="8">F</text>
+<text top="780" left="150" width="59" height="13" font="2">, and then</text>
+<text top="790" left="213" width="9" height="0" font="8">T</text>
+<text top="780" left="228" width="211" height="13" font="2">more times to learn the âaftâ detec-</text>
+<text top="796" left="81" width="23" height="13" font="2">tors</text>
+<text top="806" left="106" width="11" height="0" font="8">A</text>
+<text top="796" left="118" width="4" height="13" font="2">.</text>
+<text top="796" left="126" width="95" height="14" font="13">LearnDetector</text>
+<text top="796" left="224" width="215" height="13" font="2">iteratively builds out from the empty</text>
+<text top="813" left="81" width="48" height="13" font="2">detector</text>
+<text top="823" left="135" width="6" height="0" font="8">h</text>
+<text top="813" left="141" width="18" height="12" font="3">[]</text>
+<text top="823" left="159" width="4" height="0" font="8">;</text>
+<text top="813" left="165" width="18" height="12" font="3">[]</text>
+<text top="823" left="183" width="6" height="0" font="8">i</text>
+<text top="813" left="189" width="97" height="13" font="2">. At each step,</text>
+<text top="812" left="292" width="95" height="14" font="13">LearnDetector</text>
+<text top="813" left="393" width="46" height="13" font="2">invokes</text>
+<text top="829" left="81" width="80" height="13" font="2">the functions</text>
+<text top="829" left="166" width="75" height="14" font="13">BestPreExt</text>
+<text top="829" left="247" width="22" height="13" font="2">and</text>
+<text top="829" left="274" width="74" height="14" font="13">BestSufExt</text>
+<text top="829" left="348" width="91" height="13" font="2">, which search</text>
+<text top="846" left="81" width="184" height="13" font="2">for the best extension of length</text>
+<text top="856" left="268" width="10" height="0" font="8">L</text>
+<text top="846" left="281" width="158" height="13" font="2">(the lookahead parameter)</text>
+<text top="862" left="81" width="358" height="13" font="2">or less to the prefix and suffix (respectively) of the current</text>
+<text top="879" left="81" width="336" height="13" font="2">detector. These extensions are exhaustively enumerated.</text>
+<text top="895" left="96" width="343" height="13" font="2">The current detector and the best extensions are then com-</text>
+<text top="911" left="81" width="358" height="13" font="2">pared to maximize a scoring function. If an extension is</text>
+<text top="928" left="81" width="358" height="13" font="2">found which results in a detector that scores better than the</text>
+<text top="944" left="81" width="357" height="13" font="2">current one, then the first token of the extension (the right-</text>
+<text top="961" left="81" width="357" height="13" font="2">most of a prefix extension, the leftmost of a suffix extension)</text>
+<text top="977" left="81" width="357" height="13" font="2">is added to the appropriate part of the current detector, and</text>
+<text top="994" left="81" width="358" height="13" font="2">the process repeats. The procedure returns when no exten-</text>
+<text top="1010" left="81" width="300" height="13" font="2">sion yields a better score than the current detector.</text>
+<text top="1027" left="96" width="80" height="13" font="2">The function</text>
+<text top="1026" left="182" width="37" height="14" font="13">score</text>
+<text top="1023" left="219" width="6" height="19" font="12">(</text>
+<text top="1037" left="224" width="8" height="0" font="8">d</text>
+<text top="1023" left="232" width="6" height="19" font="12">)</text>
+<text top="1027" left="245" width="194" height="13" font="2">computes the score of detector</text>
+<text top="1053" left="81" width="8" height="0" font="8">d</text>
+<text top="1039" left="96" width="12" height="19" font="12">=</text>
+<text top="1053" left="114" width="17" height="0" font="8">hp;</text>
+<text top="1053" left="134" width="13" height="0" font="8">si</text>
+<text top="1043" left="147" width="292" height="13" font="2">. Cohen and Singer 1999 describe SLIPPER, a</text>
+<text top="86" left="479" width="358" height="13" font="2">boosting algorithm which infers a single rule at each step.</text>
+<text top="102" left="479" width="358" height="13" font="2">BWIâs scoring method is identical to that used by SLIPPER.</text>
+<text top="119" left="479" width="84" height="13" font="2">For a detector</text>
+<text top="129" left="567" width="8" height="0" font="8">d</text>
+<text top="119" left="575" width="23" height="13" font="2">, let</text>
+<text top="129" left="602" width="15" height="0" font="8">M</text>
+<text top="115" left="618" width="9" height="9" font="11">+</text>
+<text top="133" left="617" width="6" height="0" font="8">d</text>
+<text top="119" left="633" width="205" height="13" font="2">be the correctly classified training</text>
+<text top="135" left="479" width="289" height="13" font="2">boundaries (i.e., the boundaries in the training set</text>
+<text top="145" left="771" width="9" height="0" font="8">Y</text>
+<text top="135" left="786" width="51" height="13" font="2">matched</text>
+<text top="152" left="479" width="15" height="13" font="2">by</text>
+<text top="162" left="500" width="8" height="0" font="8">d</text>
+<text top="152" left="513" width="119" height="13" font="2">and labeled 1), and</text>
+<text top="162" left="637" width="15" height="0" font="8">M</text>
+<text top="166" left="651" width="6" height="0" font="8">d</text>
+<text top="152" left="668" width="169" height="13" font="2">be the incorrectly classified</text>
+<text top="168" left="479" width="358" height="13" font="2">examples. Cohen and Singer showed that training error is</text>
+<text top="184" left="479" width="123" height="13" font="2">minimized by using:</text>
+<text top="219" left="568" width="37" height="14" font="13">score</text>
+<text top="216" left="604" width="6" height="19" font="12">(</text>
+<text top="230" left="610" width="8" height="0" font="8">d</text>
+<text top="216" left="618" width="22" height="19" font="12">) =</text>
+<text top="211" left="644" width="15" height="0" font="8">q</text>
+<text top="230" left="659" width="14" height="0" font="8">W</text>
+<text top="216" left="675" width="9" height="9" font="11">+</text>
+<text top="234" left="673" width="6" height="0" font="8">d</text>
+<text top="211" left="703" width="15" height="0" font="8">q</text>
+<text top="230" left="718" width="14" height="0" font="8">W</text>
+<text top="234" left="732" width="6" height="0" font="8">d</text>
+<text top="230" left="744" width="4" height="0" font="8">;</text>
+<text top="250" left="479" width="134" height="13" font="2">and assigning detector</text>
+<text top="260" left="617" width="8" height="0" font="8">d</text>
+<text top="250" left="628" width="127" height="13" font="2">the confidence value:</text>
+<text top="299" left="584" width="11" height="0" font="8">C</text>
+<text top="301" left="594" width="6" height="0" font="8">d</text>
+<text top="285" left="606" width="12" height="19" font="12">=</text>
+<text top="275" left="623" width="7" height="19" font="12">1</text>
+<text top="295" left="623" width="7" height="19" font="12">2</text>
+<text top="285" left="635" width="12" height="19" font="12">ln</text>
+<text top="278" left="650" width="11" height="0" font="8"></text>
+<text top="289" left="663" width="14" height="0" font="8">W</text>
+<text top="275" left="679" width="9" height="9" font="11">+</text>
+<text top="293" left="677" width="6" height="0" font="8">d</text>
+<text top="275" left="692" width="12" height="19" font="12">+</text>
+<text top="289" left="707" width="6" height="0" font="8"></text>
+<text top="310" left="663" width="14" height="0" font="8">W</text>
+<text top="315" left="677" width="6" height="0" font="8">d</text>
+<text top="296" left="692" width="12" height="19" font="12">+</text>
+<text top="310" left="707" width="6" height="0" font="8"></text>
+<text top="278" left="715" width="11" height="0" font="8"></text>
+<text top="299" left="728" width="4" height="0" font="8">;</text>
+<text top="330" left="479" width="37" height="13" font="2">where</text>
+<text top="340" left="520" width="14" height="0" font="8">W</text>
+<text top="326" left="536" width="9" height="9" font="11">+</text>
+<text top="344" left="534" width="6" height="0" font="8">d</text>
+<text top="326" left="551" width="12" height="19" font="12">=</text>
+<text top="329" left="568" width="16" height="0" font="8">P</text>
+<text top="345" left="583" width="24" height="0" font="8">i2M</text>
+<text top="333" left="608" width="8" height="10" font="18">+</text>
+<text top="349" left="607" width="6" height="0" font="8">d</text>
+<text top="340" left="620" width="12" height="0" font="8">D</text>
+<text top="342" left="632" width="5" height="0" font="8">t</text>
+<text top="326" left="637" width="6" height="19" font="12">(</text>
+<text top="340" left="643" width="5" height="0" font="8">i</text>
+<text top="326" left="648" width="6" height="19" font="12">)</text>
+<text top="330" left="654" width="183" height="13" font="2">, is the total weight of the cor-</text>
+<text top="351" left="479" width="166" height="13" font="2">rectly classified boundaries,</text>
+<text top="361" left="648" width="12" height="0" font="8">D</text>
+<text top="363" left="661" width="5" height="0" font="8">t</text>
+<text top="347" left="666" width="6" height="19" font="12">(</text>
+<text top="361" left="672" width="5" height="0" font="8">i</text>
+<text top="347" left="677" width="6" height="19" font="12">)</text>
+<text top="351" left="686" width="151" height="13" font="2">is the weight of boundary</text>
+<text top="379" left="479" width="5" height="0" font="8">i</text>
+<text top="369" left="489" width="150" height="13" font="2">during boosting iteration</text>
+<text top="379" left="643" width="5" height="0" font="8">t</text>
+<text top="369" left="648" width="4" height="13" font="2">,</text>
+<text top="379" left="656" width="14" height="0" font="8">W</text>
+<text top="384" left="670" width="6" height="0" font="8">d</text>
+<text top="369" left="687" width="150" height="13" font="2">is a similar sum over the</text>
+<text top="388" left="479" width="17" height="13" font="2">set</text>
+<text top="398" left="500" width="15" height="0" font="8">M</text>
+<text top="403" left="514" width="6" height="0" font="8">d</text>
+<text top="388" left="526" width="29" height="13" font="2">, and</text>
+<text top="398" left="559" width="6" height="0" font="8"></text>
+<text top="388" left="568" width="190" height="13" font="2">is a small smoothing parameter.</text>
+<text top="427" left="479" width="70" height="13" font="4">Wildcards.</text>
+<text top="427" left="564" width="273" height="13" font="2">As described so far, BWI learns only wrappers</text>
+<text top="444" left="479" width="358" height="13" font="2">that match exact token sequences. We have extended BWI to</text>
+<text top="460" left="479" width="358" height="13" font="2">handle wildcards. A wildcard is a special token that matches</text>
+<text top="477" left="479" width="344" height="13" font="2">one of a set of tokens. BWI uses the following wildcards:</text>
+<text top="509" left="479" width="8" height="0" font="8"></text>
+<text top="500" left="494" width="54" height="12" font="3">&lt;Alph&gt;</text>
+<text top="499" left="552" width="286" height="13" font="2">matches any token that contains only alphabetic</text>
+<text top="516" left="494" width="61" height="13" font="2">characters</text>
+<text top="549" left="479" width="8" height="0" font="8"></text>
+<text top="540" left="494" width="54" height="12" font="3">&lt;ANum&gt;</text>
+<text top="539" left="548" width="237" height="13" font="2">, contains only alphanumeric characters</text>
+<text top="572" left="479" width="8" height="0" font="8"></text>
+<text top="562" left="494" width="45" height="12" font="3">&lt;Cap&gt;</text>
+<text top="562" left="539" width="196" height="13" font="2">, begins with an upper-case letter</text>
+<text top="594" left="479" width="8" height="0" font="8"></text>
+<text top="585" left="494" width="36" height="12" font="3">&lt;LC&gt;</text>
+<text top="584" left="530" width="189" height="13" font="2">, begins with a lower-case letter</text>
+<text top="617" left="479" width="8" height="0" font="8"></text>
+<text top="608" left="494" width="63" height="12" font="3">&lt;SChar&gt;</text>
+<text top="607" left="557" width="150" height="13" font="2">, any one-character token</text>
+<text top="640" left="479" width="8" height="0" font="8"></text>
+<text top="631" left="494" width="45" height="12" font="3">&lt;Num&gt;</text>
+<text top="630" left="539" width="138" height="13" font="2">, containing only digits</text>
+<text top="663" left="479" width="8" height="0" font="8"></text>
+<text top="653" left="494" width="54" height="12" font="3">&lt;Punc&gt;</text>
+<text top="653" left="548" width="125" height="13" font="2">, a punctuation token</text>
+<text top="685" left="479" width="8" height="0" font="8"></text>
+<text top="676" left="494" width="27" height="12" font="3">&lt;*&gt;</text>
+<text top="675" left="521" width="66" height="13" font="2">, any token</text>
+<text top="698" left="479" width="358" height="13" font="2">Extending BWI to handle wildcards is straightforward: we</text>
+<text top="715" left="479" width="89" height="13" font="2">simply modify</text>
+<text top="714" left="573" width="75" height="14" font="13">BestPreExt</text>
+<text top="715" left="653" width="22" height="13" font="2">and</text>
+<text top="714" left="679" width="74" height="14" font="13">BestSufExt</text>
+<text top="715" left="758" width="79" height="13" font="2">to enumerate</text>
+<text top="731" left="479" width="358" height="13" font="2">all sequences of tokens and wildcards, rather than just to-</text>
+<text top="748" left="479" width="31" height="13" font="2">kens.</text>
+<text top="780" left="576" width="165" height="16" font="1">Experimental Results</text>
+<text top="804" left="479" width="358" height="13" font="2">We evaluated BWI on 16 information extraction tasks de-</text>
+<text top="820" left="479" width="276" height="13" font="2">fined over eight distinct document collections:</text>
+<text top="853" left="479" width="8" height="0" font="8"></text>
+<text top="843" left="494" width="343" height="13" font="7">SA: A collection of 486 seminar announcements. Fields:</text>
+<text top="859" left="494" width="343" height="13" font="7">speaker (speakerâs name); location (seminar location);</text>
+<text top="876" left="494" width="275" height="13" font="7">stime (starting time); and etime (ending time).</text>
+<text top="909" left="479" width="8" height="0" font="8"></text>
+<text top="899" left="494" width="344" height="13" font="7">Acq: A collection of 600 Reuters articles detailing copo-</text>
+<text top="915" left="494" width="343" height="13" font="2">rate acquisitions. Fields: acq (name of purchased com-</text>
+<text top="932" left="494" width="211" height="13" font="2">pany); and dlramt (purchase price).</text>
+<text top="964" left="479" width="8" height="0" font="8"></text>
+<text top="954" left="494" width="343" height="13" font="7">Jobs: A collection of 298 Usenet job announcements.</text>
+<text top="971" left="494" width="41" height="13" font="2">Fields:</text>
+<text top="971" left="551" width="286" height="13" font="7">id (message identifier); company (company</text>
+<text top="987" left="494" width="132" height="13" font="2">name); title (job title).</text>
+<text top="1020" left="479" width="8" height="0" font="8"></text>
+<text top="1010" left="494" width="343" height="13" font="7">CS: A collection of Web pages listing the faculty of</text>
+<text top="1027" left="494" width="343" height="13" font="2">30 computer science departments. Field: name (faculty</text>
+<text top="1043" left="494" width="100" height="13" font="2">member names).</text>
+</page>
+<page number="4" position="absolute" top="0" left="0" height="1188" width="918">
+	<fontspec id="19" size="10" family="Times" color="#000000"/>
+	<fontspec id="20" size="10" family="Times" color="#000000"/>
+	<fontspec id="21" size="10" family="Courier" color="#000000"/>
+	<fontspec id="22" size="10" family="Times" color="#000000"/>
+	<fontspec id="23" size="9" family="Times" color="#000000"/>
+	<fontspec id="24" size="9" family="Times" color="#000000"/>
+<text top="86" left="92" width="34" height="9" font="19">domain</text>
+<text top="86" left="146" width="140" height="9" font="19">top-scoring boundary detectors</text>
+<text top="86" left="548" width="37" height="9" font="19">example</text>
+<text top="102" left="91" width="37" height="9" font="20">SA-stime</text>
+<text top="109" left="146" width="8" height="0" font="8">F</text>
+<text top="103" left="154" width="5" height="10" font="18">1</text>
+<text top="102" left="163" width="9" height="9" font="11">=</text>
+<text top="109" left="176" width="5" height="0" font="8">h</text>
+<text top="102" left="181" width="50" height="8" font="21">[time :]</text>
+<text top="102" left="231" width="3" height="9" font="22">,</text>
+<text top="102" left="236" width="44" height="8" font="21">[&lt;Num&gt;]</text>
+<text top="109" left="280" width="5" height="0" font="8">i</text>
+<text top="109" left="547" width="4" height="0" font="8"></text>
+<text top="109" left="553" width="4" height="0" font="8"></text>
+<text top="109" left="559" width="4" height="0" font="8"></text>
+<text top="102" left="565" width="31" height="8" font="21">Time:</text>
+<text top="102" left="614" width="25" height="8" font="21">2:00</text>
+<text top="102" left="650" width="56" height="8" font="21">- 3:30 PM</text>
+<text top="109" left="713" width="7" height="0" font="8">+</text>
+<text top="109" left="723" width="4" height="0" font="8"></text>
+<text top="109" left="729" width="4" height="0" font="8"></text>
+<text top="109" left="734" width="4" height="0" font="8"></text>
+<text top="124" left="146" width="9" height="0" font="8">A</text>
+<text top="119" left="155" width="5" height="10" font="18">1</text>
+<text top="117" left="165" width="9" height="9" font="11">=</text>
+<text top="124" left="177" width="5" height="0" font="8">h</text>
+<text top="118" left="182" width="13" height="8" font="21">[]</text>
+<text top="118" left="194" width="3" height="9" font="22">,</text>
+<text top="118" left="200" width="63" height="8" font="21">[- &lt;Num&gt; :</text>
+<text top="118" left="275" width="63" height="8" font="21">&lt;*&gt; &lt;Alph&gt;</text>
+<text top="124" left="344" width="7" height="0" font="8">+</text>
+<text top="118" left="351" width="6" height="8" font="21">]</text>
+<text top="124" left="358" width="5" height="0" font="8">i</text>
+<text top="134" left="90" width="38" height="9" font="20">CS-name</text>
+<text top="141" left="146" width="8" height="0" font="8">F</text>
+<text top="136" left="154" width="5" height="10" font="18">1</text>
+<text top="134" left="163" width="9" height="9" font="11">=</text>
+<text top="141" left="176" width="5" height="0" font="8">h</text>
+<text top="135" left="181" width="283" height="8" font="21">[&lt;LC&gt; &lt;*&gt; &lt;*&gt; &lt;Punc&gt; &lt;*&gt; &lt;*&gt; &lt;ANum&gt; &#34; &lt;Punc&gt;]</text>
+<text top="134" left="463" width="3" height="9" font="22">,</text>
+<text top="135" left="468" width="57" height="8" font="21">[&lt;FName&gt;]</text>
+<text top="141" left="525" width="5" height="0" font="8">i</text>
+<text top="141" left="547" width="4" height="0" font="8"></text>
+<text top="141" left="553" width="4" height="0" font="8"></text>
+<text top="141" left="559" width="4" height="0" font="8"></text>
+<text top="135" left="565" width="162" height="8" font="21">cgi-bin/facinfo?awb&#34;&gt; Alan</text>
+<text top="141" left="727" width="7" height="0" font="8">+</text>
+<text top="135" left="734" width="87" height="8" font="21">Biermann &lt;/A&gt;&lt;</text>
+<text top="141" left="821" width="4" height="0" font="8"></text>
+<text top="141" left="826" width="4" height="0" font="8"></text>
+<text top="141" left="832" width="4" height="0" font="8"></text>
+<text top="159" left="146" width="9" height="0" font="8">A</text>
+<text top="153" left="155" width="5" height="10" font="18">1</text>
+<text top="152" left="165" width="9" height="9" font="11">=</text>
+<text top="159" left="177" width="5" height="0" font="8">h</text>
+<text top="152" left="182" width="6" height="8" font="21">[</text>
+<text top="159" left="188" width="7" height="0" font="8">+</text>
+<text top="152" left="202" width="50" height="8" font="21">&lt;LName&gt;]</text>
+<text top="152" left="252" width="3" height="9" font="22">,</text>
+<text top="152" left="257" width="163" height="8" font="21">[&lt; &lt;Punc&gt; a &lt;Punc&gt; &lt;Punc&gt;]</text>
+<text top="159" left="420" width="5" height="0" font="8">i</text>
+<text top="188" left="81" width="563" height="13" font="2">Figure 3: Examples of boundary detectors learned by BWI for the SA and CS domains. â</text>
+<text top="198" left="644" width="9" height="0" font="8">+</text>
+<text top="188" left="653" width="184" height="13" font="2">â is the return character. The</text>
+<text top="204" left="81" width="58" height="13" font="2">wildcards</text>
+<text top="205" left="143" width="63" height="12" font="3">&lt;FName&gt;</text>
+<text top="204" left="209" width="22" height="13" font="2">and</text>
+<text top="205" left="235" width="63" height="12" font="3">&lt;LName&gt;</text>
+<text top="204" left="301" width="314" height="13" font="2">stand for first name and last name; see details below.</text>
+<text top="261" left="81" width="8" height="0" font="8"></text>
+<text top="251" left="96" width="343" height="13" font="7">Zagats: A collection of 91 Web pages containing restau-</text>
+<text top="267" left="96" width="309" height="13" font="2">rant reviews. Field: addr (addresses of restaurants).</text>
+<text top="300" left="81" width="8" height="0" font="8"></text>
+<text top="290" left="96" width="343" height="13" font="7">LATimes: A collection of 20 Web pages containing restau-</text>
+<text top="306" left="96" width="343" height="13" font="2">rant descriptions. Field: cc (credit cards accepted by</text>
+<text top="323" left="96" width="74" height="13" font="2">restaurants).</text>
+<text top="355" left="81" width="8" height="0" font="8"></text>
+<text top="345" left="96" width="343" height="13" font="7">IAF: A collection of 10 pages from an Web email search</text>
+<text top="361" left="96" width="344" height="13" font="2">engine. Fields: altname (personâs alternate name); and</text>
+<text top="378" left="96" width="142" height="13" font="7">org (host organization).</text>
+<text top="410" left="81" width="8" height="0" font="8"></text>
+<text top="400" left="96" width="343" height="13" font="7">QS: A collection of 10 pages from an Web stock quote</text>
+<text top="416" left="96" width="343" height="13" font="2">service. Fields: date (quote date); and vol (trading vol-</text>
+<text top="433" left="96" width="35" height="13" font="2">ume).</text>
+<text top="455" left="81" width="358" height="13" font="2">We chose these collections because they have been widely</text>
+<text top="472" left="81" width="358" height="13" font="2">used in previous research. The first three domains are typ-</text>
+<text top="488" left="81" width="358" height="13" font="2">ical for the traditional IE techniques, while the last five are</text>
+<text top="504" left="81" width="358" height="13" font="2">typical for the wrapper induction techniques. Fig. 3 gives</text>
+<text top="521" left="81" width="358" height="13" font="2">examples of wrappers learned by BWI for two of these tasks.</text>
+<text top="537" left="96" width="343" height="13" font="2">In our experiments, we adopt the standard cross valida-</text>
+<text top="554" left="81" width="358" height="13" font="7">tion methodology: the document collection is partitioned</text>
+<text top="570" left="81" width="358" height="13" font="2">several times into a training set and a testing set. We learn a</text>
+<text top="587" left="81" width="358" height="13" font="2">wrapper using the training set, and then measure its perfor-</text>
+<text top="603" left="81" width="165" height="13" font="2">mance using the testing set.</text>
+<text top="620" left="96" width="343" height="13" font="2">Given a test document, BWI extracts zero or more fields.</text>
+<text top="636" left="81" width="358" height="13" font="2">In order for an extraction to be counted as correct, the ex-</text>
+<text top="652" left="81" width="358" height="13" font="2">act boundaries of a target fragment must be identified. For</text>
+<text top="669" left="81" width="358" height="13" font="2">the âtraditionalâ domains (SA, Acq and Jobs), we exploit the</text>
+<text top="685" left="81" width="358" height="13" font="2">assumption that each document contains at most one field,</text>
+<text top="702" left="81" width="358" height="13" font="2">and discard all but the highest-confidence prediction. In</text>
+<text top="718" left="81" width="358" height="13" font="2">the âwrapperâ domains (CS, Zagats, LATimes, IAF and QS),</text>
+<text top="735" left="81" width="358" height="13" font="2">documents may contain multiple fields, so we keep all pre-</text>
+<text top="751" left="81" width="221" height="13" font="2">dictions with confidence greater than</text>
+<text top="761" left="305" width="6" height="0" font="8"></text>
+<text top="747" left="318" width="23" height="19" font="12">= 0</text>
+<text top="751" left="341" width="4" height="13" font="2">.</text>
+<text top="767" left="96" width="343" height="13" font="2">We evaluate performance in terms of three metrics: pre-</text>
+<text top="784" left="81" width="358" height="13" font="7">cision, the number of correctly extracted fields divided by</text>
+<text top="800" left="81" width="358" height="13" font="2">the total number of extractions; recall, the number of cor-</text>
+<text top="817" left="81" width="359" height="13" font="2">rect extractions divided by the total number of fields actu-</text>
+<text top="833" left="81" width="358" height="13" font="2">ally present in the documents, and F1, the harmonic mean</text>
+<text top="850" left="81" width="355" height="13" font="2">of precision and recall. We report all values as percentages.</text>
+<text top="866" left="96" width="343" height="13" font="2">Our experiments were designed to answer four questions:</text>
+<text top="888" left="77" width="317" height="13" font="2">1. What effect does the number of rounds of boosting</text>
+<text top="898" left="397" width="9" height="0" font="8">T</text>
+<text top="888" left="411" width="28" height="13" font="2">have</text>
+<text top="905" left="96" width="102" height="13" font="2">on performance?</text>
+<text top="927" left="77" width="273" height="13" font="2">2. What effect does the look-ahead parameter</text>
+<text top="937" left="353" width="10" height="0" font="8">L</text>
+<text top="927" left="366" width="73" height="13" font="2">have on per-</text>
+<text top="943" left="96" width="64" height="13" font="2">formance?</text>
+<text top="966" left="77" width="200" height="13" font="2">3. How important are wildcards?</text>
+<text top="988" left="77" width="363" height="13" font="2">4. How does BWI compare with other learning algorithms</text>
+<text top="1004" left="96" width="112" height="13" font="2">on the same tasks?</text>
+<text top="1027" left="96" width="343" height="13" font="2">To address Questions 1â3, we devised a set of experi-</text>
+<text top="1043" left="81" width="358" height="13" font="2">ments using the four SA tasks, and we discuss the other do-</text>
+<text top="468" left="517" width="5" height="9" font="23">0</text>
+<text top="424" left="512" width="10" height="9" font="23">20</text>
+<text top="380" left="512" width="10" height="9" font="23">40</text>
+<text top="336" left="512" width="10" height="9" font="23">60</text>
+<text top="292" left="512" width="10" height="9" font="23">80</text>
+<text top="248" left="507" width="15" height="9" font="23">100</text>
+<text top="478" left="526" width="5" height="9" font="23">0</text>
+<text top="478" left="577" width="15" height="9" font="23">100</text>
+<text top="478" left="634" width="15" height="9" font="23">200</text>
+<text top="478" left="691" width="15" height="9" font="23">300</text>
+<text top="478" left="747" width="15" height="9" font="23">400</text>
+<text top="478" left="804" width="15" height="9" font="23">500</text>
+<text top="360" left="506" width="0" height="9" font="24">F1</text>
+<text top="488" left="628" width="84" height="9" font="23">Boosting iterations T</text>
+<text top="380" left="689" width="38" height="9" font="23">SA-stime</text>
+<text top="390" left="688" width="38" height="9" font="23">SA-etime</text>
+<text top="400" left="678" width="48" height="9" font="23">SA-location</text>
+<text top="410" left="680" width="46" height="9" font="23">SA-speaker</text>
+<text top="525" left="479" width="358" height="13" font="2">Figure 4: F1 performance on the SA tasks as a function of</text>
+<text top="542" left="479" width="200" height="13" font="2">the number of rounds of boosting</text>
+<text top="552" left="683" width="9" height="0" font="8">T</text>
+<text top="542" left="694" width="4" height="13" font="2">.</text>
+<text top="589" left="479" width="358" height="13" font="2">mains when the results are significantly different. To answer</text>
+<text top="605" left="479" width="358" height="13" font="2">Question 4, we compare BWI with four alternative learning</text>
+<text top="622" left="479" width="68" height="13" font="2">algorithms.</text>
+<text top="660" left="479" width="137" height="13" font="4">Question 1: Boosting.</text>
+<text top="660" left="631" width="206" height="13" font="2">To measure sensitivity to the num-</text>
+<text top="676" left="479" width="306" height="13" font="2">ber of rounds of boosting, we fixed look-ahead at</text>
+<text top="686" left="790" width="10" height="0" font="8">L</text>
+<text top="672" left="807" width="26" height="19" font="12">= 3</text>
+<text top="676" left="833" width="4" height="13" font="2">,</text>
+<text top="693" left="479" width="358" height="13" font="2">gave BWI the default wildcard set, and varied the number</text>
+<text top="709" left="479" width="166" height="13" font="2">of rounds of boosting from</text>
+<text top="719" left="650" width="9" height="0" font="8">T</text>
+<text top="705" left="667" width="25" height="19" font="12">= 1</text>
+<text top="709" left="698" width="139" height="13" font="2">to 500. As Fig. 4 sug-</text>
+<text top="725" left="479" width="359" height="13" font="2">gests, the number of rounds required by BWI to reach peak</text>
+<text top="742" left="479" width="358" height="13" font="2">performance depends on the difficulty of the task. On easy</text>
+<text top="758" left="479" width="358" height="13" font="2">tasks, such as SA-stime, BWI quickly achieves its peak per-</text>
+<text top="775" left="479" width="358" height="13" font="2">formance. On more difficult tasks, such as SA-speaker, as</text>
+<text top="791" left="479" width="225" height="13" font="2">many as 500 rounds may be required.</text>
+<text top="808" left="494" width="343" height="13" font="2">On the âwrapperâ tasks, many fewer rounds of boost-</text>
+<text top="824" left="479" width="358" height="13" font="2">ing are required. For example, BWI stops improving af-</text>
+<text top="840" left="479" width="16" height="13" font="2">ter</text>
+<text top="850" left="500" width="9" height="0" font="8">T</text>
+<text top="836" left="516" width="25" height="19" font="12">= 5</text>
+<text top="840" left="546" width="291" height="13" font="2">on IAF-altname, and a single round of boosting</text>
+<text top="857" left="479" width="358" height="13" font="2">yields perfect performance on QS-Date. These sources are</text>
+<text top="873" left="479" width="357" height="13" font="2">formatted in a highly regular fashion, so just just a handful</text>
+<text top="890" left="479" width="202" height="13" font="2">of boundary detectors are needed.</text>
+<text top="928" left="479" width="171" height="13" font="4">Question 2: Look-Ahead.</text>
+<text top="928" left="665" width="172" height="13" font="2">Performance improves with</text>
+<text top="944" left="479" width="134" height="13" font="2">increasing look-ahead</text>
+<text top="954" left="620" width="10" height="0" font="8">L</text>
+<text top="944" left="630" width="207" height="13" font="2">, as indicated in Fig. 5. For the</text>
+<text top="961" left="479" width="358" height="13" font="7">CS tasks, performance improvements are marginal beyond</text>
+<text top="977" left="479" width="358" height="13" font="2">a look-ahead of 3. This is fortunate, because training time</text>
+<text top="994" left="479" width="358" height="13" font="2">increases exponentially with look-ahead. With look-ahead</text>
+<text top="1010" left="479" width="32" height="13" font="2">set to</text>
+<text top="1020" left="516" width="10" height="0" font="8">L</text>
+<text top="1006" left="532" width="24" height="19" font="12">= 3</text>
+<text top="1010" left="556" width="281" height="13" font="2">, BWI took 3,183 sec. to complete 100 rounds</text>
+<text top="1027" left="479" width="358" height="13" font="2">of boosting using the default feature set for the speaker task</text>
+<text top="1043" left="479" width="192" height="13" font="2">on a 300 MHz. Pentium II; with</text>
+<text top="1053" left="674" width="10" height="0" font="8">L</text>
+<text top="1039" left="689" width="23" height="19" font="12">= 4</text>
+<text top="1043" left="712" width="117" height="13" font="2">, it took 13,958 sec.</text>
+</page>
+<page number="5" position="absolute" top="0" left="0" height="1188" width="918">
+	<fontspec id="25" size="8" family="Times" color="#000000"/>
+<text top="93" left="139" width="10" height="0" font="8">L</text>
+<text top="83" left="167" width="47" height="13" font="7">speaker</text>
+<text top="83" left="232" width="49" height="13" font="7">location</text>
+<text top="83" left="299" width="31" height="13" font="7">stime</text>
+<text top="83" left="348" width="32" height="13" font="7">etime</text>
+<text top="100" left="140" width="7" height="13" font="2">1</text>
+<text top="100" left="181" width="19" height="13" font="2">7.0</text>
+<text top="100" left="243" width="26" height="13" font="2">40.1</text>
+<text top="100" left="302" width="26" height="13" font="2">27.7</text>
+<text top="100" left="355" width="19" height="13" font="2">7.4</text>
+<text top="117" left="140" width="7" height="13" font="2">2</text>
+<text top="117" left="177" width="26" height="13" font="2">51.9</text>
+<text top="117" left="243" width="26" height="13" font="2">76.6</text>
+<text top="117" left="302" width="26" height="13" font="2">95.0</text>
+<text top="117" left="351" width="26" height="13" font="2">84.9</text>
+<text top="134" left="140" width="7" height="13" font="2">3</text>
+<text top="134" left="177" width="26" height="13" font="2">67.7</text>
+<text top="134" left="243" width="26" height="13" font="2">76.7</text>
+<text top="134" left="302" width="26" height="13" font="2">99.4</text>
+<text top="134" left="351" width="26" height="13" font="2">94.6</text>
+<text top="151" left="140" width="7" height="13" font="2">4</text>
+<text top="151" left="177" width="26" height="13" font="2">69.3</text>
+<text top="151" left="243" width="26" height="13" font="2">75.5</text>
+<text top="151" left="302" width="26" height="13" font="2">99.6</text>
+<text top="151" left="351" width="26" height="13" font="2">93.9</text>
+<text top="191" left="81" width="358" height="13" font="2">Figure 5: F1 performance on the SA tasks as a function of</text>
+<text top="207" left="81" width="67" height="13" font="2">look-ahead</text>
+<text top="217" left="151" width="10" height="0" font="8">L</text>
+<text top="207" left="161" width="4" height="13" font="2">.</text>
+<text top="239" left="115" width="58" height="13" font="2">wildcards</text>
+<text top="239" left="191" width="47" height="13" font="7">speaker</text>
+<text top="239" left="256" width="49" height="13" font="7">location</text>
+<text top="239" left="323" width="31" height="13" font="7">stime</text>
+<text top="239" left="372" width="32" height="13" font="7">etime</text>
+<text top="256" left="130" width="29" height="13" font="7">none</text>
+<text top="256" left="201" width="26" height="13" font="2">15.1</text>
+<text top="256" left="267" width="26" height="13" font="2">69.2</text>
+<text top="256" left="325" width="26" height="13" font="2">95.7</text>
+<text top="256" left="375" width="26" height="13" font="2">83.4</text>
+<text top="273" left="118" width="22" height="13" font="7">just</text>
+<text top="274" left="144" width="27" height="12" font="3">&lt;*&gt;</text>
+<text top="273" left="201" width="26" height="13" font="2">49.4</text>
+<text top="273" left="267" width="26" height="13" font="2">73.5</text>
+<text top="273" left="325" width="26" height="13" font="2">99.3</text>
+<text top="273" left="375" width="26" height="13" font="2">95.0</text>
+<text top="290" left="123" width="42" height="13" font="7">default</text>
+<text top="290" left="201" width="26" height="13" font="2">67.7</text>
+<text top="290" left="267" width="26" height="13" font="2">76.7</text>
+<text top="290" left="325" width="26" height="13" font="2">99.4</text>
+<text top="290" left="375" width="26" height="13" font="2">94.6</text>
+<text top="307" left="124" width="40" height="13" font="7">lexical</text>
+<text top="307" left="201" width="26" height="13" font="2">73.5</text>
+<text top="307" left="273" width="15" height="13" font="2">â</text>
+<text top="307" left="331" width="15" height="13" font="2">â</text>
+<text top="307" left="381" width="15" height="13" font="2">â</text>
+<text top="347" left="81" width="358" height="13" font="2">Figure 6: F1 performance on the SA tasks as a function of</text>
+<text top="363" left="81" width="130" height="13" font="2">various wildcard sets.</text>
+<text top="409" left="96" width="343" height="13" font="2">However, much deeper lookahead is required in some do-</text>
+<text top="426" left="81" width="273" height="13" font="2">mains. For example, in the IAF-altname task,</text>
+<text top="436" left="358" width="10" height="0" font="8">L</text>
+<text top="422" left="372" width="24" height="19" font="12">= 3</text>
+<text top="426" left="400" width="39" height="13" font="2">results</text>
+<text top="442" left="81" width="12" height="13" font="2">in</text>
+<text top="452" left="96" width="10" height="0" font="8">F</text>
+<text top="438" left="108" width="35" height="19" font="12">1 = 0</text>
+<text top="442" left="143" width="26" height="13" font="2">, but</text>
+<text top="452" left="173" width="10" height="0" font="8">L</text>
+<text top="438" left="188" width="23" height="19" font="12">= 8</text>
+<text top="442" left="215" width="36" height="13" font="2">yields</text>
+<text top="452" left="254" width="10" height="0" font="8">F</text>
+<text top="438" left="266" width="43" height="19" font="12">1 = 58</text>
+<text top="452" left="309" width="4" height="0" font="8">:</text>
+<text top="438" left="313" width="7" height="19" font="12">8</text>
+<text top="442" left="320" width="119" height="13" font="2">. The explanation is</text>
+<text top="459" left="81" width="358" height="13" font="2">that IAF-altname requires a 30-token âforeâ boundary detec-</text>
+<text top="475" left="81" width="358" height="13" font="2">tor prefix, but shorter prefixes have a very low score, so BWI</text>
+<text top="492" left="81" width="346" height="13" font="2">can find the correct prefix only with very deep lookahead.</text>
+<text top="534" left="81" width="79" height="13" font="4">Question 3:</text>
+<text top="534" left="176" width="70" height="13" font="4">Wildcards.</text>
+<text top="534" left="261" width="178" height="13" font="2">Wildcards are important to</text>
+<text top="550" left="81" width="358" height="13" font="2">achieve good performance on traditional IE problems. Fig. 6</text>
+<text top="567" left="81" width="358" height="13" font="2">presents F1 performance on the SA task with various wild-</text>
+<text top="583" left="81" width="358" height="13" font="2">card sets. In each case, we performed 500 rounds of boost-</text>
+<text top="600" left="81" width="358" height="13" font="2">ing with look-ahead set to 3. The ânoneâ row lists perfor-</text>
+<text top="616" left="81" width="246" height="13" font="2">mance in the absence of wildcards; âjust</text>
+<text top="617" left="331" width="27" height="12" font="3">&lt;*&gt;</text>
+<text top="616" left="358" width="81" height="13" font="2">â lists perfor-</text>
+<text top="633" left="81" width="127" height="13" font="2">mance with only the</text>
+<text top="633" left="213" width="27" height="12" font="3">&lt;*&gt;</text>
+<text top="633" left="245" width="194" height="13" font="2">wildcard; âdefaultâ lists perfor-</text>
+<text top="649" left="81" width="333" height="13" font="2">mance using the full set of eight wildcards listed above.</text>
+<text top="666" left="96" width="343" height="13" font="2">Finally, we evaluated BWI after adding task-specific lex-</text>
+<text top="683" left="81" width="358" height="13" font="2">ical resources in the form of three additional wildcards:</text>
+<text top="700" left="81" width="63" height="12" font="3">&lt;FName&gt;</text>
+<text top="699" left="149" width="290" height="13" font="2">matches tokens in a list of common first names</text>
+<text top="715" left="81" width="218" height="13" font="2">released by the U.S. Census Bureau;</text>
+<text top="716" left="303" width="63" height="12" font="3">&lt;LName&gt;</text>
+<text top="715" left="369" width="69" height="13" font="2">matches to-</text>
+<text top="732" left="81" width="307" height="13" font="2">kens in a similar list of common last names; and</text>
+<text top="733" left="394" width="45" height="12" font="3">&lt;NEW&gt;</text>
+<text top="748" left="81" width="168" height="13" font="2">matches tokens not found in</text>
+<text top="749" left="252" width="135" height="12" font="3">/usr/dict/words</text>
+<text top="748" left="390" width="48" height="13" font="2">on Unix</text>
+<text top="765" left="81" width="358" height="13" font="2">systems (âNEWâ stands for ânot an English wordâ). These</text>
+<text top="781" left="81" width="358" height="13" font="2">lexical resources increase F1 from 67.7 to 73.5 on the SA-</text>
+<text top="798" left="81" width="358" height="13" font="7">speaker task. It is common in traditional IE to use task-</text>
+<text top="814" left="81" width="358" height="13" font="2">specific lexicons as part of the extraction process. Our re-</text>
+<text top="830" left="81" width="358" height="13" font="2">sults show how such lexicons can be integrated with learning</text>
+<text top="847" left="81" width="271" height="13" font="2">in a way that leads to improved performance.</text>
+<text top="889" left="81" width="195" height="13" font="4">Question 4: Other Algorithms.</text>
+<text top="889" left="291" width="148" height="13" font="2">Figs. 7â8 compares BWI</text>
+<text top="906" left="81" width="358" height="13" font="2">on the sixteen extraction tasks with four other state-of-</text>
+<text top="922" left="81" width="358" height="13" font="2">the-art learners: two rule learners (SRV (Freitag 1998)</text>
+<text top="938" left="81" width="358" height="13" font="2">and Rapier (Califf 1998)), an algorithm based on hidden</text>
+<text top="955" left="81" width="96" height="13" font="2">Markov models</text>
+<text top="953" left="177" width="5" height="9" font="22">1</text>
+<text top="955" left="183" width="256" height="13" font="2">, and the Stalker wrapper induction algo-</text>
+<text top="981" left="100" width="4" height="8" font="25">1</text>
+<text top="984" left="105" width="334" height="12" font="5">The HMM in question has four fully connected âtargetâ states,</text>
+<text top="999" left="81" width="358" height="12" font="5">a prefix and suffix, each of length four, and uses shrinkage to mit-</text>
+<text top="1014" left="81" width="358" height="12" font="5">igate data sparsity. This model has shown state-of-the-art perfor-</text>
+<text top="1029" left="81" width="358" height="12" font="5">mance on a range of IE tasks; see Freitag and McCallum (1999) for</text>
+<text top="1044" left="81" width="35" height="12" font="5">details</text>
+<text top="86" left="479" width="162" height="13" font="2">rithm (Muslea et al. 2000).</text>
+<text top="104" left="494" width="275" height="13" font="2">For the four âtraditionalâ domains, we used</text>
+<text top="114" left="775" width="9" height="0" font="8">T</text>
+<text top="100" left="794" width="43" height="19" font="12">= 500</text>
+<text top="121" left="479" width="257" height="13" font="2">boosting iterations and set the lookahead to</text>
+<text top="131" left="740" width="10" height="0" font="8">L</text>
+<text top="117" left="754" width="23" height="19" font="12">= 3</text>
+<text top="121" left="777" width="60" height="13" font="2">, and used</text>
+<text top="137" left="479" width="359" height="13" font="2">the default wildcards. For the five âwrapperâ domains we</text>
+<text top="153" left="479" width="20" height="13" font="2">use</text>
+<text top="163" left="504" width="9" height="0" font="8">T</text>
+<text top="149" left="521" width="33" height="19" font="12">= 50</text>
+<text top="153" left="559" width="177" height="13" font="2">and two different settings for</text>
+<text top="163" left="741" width="10" height="0" font="8">L</text>
+<text top="153" left="756" width="81" height="13" font="2">and the wild-</text>
+<text top="170" left="479" width="358" height="13" font="2">cards. For CS-name, Zagats-addr, LATimes-cc and QS-date,</text>
+<text top="186" left="479" width="49" height="13" font="2">we used</text>
+<text top="196" left="532" width="10" height="0" font="8">L</text>
+<text top="182" left="547" width="23" height="19" font="12">= 3</text>
+<text top="186" left="574" width="263" height="13" font="2">and the lexical wildcards. For IAF-altname,</text>
+<text top="203" left="479" width="178" height="13" font="7">IAF-org and QS-vol, we used</text>
+<text top="213" left="662" width="10" height="0" font="8">L</text>
+<text top="199" left="677" width="25" height="19" font="12">= 8</text>
+<text top="203" left="706" width="131" height="13" font="2">because (as described</text>
+<text top="219" left="479" width="358" height="13" font="2">above) the tasks require very long boundary detectors. Since</text>
+<text top="236" left="479" width="136" height="13" font="2">BWI is exponential in</text>
+<text top="246" left="620" width="10" height="0" font="8">L</text>
+<text top="236" left="631" width="207" height="13" font="2">, the only feasible way to run the</text>
+<text top="252" left="479" width="59" height="13" font="2">BWI with</text>
+<text top="262" left="542" width="10" height="0" font="8">L</text>
+<text top="248" left="557" width="23" height="19" font="12">= 8</text>
+<text top="252" left="584" width="110" height="13" font="2">was to use just the</text>
+<text top="253" left="697" width="27" height="12" font="3">&lt;*&gt;</text>
+<text top="252" left="727" width="56" height="13" font="2">wildcard.</text>
+<text top="270" left="494" width="343" height="13" font="2">We include precision and recall scores in order to illus-</text>
+<text top="287" left="479" width="358" height="13" font="2">trate an interesting aspect of BWIâs behaviorâits precision</text>
+<text top="303" left="479" width="358" height="13" font="2">bias. The extractors produced by BWI tend to achieve higher</text>
+<text top="320" left="479" width="358" height="13" font="2">precision than the other learners, particularly the HMM,</text>
+<text top="336" left="479" width="196" height="13" font="2">while still managing good recall.</text>
+<text top="374" left="612" width="93" height="16" font="1">Conclusions</text>
+<text top="403" left="479" width="358" height="13" font="2">The automatic processing of machine-readable text is be-</text>
+<text top="419" left="479" width="358" height="13" font="2">coming increasingly important. Techniques for information</text>
+<text top="436" left="479" width="358" height="13" font="2">extractionâthe task of populating a pre-defined database</text>
+<text top="452" left="479" width="358" height="13" font="2">with fragments from free text documentsâ are central to</text>
+<text top="469" left="479" width="285" height="13" font="2">a broad range of text-management applications.</text>
+<text top="487" left="494" width="343" height="13" font="2">We have described BWI, a novel approach to building a</text>
+<text top="503" left="479" width="358" height="13" font="2">trainable information extraction system. Like wrapper in-</text>
+<text top="520" left="479" width="358" height="13" font="2">duction techniques, BWI learns relatively simple contextual</text>
+<text top="536" left="479" width="357" height="13" font="2">patterns identifying the beginning and end of relevant text</text>
+<text top="553" left="479" width="358" height="13" font="2">fields. BWI repeatedly invokes an algorithm for learning</text>
+<text top="569" left="479" width="358" height="13" font="2">such boundaries. By using the AdaBoost algorithm, BWI re-</text>
+<text top="586" left="479" width="358" height="13" font="2">peatedly reweights the training examples so that subsequent</text>
+<text top="602" left="479" width="356" height="13" font="2">patterns handle training examples missed by previous rules.</text>
+<text top="620" left="494" width="343" height="13" font="2">The result is an extraction algorithm with a bias to high</text>
+<text top="637" left="479" width="358" height="13" font="2">precision (because the learned contextual patterns are highly</text>
+<text top="653" left="479" width="358" height="13" font="2">accurate) but with reasonable recall in many domains (due</text>
+<text top="669" left="479" width="358" height="13" font="2">to the fact that dozens or hundredsâbut not millionsâof</text>
+<text top="686" left="479" width="358" height="13" font="2">such patterns suffice for broad coverage). We have evaluated</text>
+<text top="702" left="479" width="357" height="13" font="2">BWI on a broad range of IE tasks, from traditional free text</text>
+<text top="719" left="479" width="358" height="13" font="2">to machine-generated HTML, and find that BWI is compet-</text>
+<text top="735" left="479" width="358" height="13" font="2">itive with state-of-the-art algorithms in most domains, and</text>
+<text top="752" left="479" width="104" height="13" font="2">superior in many.</text>
+<text top="800" left="479" width="127" height="13" font="4">Acknowledgements.</text>
+<text top="800" left="622" width="216" height="13" font="2">This research was funded in part by</text>
+<text top="816" left="479" width="357" height="13" font="2">grant N00014-00-1-0021 from the US Office of Naval Re-</text>
+<text top="833" left="479" width="331" height="13" font="2">search, and grant ST/1999/071 from Enterprise Ireland.</text>
+<text top="871" left="617" width="83" height="16" font="1">References</text>
+<text top="900" left="487" width="350" height="13" font="2">D. Bikel, S. Miller, R. Schwartz, and R. Weischedel.</text>
+<text top="916" left="487" width="322" height="13" font="2">Nymble: a high-performance learning name-finder.</text>
+<text top="916" left="824" width="13" height="13" font="2">In</text>
+<text top="933" left="487" width="231" height="13" font="7">Proc. ANLP-97, pages 194â201, 1997.</text>
+<text top="955" left="487" width="350" height="13" font="2">M.-E. Califf. Relational Learning Techniques for Natural</text>
+<text top="971" left="487" width="351" height="13" font="7">Language Information Extraction. PhD thesis, University</text>
+<text top="988" left="487" width="150" height="13" font="2">of Texas at Austin, 1998.</text>
+<text top="1010" left="487" width="350" height="13" font="2">W. Cohen and Y. Singer. A simple, fast, and effective rule</text>
+<text top="1027" left="487" width="350" height="13" font="2">learner. In Proc. Sixteenth National Conference on Artifi-</text>
+<text top="1043" left="487" width="138" height="13" font="7">cial Intelligence, 1999.</text>
+</page>
+<page number="6" position="absolute" top="0" left="0" height="1188" width="918">
+<text top="82" left="184" width="68" height="13" font="7">SA-speaker</text>
+<text top="82" left="319" width="71" height="13" font="7">SA-location</text>
+<text top="82" left="465" width="53" height="13" font="7">SA-stime</text>
+<text top="82" left="601" width="54" height="13" font="7">SA-etime</text>
+<text top="99" left="160" width="28" height="13" font="7">Prec</text>
+<text top="99" left="207" width="22" height="13" font="7">Rec</text>
+<text top="99" left="254" width="17" height="13" font="7">F1</text>
+<text top="99" left="297" width="28" height="13" font="7">Prec</text>
+<text top="99" left="344" width="22" height="13" font="7">Rec</text>
+<text top="99" left="391" width="17" height="13" font="7">F1</text>
+<text top="99" left="433" width="28" height="13" font="7">Prec</text>
+<text top="99" left="481" width="22" height="13" font="7">Rec</text>
+<text top="99" left="528" width="17" height="13" font="7">F1</text>
+<text top="99" left="570" width="28" height="13" font="7">Prec</text>
+<text top="99" left="618" width="22" height="13" font="7">Rec</text>
+<text top="99" left="665" width="17" height="13" font="7">F1</text>
+<text top="115" left="97" width="37" height="13" font="2">HMM</text>
+<text top="115" left="161" width="26" height="13" font="2">77.9</text>
+<text top="115" left="206" width="26" height="13" font="2">75.2</text>
+<text top="115" left="249" width="26" height="13" font="2">76.6</text>
+<text top="115" left="297" width="26" height="13" font="2">83.0</text>
+<text top="115" left="342" width="26" height="13" font="2">74.6</text>
+<text top="115" left="386" width="26" height="13" font="2">78.6</text>
+<text top="115" left="434" width="26" height="13" font="2">98.5</text>
+<text top="115" left="479" width="26" height="13" font="2">98.5</text>
+<text top="115" left="523" width="26" height="13" font="2">98.5</text>
+<text top="115" left="571" width="26" height="13" font="2">45.7</text>
+<text top="115" left="616" width="26" height="13" font="2">97.0</text>
+<text top="115" left="660" width="26" height="13" font="2">62.1</text>
+<text top="132" left="97" width="40" height="13" font="2">Rapier</text>
+<text top="132" left="161" width="26" height="13" font="2">80.9</text>
+<text top="132" left="206" width="26" height="13" font="2">39.4</text>
+<text top="132" left="249" width="26" height="13" font="2">53.0</text>
+<text top="132" left="297" width="26" height="13" font="2">91.0</text>
+<text top="132" left="342" width="26" height="13" font="2">60.5</text>
+<text top="132" left="386" width="26" height="13" font="2">72.7</text>
+<text top="132" left="434" width="26" height="13" font="2">93.9</text>
+<text top="132" left="479" width="26" height="13" font="2">92.9</text>
+<text top="132" left="523" width="26" height="13" font="2">93.4</text>
+<text top="132" left="571" width="26" height="13" font="2">95.8</text>
+<text top="132" left="616" width="26" height="13" font="2">96.6</text>
+<text top="132" left="660" width="26" height="13" font="2">96.2</text>
+<text top="148" left="97" width="28" height="13" font="2">SRV</text>
+<text top="148" left="161" width="26" height="13" font="2">54.4</text>
+<text top="148" left="206" width="26" height="13" font="2">58.4</text>
+<text top="148" left="249" width="26" height="13" font="2">56.3</text>
+<text top="148" left="297" width="26" height="13" font="2">74.5</text>
+<text top="148" left="342" width="26" height="13" font="2">70.1</text>
+<text top="148" left="386" width="26" height="13" font="2">72.3</text>
+<text top="148" left="434" width="26" height="13" font="2">98.6</text>
+<text top="148" left="479" width="26" height="13" font="2">98.4</text>
+<text top="148" left="523" width="26" height="13" font="2">98.5</text>
+<text top="148" left="571" width="26" height="13" font="2">67.3</text>
+<text top="148" left="616" width="26" height="13" font="2">92.6</text>
+<text top="148" left="660" width="26" height="13" font="2">77.9</text>
+<text top="165" left="97" width="29" height="13" font="2">BWI</text>
+<text top="165" left="161" width="26" height="13" font="2">79.1</text>
+<text top="165" left="206" width="26" height="13" font="2">59.2</text>
+<text top="165" left="249" width="26" height="13" font="2">67.7</text>
+<text top="165" left="297" width="26" height="13" font="2">85.4</text>
+<text top="165" left="342" width="26" height="13" font="2">69.6</text>
+<text top="165" left="386" width="26" height="13" font="2">76.7</text>
+<text top="165" left="434" width="26" height="13" font="2">99.6</text>
+<text top="165" left="479" width="26" height="13" font="2">99.6</text>
+<text top="165" left="523" width="26" height="13" font="2">99.6</text>
+<text top="165" left="571" width="26" height="13" font="2">94.4</text>
+<text top="165" left="616" width="26" height="13" font="2">94.9</text>
+<text top="165" left="660" width="26" height="13" font="2">93.9</text>
+<text top="182" left="196" width="44" height="13" font="7">Jobs-id</text>
+<text top="182" left="312" width="87" height="13" font="7">Jobs-company</text>
+<text top="182" left="464" width="55" height="13" font="7">Jobs-title</text>
+<text top="182" left="603" width="50" height="13" font="7">Acq-acq</text>
+<text top="182" left="730" width="68" height="13" font="7">Acq-dlramt</text>
+<text top="199" left="97" width="37" height="13" font="2">HMM</text>
+<text top="199" left="166" width="15" height="13" font="2">â</text>
+<text top="199" left="211" width="15" height="13" font="2">â</text>
+<text top="199" left="255" width="15" height="13" font="2">â</text>
+<text top="199" left="297" width="26" height="13" font="2">38.6</text>
+<text top="199" left="342" width="26" height="13" font="2">72.3</text>
+<text top="199" left="386" width="26" height="13" font="2">50.4</text>
+<text top="199" left="434" width="26" height="13" font="2">53.2</text>
+<text top="199" left="479" width="26" height="13" font="2">63.0</text>
+<text top="199" left="523" width="26" height="13" font="2">57.7</text>
+<text top="199" left="571" width="26" height="13" font="2">32.8</text>
+<text top="199" left="616" width="26" height="13" font="2">29.2</text>
+<text top="199" left="660" width="26" height="13" font="2">30.9</text>
+<text top="199" left="707" width="26" height="13" font="2">49.3</text>
+<text top="199" left="751" width="26" height="13" font="2">63.5</text>
+<text top="199" left="795" width="26" height="13" font="2">55.5</text>
+<text top="216" left="97" width="40" height="13" font="2">Rapier</text>
+<text top="216" left="161" width="26" height="13" font="2">98.0</text>
+<text top="216" left="206" width="26" height="13" font="2">97.0</text>
+<text top="216" left="249" width="26" height="13" font="2">97.5</text>
+<text top="216" left="297" width="26" height="13" font="2">76.0</text>
+<text top="216" left="342" width="26" height="13" font="2">64.8</text>
+<text top="216" left="386" width="26" height="13" font="2">70.0</text>
+<text top="216" left="434" width="26" height="13" font="2">67.0</text>
+<text top="216" left="479" width="26" height="13" font="2">29.0</text>
+<text top="216" left="523" width="26" height="13" font="2">40.5</text>
+<text top="216" left="571" width="26" height="13" font="2">57.3</text>
+<text top="216" left="616" width="26" height="13" font="2">19.2</text>
+<text top="216" left="660" width="26" height="13" font="2">28.8</text>
+<text top="216" left="707" width="26" height="13" font="2">63.3</text>
+<text top="216" left="751" width="26" height="13" font="2">28.5</text>
+<text top="216" left="795" width="26" height="13" font="2">39.3</text>
+<text top="233" left="97" width="28" height="13" font="2">SRV</text>
+<text top="233" left="166" width="15" height="13" font="2">â</text>
+<text top="233" left="211" width="15" height="13" font="2">â</text>
+<text top="233" left="255" width="15" height="13" font="2">â</text>
+<text top="233" left="303" width="15" height="13" font="2">â</text>
+<text top="233" left="348" width="15" height="13" font="2">â</text>
+<text top="233" left="392" width="15" height="13" font="2">â</text>
+<text top="233" left="440" width="15" height="13" font="2">â</text>
+<text top="233" left="485" width="15" height="13" font="2">â</text>
+<text top="233" left="529" width="15" height="13" font="2">â</text>
+<text top="233" left="571" width="26" height="13" font="2">40.7</text>
+<text top="233" left="616" width="26" height="13" font="2">39.4</text>
+<text top="233" left="660" width="26" height="13" font="2">40.1</text>
+<text top="233" left="707" width="26" height="13" font="2">48.1</text>
+<text top="233" left="751" width="26" height="13" font="2">67.0</text>
+<text top="233" left="795" width="26" height="13" font="2">56.0</text>
+<text top="250" left="97" width="29" height="13" font="2">BWI</text>
+<text top="250" left="163" width="23" height="13" font="2">100</text>
+<text top="250" left="207" width="23" height="13" font="2">100</text>
+<text top="250" left="251" width="23" height="13" font="2">100</text>
+<text top="250" left="297" width="26" height="13" font="2">88.4</text>
+<text top="250" left="342" width="26" height="13" font="2">70.1</text>
+<text top="250" left="386" width="26" height="13" font="2">78.2</text>
+<text top="250" left="434" width="26" height="13" font="2">59.6</text>
+<text top="250" left="479" width="26" height="13" font="2">43.2</text>
+<text top="250" left="523" width="26" height="13" font="2">50.1</text>
+<text top="250" left="571" width="26" height="13" font="2">55.5</text>
+<text top="250" left="616" width="26" height="13" font="2">24.6</text>
+<text top="250" left="660" width="26" height="13" font="2">34.1</text>
+<text top="250" left="707" width="26" height="13" font="2">63.4</text>
+<text top="250" left="751" width="26" height="13" font="2">42.6</text>
+<text top="250" left="795" width="26" height="13" font="2">50.9</text>
+<text top="267" left="183" width="70" height="13" font="7">LATimes-cc</text>
+<text top="267" left="318" width="74" height="13" font="7">Zagats-addr</text>
+<text top="267" left="453" width="77" height="13" font="7">IAF-altname</text>
+<text top="267" left="604" width="49" height="13" font="7">IAF-org</text>
+<text top="283" left="97" width="37" height="13" font="2">HMM</text>
+<text top="283" left="161" width="26" height="13" font="2">98.5</text>
+<text top="283" left="207" width="23" height="13" font="2">100</text>
+<text top="283" left="249" width="26" height="13" font="2">99.3</text>
+<text top="283" left="297" width="26" height="13" font="2">97.7</text>
+<text top="283" left="342" width="26" height="13" font="2">99.5</text>
+<text top="283" left="386" width="26" height="13" font="2">98.6</text>
+<text top="283" left="438" width="19" height="13" font="2">1.7</text>
+<text top="283" left="479" width="26" height="13" font="2">90.0</text>
+<text top="283" left="527" width="19" height="13" font="2">3.4</text>
+<text top="283" left="571" width="26" height="13" font="2">16.8</text>
+<text top="283" left="616" width="26" height="13" font="2">89.7</text>
+<text top="283" left="660" width="26" height="13" font="2">28.4</text>
+<text top="300" left="97" width="42" height="13" font="2">Stalker</text>
+<text top="300" left="163" width="23" height="13" font="2">100</text>
+<text top="300" left="211" width="15" height="13" font="2">â</text>
+<text top="300" left="255" width="15" height="13" font="2">â</text>
+<text top="300" left="299" width="23" height="13" font="2">100</text>
+<text top="300" left="348" width="15" height="13" font="2">â</text>
+<text top="300" left="392" width="15" height="13" font="2">â</text>
+<text top="300" left="436" width="23" height="13" font="2">100</text>
+<text top="300" left="485" width="15" height="13" font="2">â</text>
+<text top="300" left="529" width="15" height="13" font="2">â</text>
+<text top="300" left="571" width="26" height="13" font="2">48.0</text>
+<text top="300" left="621" width="15" height="13" font="2">â</text>
+<text top="300" left="665" width="15" height="13" font="2">â</text>
+<text top="316" left="97" width="29" height="13" font="2">BWI</text>
+<text top="316" left="161" width="26" height="13" font="2">99.6</text>
+<text top="316" left="207" width="23" height="13" font="2">100</text>
+<text top="316" left="249" width="26" height="13" font="2">99.8</text>
+<text top="316" left="299" width="23" height="13" font="2">100</text>
+<text top="316" left="342" width="26" height="13" font="2">93.7</text>
+<text top="316" left="386" width="26" height="13" font="2">96.7</text>
+<text top="316" left="434" width="26" height="13" font="2">90.9</text>
+<text top="316" left="479" width="26" height="13" font="2">43.5</text>
+<text top="316" left="523" width="26" height="13" font="2">58.8</text>
+<text top="316" left="571" width="26" height="13" font="2">77.5</text>
+<text top="316" left="616" width="26" height="13" font="2">45.9</text>
+<text top="316" left="660" width="26" height="13" font="2">57.7</text>
+<text top="333" left="190" width="55" height="13" font="7">CS-name</text>
+<text top="333" left="330" width="49" height="13" font="7">QS-date</text>
+<text top="333" left="471" width="42" height="13" font="7">QS-vol</text>
+<text top="349" left="97" width="37" height="13" font="2">HMM</text>
+<text top="349" left="161" width="26" height="13" font="2">41.3</text>
+<text top="349" left="206" width="26" height="13" font="2">65.0</text>
+<text top="349" left="249" width="26" height="13" font="2">50.5</text>
+<text top="349" left="297" width="26" height="13" font="2">36.3</text>
+<text top="349" left="344" width="23" height="13" font="2">100</text>
+<text top="349" left="386" width="26" height="13" font="2">53.3</text>
+<text top="349" left="434" width="26" height="13" font="2">18.4</text>
+<text top="349" left="479" width="26" height="13" font="2">96.2</text>
+<text top="349" left="523" width="26" height="13" font="2">30.9</text>
+<text top="365" left="97" width="42" height="13" font="2">Stalker</text>
+<text top="365" left="166" width="15" height="13" font="2">â</text>
+<text top="365" left="211" width="15" height="13" font="2">â</text>
+<text top="365" left="255" width="15" height="13" font="2">â</text>
+<text top="365" left="307" width="7" height="13" font="2">0</text>
+<text top="365" left="348" width="15" height="13" font="2">â</text>
+<text top="365" left="392" width="15" height="13" font="2">â</text>
+<text top="365" left="444" width="7" height="13" font="2">0</text>
+<text top="365" left="485" width="15" height="13" font="2">â</text>
+<text top="365" left="529" width="15" height="13" font="2">â</text>
+<text top="382" left="97" width="29" height="13" font="2">BWI</text>
+<text top="382" left="161" width="26" height="13" font="2">77.1</text>
+<text top="382" left="206" width="26" height="13" font="2">31.4</text>
+<text top="382" left="249" width="26" height="13" font="2">44.6</text>
+<text top="382" left="299" width="23" height="13" font="2">100</text>
+<text top="382" left="344" width="23" height="13" font="2">100</text>
+<text top="382" left="388" width="23" height="13" font="2">100</text>
+<text top="382" left="436" width="23" height="13" font="2">100</text>
+<text top="382" left="479" width="26" height="13" font="2">61.9</text>
+<text top="382" left="523" width="26" height="13" font="2">76.5</text>
+<text top="421" left="236" width="447" height="13" font="2">Figure 7: BWI compared with four competing algorithms on sixteen tasks.</text>
+<text top="469" left="89" width="350" height="13" font="2">Defense Advanced Research Projects Agency. Proc. Sixth</text>
+<text top="485" left="89" width="351" height="13" font="7">Message Understanding Conference (MUC-6). Morgan</text>
+<text top="502" left="89" width="194" height="13" font="2">Kaufmann Publisher, Inc., 1995.</text>
+<text top="525" left="89" width="351" height="13" font="2">D. Freitag and A. McCallum. Information extraction using</text>
+<text top="541" left="89" width="350" height="13" font="2">HMMs and shrinkage. In Proc. AAAI-99 Workshop on Ma-</text>
+<text top="558" left="89" width="350" height="13" font="7">chine Learning for Information Extraction, 1999. AAAI</text>
+<text top="574" left="89" width="172" height="13" font="2">Technical Report WS-99-11.</text>
+<text top="597" left="89" width="351" height="13" font="2">D. Freitag. Information extraction from HTML: Applica-</text>
+<text top="613" left="89" width="350" height="13" font="2">tion of a general machine learning approach. In Proc. Fif-</text>
+<text top="630" left="89" width="351" height="13" font="7">teenth National Conference on Artificial Intelligence, 1998.</text>
+<text top="653" left="89" width="350" height="13" font="2">D. Freitag. Machine learning for information extraction in</text>
+<text top="669" left="89" width="318" height="13" font="2">informal domains. Machine Learning, 39(2/3), 2000.</text>
+<text top="692" left="89" width="351" height="13" font="2">C. Hsu and M. Dung. Generating finite-state transducers</text>
+<text top="708" left="89" width="350" height="13" font="2">for semistructured data extraction from the web. J. Infor-</text>
+<text top="725" left="89" width="174" height="13" font="7">mation Systems, 23(8), 1998.</text>
+<text top="748" left="89" width="350" height="13" font="2">S. Huffman. Learning information extraction patterns from</text>
+<text top="764" left="89" width="350" height="13" font="2">examples. In Connectionist, Statistical, and Symbolic Ap-</text>
+<text top="781" left="89" width="350" height="13" font="7">proaches to Learning for Natural Language Processing,</text>
+<text top="797" left="89" width="351" height="13" font="2">volume 1040 of Lecture Notes in Artificial Intelligence,</text>
+<text top="813" left="89" width="279" height="13" font="2">pages 246â260. Springer-Verlag, Berlin, 1996.</text>
+<text top="836" left="89" width="350" height="13" font="2">J.-T. Kim and D. Moldovan. Acquisition of linguistic pat-</text>
+<text top="853" left="89" width="350" height="13" font="2">terns for knowledge-based information extraction. IEEE</text>
+<text top="869" left="89" width="351" height="13" font="7">Trans. on Knowledge and Data Engineering, 7(5):713â</text>
+<text top="886" left="89" width="64" height="13" font="2">724, 1995.</text>
+<text top="909" left="89" width="350" height="13" font="2">N. Kushmerick, D. Weld, and R. Doorenbos. Wrapper In-</text>
+<text top="925" left="89" width="350" height="13" font="2">duction for Information Extraction. In Proc. 15th Int. Conf.</text>
+<text top="941" left="89" width="259" height="13" font="7">Artificial Intelligence, pages 729â35, 1997.</text>
+<text top="964" left="89" width="351" height="13" font="2">N. Kushmerick. Wrapper induction: Efficiency and expres-</text>
+<text top="981" left="89" width="283" height="13" font="2">siveness. Artificial Intelligence, 2000. In press.</text>
+<text top="1004" left="89" width="351" height="13" font="2">T. Leek. Information extraction using hidden Markov mod-</text>
+<text top="1020" left="89" width="251" height="13" font="2">els. Masterâs thesis, UC San Diego, 1997.</text>
+<text top="1043" left="89" width="351" height="13" font="2">A. Levy, C. Knoblock, S. Minton, and W. Cohen. Trends</text>
+<text top="469" left="487" width="351" height="13" font="2">and controversies: Information integration. IEEE Intelli-</text>
+<text top="485" left="487" width="158" height="13" font="7">gent Systems, 13(5), 1998.</text>
+<text top="506" left="487" width="351" height="13" font="2">I. Muslea, S. Minton, and C. Knoblock. Hierachical wrap-</text>
+<text top="522" left="487" width="350" height="13" font="2">per induction for semistructured information sources. J.</text>
+<text top="539" left="487" width="350" height="13" font="7">Autonomous Agents and Multi-Agent Systems, 2000. In</text>
+<text top="555" left="487" width="35" height="13" font="2">press.</text>
+<text top="576" left="487" width="351" height="13" font="2">R. Schapire and Y. Singer. Improved boosting algorithms</text>
+<text top="592" left="487" width="219" height="13" font="2">using confidence-rated predictions.</text>
+<text top="592" left="725" width="113" height="13" font="2">In Proc. Eleventh</text>
+<text top="609" left="487" width="350" height="13" font="7">Annual Conference on Computational Learning Theory,</text>
+<text top="625" left="487" width="34" height="13" font="2">1998.</text>
+<text top="646" left="487" width="351" height="13" font="2">S. Soderland. Learning Text Analysis Rules for Domain-</text>
+<text top="662" left="487" width="350" height="13" font="7">specific Natural Language Processing. PhD thesis, Uni-</text>
+<text top="678" left="487" width="343" height="13" font="2">versity of Massachusetts, 1996. CS Tech. Report 96-087.</text>
+<text top="699" left="487" width="86" height="13" font="2">S. Soderland.</text>
+<text top="699" left="596" width="242" height="13" font="2">Learning information extraction rules</text>
+<text top="715" left="487" width="213" height="13" font="2">for semi-structured and free text.</text>
+<text top="715" left="718" width="119" height="13" font="7">Machine Learning,</text>
+<text top="732" left="487" width="142" height="13" font="2">34(1/3):233â272, 1999.</text>
+<text top="752" left="487" width="99" height="13" font="2">G. Wiederhold.</text>
+<text top="752" left="613" width="225" height="13" font="7">Intelligent Information Integration.</text>
+<text top="769" left="487" width="86" height="13" font="2">Kluwer, 1996.</text>
+</page>
+<page number="7" position="absolute" top="0" left="0" height="1188" width="918">
+<text top="344" left="119" width="5" height="9" font="23">0</text>
+<text top="300" left="114" width="10" height="9" font="23">20</text>
+<text top="257" left="114" width="10" height="9" font="23">40</text>
+<text top="213" left="114" width="10" height="9" font="23">60</text>
+<text top="169" left="114" width="10" height="9" font="23">80</text>
+<text top="126" left="109" width="15" height="9" font="23">100</text>
+<text top="354" left="127" width="5" height="9" font="23">0</text>
+<text top="354" left="181" width="10" height="9" font="23">20</text>
+<text top="354" left="237" width="10" height="9" font="23">40</text>
+<text top="354" left="293" width="10" height="9" font="23">60</text>
+<text top="354" left="349" width="10" height="9" font="23">80</text>
+<text top="354" left="403" width="15" height="9" font="23">100</text>
+<text top="261" left="107" width="0" height="9" font="24">Precision, BWI</text>
+<text top="364" left="220" width="104" height="9" font="23">Precision, other algorithm</text>
+<text top="274" left="349" width="25" height="9" font="23">HMM</text>
+<text top="284" left="347" width="26" height="9" font="23">Rapier</text>
+<text top="294" left="354" width="19" height="9" font="23">SRV</text>
+<text top="304" left="329" width="45" height="9" font="23">STALKER</text>
+<text top="618" left="119" width="5" height="9" font="23">0</text>
+<text top="575" left="114" width="10" height="9" font="23">20</text>
+<text top="531" left="114" width="10" height="9" font="23">40</text>
+<text top="487" left="114" width="10" height="9" font="23">60</text>
+<text top="444" left="114" width="10" height="9" font="23">80</text>
+<text top="400" left="109" width="15" height="9" font="23">100</text>
+<text top="628" left="127" width="5" height="9" font="23">0</text>
+<text top="628" left="181" width="10" height="9" font="23">20</text>
+<text top="628" left="237" width="10" height="9" font="23">40</text>
+<text top="628" left="293" width="10" height="9" font="23">60</text>
+<text top="628" left="349" width="10" height="9" font="23">80</text>
+<text top="628" left="403" width="15" height="9" font="23">100</text>
+<text top="530" left="107" width="0" height="9" font="24">Recall, BWI</text>
+<text top="638" left="225" width="92" height="9" font="23">Recall, other algorithm</text>
+<text top="570" left="349" width="25" height="9" font="23">HMM</text>
+<text top="580" left="347" width="26" height="9" font="23">Rapier</text>
+<text top="590" left="354" width="19" height="9" font="23">SRV</text>
+<text top="893" left="119" width="5" height="9" font="23">0</text>
+<text top="849" left="114" width="10" height="9" font="23">20</text>
+<text top="805" left="114" width="10" height="9" font="23">40</text>
+<text top="762" left="114" width="10" height="9" font="23">60</text>
+<text top="718" left="114" width="10" height="9" font="23">80</text>
+<text top="674" left="109" width="15" height="9" font="23">100</text>
+<text top="903" left="127" width="5" height="9" font="23">0</text>
+<text top="903" left="181" width="10" height="9" font="23">20</text>
+<text top="903" left="237" width="10" height="9" font="23">40</text>
+<text top="903" left="293" width="10" height="9" font="23">60</text>
+<text top="903" left="349" width="10" height="9" font="23">80</text>
+<text top="903" left="403" width="15" height="9" font="23">100</text>
+<text top="796" left="107" width="0" height="9" font="24">F1, BWI</text>
+<text top="912" left="233" width="77" height="9" font="23">F1, other algorithm</text>
+<text top="845" left="349" width="25" height="9" font="23">HMM</text>
+<text top="854" left="347" width="26" height="9" font="23">Rapier</text>
+<text top="864" left="354" width="19" height="9" font="23">SRV</text>
+<text top="950" left="81" width="358" height="13" font="2">Figure 8: Graphical summaries of the data in Fig. 7. Each</text>
+<text top="966" left="81" width="358" height="13" font="2">point represents a comparison between BWI and one other</text>
+<text top="982" left="81" width="357" height="13" font="2">algorithm; points above the straight lines indicate domains</text>
+<text top="999" left="81" width="183" height="13" font="2">in which BWI performs better.</text>
+</page>
+</pdf2xml>

@@ -1,0 +1,5 @@
+2535		http://www.aaai.org/Papers/AAAI/2000/AAAI00-081.pdf		Bayesian Fault Detection and Diagnosis in Dynamic Systems
+2538		http://www.aaai.org/Papers/AAAI/2000/AAAI00-061.pdf		A Conjunctive Query Language for Description Logic Aboxes
+2539		http://www.aaai.org/Papers/AAAI/2000/AAAI00-124.pdf		An Iterative Algorithm for Synthesizing Invariants
+2548		http://www.aaai.org/Papers/AAAI/2000/AAAI00-027.pdf		A Game-Theoretic Approach to Constraint Satisfaction
+2552		http://www.aaai.org/Papers/AAAI/2000/AAAI00-059.pdf		Answering Queries Using Views over Description Logics Knowledge Bases

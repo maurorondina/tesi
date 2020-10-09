@@ -1,0 +1,38 @@
+DEBUG - find_abstract() - abstract found: "Abstract".
+INFO - get_paragraph_titles() - Abstract with font=6 found: "Abstract".
+DEBUG - find_references() - references found: "References".
+INFO - get_paragraph_titles() - References with font=1 found: "References".
+INFO - get_paragraph_titles() - Introduction with References font=1 found: "Introduction".
+INFO - get_paragraph_titles() - Valid paragraph titles found:
+	- Introduction
+	- Sample Application
+	- Experimental Investigation
+	- Versatility
+	- Related Work
+	- Future Work And Conclusions
+	- Acknowledgments
+	- References
+	- Appendix
+INFO - Paragraph titles detected:
+	- Abstract	in page: 1
+	- Introduction	in page: 1
+	- Sample Application	in page: 1
+	- Experimental Investigation	in page: 3
+	- Versatility	in page: 6
+	- Related Work	in page: 6
+	- Future Work And Conclusions	in page: 7
+	- Acknowledgments	in page: 7
+	- References	in page: 7
+	- Appendix	in page: 8
+INFO - parse_txt() - Titles matched:
+	- 0# Human-Guided Simple Search
+	- 1# Abstract
+	- 2# Introduction
+	- 3# Sample Application
+	- 4# Experimental Investigation
+	- 5# Versatility
+	- 6# Related Work
+	- 7# Future Work And Conclusions
+	- 8# Acknowledgments
+	- 9# References
+	- 10# Appendix

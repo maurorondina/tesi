@@ -1,0 +1,29 @@
+DEBUG - find_abstract() - abstract found: "Abstract".
+INFO - get_paragraph_titles() - Abstract with font=4 found: "Abstract".
+DEBUG - find_references() - references found: "References".
+INFO - get_paragraph_titles() - References with font=1 found: "References".
+INFO - get_paragraph_titles() - Introduction with References font=1 found: "Introduction".
+INFO - get_paragraph_titles() - Valid paragraph titles found:
+	- Introduction
+	- Problem Statement
+	- The BWI algorithm
+	- Experimental Results
+	- Conclusions
+	- References
+INFO - Paragraph titles detected:
+	- Abstract	in page: 1
+	- Introduction	in page: 1
+	- Problem Statement	in page: 2
+	- The BWI algorithm	in page: 2
+	- Experimental Results	in page: 3
+	- Conclusions	in page: 5
+	- References	in page: 5
+INFO - parse_txt() - Titles matched:
+	- 0# Boosted Wrapper Induction
+	- 1# Abstract
+	- 2# Introduction
+	- 3# Problem Statement
+	- 4# The BWI algorithm
+	- 5# Experimental Results
+	- 6# Conclusions
+	- 7# References

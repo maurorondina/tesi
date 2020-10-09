@@ -1,0 +1,1797 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pdf2xml SYSTEM "pdf2xml.dtd">
+
+<pdf2xml producer="poppler" version="0.90.1">
+<page number="1" position="absolute" top="0" left="0" height="1188" width="918">
+	<fontspec id="0" size="21" family="Times" color="#000000"/>
+	<fontspec id="1" size="18" family="Times" color="#000000"/>
+	<fontspec id="2" size="15" family="Times" color="#000000"/>
+	<fontspec id="3" size="15" family="Times" color="#000000"/>
+	<fontspec id="4" size="13" family="Times" color="#000000"/>
+	<fontspec id="5" size="13" family="Times" color="#000000"/>
+	<fontspec id="6" size="15" family="Times" color="#000000"/>
+	<fontspec id="7" size="0" family="Times" color="#000000"/>
+	<fontspec id="8" size="16" family="Times" color="#000000"/>
+	<fontspec id="9" size="12" family="Helvetica" color="#000000"/>
+	<fontspec id="10" size="12" family="ArialMT" color="#000000"/>
+<text top="141" left="182" width="554" height="19" font="0">Bayesian Fault Detection and Diagnosis in Dynamic Systems</text>
+<text top="177" left="125" width="84" height="16" font="1">Uri Lerner</text>
+<text top="196" left="94" width="146" height="14" font="2">Computer Science Dept.</text>
+<text top="212" left="109" width="118" height="14" font="2">Stanford University</text>
+<text top="229" left="107" width="121" height="14" font="2">uri@cs.stanford.edu</text>
+<text top="177" left="314" width="96" height="16" font="1">Ronald Parr</text>
+<text top="196" left="289" width="146" height="14" font="2">Computer Science Dept.</text>
+<text top="212" left="303" width="118" height="14" font="2">Stanford University</text>
+<text top="229" left="298" width="128" height="14" font="2">parr@cs.stanford.edu</text>
+<text top="177" left="500" width="113" height="16" font="1">Daphne Koller</text>
+<text top="196" left="483" width="146" height="14" font="2">Computer Science Dept.</text>
+<text top="212" left="498" width="118" height="14" font="2">Stanford University</text>
+<text top="229" left="487" width="139" height="14" font="2">koller@cs.stanford.edu</text>
+<text top="177" left="690" width="120" height="16" font="1">Gautam Biswas</text>
+<text top="196" left="687" width="127" height="14" font="2">Department of EECS</text>
+<text top="212" left="687" width="129" height="14" font="2">Vanderbilt University</text>
+<text top="229" left="665" width="171" height="14" font="2">biswas@vuse.vanderbilt.edu</text>
+<text top="275" left="232" width="55" height="14" font="3">Abstract</text>
+<text top="302" left="96" width="328" height="12" font="4">This paper addresses the problem of tracking and diagnosing</text>
+<text top="317" left="96" width="328" height="12" font="4">complex systems with mixtures of discrete and continuous</text>
+<text top="332" left="96" width="328" height="12" font="4">variables. This problem is a difficult one, particularly when</text>
+<text top="347" left="96" width="328" height="12" font="4">the system dynamics are nondeterministic, not all aspects of</text>
+<text top="362" left="96" width="328" height="12" font="4">the system are directly observed, and the sensors are subject</text>
+<text top="377" left="96" width="327" height="12" font="4">to noise. In this paper, we propose a new approach to this</text>
+<text top="392" left="96" width="328" height="12" font="4">task, based on the framework of hybrid dynamic Bayesian</text>
+<text top="407" left="96" width="328" height="12" font="5">networks (DBN). These models contain both continuous vari-</text>
+<text top="421" left="96" width="327" height="12" font="4">ables representing the state of the system and discrete vari-</text>
+<text top="437" left="96" width="328" height="12" font="4">ables representing discrete changes such as failures; they can</text>
+<text top="451" left="96" width="328" height="12" font="4">model a variety of faults, including burst faults, measurement</text>
+<text top="466" left="96" width="328" height="12" font="4">errors, and gradual drifts. We present a novel algorithm for</text>
+<text top="481" left="96" width="328" height="12" font="4">tracking in hybrid DBNs, that deals with the challenges posed</text>
+<text top="496" left="96" width="328" height="12" font="4">by this difficult problem. We demonstrate how the resulting</text>
+<text top="511" left="96" width="318" height="12" font="4">algorithm can be used to detect faults in a complex system.</text>
+<text top="550" left="211" width="98" height="16" font="1">Introduction</text>
+<text top="574" left="81" width="358" height="14" font="2">The complexity and sophistication of the current genera-</text>
+<text top="590" left="81" width="359" height="14" font="2">tion of industrial processes, and the growing need for au-</text>
+<text top="607" left="81" width="359" height="14" font="2">tonomous agents that control physical systems, motivate the</text>
+<text top="623" left="81" width="358" height="14" font="2">need for robust online monitoring and diagnosis of complex</text>
+<text top="640" left="81" width="358" height="14" font="2">hybrid systems (e.g., (Isermann 1997) and (McIlraith et al.</text>
+<text top="656" left="81" width="358" height="14" font="2">2000)). We want to monitor the state of the system, reliably</text>
+<text top="673" left="81" width="358" height="14" font="2">detect abnormal behavior, and diagnose the failure. Sev-</text>
+<text top="689" left="81" width="358" height="14" font="2">eral approaches have been used for dealing with this prob-</text>
+<text top="706" left="81" width="358" height="14" font="2">lem, but each has its limitations. The traditional model-</text>
+<text top="722" left="81" width="358" height="14" font="2">based schemes for diagnosis and control suffer from com-</text>
+<text top="738" left="81" width="358" height="14" font="2">putational intractability and numerical convergence prob-</text>
+<text top="755" left="81" width="358" height="14" font="2">lems. The qualitative reasoning mechanisms that dominate</text>
+<text top="771" left="81" width="358" height="14" font="2">this work in the AI community mitigate some of these prob-</text>
+<text top="788" left="81" width="358" height="14" font="2">lems; however, the lack of precision in the representation,</text>
+<text top="804" left="81" width="357" height="14" font="2">and the ambiguities introduced by the reasoning framework</text>
+<text top="820" left="81" width="357" height="14" font="2">can lead them to perform poorly when applied to complex</text>
+<text top="837" left="81" width="358" height="14" font="2">system with continuous dynamics (Hamscher, Console, &amp;</text>
+<text top="853" left="81" width="132" height="14" font="2">de Kleer (eds.) 1992).</text>
+<text top="870" left="96" width="343" height="14" font="2">In this paper, we propose a different approach to this prob-</text>
+<text top="886" left="81" width="358" height="14" font="2">lem, where we model a complex hybrid system as a dynamic</text>
+<text top="903" left="81" width="358" height="14" font="6">Bayesian network (DBN). This model implicitly defines a</text>
+<text top="919" left="81" width="358" height="14" font="2">probability distribution over projected trajectories of the sys-</text>
+<text top="936" left="81" width="358" height="14" font="2">tem state over time. In this sense, it is similar to the very</text>
+<text top="952" left="81" width="358" height="14" font="2">successful Kalman filter (Kalman 1960). For systems with</text>
+<text top="969" left="81" width="358" height="14" font="2">linear dynamics and Gaussian noise, the Kalman filter pro-</text>
+<text top="985" left="81" width="359" height="14" font="2">vides an excellent means for tracking system state. Unfortu-</text>
+<text top="1001" left="81" width="358" height="14" font="2">nately, real-life systems are rife with nonlinearities, many of</text>
+<text top="1029" left="81" width="70" height="12" font="4">Copyright c</text>
+<text top="1038" left="141" width="14" height="0" font="7"></text>
+<text top="1029" left="161" width="277" height="12" font="4">2000, American Association for Artificial Intelli-</text>
+<text top="1044" left="81" width="229" height="12" font="4">gence (www.aaai.org). All rights reserved.</text>
+<text top="275" left="479" width="358" height="14" font="2">which are expressed as discrete failure modes that can pro-</text>
+<text top="291" left="479" width="358" height="14" font="2">duce discontinuous jumps in system behavior. Hybrid DBNs</text>
+<text top="308" left="479" width="358" height="14" font="2">accommodate a much greater range of problems, including</text>
+<text top="324" left="479" width="358" height="14" font="2">nonlinear dynamics and discrete failure modes that influence</text>
+<text top="340" left="479" width="358" height="14" font="2">system evolution. They can directly represent the noise asso-</text>
+<text top="357" left="479" width="358" height="14" font="2">ciated with the system evolution and measurements, as well</text>
+<text top="373" left="479" width="269" height="14" font="2">as the probabilities of faults and their effects.</text>
+<text top="390" left="494" width="343" height="14" font="2">We first show that many interesting aspects of diagnostic</text>
+<text top="406" left="479" width="358" height="14" font="2">models can be represented in the DBN framework. In par-</text>
+<text top="423" left="479" width="358" height="14" font="2">ticular, we show that they allow a natural encoding of the</text>
+<text top="439" left="479" width="358" height="14" font="2">representation of higher-order system dynamics used in the</text>
+<text top="456" left="479" width="358" height="14" font="6">temporal causal graph (TCG) framework of Mosterman and</text>
+<text top="472" left="479" width="358" height="14" font="2">Biswas (1997). In fact, a TCG can be used to provide the</text>
+<text top="488" left="479" width="358" height="14" font="2">skeleton for an appropriate DBN model. We also show that</text>
+<text top="505" left="479" width="358" height="14" font="2">many interesting types of failures can be modeled naturally</text>
+<text top="521" left="479" width="357" height="14" font="2">in the DBN, including burst faults, parameter drift, and mea-</text>
+<text top="538" left="479" width="97" height="14" font="2">surement errors.</text>
+<text top="554" left="494" width="343" height="14" font="2">There are several advantages to the use of general proba-</text>
+<text top="571" left="479" width="358" height="14" font="2">bilistic models, such as DBNs, for fault detection and diag-</text>
+<text top="587" left="479" width="358" height="14" font="2">nosis. A DBN is complete model of the system. Using this</text>
+<text top="604" left="479" width="358" height="14" font="2">model, the state of the system, including its failure modes, is</text>
+<text top="620" left="479" width="358" height="14" font="2">tracked by maintaining a probability distribution over possi-</text>
+<text top="636" left="479" width="358" height="14" font="2">ble system states given all of the measurements so far. This</text>
+<text top="653" left="479" width="358" height="14" font="6">belief state distribution is an exact representation of our best</text>
+<text top="669" left="479" width="358" height="14" font="2">possible beliefs given all of the available evidence. It in-</text>
+<text top="686" left="479" width="358" height="14" font="2">cludes within it the likelihood of different types of failures,</text>
+<text top="702" left="479" width="358" height="14" font="2">as well as a distribution over the relevant system parameters.</text>
+<text top="718" left="479" width="358" height="14" font="2">In principle, many of the issues that have challenged tradi-</text>
+<text top="735" left="479" width="358" height="14" font="2">tional approaches to diagnosis â ranking possible failures,</text>
+<text top="752" left="479" width="358" height="14" font="2">handling of multiple simultaneous failures, and robustness</text>
+<text top="768" left="479" width="359" height="14" font="2">to parameter drift â can be addressed within a probabilistic</text>
+<text top="784" left="479" width="122" height="14" font="2">tracking framework.</text>
+<text top="801" left="494" width="343" height="14" font="2">Of course, the inference task that is required for main-</text>
+<text top="817" left="479" width="358" height="14" font="2">taining this belief state is a difficult one. Unlike the case of a</text>
+<text top="834" left="479" width="358" height="14" font="2">simple Kalman filter, tracking such systems is generally in-</text>
+<text top="850" left="479" width="358" height="14" font="2">tractable since the number of modes of these systems grows</text>
+<text top="866" left="479" width="358" height="14" font="2">exponentially over time. We present a novel algorithm that</text>
+<text top="883" left="479" width="358" height="14" font="2">tames this intractability using a combination of several dif-</text>
+<text top="900" left="479" width="358" height="14" font="2">ferent techniques. We show that this algorithm succeeds in</text>
+<text top="916" left="479" width="358" height="14" font="2">tracking a very difficult scenario on a fairly large system</text>
+<text top="932" left="479" width="358" height="14" font="2">(one involving five tanks). We believe that our approach will</text>
+<text top="949" left="479" width="298" height="14" font="2">scale well to substantially more complex systems.</text>
+<text top="981" left="598" width="120" height="16" font="1">The framework</text>
+<text top="1004" left="479" width="194" height="15" font="8">Diagnosis of hybrid systems</text>
+<text top="1026" left="479" width="359" height="14" font="2">To ground our discussion, we will focus on the diagnosis</text>
+<text top="1043" left="479" width="358" height="14" font="2">task for a class of problems typical of chemical manufac-</text>
+<text top="77" left="75" width="66" height="11" font="9">From: AAAI-</text>
+<text top="77" left="141" width="13" height="11" font="10">00</text>
+<text top="77" left="154" width="144" height="11" font="9"> Proceedings. Copyright Â© </text>
+<text top="77" left="298" width="27" height="11" font="10">2000</text>
+<text top="77" left="325" width="227" height="11" font="9">, AAAI (www.aaai.org). All rights reserved. </text>
+</page>
+<page number="2" position="absolute" top="0" left="0" height="1188" width="918">
+	<fontspec id="11" size="10" family="Times" color="#000000"/>
+	<fontspec id="12" size="10" family="Times" color="#231f20"/>
+	<fontspec id="13" size="8" family="Times" color="#231f20"/>
+	<fontspec id="14" size="8" family="Courier" color="#231f20"/>
+<text top="229" left="144" width="17" height="14" font="2">(a)</text>
+<text top="136" left="305" width="38" height="12" font="4">Tank 2</text>
+<text top="159" left="203" width="38" height="12" font="4">Tank 1</text>
+<text top="213" left="318" width="11" height="9" font="11">P2</text>
+<text top="212" left="214" width="11" height="9" font="11">P1</text>
+<text top="228" left="164" width="16" height="9" font="11">F1o</text>
+<text top="230" left="363" width="16" height="9" font="11">F2o</text>
+<text top="193" left="266" width="16" height="9" font="11">F12</text>
+<text top="171" left="266" width="17" height="9" font="11">R12</text>
+<text top="170" left="169" width="17" height="9" font="11">R1o</text>
+<text top="169" left="355" width="17" height="9" font="11">R2o</text>
+<text top="83" left="180" width="30" height="9" font="11">In flow</text>
+<text top="338" left="105" width="18" height="14" font="2">(b)</text>
+<text top="292" left="336" width="21" height="10" font="12">F12â</text>
+<text top="284" left="217" width="5" height="8" font="13">=</text>
+<text top="275" left="204" width="5" height="8" font="13">=</text>
+<text top="292" left="232" width="19" height="10" font="12">P2ââ</text>
+<text top="258" left="336" width="21" height="10" font="12">-P12</text>
+<text top="284" left="253" width="4" height="8" font="13">1</text>
+<text top="325" left="186" width="7" height="8" font="13">-1</text>
+<text top="323" left="280" width="5" height="8" font="13">=</text>
+<text top="259" left="289" width="7" height="8" font="13">-1</text>
+<text top="260" left="390" width="5" height="7" font="14">=</text>
+<text top="309" left="413" width="5" height="8" font="13">=</text>
+<text top="310" left="362" width="7" height="8" font="13">-1</text>
+<text top="273" left="155" width="7" height="8" font="13">-1</text>
+<text top="286" left="144" width="4" height="8" font="13">1</text>
+<text top="285" left="318" width="5" height="8" font="13">=</text>
+<text top="285" left="351" width="4" height="8" font="13">1</text>
+<text top="292" left="194" width="12" height="10" font="12">P1</text>
+<text top="258" left="194" width="16" height="10" font="12">P1â</text>
+<text top="326" left="404" width="16" height="10" font="12">P2â</text>
+<text top="258" left="159" width="17" height="10" font="12">F2o</text>
+<text top="326" left="370" width="17" height="10" font="12">F2o</text>
+<text top="292" left="404" width="12" height="10" font="12">P2</text>
+<text top="292" left="267" width="17" height="10" font="12">P12</text>
+<text top="292" left="303" width="17" height="10" font="12">F12</text>
+<text top="326" left="232" width="12" height="10" font="12">F4</text>
+<text top="292" left="370" width="19" height="10" font="12">F2T</text>
+<text top="292" left="127" width="12" height="10" font="12">F1</text>
+<text top="292" left="159" width="19" height="10" font="12">F1T</text>
+<text top="277" left="289" width="4" height="8" font="13">1</text>
+<text top="285" left="283" width="15" height="8" font="13">R12</text>
+<text top="244" left="180" width="4" height="8" font="13">1</text>
+<text top="252" left="175" width="15" height="8" font="13">R1o</text>
+<text top="334" left="391" width="4" height="8" font="13">1</text>
+<text top="342" left="385" width="15" height="8" font="13">Rb2</text>
+<text top="282" left="183" width="7" height="8" font="13">dt</text>
+<text top="278" left="175" width="4" height="8" font="13">1</text>
+<text top="286" left="172" width="10" height="8" font="13">C1</text>
+<text top="282" left="394" width="7" height="8" font="13">dt</text>
+<text top="278" left="386" width="4" height="8" font="13">1</text>
+<text top="286" left="383" width="10" height="8" font="13">C2</text>
+<text top="370" left="81" width="358" height="14" font="2">Figure 1: The two-tank system. F indicates flow; P indicates</text>
+<text top="387" left="81" width="196" height="14" font="2">pressure; R indicates Resistance.</text>
+<text top="434" left="81" width="358" height="14" font="2">turing processes, which involve the transport of materials</text>
+<text top="451" left="81" width="358" height="14" font="2">(mostly fluids) into and between tanks. Such domains are</text>
+<text top="468" left="81" width="358" height="14" font="2">well-represented using bond graph formalism (Rosenberg &amp;</text>
+<text top="484" left="81" width="358" height="14" font="2">Karnopp 1983), where the dynamic behavior of the system</text>
+<text top="500" left="81" width="358" height="14" font="2">is defined by fluid pressures and fluid flow-rates. Consider,</text>
+<text top="517" left="81" width="358" height="14" font="2">for example, a simple two-tank model, shown in Figure 1(a).</text>
+<text top="533" left="81" width="358" height="14" font="2">The model represents a system with two tanks that can hold</text>
+<text top="550" left="81" width="358" height="14" font="2">fluids, an inlet pipe into tank 1, two outlet pipes, and a con-</text>
+<text top="566" left="81" width="358" height="14" font="2">necting pipe between the tanks. The storage tanks are ca-</text>
+<text top="582" left="81" width="358" height="14" font="6">pacitive elements and the connecting pipes are resistive el-</text>
+<text top="599" left="81" width="358" height="14" font="6">ements. This system is a second order system with natural</text>
+<text top="616" left="81" width="135" height="14" font="2">feedback mechanisms.</text>
+<text top="632" left="96" width="343" height="14" font="2">The temporal causal graph (TCG) framework of (Moster-</text>
+<text top="648" left="81" width="358" height="14" font="2">man &amp; Biswas 1997) is a topological representation that</text>
+<text top="665" left="81" width="358" height="14" font="2">captures local dynamic relations between variables, and pro-</text>
+<text top="681" left="81" width="357" height="14" font="2">vides a more explicit representation of the relation between</text>
+<text top="698" left="81" width="358" height="14" font="2">system parameters and the behavior variables. The TCG for</text>
+<text top="714" left="81" width="358" height="14" font="2">the two-tank example is shown in Figure 1(b). Here, the</text>
+<text top="730" left="81" width="357" height="14" font="2">variables are the pressure and flow-rate variables associated</text>
+<text top="747" left="81" width="358" height="14" font="2">with the tanks and the pipes in the system. Causal edges</text>
+<text top="763" left="81" width="358" height="14" font="2">in a TCG are labeled with component parameter values and</text>
+<text top="780" left="81" width="358" height="14" font="2">temporal information derived from the characteristics of the</text>
+<text top="796" left="81" width="358" height="14" font="2">related components. Resistive and junction components in-</text>
+<text top="813" left="81" width="358" height="14" font="2">troduce algebraic relations among the system variables, and</text>
+<text top="829" left="81" width="358" height="14" font="2">therefore, define instantaneous temporal relations such as a</text>
+<text top="846" left="81" width="358" height="14" font="2">direct or inverse proportionality between the variables (de-</text>
+<text top="862" left="81" width="53" height="14" font="2">noted by</text>
+<text top="872" left="138" width="19" height="0" font="7">1</text>
+<text top="862" left="157" width="282" height="14" font="2">). On the other hand, energy storage elements,</text>
+<text top="878" left="81" width="358" height="14" font="2">like capacitive and inductive elements, introduce integral re-</text>
+<text top="895" left="81" width="300" height="14" font="2">lations between system variables (labeled with a</text>
+<text top="905" left="386" width="13" height="0" font="7">dt</text>
+<text top="895" left="400" width="39" height="14" font="2">). For</text>
+<text top="911" left="81" width="358" height="14" font="2">example, capacitive relations from the flow-rate variable to</text>
+<text top="928" left="81" width="237" height="14" font="2">the pressure variable are labeled with a</text>
+<text top="932" left="326" width="6" height="0" font="7">1</text>
+<text top="943" left="324" width="9" height="0" font="7">C</text>
+<text top="938" left="336" width="13" height="0" font="7">dt</text>
+<text top="928" left="349" width="90" height="14" font="2">; this implies a</text>
+<text top="944" left="81" width="358" height="14" font="2">temporal relation, i.e., the flow-rate affects the derivative of</text>
+<text top="961" left="81" width="217" height="14" font="2">the corresponding pressure variable.</text>
+<text top="977" left="96" width="343" height="14" font="2">Many systems have the property that they behave nearly</text>
+<text top="994" left="81" width="358" height="14" font="2">deterministically in the absence of a fault. The deterministic</text>
+<text top="1010" left="81" width="358" height="14" font="2">trajectory of the system is often called its nominal trajectory.</text>
+<text top="1026" left="81" width="357" height="14" font="2">In such cases, faults are sometimes defined implicitly as any</text>
+<text top="1043" left="81" width="358" height="14" font="2">abrupt change in a parameter that causes a deviation from</text>
+<text top="86" left="479" width="358" height="14" font="2">the nominal trajectory. Since the temporal causal graph de-</text>
+<text top="102" left="479" width="358" height="14" font="2">fines a set of qualitative constraints on the system it can be</text>
+<text top="119" left="479" width="358" height="14" font="2">used to predict the effects of sudden discontinuous changes</text>
+<text top="135" left="479" width="358" height="14" font="2">in parameters, e.g., burst faults. By contrast, TCGs gener-</text>
+<text top="151" left="479" width="358" height="14" font="2">ally are not used identify parameter drift failures, which are</text>
+<text top="168" left="479" width="357" height="14" font="2">the result of gradual changes in system parameters that ac-</text>
+<text top="184" left="479" width="119" height="14" font="2">cumulate over time.</text>
+<text top="220" left="479" width="201" height="15" font="8">Dynamic Bayesian Networks</text>
+<text top="246" left="479" width="358" height="14" font="2">A dynamic Bayesian network (DBN) is a temporal stochas-</text>
+<text top="262" left="479" width="358" height="14" font="2">tic model for a dynamic system. It assumes that the system</text>
+<text top="279" left="479" width="337" height="14" font="2">state can be represented by a set of variables, denoted</text>
+<text top="288" left="822" width="10" height="0" font="7">Z</text>
+<text top="279" left="833" width="4" height="14" font="2">.</text>
+<text top="295" left="479" width="144" height="14" font="2">Each of these variables</text>
+<text top="305" left="629" width="10" height="0" font="7">Z</text>
+<text top="309" left="639" width="4" height="0" font="7">i</text>
+<text top="295" left="650" width="187" height="14" font="2">can be real-valued or discrete.</text>
+<text top="312" left="479" width="46" height="14" font="2">We use</text>
+<text top="322" left="531" width="13" height="0" font="7">D</text>
+<text top="316" left="544" width="5" height="0" font="7">t</text>
+<text top="322" left="558" width="12" height="0" font="7"></text>
+<text top="322" left="579" width="10" height="0" font="7">Z</text>
+<text top="316" left="589" width="5" height="0" font="7">t</text>
+<text top="312" left="600" width="237" height="14" font="2">to denote the discrete variables in the</text>
+<text top="328" left="479" width="358" height="14" font="2">state. We partition the continuous variables into two sub-</text>
+<text top="344" left="479" width="90" height="14" font="2">sets: the subset</text>
+<text top="354" left="573" width="13" height="0" font="7">Y</text>
+<text top="354" left="591" width="12" height="0" font="7"></text>
+<text top="354" left="607" width="10" height="0" font="7">Z</text>
+<text top="344" left="622" width="215" height="14" font="2">are variables that are measurements,</text>
+<text top="361" left="479" width="317" height="14" font="2">i.e., their value is known to us; the remaining subset</text>
+<text top="371" left="801" width="13" height="0" font="7">X</text>
+<text top="361" left="819" width="18" height="14" font="2">are</text>
+<text top="377" left="479" width="73" height="14" font="2">unobserved.</text>
+<text top="395" left="494" width="343" height="14" font="2">The system is modeled as evolving in discrete time steps.</text>
+<text top="412" left="479" width="169" height="14" font="2">Thus, each system variable</text>
+<text top="422" left="654" width="10" height="0" font="7">Z</text>
+<text top="412" left="671" width="121" height="14" font="2">has an instantiation</text>
+<text top="422" left="797" width="10" height="0" font="7">Z</text>
+<text top="416" left="808" width="5" height="0" font="7">t</text>
+<text top="412" left="820" width="18" height="14" font="2">for</text>
+<text top="428" left="479" width="90" height="14" font="2">each time slice</text>
+<text top="438" left="573" width="5" height="0" font="7">t</text>
+<text top="428" left="579" width="258" height="14" font="2">. A DBN is a compact graphical represen-</text>
+<text top="445" left="479" width="359" height="14" font="2">tation for the two-time-slice conditional probability distri-</text>
+<text top="461" left="479" width="38" height="14" font="6">bution</text>
+<text top="471" left="523" width="10" height="0" font="7">P</text>
+<text top="471" left="535" width="16" height="0" font="7">(Z</text>
+<text top="466" left="551" width="20" height="0" font="7">t+1</text>
+<text top="471" left="579" width="4" height="0" font="7">j</text>
+<text top="471" left="590" width="10" height="0" font="7">Z</text>
+<text top="466" left="601" width="5" height="0" font="7">t</text>
+<text top="471" left="606" width="6" height="0" font="7">)</text>
+<text top="461" left="612" width="226" height="14" font="2">. It encompasses both the transition</text>
+<text top="477" left="479" width="358" height="14" font="2">model and the observation model. More formally, a DBN</text>
+<text top="494" left="479" width="358" height="14" font="2">is a directed acyclic graph, whose nodes are random vari-</text>
+<text top="510" left="479" width="229" height="14" font="2">ables in two consecutive time slices:</text>
+<text top="520" left="718" width="10" height="0" font="7">Z</text>
+<text top="515" left="728" width="5" height="0" font="7">t</text>
+<text top="510" left="740" width="22" height="14" font="2">and</text>
+<text top="520" left="767" width="10" height="0" font="7">Z</text>
+<text top="515" left="778" width="20" height="0" font="7">t+1</text>
+<text top="510" left="798" width="39" height="14" font="2">. The</text>
+<text top="527" left="479" width="358" height="14" font="2">edges in the graph represent the direct dependence of a time</text>
+<text top="553" left="479" width="5" height="0" font="7">t</text>
+<text top="553" left="490" width="12" height="0" font="7">+</text>
+<text top="553" left="507" width="8" height="0" font="7">1</text>
+<text top="543" left="521" width="48" height="14" font="2">variable</text>
+<text top="553" left="575" width="10" height="0" font="7">Z</text>
+<text top="547" left="586" width="20" height="0" font="7">t+1</text>
+<text top="557" left="585" width="4" height="0" font="7">i</text>
+<text top="543" left="613" width="177" height="14" font="2">on its immediate causes Par</text>
+<text top="553" left="790" width="16" height="0" font="7">(Z</text>
+<text top="547" left="807" width="20" height="0" font="7">t+1</text>
+<text top="557" left="806" width="4" height="0" font="7">i</text>
+<text top="553" left="827" width="6" height="0" font="7">)</text>
+<text top="543" left="833" width="4" height="14" font="2">.</text>
+<text top="560" left="479" width="359" height="14" font="2">Each such node is annotated with a conditional probability</text>
+<text top="576" left="479" width="358" height="14" font="6">distribution (CPD), that defines the local probability model</text>
+<text top="602" left="479" width="10" height="0" font="7">P</text>
+<text top="602" left="491" width="16" height="0" font="7">(Z</text>
+<text top="596" left="508" width="20" height="0" font="7">t+1</text>
+<text top="607" left="507" width="4" height="0" font="7">i</text>
+<text top="602" left="535" width="4" height="0" font="7">j</text>
+<text top="592" left="545" width="19" height="14" font="2">Par</text>
+<text top="602" left="564" width="16" height="0" font="7">(Z</text>
+<text top="596" left="581" width="20" height="0" font="7">t+1</text>
+<text top="607" left="580" width="4" height="0" font="7">i</text>
+<text top="602" left="602" width="12" height="0" font="7">))</text>
+<text top="592" left="613" width="224" height="14" font="2">. The DBN model is a compact rep-</text>
+<text top="609" left="479" width="358" height="14" font="2">resentation for the two-time-slice distribution via the chain</text>
+<text top="625" left="479" width="28" height="14" font="6">rule:</text>
+<text top="635" left="514" width="10" height="0" font="7">P</text>
+<text top="635" left="526" width="16" height="0" font="7">(Z</text>
+<text top="630" left="542" width="20" height="0" font="7">t+1</text>
+<text top="635" left="568" width="4" height="0" font="7">j</text>
+<text top="635" left="577" width="10" height="0" font="7">Z</text>
+<text top="630" left="588" width="5" height="0" font="7">t</text>
+<text top="635" left="593" width="6" height="0" font="7">)</text>
+<text top="635" left="604" width="12" height="0" font="7">=</text>
+<text top="624" left="622" width="14" height="0" font="7">Q</text>
+<text top="640" left="636" width="4" height="0" font="7">i</text>
+<text top="635" left="643" width="10" height="0" font="7">P</text>
+<text top="635" left="655" width="16" height="0" font="7">(Z</text>
+<text top="629" left="672" width="20" height="0" font="7">t+1</text>
+<text top="639" left="671" width="4" height="0" font="7">i</text>
+<text top="635" left="698" width="4" height="0" font="7">j</text>
+<text top="625" left="708" width="19" height="14" font="2">Par</text>
+<text top="635" left="728" width="16" height="0" font="7">(Z</text>
+<text top="629" left="744" width="20" height="0" font="7">t+1</text>
+<text top="639" left="743" width="4" height="0" font="7">i</text>
+<text top="635" left="765" width="12" height="0" font="7">))</text>
+<text top="625" left="777" width="61" height="14" font="2">. We note</text>
+<text top="642" left="479" width="358" height="14" font="2">that the transition probabilities for any variable are deter-</text>
+<text top="658" left="479" width="358" height="14" font="2">mined completely by the value of the variables in the current</text>
+<text top="675" left="479" width="358" height="14" font="2">and previous time step. This Markov assumption requires us</text>
+<text top="691" left="479" width="358" height="14" font="2">to model explicitly any variables, such as failures, that in-</text>
+<text top="708" left="479" width="358" height="14" font="2">duce long-term correlations on the system state. We return</text>
+<text top="724" left="479" width="114" height="14" font="2">to this issue below.</text>
+<text top="742" left="494" width="343" height="14" font="2">For the diagnostic tasks that we focus on, we can restrict</text>
+<text top="758" left="479" width="358" height="14" font="2">attention to a very natural subclass of hybrid DBNs â the</text>
+<text top="775" left="479" width="358" height="14" font="6">conditional linear Gaussian (CLG) models. Here, we we</text>
+<text top="791" left="479" width="358" height="14" font="2">require that discrete nodes cannot have continuous parents.</text>
+<text top="808" left="479" width="358" height="14" font="2">We also require that the CPD for a continuous variable be a</text>
+<text top="824" left="479" width="358" height="14" font="2">conditional linear Gaussian. Roughly speaking, in a linear</text>
+<text top="841" left="479" width="358" height="14" font="2">Gaussian dependence, the node is a linear function of its par-</text>
+<text top="857" left="479" width="358" height="14" font="2">ents with Gaussian noise, where the parameters of the linear</text>
+<text top="873" left="479" width="358" height="14" font="2">dependence can depend on the discrete parents. More pre-</text>
+<text top="890" left="479" width="99" height="14" font="2">cisely, if a node</text>
+<text top="900" left="583" width="12" height="0" font="7">X</text>
+<text top="890" left="602" width="139" height="14" font="2">has continuous parents</text>
+<text top="900" left="746" width="9" height="0" font="7">Y</text>
+<text top="902" left="754" width="6" height="0" font="7">1</text>
+<text top="900" left="761" width="4" height="0" font="7">;</text>
+<text top="900" left="768" width="4" height="0" font="7">:</text>
+<text top="900" left="775" width="4" height="0" font="7">:</text>
+<text top="900" left="782" width="4" height="0" font="7">:</text>
+<text top="900" left="788" width="4" height="0" font="7">;</text>
+<text top="900" left="795" width="9" height="0" font="7">Y</text>
+<text top="902" left="803" width="6" height="0" font="7">k</text>
+<text top="890" left="815" width="22" height="14" font="2">and</text>
+<text top="906" left="479" width="95" height="14" font="2">discrete parents</text>
+<text top="916" left="579" width="13" height="0" font="7">U</text>
+<text top="906" left="592" width="245" height="14" font="2">, we parameterize its CPD using param-</text>
+<text top="923" left="479" width="28" height="14" font="2">eters</text>
+<text top="933" left="512" width="8" height="0" font="7">a</text>
+<text top="935" left="520" width="17" height="0" font="7">u;0</text>
+<text top="933" left="538" width="4" height="0" font="7">;</text>
+<text top="933" left="545" width="4" height="0" font="7">:</text>
+<text top="933" left="552" width="4" height="0" font="7">:</text>
+<text top="933" left="558" width="4" height="0" font="7">:</text>
+<text top="933" left="564" width="4" height="0" font="7">;</text>
+<text top="933" left="571" width="8" height="0" font="7">a</text>
+<text top="935" left="579" width="18" height="0" font="7">u;k</text>
+<text top="923" left="602" width="22" height="14" font="2">and</text>
+<text top="933" left="629" width="9" height="0" font="7"></text>
+<text top="927" left="638" width="6" height="0" font="7">2</text>
+<text top="936" left="637" width="8" height="0" font="7">u</text>
+<text top="923" left="650" width="135" height="14" font="2">for every instantiation</text>
+<text top="933" left="788" width="10" height="0" font="7">u</text>
+<text top="923" left="802" width="35" height="14" font="2">to the</text>
+<text top="939" left="479" width="94" height="14" font="2">discrete parents</text>
+<text top="949" left="577" width="13" height="0" font="7">U</text>
+<text top="939" left="591" width="41" height="14" font="2">. Then</text>
+<text top="949" left="636" width="10" height="0" font="7">P</text>
+<text top="949" left="648" width="18" height="0" font="7">(X</text>
+<text top="949" left="672" width="4" height="0" font="7">j</text>
+<text top="949" left="681" width="14" height="0" font="7">y ;</text>
+<text top="949" left="698" width="15" height="0" font="7">u)</text>
+<text top="939" left="717" width="121" height="14" font="2">is a Gaussian distri-</text>
+<text top="959" left="479" width="114" height="14" font="2">bution with a mean</text>
+<text top="969" left="598" width="8" height="0" font="7">a</text>
+<text top="971" left="606" width="17" height="0" font="7">u;0</text>
+<text top="969" left="627" width="12" height="0" font="7">+</text>
+<text top="958" left="642" width="16" height="0" font="7">P</text>
+<text top="962" left="657" width="6" height="0" font="7">k</text>
+<text top="974" left="657" width="19" height="0" font="7">i=1</text>
+<text top="969" left="680" width="8" height="0" font="7">a</text>
+<text top="971" left="688" width="15" height="0" font="7">u;i</text>
+<text top="969" left="704" width="7" height="0" font="7">y</text>
+<text top="971" left="711" width="4" height="0" font="7">i</text>
+<text top="959" left="720" width="75" height="14" font="2">and variance</text>
+<text top="969" left="799" width="9" height="0" font="7"></text>
+<text top="964" left="808" width="6" height="0" font="7">2</text>
+<text top="973" left="808" width="8" height="0" font="7">u</text>
+<text top="959" left="816" width="4" height="14" font="2">.</text>
+<text top="977" left="494" width="343" height="14" font="2">It is important to note that, without discrete variables in</text>
+<text top="994" left="479" width="358" height="14" font="2">the network, this type of DBN defines standard linear Gaus-</text>
+<text top="1010" left="479" width="358" height="14" font="2">sian dynamics. Hence, in this case, the DBN is simply a</text>
+<text top="1026" left="479" width="358" height="14" font="2">graphical representation of the standard dynamics used in</text>
+<text top="1043" left="479" width="358" height="14" font="2">a Kalman filter, albeit one that makes certain independence</text>
+</page>
+<page number="3" position="absolute" top="0" left="0" height="1188" width="918">
+	<fontspec id="15" size="11" family="Times" color="#000000"/>
+	<fontspec id="16" size="7" family="Times" color="#000000"/>
+<text top="271" left="149" width="8" height="11" font="15">R</text>
+<text top="276" left="157" width="8" height="7" font="16">12</text>
+<text top="391" left="149" width="8" height="11" font="15">R</text>
+<text top="396" left="157" width="8" height="7" font="16">2o</text>
+<text top="391" left="301" width="8" height="11" font="15">R</text>
+<text top="396" left="309" width="8" height="7" font="16">2o</text>
+<text top="310" left="305" width="7" height="11" font="15">P</text>
+<text top="317" left="309" width="4" height="7" font="16">2</text>
+<text top="276" left="309" width="8" height="7" font="16">12</text>
+<text top="198" left="157" width="4" height="7" font="16">1</text>
+<text top="117" left="309" width="8" height="7" font="16">1o</text>
+<text top="190" left="305" width="7" height="11" font="15">P</text>
+<text top="198" left="309" width="4" height="7" font="16">1</text>
+<text top="364" left="274" width="9" height="11" font="15">D</text>
+<text top="370" left="283" width="8" height="7" font="16">2o</text>
+<text top="238" left="271" width="9" height="11" font="15">D</text>
+<text top="271" left="301" width="8" height="11" font="15">R</text>
+<text top="111" left="301" width="8" height="11" font="15">R</text>
+<text top="94" left="277" width="8" height="7" font="16">1o</text>
+<text top="87" left="129" width="9" height="11" font="15">D</text>
+<text top="94" left="137" width="8" height="7" font="16">1o</text>
+<text top="362" left="128" width="9" height="11" font="15">D</text>
+<text top="245" left="279" width="8" height="7" font="16">12</text>
+<text top="310" left="153" width="7" height="11" font="15">P</text>
+<text top="317" left="157" width="4" height="7" font="16">2</text>
+<text top="238" left="129" width="9" height="11" font="15">D</text>
+<text top="245" left="137" width="8" height="7" font="16">12</text>
+<text top="112" left="149" width="8" height="11" font="15">R</text>
+<text top="117" left="157" width="8" height="7" font="16">1o</text>
+<text top="133" left="373" width="7" height="11" font="15">E</text>
+<text top="137" left="381" width="8" height="7" font="16">1o</text>
+<text top="218" left="375" width="7" height="11" font="15">E</text>
+<text top="223" left="383" width="8" height="7" font="16">12</text>
+<text top="334" left="373" width="7" height="11" font="15">E</text>
+<text top="339" left="382" width="8" height="7" font="16">2o</text>
+<text top="190" left="153" width="7" height="11" font="15">P</text>
+<text top="381" left="383" width="8" height="7" font="16">2o</text>
+<text top="374" left="372" width="11" height="11" font="15">M</text>
+<text top="87" left="269" width="9" height="11" font="15">D</text>
+<text top="180" left="382" width="8" height="7" font="16">1o</text>
+<text top="261" left="383" width="8" height="7" font="16">12</text>
+<text top="368" left="137" width="8" height="7" font="16">2o</text>
+<text top="255" left="372" width="11" height="11" font="15">M</text>
+<text top="175" left="372" width="11" height="11" font="15">M</text>
+<text top="151" left="335" width="7" height="11" font="15">F</text>
+<text top="157" left="339" width="8" height="7" font="16">1o</text>
+<text top="221" left="183" width="7" height="11" font="15">F</text>
+<text top="227" left="187" width="8" height="7" font="16">12</text>
+<text top="151" left="183" width="7" height="11" font="15">F</text>
+<text top="157" left="187" width="8" height="7" font="16">1o</text>
+<text top="219" left="335" width="7" height="11" font="15">F</text>
+<text top="225" left="339" width="8" height="7" font="16">12</text>
+<text top="344" left="183" width="7" height="11" font="15">F</text>
+<text top="351" left="187" width="8" height="7" font="16">2o</text>
+<text top="348" left="329" width="7" height="11" font="15">F</text>
+<text top="355" left="333" width="8" height="7" font="16">2o</text>
+<text top="429" left="171" width="178" height="14" font="2">Figure 2: The two-tank DBN.</text>
+<text top="479" left="81" width="358" height="14" font="2">assumptions explicit. In the presence of discrete parents, the</text>
+<text top="495" left="81" width="358" height="14" font="2">model represents a mixture of linear models, with the mix-</text>
+<text top="512" left="81" width="252" height="14" font="2">tures determined by the discrete variables.</text>
+<text top="545" left="81" width="135" height="15" font="8">DBNs for diagnosis</text>
+<text top="570" left="81" width="358" height="14" font="2">Our goal is to represent a diagnostic system, of the type de-</text>
+<text top="586" left="81" width="358" height="14" font="2">scribed above, as a DBN. It turns out that we can use a TCG</text>
+<text top="603" left="81" width="358" height="14" font="2">for a system as a âblueprintâ for the skeleton of the DBN. We</text>
+<text top="619" left="81" width="358" height="14" font="2">can think of a TCG as a schema for a system of equations</text>
+<text top="636" left="81" width="359" height="14" font="2">describing the continuous system dynamics. We distinguish</text>
+<text top="652" left="81" width="358" height="14" font="2">two types of arcs in a TCG: temporal arcs are annotated with</text>
+<text top="669" left="81" width="7" height="14" font="2">a</text>
+<text top="679" left="93" width="13" height="0" font="7">dt</text>
+<text top="669" left="106" width="333" height="14" font="2">, whereas non-temporal arcs are not. For any variable</text>
+<text top="695" left="81" width="12" height="0" font="7">X</text>
+<text top="685" left="100" width="339" height="14" font="2">with no incoming temporal arcs, the TCG expresses an</text>
+<text top="702" left="81" width="163" height="14" font="2">instantaneous constraint on</text>
+<text top="711" left="248" width="12" height="0" font="7">X</text>
+<text top="702" left="266" width="172" height="14" font="2">as a function of its predeces-</text>
+<text top="718" left="81" width="118" height="14" font="2">sors. For a variable</text>
+<text top="728" left="203" width="12" height="0" font="7">X</text>
+<text top="718" left="221" width="218" height="14" font="2">with at least one incoming temporal</text>
+<text top="734" left="81" width="273" height="14" font="2">arc, the TCG expresses a temporal constraint.</text>
+<text top="752" left="96" width="343" height="14" font="2">We generate a DBN structure from a TCG as follows: For</text>
+<text top="768" left="81" width="62" height="14" font="2">each node</text>
+<text top="778" left="148" width="12" height="0" font="7">X</text>
+<text top="780" left="160" width="4" height="0" font="7">i</text>
+<text top="768" left="171" width="244" height="14" font="2">in the temporal causal graph, we create</text>
+<text top="778" left="420" width="12" height="0" font="7">X</text>
+<text top="773" left="433" width="5" height="0" font="7">t</text>
+<text top="782" left="432" width="4" height="0" font="7">i</text>
+<text top="787" left="81" width="22" height="14" font="2">and</text>
+<text top="797" left="107" width="12" height="0" font="7">X</text>
+<text top="790" left="120" width="20" height="0" font="7">t+1</text>
+<text top="801" left="119" width="4" height="0" font="7">i</text>
+<text top="787" left="145" width="293" height="14" font="2">to denote the state of the variable at two consec-</text>
+<text top="803" left="81" width="358" height="14" font="2">utive time points. (In practice, we will merge nodes that are</text>
+<text top="820" left="81" width="305" height="14" font="2">connected by equality constraints in the TCG.) Let</text>
+<text top="830" left="391" width="12" height="0" font="7">X</text>
+<text top="832" left="403" width="5" height="0" font="7">j</text>
+<text top="820" left="414" width="25" height="14" font="2">be a</text>
+<text top="836" left="81" width="295" height="14" font="2">node in the TCG which is a direct predecessor of</text>
+<text top="846" left="380" width="12" height="0" font="7">X</text>
+<text top="848" left="392" width="4" height="0" font="7">i</text>
+<text top="836" left="397" width="42" height="14" font="2">. If the</text>
+<text top="852" left="81" width="52" height="14" font="2">arc from</text>
+<text top="862" left="136" width="12" height="0" font="7">X</text>
+<text top="864" left="149" width="5" height="0" font="7">j</text>
+<text top="852" left="159" width="12" height="14" font="2">to</text>
+<text top="862" left="175" width="12" height="0" font="7">X</text>
+<text top="864" left="187" width="4" height="0" font="7">i</text>
+<text top="852" left="197" width="219" height="14" font="2">is non-temporal, we add an arc from</text>
+<text top="862" left="420" width="12" height="0" font="7">X</text>
+<text top="857" left="433" width="5" height="0" font="7">t</text>
+<text top="866" left="432" width="5" height="0" font="7">j</text>
+<text top="873" left="81" width="12" height="14" font="2">to</text>
+<text top="883" left="96" width="12" height="0" font="7">X</text>
+<text top="877" left="110" width="5" height="0" font="7">t</text>
+<text top="887" left="109" width="4" height="0" font="7">i</text>
+<text top="873" left="119" width="95" height="14" font="2">and an arc from</text>
+<text top="883" left="214" width="12" height="0" font="7">X</text>
+<text top="877" left="227" width="20" height="0" font="7">t+1</text>
+<text top="887" left="226" width="5" height="0" font="7">j</text>
+<text top="873" left="252" width="12" height="14" font="2">to</text>
+<text top="883" left="267" width="12" height="0" font="7">X</text>
+<text top="877" left="280" width="20" height="0" font="7">t+1</text>
+<text top="887" left="279" width="4" height="0" font="7">i</text>
+<text top="873" left="301" width="138" height="14" font="2">. If the arc is temporal,</text>
+<text top="894" left="81" width="147" height="14" font="2">we add an arc only from</text>
+<text top="904" left="232" width="12" height="0" font="7">X</text>
+<text top="898" left="246" width="5" height="0" font="7">t</text>
+<text top="908" left="244" width="5" height="0" font="7">j</text>
+<text top="894" left="255" width="12" height="14" font="2">to</text>
+<text top="904" left="271" width="12" height="0" font="7">X</text>
+<text top="898" left="284" width="20" height="0" font="7">t+1</text>
+<text top="908" left="283" width="4" height="0" font="7">i</text>
+<text top="894" left="305" width="134" height="14" font="2">. This process suffices</text>
+<text top="910" left="81" width="358" height="14" font="2">to generate the structure for a DBN that models the nominal</text>
+<text top="927" left="81" width="123" height="14" font="2">behavior the system.</text>
+<text top="944" left="96" width="343" height="14" font="2">We then want to add variables that model our observations</text>
+<text top="961" left="81" width="357" height="14" font="2">and represent the failure modes of the system. Our frame-</text>
+<text top="977" left="81" width="358" height="14" font="2">work accommodates for a wide variety of failure modes. In</text>
+<text top="994" left="81" width="358" height="14" font="2">our presentation, we focus on three important types: burst</text>
+<text top="1010" left="81" width="358" height="14" font="2">failures, measurement failures and parameter drift failures.</text>
+<text top="1026" left="81" width="358" height="14" font="2">To accommodate these, we need to make two important ad-</text>
+<text top="1043" left="81" width="358" height="14" font="2">ditions to the TCG induced DBN. Since any parameter that</text>
+<text top="86" left="479" width="358" height="14" font="2">can change must be modeled in the DBN, we add nodes to</text>
+<text top="102" left="479" width="358" height="14" font="2">model the resistance variables. In our implementation, these</text>
+<text top="119" left="479" width="358" height="14" font="2">were conductances and not resistances, since we preferred</text>
+<text top="135" left="479" width="358" height="14" font="2">to use a multiplicative model. We also need to add nodes</text>
+<text top="151" left="479" width="358" height="14" font="2">corresponding to presence of burst failures and the presence</text>
+<text top="168" left="479" width="148" height="14" font="2">of measurement failures.</text>
+<text top="188" left="494" width="343" height="14" font="2">Figure 2 shows a DBN created by this process. The nodes</text>
+<text top="214" left="479" width="10" height="0" font="7">F</text>
+<text top="216" left="489" width="11" height="0" font="7">1t</text>
+<text top="204" left="503" width="22" height="14" font="2">and</text>
+<text top="214" left="528" width="10" height="0" font="7">F</text>
+<text top="216" left="537" width="11" height="0" font="7">2t</text>
+<text top="204" left="552" width="285" height="14" font="2">simply add incoming flows and this function has</text>
+<text top="221" left="479" width="197" height="14" font="2">been subsumed by the CPDs for</text>
+<text top="231" left="680" width="10" height="0" font="7">P</text>
+<text top="233" left="690" width="6" height="0" font="7">1</text>
+<text top="221" left="701" width="22" height="14" font="2">and</text>
+<text top="231" left="727" width="10" height="0" font="7">P</text>
+<text top="233" left="737" width="6" height="0" font="7">2</text>
+<text top="221" left="743" width="94" height="14" font="2">. The nodes la-</text>
+<text top="238" left="479" width="64" height="14" font="2">beled with</text>
+<text top="247" left="548" width="14" height="0" font="7">M</text>
+<text top="238" left="568" width="269" height="14" font="2">correspond to our measurements of the flow</text>
+<text top="254" left="479" width="358" height="14" font="2">parameters in the system and the discrete nodes labeled with</text>
+<text top="280" left="479" width="11" height="0" font="7">E</text>
+<text top="270" left="495" width="342" height="14" font="2">indicate the presence of measurement failures. For exam-</text>
+<text top="287" left="479" width="159" height="14" font="2">ple, we define the CPD of</text>
+<text top="297" left="643" width="14" height="0" font="7">M</text>
+<text top="299" left="658" width="12" height="0" font="7">12</text>
+<text top="287" left="675" width="163" height="14" font="2">to be a normal distribution</text>
+<text top="303" left="479" width="42" height="14" font="2">around</text>
+<text top="313" left="524" width="10" height="0" font="7">F</text>
+<text top="315" left="534" width="12" height="0" font="7">12</text>
+<text top="303" left="549" width="151" height="14" font="2">with small variance when</text>
+<text top="313" left="703" width="11" height="0" font="7">E</text>
+<text top="315" left="715" width="12" height="0" font="7">12</text>
+<text top="303" left="730" width="107" height="14" font="2">is false, but with a</text>
+<text top="320" left="479" width="184" height="14" font="2">much larger variance when the</text>
+<text top="330" left="667" width="11" height="0" font="7">E</text>
+<text top="332" left="679" width="12" height="0" font="7">12</text>
+<text top="320" left="695" width="69" height="14" font="2">is true. The</text>
+<text top="330" left="768" width="12" height="0" font="7">R</text>
+<text top="320" left="783" width="54" height="14" font="2">variables</text>
+<text top="336" left="479" width="358" height="14" font="2">model the conductances in the system. These have discrete</text>
+<text top="352" left="479" width="47" height="14" font="2">parents,</text>
+<text top="362" left="531" width="12" height="0" font="7">D</text>
+<text top="352" left="544" width="294" height="14" font="2">, that indicate the presence of faults. Unlike the</text>
+<text top="369" left="479" width="358" height="14" font="2">measurement fault variables, these fault variables have par-</text>
+<text top="385" left="479" width="358" height="14" font="2">ents in the previous DBN time slice. This is necessary to</text>
+<text top="402" left="479" width="358" height="14" font="2">model persistent events such as drifts. Each conductance</text>
+<text top="418" left="479" width="358" height="14" font="2">fault variable takes on four values: stable, fault, buildup and</text>
+<text top="435" left="479" width="358" height="14" font="6">leak. When the system is stable, the CPD of the correspond-</text>
+<text top="451" left="479" width="358" height="14" font="2">ing R has low noise. When a fault occurs, there is a sharp</text>
+<text top="468" left="479" width="278" height="14" font="2">increase in the variance of the corresponding</text>
+<text top="477" left="762" width="12" height="0" font="7">R</text>
+<text top="468" left="773" width="64" height="14" font="2">. The two</text>
+<text top="484" left="479" width="358" height="14" font="2">drift faults produce a small drift, defined as a percentage of</text>
+<text top="500" left="479" width="358" height="14" font="2">the parameterâs previous value. We need the temporal con-</text>
+<text top="517" left="479" width="123" height="14" font="2">nection between the</text>
+<text top="527" left="608" width="12" height="0" font="7">D</text>
+<text top="517" left="626" width="211" height="14" font="2">nodes to reflect the fact that drifts</text>
+<text top="533" left="479" width="347" height="14" font="2">persist; once a buildup starts in a pipe it tends to continue.</text>
+<text top="578" left="622" width="72" height="16" font="1">Inference</text>
+<text top="612" left="479" width="358" height="14" font="2">In this section, we propose an inference procedure for fault</text>
+<text top="628" left="479" width="358" height="14" font="2">diagnosis and detection in models represented as DBNs. As</text>
+<text top="645" left="479" width="358" height="14" font="2">we have mentioned, we can view DBNs as a structured</text>
+<text top="661" left="479" width="358" height="14" font="2">representation and extension of traditional Kalman filters.</text>
+<text top="677" left="479" width="358" height="14" font="2">We therefore build our algorithm starting from the classi-</text>
+<text top="694" left="479" width="358" height="14" font="2">cal Kalman filter algorithm. Typical extensions to this algo-</text>
+<text top="710" left="479" width="358" height="14" font="2">rithm maintain multiple candidate hypotheses about the state</text>
+<text top="727" left="479" width="358" height="14" font="2">of the system. At each time step they update a set of candi-</text>
+<text top="743" left="479" width="358" height="14" font="2">date hypotheses and prune out unlikely ones based upon evi-</text>
+<text top="760" left="479" width="358" height="14" font="2">dence. If the correct hypothesis remains in the candidate set,</text>
+<text top="776" left="479" width="355" height="14" font="2">these algorithms will track the state of the system correctly.</text>
+<text top="796" left="494" width="343" height="14" font="2">The problem with this type of approach is that it is very</text>
+<text top="813" left="479" width="358" height="14" font="2">difficult to determine which hypotheses to keep for com-</text>
+<text top="829" left="479" width="358" height="14" font="2">plex systems: there are too many possible new hypotheses</text>
+<text top="846" left="479" width="358" height="14" font="2">at each time, and the information needed to prune away bad</text>
+<text top="862" left="479" width="358" height="14" font="2">hypotheses often is not manifested until several time steps</text>
+<text top="878" left="479" width="358" height="14" font="2">after the hypotheses are generated. We present a novel ap-</text>
+<text top="895" left="479" width="358" height="14" font="2">proach that collapses similar hypotheses into a single hy-</text>
+<text top="911" left="479" width="358" height="14" font="2">pothesis, then present a novel approximate smoothing algo-</text>
+<text top="928" left="479" width="358" height="14" font="2">rithm that we use to improve our ability to effectively reduce</text>
+<text top="944" left="479" width="358" height="14" font="2">the number of hypotheses. This approach allows us to deal</text>
+<text top="961" left="479" width="357" height="14" font="2">with complex failure modes and sequences involving many</text>
+<text top="977" left="479" width="358" height="14" font="2">failures. But it does not scale to complex systems that in-</text>
+<text top="994" left="479" width="358" height="14" font="2">volve many possible failures in different components. We</text>
+<text top="1010" left="479" width="358" height="14" font="2">address this problem by combining our techniques with a</text>
+<text top="1026" left="479" width="358" height="14" font="2">decomposition method based on the algorithm of Boyen and</text>
+<text top="1043" left="479" width="358" height="14" font="2">Koller (1998) that allows the tracking of very large systems.</text>
+</page>
+<page number="4" position="absolute" top="0" left="0" height="1188" width="918">
+<text top="85" left="81" width="171" height="15" font="8">Tracking and smoothing</text>
+<text top="108" left="81" width="358" height="14" font="2">Our dynamic Bayesian network represents the complete</text>
+<text top="124" left="81" width="358" height="14" font="2">state of the system at each time step; it includes variables</text>
+<text top="141" left="81" width="358" height="14" font="2">for the various aspects of the continuous state of the system</text>
+<text top="158" left="81" width="358" height="14" font="2">such as pressures or conductances, as well as discrete vari-</text>
+<text top="174" left="81" width="358" height="14" font="2">ables representing possible failures. This complete model</text>
+<text top="190" left="81" width="358" height="14" font="2">allows us to reduce the problems of fault detection and di-</text>
+<text top="207" left="81" width="358" height="14" font="2">agnosis to the task of tracking (or filtering) a stochastic dy-</text>
+<text top="223" left="81" width="358" height="14" font="2">namic system. The tracking problem is defined as follows.</text>
+<text top="240" left="81" width="265" height="14" font="2">As the system evolves, we get observations</text>
+<text top="250" left="350" width="9" height="0" font="7">y</text>
+<text top="244" left="359" width="6" height="0" font="7">1</text>
+<text top="250" left="366" width="4" height="0" font="7">;</text>
+<text top="250" left="373" width="9" height="0" font="7">y</text>
+<text top="244" left="382" width="6" height="0" font="7">2</text>
+<text top="250" left="388" width="4" height="0" font="7">;</text>
+<text top="250" left="395" width="4" height="0" font="7">:</text>
+<text top="250" left="402" width="4" height="0" font="7">:</text>
+<text top="250" left="409" width="4" height="0" font="7">:</text>
+<text top="240" left="413" width="26" height="14" font="2">. At</text>
+<text top="256" left="81" width="27" height="14" font="2">time</text>
+<text top="266" left="112" width="5" height="0" font="7">t</text>
+<text top="256" left="117" width="322" height="14" font="2">, our most informed evaluation of the state of the sys-</text>
+<text top="272" left="81" width="195" height="14" font="2">tem is our posterior distribution</text>
+<text top="282" left="280" width="10" height="0" font="7">P</text>
+<text top="282" left="292" width="16" height="0" font="7">(Z</text>
+<text top="277" left="309" width="5" height="0" font="7">t</text>
+<text top="282" left="320" width="4" height="0" font="7">j</text>
+<text top="282" left="331" width="9" height="0" font="7">y</text>
+<text top="277" left="340" width="6" height="0" font="7">1</text>
+<text top="282" left="347" width="4" height="0" font="7">;</text>
+<text top="282" left="354" width="4" height="0" font="7">:</text>
+<text top="282" left="361" width="4" height="0" font="7">:</text>
+<text top="282" left="368" width="4" height="0" font="7">:</text>
+<text top="282" left="373" width="4" height="0" font="7">;</text>
+<text top="282" left="380" width="9" height="0" font="7">y</text>
+<text top="277" left="390" width="5" height="0" font="7">t</text>
+<text top="282" left="395" width="6" height="0" font="7">)</text>
+<text top="272" left="406" width="33" height="14" font="2">about</text>
+<text top="289" left="81" width="358" height="14" font="2">the current system state given all of our observations so far.</text>
+<text top="306" left="81" width="252" height="14" font="2">We call this posterior distribution our time</text>
+<text top="315" left="336" width="5" height="0" font="7">t</text>
+<text top="306" left="345" width="94" height="14" font="6">belief state, and</text>
+<text top="322" left="81" width="90" height="14" font="2">denote it using</text>
+<text top="332" left="176" width="9" height="0" font="7"></text>
+<text top="326" left="185" width="5" height="0" font="7">t</text>
+<text top="322" left="190" width="249" height="14" font="2">. The probability of a discrete fault vari-</text>
+<text top="338" left="81" width="358" height="14" font="2">able in this belief state takes into consideration all of the</text>
+<text top="355" left="81" width="358" height="14" font="2">evidence up to the present to determine the probability that</text>
+<text top="371" left="81" width="136" height="14" font="2">this fault has occurred.</text>
+<text top="388" left="96" width="343" height="14" font="2">In principle, tracking is a very easy task, which can be</text>
+<text top="405" left="81" width="315" height="14" font="2">accomplished by the following propagation formula:</text>
+<text top="451" left="91" width="9" height="0" font="7"></text>
+<text top="445" left="100" width="20" height="0" font="7">t+1</text>
+<text top="451" left="120" width="13" height="0" font="7">(z</text>
+<text top="445" left="134" width="20" height="0" font="7">t+1</text>
+<text top="451" left="154" width="6" height="0" font="7">)</text>
+<text top="451" left="159" width="12" height="0" font="7">=</text>
+<text top="451" left="170" width="19" height="0" font="7">P</text>
+<text top="451" left="192" width="15" height="0" font="7">(y</text>
+<text top="445" left="207" width="20" height="0" font="7">t+1</text>
+<text top="451" left="231" width="4" height="0" font="7">j</text>
+<text top="451" left="239" width="8" height="0" font="7">z</text>
+<text top="445" left="247" width="20" height="0" font="7">t+1</text>
+<text top="451" left="267" width="6" height="0" font="7">)</text>
+<text top="431" left="275" width="8" height="0" font="7">Z</text>
+<text top="451" left="293" width="9" height="0" font="7"></text>
+<text top="445" left="302" width="5" height="0" font="7">t</text>
+<text top="451" left="307" width="13" height="0" font="7">(z</text>
+<text top="445" left="320" width="5" height="0" font="7">t</text>
+<text top="451" left="326" width="15" height="0" font="7">)P</text>
+<text top="451" left="343" width="13" height="0" font="7">(z</text>
+<text top="445" left="357" width="20" height="0" font="7">t+1</text>
+<text top="451" left="381" width="4" height="0" font="7">j</text>
+<text top="451" left="390" width="8" height="0" font="7">z</text>
+<text top="445" left="397" width="5" height="0" font="7">t</text>
+<text top="451" left="402" width="21" height="0" font="7">)dz</text>
+<text top="445" left="424" width="5" height="0" font="7">t</text>
+<text top="477" left="81" width="37" height="14" font="2">where</text>
+<text top="487" left="121" width="10" height="0" font="7"></text>
+<text top="477" left="134" width="305" height="14" font="2">is a normalizing constant. This process is known as</text>
+<text top="493" left="81" width="92" height="14" font="2">a forward pass.</text>
+<text top="510" left="96" width="344" height="14" font="2">Forward tracking gives the best estimate of the likelihood</text>
+<text top="527" left="81" width="358" height="14" font="2">of a fault given the evidence so far. It cannot, however, deal</text>
+<text top="543" left="81" width="358" height="14" font="2">with cases where a fault is momentary, but whose direct ef-</text>
+<text top="560" left="81" width="358" height="14" font="2">fects are unobservable so that its effects become visible to</text>
+<text top="576" left="81" width="358" height="14" font="2">our sensor only later on. The reason is that, at the time</text>
+<text top="592" left="81" width="358" height="14" font="2">that the evidence indicates the presence of a previous failure,</text>
+<text top="609" left="81" width="358" height="14" font="2">there is no longer a variable in the belief state that represents</text>
+<text top="625" left="81" width="358" height="14" font="2">the occurrence of that failure. There is a variable denoting</text>
+<text top="642" left="81" width="358" height="14" font="2">this event at an earlier time slice, but the forward pass only</text>
+<text top="658" left="81" width="358" height="14" font="2">maintains beliefs about variables in the current time step.</text>
+<text top="675" left="81" width="358" height="14" font="2">To explicitly discover faults of this type, we need to also</text>
+<text top="691" left="81" width="358" height="14" font="2">reason backwards in time, from our current evidence to the</text>
+<text top="708" left="81" width="358" height="14" font="2">time slice where the fault took place. This process is known</text>
+<text top="724" left="81" width="190" height="14" font="2">as smoothing. Given evidence</text>
+<text top="734" left="276" width="9" height="0" font="7">y</text>
+<text top="728" left="285" width="6" height="0" font="7">1</text>
+<text top="734" left="292" width="4" height="0" font="7">;</text>
+<text top="734" left="299" width="4" height="0" font="7">:</text>
+<text top="734" left="306" width="4" height="0" font="7">:</text>
+<text top="734" left="312" width="4" height="0" font="7">:</text>
+<text top="734" left="319" width="4" height="0" font="7">;</text>
+<text top="734" left="325" width="9" height="0" font="7">y</text>
+<text top="728" left="335" width="19" height="0" font="7">t+`</text>
+<text top="724" left="354" width="85" height="14" font="2">, we compute</text>
+<text top="750" left="81" width="10" height="0" font="7">P</text>
+<text top="750" left="93" width="16" height="0" font="7">(Z</text>
+<text top="745" left="109" width="5" height="0" font="7">t</text>
+<text top="750" left="121" width="4" height="0" font="7">j</text>
+<text top="750" left="132" width="9" height="0" font="7">y</text>
+<text top="745" left="141" width="6" height="0" font="7">1</text>
+<text top="750" left="148" width="4" height="0" font="7">;</text>
+<text top="750" left="154" width="4" height="0" font="7">:</text>
+<text top="750" left="161" width="4" height="0" font="7">:</text>
+<text top="750" left="168" width="4" height="0" font="7">:</text>
+<text top="750" left="174" width="4" height="0" font="7">;</text>
+<text top="750" left="181" width="9" height="0" font="7">y</text>
+<text top="745" left="190" width="5" height="0" font="7">t</text>
+<text top="750" left="195" width="4" height="0" font="7">;</text>
+<text top="750" left="202" width="4" height="0" font="7">:</text>
+<text top="750" left="209" width="4" height="0" font="7">:</text>
+<text top="750" left="216" width="4" height="0" font="7">:</text>
+<text top="750" left="222" width="4" height="0" font="7">;</text>
+<text top="750" left="229" width="9" height="0" font="7">y</text>
+<text top="745" left="238" width="19" height="0" font="7">t+`</text>
+<text top="750" left="257" width="6" height="0" font="7">)</text>
+<text top="740" left="263" width="176" height="14" font="2">. The smoothing process in-</text>
+<text top="757" left="81" width="272" height="14" font="2">volves a backward pass where evidence from</text>
+<text top="767" left="357" width="5" height="0" font="7">t</text>
+<text top="767" left="365" width="12" height="0" font="7">+</text>
+<text top="767" left="381" width="6" height="0" font="7">`</text>
+<text top="757" left="391" width="48" height="14" font="2">is trans-</text>
+<text top="773" left="81" width="358" height="14" font="2">mitted backwards over the intervening time slices, updating</text>
+<text top="790" left="81" width="285" height="14" font="2">each of them. We omit details for lack of space.</text>
+<text top="807" left="96" width="343" height="14" font="2">One case of enormous practical importance is the case of</text>
+<text top="823" left="81" width="358" height="14" font="6">linear systems. These systems are fully continuous, with</text>
+<text top="839" left="81" width="209" height="14" font="2">linear Gaussian CPDs. In this case,</text>
+<text top="849" left="294" width="10" height="0" font="7">Z</text>
+<text top="844" left="304" width="20" height="0" font="7">t+1</text>
+<text top="839" left="328" width="111" height="14" font="2">is a linear function</text>
+<text top="856" left="81" width="13" height="14" font="2">of</text>
+<text top="866" left="97" width="10" height="0" font="7">Z</text>
+<text top="861" left="107" width="5" height="0" font="7">t</text>
+<text top="856" left="116" width="22" height="14" font="2">and</text>
+<text top="866" left="141" width="13" height="0" font="7">Y</text>
+<text top="861" left="154" width="20" height="0" font="7">t+1</text>
+<text top="856" left="179" width="127" height="14" font="2">is a linear function of</text>
+<text top="866" left="309" width="10" height="0" font="7">Z</text>
+<text top="861" left="319" width="20" height="0" font="7">t+1</text>
+<text top="856" left="340" width="99" height="14" font="2">, both with some</text>
+<text top="873" left="81" width="358" height="14" font="2">added Gaussian noise. In this case, the belief state can be</text>
+<text top="889" left="81" width="359" height="14" font="2">represented exactly as a multivariate Gaussian distribution</text>
+<text top="905" left="81" width="26" height="14" font="2">over</text>
+<text top="915" left="112" width="10" height="0" font="7">Z</text>
+<text top="910" left="122" width="5" height="0" font="7">t</text>
+<text top="905" left="127" width="312" height="14" font="2">. This is the basis for an elegant tracking algorithm</text>
+<text top="922" left="81" width="358" height="14" font="2">called the Kalman filter (Kalman 1960) which maintains this</text>
+<text top="938" left="81" width="291" height="14" font="2">belief state in closed form as the system evolves.</text>
+<text top="970" left="81" width="99" height="15" font="8">Nonlinearities</text>
+<text top="994" left="81" width="358" height="14" font="2">Unfortunately, often we cannot apply the Kalman filter di-</text>
+<text top="1010" left="81" width="358" height="14" font="2">rectly to real-life problems, since many real-life systems</text>
+<text top="1026" left="81" width="358" height="14" font="2">are not linear systems. The continuous relationships be-</text>
+<text top="1043" left="81" width="358" height="14" font="2">tween variables are often nonlinear and the failure modes</text>
+<text top="86" left="479" width="359" height="14" font="2">of the system are often discrete, introducing discontinuous</text>
+<text top="102" left="479" width="359" height="14" font="2">changes in system parameters. When the system is nonlin-</text>
+<text top="119" left="479" width="358" height="14" font="2">ear, the belief state is no longer a multivariate Gaussian, and</text>
+<text top="135" left="479" width="290" height="14" font="2">rarely has a compact closed form representation.</text>
+<text top="152" left="494" width="343" height="14" font="2">Consider our simple two-tank model. Here, we have a</text>
+<text top="169" left="479" width="255" height="14" font="2">product of two random variables: the flow</text>
+<text top="179" left="739" width="10" height="0" font="7">F</text>
+<text top="169" left="755" width="83" height="14" font="2">is the product</text>
+<text top="185" left="479" width="89" height="14" font="2">of the pressure</text>
+<text top="195" left="572" width="10" height="0" font="7">P</text>
+<text top="185" left="588" width="123" height="14" font="2">and the conductance</text>
+<text top="189" left="719" width="6" height="0" font="7">1</text>
+<text top="200" left="717" width="9" height="0" font="7">R</text>
+<text top="185" left="728" width="110" height="14" font="2">. A standard solu-</text>
+<text top="202" left="479" width="358" height="14" font="2">tion to this type of problem is to approximate the nonlinear</text>
+<text top="218" left="479" width="358" height="14" font="2">dynamics with linear dynamics, and then use a standard lin-</text>
+<text top="234" left="479" width="358" height="14" font="2">ear Gaussian model. Thus, we try to get the best approxima-</text>
+<text top="251" left="479" width="358" height="14" font="2">tion for the first and second moments, and ignore the rest.</text>
+<text top="267" left="479" width="358" height="14" font="2">The classical method of linearizing is called the Extended</text>
+<text top="284" left="479" width="358" height="14" font="6">Kalman Filter (Bar-Shalom &amp; Fortmann 1988); it approxi-</text>
+<text top="300" left="479" width="358" height="14" font="2">mates the nonlinear function using its second order Taylor</text>
+<text top="317" left="479" width="358" height="14" font="2">series expansion. In our case, the nonlinear function is a</text>
+<text top="333" left="479" width="358" height="14" font="2">product, which is fairly simple, thus we can compute its first</text>
+<text top="349" left="479" width="255" height="14" font="2">and second order moments in closed form.</text>
+<text top="367" left="494" width="343" height="14" font="2">A far more problematic type of nonlinearity is caused by</text>
+<text top="383" left="479" width="358" height="14" font="2">discrete state changes that influence the continuous system</text>
+<text top="400" left="479" width="358" height="14" font="2">dynamics. For example, a fault might drastically change the</text>
+<text top="416" left="479" width="358" height="14" font="2">conditional mean or variance of a continuous variable such</text>
+<text top="432" left="479" width="358" height="14" font="2">as the conductance. This type of situation is represented in</text>
+<text top="449" left="479" width="341" height="14" font="2">our model via the dependence of the continuous variables</text>
+<text top="459" left="823" width="13" height="0" font="7">X</text>
+<text top="465" left="479" width="176" height="14" font="2">on the discrete fault variables</text>
+<text top="475" left="658" width="13" height="0" font="7">D</text>
+<text top="465" left="672" width="4" height="14" font="2">.</text>
+<text top="482" left="494" width="343" height="14" font="2">This type of model creates substantial difficulties for</text>
+<text top="499" left="479" width="133" height="14" font="2">a tracking algorithm.</text>
+<text top="499" left="626" width="211" height="14" font="2">To understand the difficulties, let</text>
+<text top="525" left="479" width="10" height="0" font="7">d</text>
+<text top="520" left="489" width="6" height="0" font="7">1</text>
+<text top="525" left="495" width="4" height="0" font="7">;</text>
+<text top="525" left="502" width="4" height="0" font="7">:</text>
+<text top="525" left="509" width="4" height="0" font="7">:</text>
+<text top="525" left="516" width="4" height="0" font="7">:</text>
+<text top="525" left="522" width="4" height="0" font="7">;</text>
+<text top="525" left="529" width="10" height="0" font="7">d</text>
+<text top="520" left="539" width="5" height="0" font="7">t</text>
+<text top="515" left="549" width="288" height="14" font="2">be some particular instantiation of the discrete</text>
+<text top="532" left="479" width="101" height="14" font="2">variables at time</text>
+<text top="542" left="585" width="12" height="0" font="7">1;</text>
+<text top="542" left="599" width="4" height="0" font="7">:</text>
+<text top="542" left="606" width="4" height="0" font="7">:</text>
+<text top="542" left="613" width="4" height="0" font="7">:</text>
+<text top="542" left="619" width="4" height="0" font="7">;</text>
+<text top="542" left="626" width="5" height="0" font="7">t</text>
+<text top="532" left="631" width="206" height="14" font="2">. Given this instantiation, the dy-</text>
+<text top="548" left="479" width="358" height="14" font="2">namics of the continuous variables are, once again, linear</text>
+<text top="565" left="479" width="170" height="14" font="2">Gaussian. Hence, the time</text>
+<text top="575" left="656" width="5" height="0" font="7">t</text>
+<text top="565" left="667" width="170" height="14" font="2">belief state, conditioned on</text>
+<text top="591" left="479" width="10" height="0" font="7">d</text>
+<text top="585" left="489" width="6" height="0" font="7">1</text>
+<text top="591" left="495" width="4" height="0" font="7">;</text>
+<text top="591" left="502" width="4" height="0" font="7">:</text>
+<text top="591" left="509" width="4" height="0" font="7">:</text>
+<text top="591" left="516" width="4" height="0" font="7">:</text>
+<text top="591" left="522" width="4" height="0" font="7">;</text>
+<text top="591" left="529" width="10" height="0" font="7">d</text>
+<text top="585" left="539" width="5" height="0" font="7">t</text>
+<text top="581" left="544" width="199" height="14" font="2">, is a multivariate Gaussian over</text>
+<text top="591" left="748" width="13" height="0" font="7">X</text>
+<text top="585" left="761" width="5" height="0" font="7">t</text>
+<text top="581" left="766" width="71" height="14" font="2">. The diffi-</text>
+<text top="598" left="479" width="358" height="14" font="2">culty is that we have one such Gaussian for every single in-</text>
+<text top="614" left="479" width="63" height="14" font="2">stantiation</text>
+<text top="624" left="546" width="10" height="0" font="7">d</text>
+<text top="619" left="556" width="6" height="0" font="7">1</text>
+<text top="624" left="562" width="4" height="0" font="7">;</text>
+<text top="624" left="569" width="4" height="0" font="7">:</text>
+<text top="624" left="576" width="4" height="0" font="7">:</text>
+<text top="624" left="583" width="4" height="0" font="7">:</text>
+<text top="624" left="589" width="4" height="0" font="7">;</text>
+<text top="624" left="596" width="10" height="0" font="7">d</text>
+<text top="619" left="606" width="5" height="0" font="7">t</text>
+<text top="614" left="611" width="227" height="14" font="2">. Thus, in order to do exact tracking,</text>
+<text top="630" left="479" width="358" height="14" font="2">we need to maintain a separate hypothesis for every combi-</text>
+<text top="647" left="479" width="358" height="14" font="2">nation of the discrete variables at all times. The number of</text>
+<text top="663" left="479" width="358" height="14" font="2">such hypotheses grows exponentially with the length of the</text>
+<text top="680" left="479" width="242" height="14" font="2">sequence, which is clearly unacceptable.</text>
+<text top="697" left="494" width="343" height="14" font="2">A classical tracking algorithm which deals with this prob-</text>
+<text top="713" left="479" width="358" height="14" font="2">lem is described in (Bar-Shalom &amp; Fortmann 1988). The</text>
+<text top="730" left="479" width="358" height="14" font="2">main idea is to maintain our belief state as a smaller set</text>
+<text top="746" left="479" width="358" height="14" font="2">of hypotheses, each of which corresponds to a single mul-</text>
+<text top="763" left="479" width="358" height="14" font="2">tivariate Gaussian. The algorithm, applied to our setting, is</text>
+<text top="779" left="479" width="358" height="14" font="2">as follows. It is convenient to introduce the random vari-</text>
+<text top="796" left="479" width="25" height="14" font="2">able</text>
+<text top="805" left="509" width="13" height="0" font="7">H</text>
+<text top="800" left="522" width="5" height="0" font="7">t</text>
+<text top="796" left="528" width="310" height="14" font="2">, each of whose values corresponds to one hypoth-</text>
+<text top="812" left="479" width="150" height="14" font="2">esis. The distribution of</text>
+<text top="822" left="635" width="13" height="0" font="7">H</text>
+<text top="817" left="648" width="5" height="0" font="7">t</text>
+<text top="812" left="659" width="179" height="14" font="2">corresponds to the likelihood</text>
+<text top="828" left="479" width="358" height="14" font="2">of the hypothesis. When the algorithm does the forward</text>
+<text top="845" left="479" width="308" height="14" font="2">pass, it considers all the combinations of values of</text>
+<text top="855" left="792" width="13" height="0" font="7">H</text>
+<text top="849" left="806" width="5" height="0" font="7">t</text>
+<text top="845" left="815" width="22" height="14" font="2">and</text>
+<text top="871" left="479" width="13" height="0" font="7">D</text>
+<text top="866" left="492" width="20" height="0" font="7">t+1</text>
+<text top="861" left="513" width="182" height="14" font="2">. The result is a mixture with</text>
+<text top="871" left="700" width="13" height="0" font="7">K</text>
+<text top="871" left="718" width="12" height="0" font="7"></text>
+<text top="871" left="734" width="18" height="0" font="7">jD</text>
+<text top="871" left="752" width="4" height="0" font="7">j</text>
+<text top="861" left="761" width="76" height="14" font="2">components.</text>
+<text top="878" left="479" width="357" height="14" font="2">Each of these new hypotheses is conditioned on the new</text>
+<text top="894" left="479" width="85" height="14" font="2">measurements</text>
+<text top="904" left="570" width="13" height="0" font="7">Y</text>
+<text top="899" left="584" width="20" height="0" font="7">t+1</text>
+<text top="894" left="604" width="233" height="14" font="2">, and using Bayesian conditioning we</text>
+<text top="911" left="479" width="358" height="14" font="2">adjust both the mixture weights and the parameters of the</text>
+<text top="927" left="479" width="358" height="14" font="2">multivariate Gaussians. The algorithm them prunes the hy-</text>
+<text top="943" left="479" width="358" height="14" font="2">potheses that have low probability, and selects only the most</text>
+<text top="960" left="479" width="194" height="14" font="2">likely ones to be part of the time</text>
+<text top="970" left="677" width="5" height="0" font="7">t</text>
+<text top="970" left="685" width="12" height="0" font="7">+</text>
+<text top="970" left="700" width="8" height="0" font="7">1</text>
+<text top="960" left="712" width="69" height="14" font="2">belief state.</text>
+<text top="977" left="494" width="343" height="14" font="2">I our setting, we also wish to maintain values for the per-</text>
+<text top="994" left="479" width="358" height="14" font="2">sistent discrete state variables, since the state of the system</text>
+<text top="1010" left="479" width="41" height="14" font="2">at time</text>
+<text top="1020" left="523" width="5" height="0" font="7">t</text>
+<text top="1020" left="531" width="12" height="0" font="7">+</text>
+<text top="1020" left="545" width="8" height="0" font="7">1</text>
+<text top="1010" left="556" width="187" height="14" font="2">depends on these values at time</text>
+<text top="1020" left="746" width="5" height="0" font="7">t</text>
+<text top="1010" left="752" width="85" height="14" font="2">. We therefore</text>
+<text top="1026" left="479" width="358" height="14" font="2">represent the belief state using a simple graphical model of</text>
+<text top="1043" left="479" width="52" height="14" font="2">the form</text>
+<text top="1053" left="534" width="13" height="0" font="7">D</text>
+<text top="1047" left="548" width="5" height="0" font="7">t</text>
+<text top="1053" left="557" width="15" height="0" font="7"> </text>
+<text top="1053" left="576" width="13" height="0" font="7">H</text>
+<text top="1047" left="590" width="5" height="0" font="7">t</text>
+<text top="1053" left="599" width="15" height="0" font="7">!</text>
+<text top="1053" left="619" width="13" height="0" font="7">X</text>
+<text top="1047" left="632" width="5" height="0" font="7">t</text>
+<text top="1043" left="637" width="200" height="14" font="2">. Formally, we represent our time</text>
+</page>
+<page number="5" position="absolute" top="0" left="0" height="1188" width="918">
+	<fontspec id="17" size="9" family="Times" color="#000000"/>
+<text top="96" left="81" width="5" height="0" font="7">t</text>
+<text top="86" left="91" width="66" height="14" font="2">belief state</text>
+<text top="96" left="161" width="9" height="0" font="7"></text>
+<text top="90" left="170" width="5" height="0" font="7">t</text>
+<text top="86" left="179" width="75" height="14" font="2">as a mixture</text>
+<text top="96" left="258" width="9" height="0" font="7"></text>
+<text top="90" left="267" width="5" height="0" font="7">t</text>
+<text top="96" left="272" width="14" height="0" font="7">(h</text>
+<text top="90" left="287" width="5" height="0" font="7">t</text>
+<text top="96" left="292" width="6" height="0" font="7">)</text>
+<text top="86" left="302" width="13" height="14" font="2">of</text>
+<text top="96" left="319" width="13" height="0" font="7">K</text>
+<text top="86" left="337" width="101" height="14" font="2">hypotheses, each</text>
+<text top="102" left="81" width="358" height="14" font="2">of which is associated with a single multivariate Gaussian</text>
+<text top="129" left="81" width="9" height="0" font="7"></text>
+<text top="123" left="90" width="5" height="0" font="7">t</text>
+<text top="129" left="95" width="19" height="0" font="7">(X</text>
+<text top="123" left="114" width="5" height="0" font="7">t</text>
+<text top="129" left="123" width="4" height="0" font="7">j</text>
+<text top="129" left="132" width="9" height="0" font="7">h</text>
+<text top="123" left="140" width="5" height="0" font="7">t</text>
+<text top="129" left="146" width="6" height="0" font="7">)</text>
+<text top="119" left="155" width="156" height="14" font="2">and a discrete distribution</text>
+<text top="129" left="314" width="9" height="0" font="7"></text>
+<text top="123" left="323" width="5" height="0" font="7">t</text>
+<text top="129" left="328" width="19" height="0" font="7">(D</text>
+<text top="123" left="347" width="5" height="0" font="7">t</text>
+<text top="129" left="356" width="4" height="0" font="7">j</text>
+<text top="129" left="365" width="9" height="0" font="7">h</text>
+<text top="123" left="373" width="5" height="0" font="7">t</text>
+<text top="129" left="378" width="6" height="0" font="7">)</text>
+<text top="136" left="96" width="343" height="14" font="2">The deficiency of this algorithm is that it selects some hy-</text>
+<text top="153" left="81" width="357" height="14" font="2">potheses exactly, while entirely ignoring others. In many</text>
+<text top="169" left="81" width="358" height="14" font="2">cases, the hypotheses that are maintained all correspond to</text>
+<text top="186" left="81" width="358" height="14" font="2">scenarios that are all close to nominal behavior, and are</text>
+<text top="202" left="81" width="358" height="14" font="2">therefore qualitatively quite similar. By contrast, the pruned</text>
+<text top="218" left="81" width="358" height="14" font="2">hypotheses often correspond to a priori unlikely faults, that</text>
+<text top="235" left="81" width="358" height="14" font="2">can lead to very different behaviors. We therefore propose a</text>
+<text top="252" left="81" width="325" height="14" font="2">new approach where similar hypotheses are collapsed.</text>
+<text top="269" left="96" width="343" height="14" font="2">Like the pruning algorithm, we start by performing the</text>
+<text top="285" left="81" width="358" height="14" font="2">forward propagation step, defining a set of possible hypothe-</text>
+<text top="304" left="81" width="18" height="14" font="2">ses</text>
+<text top="314" left="103" width="18" height="0" font="7">(H</text>
+<text top="309" left="123" width="5" height="0" font="7">t</text>
+<text top="314" left="128" width="4" height="0" font="7">;</text>
+<text top="314" left="135" width="13" height="0" font="7">D</text>
+<text top="309" left="148" width="20" height="0" font="7">t+1</text>
+<text top="314" left="168" width="6" height="0" font="7">)</text>
+<text top="304" left="174" width="23" height="14" font="2">; let</text>
+<text top="310" left="205" width="8" height="0" font="7">~</text>
+<text top="314" left="201" width="13" height="0" font="7">H</text>
+<text top="309" left="215" width="20" height="0" font="7">t+1</text>
+<text top="304" left="239" width="200" height="14" font="2">be random variable whose values</text>
+<text top="320" left="81" width="188" height="14" font="2">correspond to this larger set of</text>
+<text top="330" left="274" width="13" height="0" font="7">K</text>
+<text top="330" left="292" width="4" height="0" font="7"></text>
+<text top="330" left="301" width="18" height="0" font="7">jD</text>
+<text top="330" left="319" width="4" height="0" font="7">j</text>
+<text top="320" left="328" width="111" height="14" font="2">hypotheses. Next,</text>
+<text top="337" left="81" width="358" height="14" font="2">the measurements are introduced, and the result is a mixture</text>
+<text top="353" left="81" width="70" height="14" font="2">distribution</text>
+<text top="363" left="154" width="6" height="0" font="7"></text>
+<text top="358" left="163" width="20" height="0" font="7">t+1</text>
+<text top="353" left="188" width="26" height="14" font="2">over</text>
+<text top="363" left="219" width="13" height="0" font="7">H</text>
+<text top="358" left="233" width="5" height="0" font="7">t</text>
+<text top="363" left="238" width="4" height="0" font="7">;</text>
+<text top="363" left="245" width="13" height="0" font="7">D</text>
+<text top="358" left="258" width="20" height="0" font="7">t+1</text>
+<text top="353" left="283" width="22" height="14" font="2">and</text>
+<text top="363" left="310" width="13" height="0" font="7">X</text>
+<text top="358" left="323" width="20" height="0" font="7">t+1</text>
+<text top="353" left="343" width="96" height="14" font="2">. Our task is to</text>
+<text top="370" left="81" width="73" height="14" font="2">generate the</text>
+<text top="380" left="157" width="5" height="0" font="7">t</text>
+<text top="380" left="166" width="12" height="0" font="7">+</text>
+<text top="380" left="181" width="8" height="0" font="7">1</text>
+<text top="370" left="192" width="179" height="14" font="2">hypotheses from this mixture.</text>
+<text top="388" left="96" width="256" height="14" font="2">We define a new set of mixture components</text>
+<text top="398" left="355" width="13" height="0" font="7">H</text>
+<text top="392" left="369" width="20" height="0" font="7">t+1</text>
+<text top="388" left="389" width="50" height="14" font="2">, each of</text>
+<text top="406" left="81" width="250" height="14" font="2">which aggregates several of the values of</text>
+<text top="413" left="339" width="8" height="0" font="7">~</text>
+<text top="416" left="336" width="13" height="0" font="7">H</text>
+<text top="411" left="349" width="20" height="0" font="7">t+1</text>
+<text top="406" left="369" width="69" height="14" font="2">. The algo-</text>
+<text top="423" left="81" width="358" height="14" font="2">rithm thereby defines a collapsing matrix that is essentially</text>
+<text top="439" left="81" width="122" height="14" font="2">a deterministic CPD</text>
+<text top="449" left="207" width="10" height="0" font="7">P</text>
+<text top="449" left="219" width="18" height="0" font="7">(H</text>
+<text top="444" left="238" width="20" height="0" font="7">t+1</text>
+<text top="449" left="263" width="4" height="0" font="7">j</text>
+<text top="449" left="272" width="13" height="0" font="7">H</text>
+<text top="444" left="286" width="5" height="0" font="7">t</text>
+<text top="449" left="291" width="4" height="0" font="7">;</text>
+<text top="449" left="298" width="13" height="0" font="7">D</text>
+<text top="444" left="311" width="20" height="0" font="7">t+1</text>
+<text top="449" left="332" width="6" height="0" font="7">)</text>
+<text top="439" left="337" width="102" height="14" font="2">. This collapsing</text>
+<text top="456" left="81" width="234" height="14" font="2">matrix is used to define the belief state</text>
+<text top="466" left="319" width="9" height="0" font="7"></text>
+<text top="460" left="328" width="20" height="0" font="7">t+1</text>
+<text top="456" left="348" width="91" height="14" font="2">, as a weighted</text>
+<text top="472" left="81" width="215" height="14" font="2">average of the mixture components:</text>
+<text top="515" left="108" width="9" height="0" font="7"></text>
+<text top="509" left="117" width="20" height="0" font="7">t+1</text>
+<text top="515" left="138" width="18" height="0" font="7">(H</text>
+<text top="509" left="157" width="20" height="0" font="7">t+1</text>
+<text top="515" left="177" width="6" height="0" font="7">)</text>
+<text top="515" left="187" width="12" height="0" font="7">=</text>
+<text top="501" left="206" width="22" height="0" font="7">X</text>
+<text top="533" left="206" width="6" height="0" font="7">~</text>
+<text top="536" left="203" width="10" height="0" font="7">H</text>
+<text top="533" left="213" width="17" height="0" font="7">t+1</text>
+<text top="515" left="234" width="10" height="0" font="7">P</text>
+<text top="515" left="246" width="18" height="0" font="7">(H</text>
+<text top="509" left="265" width="20" height="0" font="7">t+1</text>
+<text top="515" left="289" width="4" height="0" font="7">j</text>
+<text top="512" left="302" width="8" height="0" font="7">~</text>
+<text top="515" left="298" width="13" height="0" font="7">H</text>
+<text top="509" left="311" width="20" height="0" font="7">t+1</text>
+<text top="515" left="332" width="12" height="0" font="7">)</text>
+<text top="509" left="346" width="20" height="0" font="7">t+1</text>
+<text top="515" left="366" width="6" height="0" font="7">(</text>
+<text top="512" left="376" width="8" height="0" font="7">~</text>
+<text top="515" left="372" width="13" height="0" font="7">H</text>
+<text top="509" left="386" width="20" height="0" font="7">t+1</text>
+<text top="515" left="406" width="6" height="0" font="7">)</text>
+<text top="574" left="81" width="9" height="0" font="7"></text>
+<text top="568" left="90" width="20" height="0" font="7">t+1</text>
+<text top="574" left="111" width="19" height="0" font="7">(D</text>
+<text top="568" left="130" width="20" height="0" font="7">t+1</text>
+<text top="574" left="154" width="4" height="0" font="7">j</text>
+<text top="574" left="162" width="13" height="0" font="7">H</text>
+<text top="568" left="176" width="20" height="0" font="7">t+1</text>
+<text top="574" left="196" width="6" height="0" font="7">)</text>
+<text top="574" left="206" width="12" height="0" font="7">=</text>
+<text top="560" left="225" width="22" height="0" font="7">X</text>
+<text top="592" left="225" width="6" height="0" font="7">~</text>
+<text top="594" left="222" width="10" height="0" font="7">H</text>
+<text top="592" left="233" width="17" height="0" font="7">t+1</text>
+<text top="574" left="253" width="10" height="0" font="7">P</text>
+<text top="574" left="265" width="6" height="0" font="7">(</text>
+<text top="570" left="274" width="8" height="0" font="7">~</text>
+<text top="574" left="270" width="13" height="0" font="7">H</text>
+<text top="568" left="284" width="20" height="0" font="7">t+1</text>
+<text top="574" left="309" width="4" height="0" font="7">j</text>
+<text top="574" left="317" width="13" height="0" font="7">H</text>
+<text top="568" left="330" width="20" height="0" font="7">t+1</text>
+<text top="574" left="351" width="12" height="0" font="7">)</text>
+<text top="568" left="365" width="20" height="0" font="7">t+1</text>
+<text top="574" left="385" width="19" height="0" font="7">(D</text>
+<text top="568" left="404" width="20" height="0" font="7">t+1</text>
+<text top="574" left="429" width="4" height="0" font="7">j</text>
+<text top="570" left="441" width="8" height="0" font="7">~</text>
+<text top="574" left="437" width="13" height="0" font="7">H</text>
+<text top="568" left="451" width="20" height="0" font="7">t+1</text>
+<text top="574" left="471" width="6" height="0" font="7">)</text>
+<text top="613" left="81" width="107" height="14" font="2">Finally, we define</text>
+<text top="623" left="192" width="9" height="0" font="7"></text>
+<text top="617" left="201" width="20" height="0" font="7">t+1</text>
+<text top="623" left="221" width="19" height="0" font="7">(X</text>
+<text top="617" left="240" width="20" height="0" font="7">t+1</text>
+<text top="623" left="265" width="4" height="0" font="7">j</text>
+<text top="623" left="274" width="13" height="0" font="7">H</text>
+<text top="617" left="287" width="5" height="0" font="7">t</text>
+<text top="623" left="292" width="4" height="0" font="7">;</text>
+<text top="623" left="299" width="13" height="0" font="7">D</text>
+<text top="617" left="312" width="20" height="0" font="7">t+1</text>
+<text top="623" left="333" width="6" height="0" font="7">)</text>
+<text top="613" left="342" width="96" height="14" font="2">to be the closest</text>
+<text top="629" left="81" width="357" height="14" font="2">Gaussian approximation (i.e., the Gaussian that has the same</text>
+<text top="645" left="81" width="240" height="14" font="2">mean and covariances as the mixture) to</text>
+<text top="662" left="96" width="16" height="0" font="7">P</text>
+<text top="675" left="115" width="6" height="0" font="7">~</text>
+<text top="677" left="112" width="10" height="0" font="7">H</text>
+<text top="674" left="122" width="17" height="0" font="7">t+1</text>
+<text top="673" left="143" width="10" height="0" font="7">P</text>
+<text top="673" left="155" width="6" height="0" font="7">(</text>
+<text top="669" left="165" width="8" height="0" font="7">~</text>
+<text top="673" left="161" width="13" height="0" font="7">H</text>
+<text top="668" left="175" width="20" height="0" font="7">t+1</text>
+<text top="673" left="199" width="4" height="0" font="7">j</text>
+<text top="673" left="207" width="13" height="0" font="7">H</text>
+<text top="668" left="221" width="20" height="0" font="7">t+1</text>
+<text top="673" left="241" width="15" height="0" font="7">)P</text>
+<text top="673" left="259" width="19" height="0" font="7">(X</text>
+<text top="668" left="278" width="20" height="0" font="7">t+1</text>
+<text top="673" left="302" width="4" height="0" font="7">j</text>
+<text top="669" left="314" width="8" height="0" font="7">~</text>
+<text top="673" left="310" width="13" height="0" font="7">H</text>
+<text top="668" left="324" width="20" height="0" font="7">t+1</text>
+<text top="673" left="345" width="6" height="0" font="7">)</text>
+<text top="663" left="350" width="4" height="14" font="2">.</text>
+<text top="684" left="96" width="343" height="14" font="2">The main remaining question is the choice of which hy-</text>
+<text top="700" left="81" width="358" height="14" font="2">potheses to collapse. We use a greedy approach, that takes</text>
+<text top="716" left="81" width="358" height="14" font="2">into consideration both the likelihood of the different hy-</text>
+<text top="733" left="81" width="358" height="14" font="2">potheses and their similarity to each other. We sort the dif-</text>
+<text top="749" left="81" width="228" height="14" font="2">ferent hypotheses by their likelihood.</text>
+<text top="747" left="309" width="5" height="9" font="11">1</text>
+<text top="749" left="321" width="118" height="14" font="2">Then, starting from</text>
+<text top="766" left="81" width="358" height="14" font="2">the most likely hypothesis, we find the closest hypothesis</text>
+<text top="782" left="81" width="358" height="14" font="2">to it, and merge the two. Note that the merged hypothe-</text>
+<text top="799" left="81" width="358" height="14" font="2">sis will have higher probability, so will remain at the top</text>
+<text top="815" left="81" width="358" height="14" font="2">of the list. When there are no hypotheses that are âclose</text>
+<text top="832" left="81" width="358" height="14" font="2">enoughâ, we move to the next most likely hypothesis in our</text>
+<text top="848" left="81" width="358" height="14" font="2">list. When we have filled our quota of hypotheses, we col-</text>
+<text top="864" left="81" width="358" height="14" font="2">lapse all the remaining hypotheses into one, regardless of</text>
+<text top="881" left="81" width="358" height="14" font="2">how close they are. As our distance measure, we use the</text>
+<text top="897" left="81" width="358" height="14" font="2">sum of the two relative entropies (KL-distances) (Cover &amp;</text>
+<text top="914" left="81" width="358" height="14" font="2">Thomas 1991) between the Gaussians associated with the</text>
+<text top="930" left="81" width="358" height="14" font="2">hypotheses. We note that we deliberately do not use the</text>
+<text top="947" left="81" width="358" height="14" font="2">weights in determining the distance between hypotheses;</text>
+<text top="963" left="81" width="358" height="14" font="2">otherwise, we would invariably collapse unlikely hypotheses</text>
+<text top="979" left="81" width="358" height="14" font="2">into likely ones, even if they are qualitatively very different.</text>
+<text top="1011" left="100" width="5" height="8" font="17">1</text>
+<text top="1014" left="105" width="334" height="12" font="4">To reduce CPU time in our implementation, we first removed</text>
+<text top="1029" left="81" width="252" height="12" font="4">all hypotheses with extremely low probability (</text>
+<text top="1038" left="333" width="14" height="0" font="7">10</text>
+<text top="1032" left="346" width="14" height="0" font="7">,8</text>
+<text top="1029" left="361" width="78" height="12" font="4">), and then use</text>
+<text top="1044" left="81" width="224" height="12" font="4">the merging approach to collapse the rest.</text>
+<text top="85" left="479" width="76" height="15" font="8">Smoothing</text>
+<text top="107" left="479" width="358" height="14" font="2">Both hypothesis collapsing and pruning are myopic meth-</text>
+<text top="123" left="479" width="294" height="14" font="2">ods; they only use evidence observed up to time</text>
+<text top="133" left="777" width="5" height="0" font="7">t</text>
+<text top="123" left="783" width="55" height="14" font="2">. As dis-</text>
+<text top="140" left="479" width="358" height="14" font="2">cussed above, the effects of some failures have a delay, so</text>
+<text top="156" left="479" width="101" height="14" font="2">a failure at time</text>
+<text top="166" left="585" width="5" height="0" font="7">t</text>
+<text top="156" left="597" width="240" height="14" font="2">may not manifest itself in evidence up</text>
+<text top="172" left="479" width="44" height="14" font="2">to time</text>
+<text top="182" left="528" width="5" height="0" font="7">t</text>
+<text top="172" left="533" width="304" height="14" font="2">. Since a priori failure probabilities are typically</text>
+<text top="189" left="479" width="358" height="14" font="2">quite low, failures could have very weak support in our be-</text>
+<text top="205" left="479" width="358" height="14" font="2">lief state. Thus, by the time the data necessary to diagnose</text>
+<text top="222" left="479" width="358" height="14" font="2">the failure are available, the failure track may be lost. The</text>
+<text top="238" left="479" width="359" height="14" font="2">obvious solution to the problem is to pick the likely hypothe-</text>
+<text top="254" left="479" width="358" height="14" font="2">ses based not only on past and present evidence but also on</text>
+<text top="271" left="479" width="358" height="14" font="2">future evidence; i.e., we want to use weights obtained after</text>
+<text top="288" left="479" width="358" height="14" font="2">some amount of smoothing. However, smoothing requires</text>
+<text top="304" left="479" width="358" height="14" font="2">that we first propagate a belief state forward in time, and</text>
+<text top="320" left="479" width="358" height="14" font="2">this is the very problem we are trying to solve. We break</text>
+<text top="337" left="479" width="358" height="14" font="2">this cycle by using a slightly different method of collapsing</text>
+<text top="353" left="479" width="359" height="14" font="2">hypotheses. Instead of sorting the hypotheses by likelihoods</text>
+<text top="370" left="479" width="358" height="14" font="2">we always collapse the two most similar Gaussians until our</text>
+<text top="386" left="479" width="358" height="14" font="2">mixture is small enough. This may lead to a more aggres-</text>
+<text top="402" left="479" width="358" height="14" font="2">sive collapsing since we do not have a bound on the maximal</text>
+<text top="419" left="479" width="358" height="14" font="2">KL-distance between two Gaussians that we collapse. We</text>
+<text top="436" left="479" width="358" height="14" font="2">can afford to be more aggressive here since we will not use</text>
+<text top="452" left="479" width="358" height="14" font="2">the results of smoothing to update our continuous variables,</text>
+<text top="468" left="479" width="305" height="14" font="2">but only to guide our hypothesis reduction method.</text>
+<text top="485" left="494" width="343" height="14" font="2">It remains to show how we do the backward propagation</text>
+<text top="501" left="479" width="194" height="14" font="2">process required for smoothing.</text>
+<text top="501" left="688" width="149" height="14" font="2">The primary difficulty is</text>
+<text top="518" left="479" width="358" height="14" font="2">the correct handling of the continuous part of our belief state</text>
+<text top="534" left="479" width="358" height="14" font="2">approximation. The reason is that after collapsing a mixture</text>
+<text top="550" left="479" width="358" height="14" font="2">of Gaussians, updating the distribution of each component</text>
+<text top="567" left="479" width="358" height="14" font="2">based only on evidence relative to the result of the collapse</text>
+<text top="583" left="479" width="358" height="14" font="2">is a non-trivial problem. Fortunately, we are primarily inter-</text>
+<text top="600" left="479" width="359" height="14" font="2">ested in getting a more informed posterior for the hypothesis</text>
+<text top="616" left="479" width="358" height="14" font="2">variable, since our main goal is simply to identify the most</text>
+<text top="633" left="479" width="358" height="14" font="2">likely hypotheses. The continuous parts will typically track</text>
+<text top="649" left="479" width="358" height="14" font="2">correctly if we identify the correct hypotheses. Therefore,</text>
+<text top="666" left="479" width="318" height="14" font="2">we execute smoothing only for the discrete variables.</text>
+<text top="682" left="494" width="343" height="14" font="2">The process is now easy; assume that we use a looka-</text>
+<text top="698" left="479" width="98" height="14" font="2">head window of</text>
+<text top="708" left="581" width="6" height="0" font="7">`</text>
+<text top="698" left="591" width="246" height="14" font="2">time slices (thus, the last observation we</text>
+<text top="715" left="479" width="77" height="14" font="2">get to see is</text>
+<text top="725" left="562" width="5" height="0" font="7">t</text>
+<text top="725" left="572" width="12" height="0" font="7">+</text>
+<text top="725" left="589" width="6" height="0" font="7">`</text>
+<text top="725" left="600" width="12" height="0" font="7">+</text>
+<text top="725" left="616" width="8" height="0" font="7">1</text>
+<text top="715" left="624" width="213" height="14" font="2">). The backward message to time</text>
+<text top="734" left="479" width="24" height="14" font="2">step</text>
+<text top="744" left="507" width="5" height="0" font="7">t</text>
+<text top="744" left="516" width="12" height="0" font="7">+</text>
+<text top="744" left="531" width="6" height="0" font="7">`</text>
+<text top="738" left="537" width="4" height="0" font="7">0</text>
+<text top="734" left="545" width="163" height="14" font="2">is simply the probability of</text>
+<text top="744" left="712" width="9" height="0" font="7">y</text>
+<text top="738" left="721" width="19" height="0" font="7">t+`</text>
+<text top="734" left="740" width="3" height="0" font="7">0</text>
+<text top="738" left="744" width="15" height="0" font="7">+1</text>
+<text top="744" left="760" width="4" height="0" font="7">;</text>
+<text top="744" left="767" width="4" height="0" font="7">:</text>
+<text top="744" left="774" width="4" height="0" font="7">:</text>
+<text top="744" left="780" width="4" height="0" font="7">:</text>
+<text top="744" left="787" width="4" height="0" font="7">;</text>
+<text top="744" left="793" width="9" height="0" font="7">y</text>
+<text top="738" left="803" width="34" height="0" font="7">t+`+1</text>
+<text top="753" left="479" width="33" height="14" font="2">given</text>
+<text top="763" left="517" width="13" height="0" font="7">H</text>
+<text top="758" left="530" width="19" height="0" font="7">t+`</text>
+<text top="753" left="549" width="3" height="0" font="7">0</text>
+<text top="753" left="554" width="284" height="14" font="2">. This message defines a posterior distribution</text>
+<text top="772" left="479" width="26" height="14" font="2">over</text>
+<text top="782" left="508" width="13" height="0" font="7">H</text>
+<text top="777" left="522" width="19" height="0" font="7">t+`</text>
+<text top="772" left="541" width="3" height="0" font="7">0</text>
+<text top="772" left="545" width="292" height="14" font="2">, which can be computed using standard methods.</text>
+<text top="789" left="479" width="358" height="14" font="2">We now use our collapsing matrix to compute the effect of</text>
+<text top="807" left="479" width="146" height="14" font="2">this new information on</text>
+<text top="817" left="630" width="13" height="0" font="7">D</text>
+<text top="812" left="643" width="17" height="0" font="7">t+l</text>
+<text top="808" left="661" width="3" height="0" font="7">0</text>
+<text top="807" left="670" width="22" height="14" font="2">and</text>
+<text top="817" left="697" width="13" height="0" font="7">H</text>
+<text top="812" left="710" width="17" height="0" font="7">t+l</text>
+<text top="808" left="728" width="3" height="0" font="7">0</text>
+<text top="812" left="732" width="15" height="0" font="7">,1</text>
+<text top="807" left="748" width="89" height="14" font="2">. In particular,</text>
+<text top="824" left="479" width="358" height="14" font="2">the probabilities of all the components which were collapsed</text>
+<text top="843" left="479" width="58" height="14" font="2">into some</text>
+<text top="853" left="540" width="9" height="0" font="7">h</text>
+<text top="847" left="549" width="19" height="0" font="7">t+`</text>
+<text top="843" left="568" width="3" height="0" font="7">0</text>
+<text top="843" left="575" width="262" height="14" font="2">are multiplied by the change in the probabil-</text>
+<text top="862" left="479" width="32" height="14" font="2">ity of</text>
+<text top="872" left="514" width="9" height="0" font="7">h</text>
+<text top="867" left="522" width="19" height="0" font="7">t+`</text>
+<text top="862" left="541" width="3" height="0" font="7">0</text>
+<text top="862" left="546" width="291" height="14" font="2">. This is also intuitively appealing â since all the</text>
+<text top="878" left="479" width="358" height="14" font="2">collapsed components were similar, we should change their</text>
+<text top="895" left="479" width="358" height="14" font="2">probabilities by the same factor. The result is a message to</text>
+<text top="911" left="479" width="54" height="14" font="2">time step</text>
+<text top="921" left="537" width="5" height="0" font="7">t</text>
+<text top="921" left="546" width="12" height="0" font="7">+</text>
+<text top="921" left="561" width="6" height="0" font="7">`</text>
+<text top="916" left="567" width="4" height="0" font="7">0</text>
+<text top="921" left="575" width="12" height="0" font="7">,</text>
+<text top="921" left="590" width="8" height="0" font="7">1</text>
+<text top="911" left="597" width="231" height="14" font="2">, which is propagated in the same way.</text>
+<text top="928" left="494" width="251" height="14" font="2">When the process terminates at time step</text>
+<text top="938" left="750" width="5" height="0" font="7">t</text>
+<text top="928" left="755" width="82" height="14" font="2">, we have the</text>
+<text top="944" left="479" width="67" height="14" font="2">probability</text>
+<text top="954" left="548" width="10" height="0" font="7">P</text>
+<text top="954" left="560" width="18" height="0" font="7">(H</text>
+<text top="949" left="580" width="5" height="0" font="7">t</text>
+<text top="954" left="589" width="4" height="0" font="7">j</text>
+<text top="954" left="597" width="9" height="0" font="7">y</text>
+<text top="949" left="606" width="6" height="0" font="7">1</text>
+<text top="954" left="613" width="4" height="0" font="7">;</text>
+<text top="954" left="620" width="4" height="0" font="7">:</text>
+<text top="954" left="627" width="4" height="0" font="7">:</text>
+<text top="954" left="634" width="4" height="0" font="7">:</text>
+<text top="954" left="640" width="4" height="0" font="7">;</text>
+<text top="954" left="647" width="9" height="0" font="7">y</text>
+<text top="949" left="656" width="34" height="0" font="7">t+`+1</text>
+<text top="954" left="690" width="6" height="0" font="7">)</text>
+<text top="944" left="696" width="141" height="14" font="2">, which we can then use</text>
+<text top="961" left="479" width="358" height="14" font="2">to better guide which hypotheses to eliminate, as well as our</text>
+<text top="977" left="479" width="358" height="14" font="2">collapsing algorithm. We note, however, that the results of</text>
+<text top="994" left="479" width="358" height="14" font="2">smoothing should be used only for guiding the approxima-</text>
+<text top="1010" left="479" width="358" height="14" font="2">tion. In order to avoid double-counting evidence, it is very</text>
+<text top="1026" left="479" width="358" height="14" font="2">important to continue our tracking using our unsmoothed</text>
+<text top="1043" left="479" width="115" height="14" font="2">hypothesis weights</text>
+<text top="1053" left="597" width="9" height="0" font="7"></text>
+<text top="1047" left="606" width="5" height="0" font="7">t</text>
+<text top="1053" left="611" width="18" height="0" font="7">(H</text>
+<text top="1047" left="631" width="5" height="0" font="7">t</text>
+<text top="1053" left="636" width="6" height="0" font="7">)</text>
+<text top="1043" left="642" width="4" height="14" font="2">.</text>
+</page>
+<page number="6" position="absolute" top="0" left="0" height="1188" width="918">
+	<fontspec id="18" size="8" family="Times" color="#000000"/>
+	<fontspec id="19" size="12" family="Times" color="#000000"/>
+	<fontspec id="20" size="8" family="Times" color="#000000"/>
+<text top="85" left="81" width="180" height="15" font="8">Subsystem decomposition</text>
+<text top="106" left="81" width="358" height="14" font="2">One of the underlying assumptions of the algorithm is that</text>
+<text top="122" left="81" width="358" height="14" font="2">it is feasible to enumerate all the possible instantiations of</text>
+<text top="139" left="81" width="126" height="14" font="2">the discrete variables</text>
+<text top="149" left="210" width="13" height="0" font="7">D</text>
+<text top="143" left="224" width="5" height="0" font="7">t</text>
+<text top="139" left="229" width="210" height="14" font="2">. Unfortunately, for non-trivial sys-</text>
+<text top="155" left="81" width="358" height="14" font="2">tems, this assumption is often unrealistic. The number of</text>
+<text top="172" left="81" width="291" height="14" font="2">possible instantiations of the discrete variables</text>
+<text top="182" left="378" width="13" height="0" font="7">D</text>
+<text top="176" left="391" width="5" height="0" font="7">t</text>
+<text top="172" left="402" width="36" height="14" font="2">grows</text>
+<text top="188" left="81" width="358" height="14" font="2">exponentially with the number of discrete variables in the</text>
+<text top="204" left="81" width="358" height="14" font="2">system. To deal with this problem, we take an approach</text>
+<text top="221" left="81" width="358" height="14" font="2">introduced for discrete systems in (Boyen &amp; Koller 1998).</text>
+<text top="238" left="81" width="358" height="14" font="2">The crucial idea is to make use of the fact that large systems</text>
+<text top="254" left="81" width="358" height="14" font="2">are typically composed of subsystems, and that, while the</text>
+<text top="270" left="81" width="358" height="14" font="2">subsystems are correlated, the interaction between them is</text>
+<text top="287" left="81" width="358" height="14" font="2">often not so strong. Therefore, it might be reasonable to ap-</text>
+<text top="303" left="81" width="358" height="14" font="2">proximate our beliefs about the system using separate beliefs</text>
+<text top="320" left="81" width="358" height="14" font="2">about the subsystems, i.e., using a belief state where they are</text>
+<text top="336" left="81" width="358" height="14" font="2">independent. Note that this approximation is very different</text>
+<text top="352" left="81" width="358" height="14" font="2">from one that ignores the interactions between the subsys-</text>
+<text top="369" left="81" width="358" height="14" font="2">tems. As we do the propagation, the state of one subsystem</text>
+<text top="385" left="81" width="358" height="14" font="2">can influence the state of another; but we then decouple the</text>
+<text top="402" left="81" width="358" height="14" font="2">correlations resulting from this interaction when we main-</text>
+<text top="418" left="81" width="275" height="14" font="2">tain our beliefs about the current system state.</text>
+<text top="435" left="96" width="329" height="14" font="2">More precisely, we partition the system variables into</text>
+<text top="445" left="430" width="9" height="0" font="7">n</text>
+<text top="451" left="81" width="357" height="14" font="2">disjoint sets, corresponding to the different subsystems. Let</text>
+<text top="477" left="81" width="13" height="0" font="7">D</text>
+<text top="481" left="94" width="4" height="0" font="7">i</text>
+<text top="468" left="103" width="22" height="14" font="2">and</text>
+<text top="477" left="129" width="13" height="0" font="7">X</text>
+<text top="481" left="142" width="4" height="0" font="7">i</text>
+<text top="468" left="152" width="287" height="14" font="2">be the discrete and continuous variables in sub-</text>
+<text top="484" left="81" width="42" height="14" font="2">system</text>
+<text top="494" left="126" width="5" height="0" font="7">i</text>
+<text top="484" left="131" width="308" height="14" font="2">, respectively. As for the case of a single system, we</text>
+<text top="500" left="81" width="267" height="14" font="2">represent the belief state for each subsystem</text>
+<text top="510" left="352" width="5" height="0" font="7">i</text>
+<text top="500" left="361" width="78" height="14" font="2">as a mixture,</text>
+<text top="517" left="81" width="240" height="14" font="2">represented using a hypothesis variable</text>
+<text top="527" left="325" width="13" height="0" font="7">H</text>
+<text top="531" left="338" width="4" height="0" font="7">i</text>
+<text top="517" left="343" width="96" height="14" font="2">. We also asso-</text>
+<text top="533" left="81" width="332" height="14" font="2">ciate with each subsystem a set of observation variables</text>
+<text top="543" left="417" width="13" height="0" font="7">Y</text>
+<text top="547" left="430" width="4" height="0" font="7">i</text>
+<text top="533" left="435" width="4" height="14" font="2">,</text>
+<text top="550" left="81" width="351" height="14" font="2">which are the ones that are most relevant to the subsystem.</text>
+<text top="566" left="96" width="184" height="14" font="2">Our goal is to get a belief state</text>
+<text top="576" left="284" width="9" height="0" font="7"></text>
+<text top="571" left="293" width="5" height="0" font="7">t</text>
+<text top="580" left="293" width="4" height="0" font="7">i</text>
+<text top="566" left="302" width="124" height="14" font="2">over each subsystem</text>
+<text top="576" left="430" width="5" height="0" font="7">i</text>
+<text top="566" left="435" width="4" height="14" font="2">.</text>
+<text top="582" left="81" width="99" height="14" font="2">Since subsystem</text>
+<text top="592" left="184" width="5" height="0" font="7">i</text>
+<text top="582" left="192" width="247" height="14" font="2">may be influenced directly by some other</text>
+<text top="599" left="81" width="358" height="14" font="2">subsystems, we cannot perform the inference completely in</text>
+<text top="616" left="81" width="160" height="14" font="2">isolation inside subsystem</text>
+<text top="625" left="247" width="5" height="0" font="7">i</text>
+<text top="616" left="252" width="187" height="14" font="2">. Instead, we consider the ex-</text>
+<text top="632" left="81" width="272" height="14" font="6">tended subsystem which includes subsystem</text>
+<text top="642" left="358" width="5" height="0" font="7">i</text>
+<text top="632" left="363" width="76" height="14" font="2">, and all the</text>
+<text top="648" left="81" width="308" height="14" font="2">variables from other subsystems which influence it.</text>
+<text top="665" left="96" width="343" height="14" font="2">Given our belief state representation, it is possible to de-</text>
+<text top="681" left="81" width="358" height="14" font="2">scribe the distribution over the extended subsystem as a mix-</text>
+<text top="698" left="81" width="357" height="14" font="2">ture of Gaussians. As in the single subsystem case, we can</text>
+<text top="714" left="81" width="359" height="14" font="2">introduce evidence which changes our probability distribu-</text>
+<text top="730" left="81" width="358" height="14" font="2">tion over discrete variables as well as over continuous vari-</text>
+<text top="747" left="81" width="357" height="14" font="2">ables. Note that different extended subsystems may over-</text>
+<text top="763" left="81" width="358" height="14" font="2">lap, and after introducing different measurements into these</text>
+<text top="780" left="81" width="358" height="14" font="2">subsystems we may have a different distribution over the</text>
+<text top="796" left="81" width="358" height="14" font="2">shared variables. We synchronize these probabilities using a</text>
+<text top="813" left="81" width="358" height="14" font="2">message-passing algorithm called calibration (Lauritzen &amp;</text>
+<text top="829" left="81" width="358" height="14" font="2">Spiegelhalter 1988). As in backward propagation, we only</text>
+<text top="846" left="81" width="358" height="14" font="2">update the discrete variables, not the continuous ones. As</text>
+<text top="862" left="81" width="358" height="14" font="2">a result of this phase, all the discrete variables are updated</text>
+<text top="878" left="81" width="358" height="14" font="2">using all the measurement information. This is important, as</text>
+<text top="895" left="81" width="359" height="14" font="2">outside evidence can be important in determining the likeli-</text>
+<text top="911" left="81" width="197" height="14" font="2">hood of the different hypotheses.</text>
+<text top="928" left="96" width="343" height="14" font="2">It is also possible to modify the smoothing algorithm to</text>
+<text top="944" left="81" width="358" height="14" font="2">use the decomposed representation of the belief state. The</text>
+<text top="961" left="81" width="358" height="14" font="2">collapsing is done independently in every subsystem using</text>
+<text top="977" left="81" width="357" height="14" font="2">the same algorithm (and giving a collapsing matrix for every</text>
+<text top="994" left="81" width="358" height="14" font="2">subsystem). The backward messages are used to update the</text>
+<text top="1010" left="81" width="358" height="14" font="2">hypothesis variables of each one of the subsystems. The in-</text>
+<text top="1026" left="81" width="358" height="14" font="2">formation can be propagated backwards with the collapsing</text>
+<text top="1043" left="81" width="358" height="14" font="2">matrices. The only difference is that after this propagation,</text>
+<text top="207" left="822" width="13" height="7" font="18">F50</text>
+<text top="156" left="487" width="14" height="7" font="18">R10</text>
+<text top="157" left="546" width="14" height="7" font="18">R12</text>
+<text top="155" left="614" width="14" height="7" font="18">R23</text>
+<text top="156" left="677" width="14" height="7" font="18">R34</text>
+<text top="157" left="741" width="14" height="7" font="18">R45</text>
+<text top="156" left="806" width="14" height="7" font="18">R50</text>
+<text top="210" left="483" width="13" height="7" font="18">F10</text>
+<text top="173" left="546" width="13" height="7" font="18">F12</text>
+<text top="174" left="614" width="13" height="7" font="18">F23</text>
+<text top="174" left="677" width="13" height="7" font="18">F34</text>
+<text top="173" left="743" width="13" height="7" font="18">F45</text>
+<text top="196" left="520" width="9" height="7" font="18">P1</text>
+<text top="195" left="585" width="9" height="7" font="18">P2</text>
+<text top="194" left="653" width="9" height="7" font="18">P3</text>
+<text top="193" left="718" width="9" height="7" font="18">P4</text>
+<text top="193" left="780" width="9" height="7" font="18">P5</text>
+<text top="151" left="509" width="32" height="10" font="15">Tank 1</text>
+<text top="155" left="574" width="32" height="10" font="15">Tank 2</text>
+<text top="139" left="640" width="32" height="10" font="15">Tank 3</text>
+<text top="148" left="705" width="32" height="10" font="15">Tank 4</text>
+<text top="146" left="769" width="32" height="10" font="15">Tank 5</text>
+<text top="215" left="618" width="77" height="11" font="19">= Measurement</text>
+<text top="82" left="767" width="60" height="11" font="19">subsystem 5</text>
+<text top="82" left="700" width="60" height="11" font="19">subsystem 4</text>
+<text top="81" left="569" width="60" height="11" font="19">subsystem 2</text>
+<text top="81" left="489" width="60" height="11" font="19">subsystem 1</text>
+<text top="82" left="635" width="60" height="11" font="19">subsystem 3</text>
+<text top="439" left="534" width="10" height="8" font="18">0.2</text>
+<text top="416" left="534" width="10" height="8" font="18">0.4</text>
+<text top="393" left="534" width="10" height="8" font="18">0.6</text>
+<text top="369" left="534" width="10" height="8" font="18">0.8</text>
+<text top="346" left="540" width="4" height="8" font="18">1</text>
+<text top="323" left="534" width="10" height="8" font="18">1.2</text>
+<text top="300" left="534" width="10" height="8" font="18">1.4</text>
+<text top="276" left="534" width="10" height="8" font="18">1.6</text>
+<text top="253" left="534" width="10" height="8" font="18">1.8</text>
+<text top="230" left="540" width="4" height="8" font="18">2</text>
+<text top="448" left="547" width="4" height="8" font="18">0</text>
+<text top="448" left="593" width="4" height="8" font="18">5</text>
+<text top="448" left="636" width="8" height="8" font="18">10</text>
+<text top="448" left="681" width="8" height="8" font="18">15</text>
+<text top="448" left="726" width="8" height="8" font="18">20</text>
+<text top="448" left="772" width="8" height="8" font="18">25</text>
+<text top="448" left="817" width="8" height="8" font="18">30</text>
+<text top="354" left="510" width="0" height="8" font="20">Conductance</text>
+<text top="456" left="667" width="37" height="8" font="18">Time steps</text>
+<text top="276" left="587" width="35" height="8" font="18">R12 Truth</text>
+<text top="285" left="585" width="37" height="8" font="18">R12 Belief</text>
+<text top="293" left="587" width="35" height="8" font="18">R45 Truth</text>
+<text top="302" left="585" width="37" height="8" font="18">R45 Belief</text>
+<text top="310" left="587" width="35" height="8" font="18">R23 Truth</text>
+<text top="318" left="585" width="37" height="8" font="18">R23 Belief</text>
+<text top="474" left="544" width="228" height="14" font="2">Figure 3: Five tank system and results</text>
+<text top="509" left="479" width="358" height="14" font="2">we need to calibrate the discrete variables of the subsystems,</text>
+<text top="525" left="479" width="169" height="14" font="2">just like in the forward pass.</text>
+<text top="558" left="576" width="165" height="16" font="1">Experimental Results</text>
+<text top="582" left="479" width="358" height="14" font="2">We tested our algorithm on a system which contains five wa-</text>
+<text top="598" left="479" width="358" height="14" font="2">ter tanks, shown in Figure 3. The system contains six con-</text>
+<text top="615" left="479" width="358" height="14" font="2">ductances and five pressures, which are all free parameters,</text>
+<text top="631" left="479" width="358" height="14" font="2">but only three measurements, making it a challenging sys-</text>
+<text top="648" left="479" width="358" height="14" font="2">tem to track. In addition, the system contains the three types</text>
+<text top="664" left="479" width="357" height="14" font="2">of failures described in Section : drifts, bursts and measure-</text>
+<text top="681" left="479" width="273" height="14" font="2">ment errors, each occurring with probability</text>
+<text top="691" left="756" width="35" height="0" font="7">0:001</text>
+<text top="681" left="791" width="46" height="14" font="2">. Thus,</text>
+<text top="697" left="479" width="358" height="14" font="2">at every time step every conductance has 4 possible failure</text>
+<text top="713" left="479" width="357" height="14" font="2">modes (stable, fault, buildup, leak) and each measurement</text>
+<text top="730" left="479" width="358" height="14" font="2">has 2 possible failure modes. Counting all the possible fail-</text>
+<text top="746" left="479" width="74" height="14" font="2">ures at time</text>
+<text top="756" left="558" width="5" height="0" font="7">t</text>
+<text top="756" left="568" width="12" height="0" font="7">+</text>
+<text top="756" left="584" width="8" height="0" font="7">1</text>
+<text top="746" left="597" width="225" height="14" font="2">and the persistent failures from time</text>
+<text top="756" left="828" width="5" height="0" font="7">t</text>
+<text top="746" left="833" width="4" height="14" font="2">,</text>
+<text top="763" left="479" width="91" height="14" font="2">the system has</text>
+<text top="773" left="576" width="8" height="0" font="7">2</text>
+<text top="767" left="584" width="12" height="0" font="7">27</text>
+<text top="763" left="602" width="236" height="14" font="2">possible failure modes at any point in</text>
+<text top="779" left="479" width="358" height="14" font="2">time, eliminating any hope of using inference without some</text>
+<text top="796" left="479" width="175" height="14" font="2">decomposition of the system.</text>
+<text top="812" left="494" width="343" height="14" font="2">In our experiments we decomposed the system into five</text>
+<text top="829" left="479" width="358" height="14" font="2">subsystems, since decompositions into less subsystems de-</text>
+<text top="845" left="479" width="358" height="14" font="2">manded too much memory. Each tank was considered to</text>
+<text top="861" left="479" width="358" height="14" font="2">be a subsystem (see Figure 3). We tracked five hypotheses</text>
+<text top="878" left="479" width="358" height="14" font="2">per subsystem, with a lookahead of two steps when doing</text>
+<text top="895" left="479" width="358" height="14" font="2">smoothing. We tested our algorithm on a complicated se-</text>
+<text top="911" left="479" width="46" height="14" font="2">quence:</text>
+<text top="938" left="479" width="8" height="0" font="7"></text>
+<text top="928" left="494" width="15" height="14" font="2">At</text>
+<text top="938" left="513" width="5" height="0" font="7">t</text>
+<text top="938" left="522" width="12" height="0" font="7">=</text>
+<text top="938" left="538" width="8" height="0" font="7">5</text>
+<text top="928" left="546" width="4" height="14" font="2">,</text>
+<text top="938" left="553" width="12" height="0" font="7">R</text>
+<text top="940" left="564" width="12" height="0" font="7">23</text>
+<text top="928" left="581" width="213" height="14" font="2">starts to experience a negative drift.</text>
+<text top="954" left="479" width="8" height="0" font="7"></text>
+<text top="944" left="494" width="15" height="14" font="2">At</text>
+<text top="954" left="514" width="5" height="0" font="7">t</text>
+<text top="954" left="525" width="12" height="0" font="7">=</text>
+<text top="954" left="541" width="15" height="0" font="7">10</text>
+<text top="944" left="557" width="280" height="14" font="2">, we introduce two simultaneous measurement</text>
+<text top="960" left="494" width="178" height="14" font="2">errors in the measurements of</text>
+<text top="970" left="676" width="10" height="0" font="7">F</text>
+<text top="972" left="685" width="12" height="0" font="7">23</text>
+<text top="960" left="702" width="22" height="14" font="2">and</text>
+<text top="970" left="727" width="10" height="0" font="7">F</text>
+<text top="972" left="737" width="12" height="0" font="7">5o</text>
+<text top="960" left="749" width="4" height="14" font="2">.</text>
+<text top="987" left="479" width="8" height="0" font="7"></text>
+<text top="977" left="494" width="15" height="14" font="2">At</text>
+<text top="987" left="513" width="5" height="0" font="7">t</text>
+<text top="987" left="522" width="12" height="0" font="7">=</text>
+<text top="987" left="538" width="15" height="0" font="7">13</text>
+<text top="977" left="553" width="4" height="14" font="2">,</text>
+<text top="987" left="561" width="12" height="0" font="7">R</text>
+<text top="989" left="572" width="12" height="0" font="7">23</text>
+<text top="977" left="588" width="242" height="14" font="2">bursts, and then returns to a steady state.</text>
+<text top="1003" left="479" width="8" height="0" font="7"></text>
+<text top="993" left="494" width="15" height="14" font="2">At</text>
+<text top="1003" left="513" width="5" height="0" font="7">t</text>
+<text top="1003" left="522" width="12" height="0" font="7">=</text>
+<text top="1003" left="538" width="15" height="0" font="7">17</text>
+<text top="1003" left="557" width="12" height="0" font="7">R</text>
+<text top="1005" left="568" width="12" height="0" font="7">45</text>
+<text top="993" left="585" width="129" height="14" font="2">starts a negative drift.</text>
+<text top="1020" left="479" width="8" height="0" font="7"></text>
+<text top="1010" left="494" width="15" height="14" font="2">At</text>
+<text top="1020" left="513" width="5" height="0" font="7">t</text>
+<text top="1020" left="522" width="12" height="0" font="7">=</text>
+<text top="1020" left="538" width="15" height="0" font="7">23</text>
+<text top="1020" left="557" width="12" height="0" font="7">R</text>
+<text top="1022" left="568" width="12" height="0" font="7">45</text>
+<text top="1010" left="585" width="201" height="14" font="2">bursts and then returns to normal.</text>
+<text top="1036" left="479" width="8" height="0" font="7"></text>
+<text top="1026" left="494" width="15" height="14" font="2">At</text>
+<text top="1036" left="513" width="5" height="0" font="7">t</text>
+<text top="1036" left="522" width="12" height="0" font="7">=</text>
+<text top="1036" left="538" width="15" height="0" font="7">25</text>
+<text top="1036" left="557" width="12" height="0" font="7">R</text>
+<text top="1038" left="568" width="12" height="0" font="7">12</text>
+<text top="1026" left="585" width="39" height="14" font="2">bursts.</text>
+<text top="1043" left="494" width="311" height="14" font="2">The graph in Figure 3 shows the results of tracking</text>
+<text top="1053" left="809" width="12" height="0" font="7">R</text>
+<text top="1055" left="821" width="12" height="0" font="7">23</text>
+<text top="1043" left="833" width="4" height="14" font="2">,</text>
+</page>
+<page number="7" position="absolute" top="0" left="0" height="1188" width="918">
+<text top="96" left="81" width="12" height="0" font="7">R</text>
+<text top="98" left="93" width="12" height="0" font="7">45</text>
+<text top="86" left="109" width="22" height="14" font="2">and</text>
+<text top="96" left="134" width="12" height="0" font="7">R</text>
+<text top="98" left="146" width="12" height="0" font="7">12</text>
+<text top="86" left="158" width="73" height="14" font="2">. Initially, at</text>
+<text top="96" left="235" width="5" height="0" font="7">t</text>
+<text top="96" left="245" width="12" height="0" font="7">=</text>
+<text top="96" left="261" width="8" height="0" font="7">5</text>
+<text top="86" left="272" width="139" height="14" font="2">the effect of the drift in</text>
+<text top="96" left="415" width="12" height="0" font="7">R</text>
+<text top="98" left="426" width="12" height="0" font="7">23</text>
+<text top="102" left="81" width="358" height="14" font="2">was negligible. The corresponding hypothesis had a prob-</text>
+<text top="119" left="81" width="55" height="14" font="2">ability of</text>
+<text top="129" left="140" width="47" height="0" font="7">0:012%</text>
+<text top="119" left="188" width="251" height="14" font="2">, but after smoothing the probability went</text>
+<text top="135" left="81" width="32" height="14" font="2">up to</text>
+<text top="145" left="119" width="40" height="0" font="7">7:43%</text>
+<text top="135" left="158" width="280" height="14" font="2">. As a result our algorithm considered this a</text>
+<text top="151" left="81" width="300" height="14" font="2">likely hypothesis, and kept it in the belief state. At</text>
+<text top="161" left="384" width="5" height="0" font="7">t</text>
+<text top="161" left="394" width="12" height="0" font="7">=</text>
+<text top="161" left="410" width="8" height="0" font="7">6</text>
+<text top="151" left="420" width="19" height="14" font="2">the</text>
+<text top="168" left="81" width="238" height="14" font="2">probability of a negative drift went from</text>
+<text top="178" left="323" width="40" height="0" font="7">71:7%</text>
+<text top="168" left="365" width="12" height="14" font="2">to</text>
+<text top="178" left="380" width="40" height="0" font="7">99:9%</text>
+<text top="168" left="422" width="17" height="14" font="2">af-</text>
+<text top="184" left="81" width="357" height="14" font="2">ter smoothing. At this point our algorithm correctly detected</text>
+<text top="201" left="81" width="358" height="14" font="2">the negative drift, and maintained a very high probability for</text>
+<text top="217" left="81" width="89" height="14" font="2">this event until</text>
+<text top="227" left="174" width="5" height="0" font="7">t</text>
+<text top="227" left="183" width="12" height="0" font="7">=</text>
+<text top="227" left="199" width="15" height="0" font="7">13</text>
+<text top="217" left="215" width="224" height="14" font="2">. At this point, before smoothing, our</text>
+<text top="234" left="81" width="289" height="14" font="2">algorithm considered two hypotheses: a burst in</text>
+<text top="243" left="373" width="12" height="0" font="7">R</text>
+<text top="246" left="385" width="12" height="0" font="7">23</text>
+<text top="234" left="401" width="38" height="14" font="2">(prob-</text>
+<text top="250" left="81" width="39" height="14" font="2">ability</text>
+<text top="260" left="125" width="28" height="0" font="7">57%</text>
+<text top="250" left="153" width="286" height="14" font="2">) or the persistence of the negative drift and a</text>
+<text top="267" left="81" width="201" height="14" font="2">measurement failure (probability</text>
+<text top="277" left="286" width="28" height="0" font="7">43%</text>
+<text top="267" left="314" width="125" height="14" font="2">). Smoothing raised</text>
+<text top="283" left="81" width="315" height="14" font="2">the probability of a burst (the correct hypothesis) to</text>
+<text top="293" left="400" width="35" height="0" font="7">100%</text>
+<text top="283" left="436" width="4" height="14" font="2">.</text>
+<text top="299" left="81" width="121" height="14" font="2">The actual values of</text>
+<text top="309" left="205" width="12" height="0" font="7">R</text>
+<text top="312" left="217" width="12" height="0" font="7">23</text>
+<text top="299" left="233" width="196" height="14" font="2">were tracked with high accuracy.</text>
+<text top="316" left="96" width="124" height="14" font="2">The measurement of</text>
+<text top="326" left="224" width="10" height="0" font="7">F</text>
+<text top="328" left="234" width="12" height="0" font="7">23</text>
+<text top="316" left="250" width="125" height="14" font="2">made the tracking of</text>
+<text top="326" left="379" width="12" height="0" font="7">R</text>
+<text top="328" left="391" width="12" height="0" font="7">23</text>
+<text top="316" left="407" width="32" height="14" font="2">a rel-</text>
+<text top="332" left="81" width="358" height="14" font="2">atively simple problem. Things are much more complicated</text>
+<text top="349" left="81" width="18" height="14" font="2">for</text>
+<text top="359" left="104" width="12" height="0" font="7">R</text>
+<text top="361" left="115" width="12" height="0" font="7">45</text>
+<text top="349" left="128" width="280" height="14" font="2">. Not only is there no direct measurement of</text>
+<text top="359" left="413" width="10" height="0" font="7">F</text>
+<text top="361" left="423" width="12" height="0" font="7">45</text>
+<text top="349" left="435" width="4" height="14" font="2">,</text>
+<text top="365" left="81" width="358" height="14" font="2">there is no measurement at all in subsystem 4! Therefore,</text>
+<text top="382" left="81" width="49" height="14" font="2">tracking</text>
+<text top="391" left="135" width="12" height="0" font="7">R</text>
+<text top="394" left="147" width="12" height="0" font="7">45</text>
+<text top="382" left="164" width="274" height="14" font="2">is a real challenge. Due to lack of space we</text>
+<text top="398" left="81" width="358" height="14" font="2">omit the actual numbers, but in this run our algorithm de-</text>
+<text top="415" left="81" width="358" height="14" font="2">tected the drift as soon as it began. (In other runs the de-</text>
+<text top="431" left="81" width="358" height="14" font="2">tection was sometimes delayed by 2â3 steps.) It is also in-</text>
+<text top="447" left="81" width="191" height="14" font="2">teresting to see the behavior of</text>
+<text top="457" left="277" width="12" height="0" font="7">R</text>
+<text top="459" left="288" width="12" height="0" font="7">45</text>
+<text top="447" left="306" width="133" height="14" font="2">during the burst. Our</text>
+<text top="464" left="81" width="358" height="14" font="2">algorithm detected the burst, but since no evidence is used</text>
+<text top="480" left="81" width="358" height="14" font="2">in subsystem 4 it could not track the true value of the burst</text>
+<text top="497" left="81" width="358" height="14" font="2">correctly. We plan to address this problem in future work</text>
+<text top="513" left="81" width="358" height="14" font="2">by propagating continuous information between the subsys-</text>
+<text top="529" left="81" width="219" height="14" font="2">tems as well as discrete information.</text>
+<text top="546" left="96" width="200" height="14" font="2">For the measurements failures at</text>
+<text top="556" left="301" width="5" height="0" font="7">t</text>
+<text top="556" left="313" width="12" height="0" font="7">=</text>
+<text top="556" left="332" width="15" height="0" font="7">10</text>
+<text top="546" left="347" width="93" height="14" font="2">, our algorithm</text>
+<text top="563" left="81" width="357" height="14" font="2">behaved in almost the same way for the two measurements,</text>
+<text top="579" left="81" width="92" height="14" font="2">so we report on</text>
+<text top="589" left="177" width="14" height="0" font="7">M</text>
+<text top="591" left="192" width="12" height="0" font="7">23</text>
+<text top="579" left="208" width="231" height="14" font="2">only. Before smoothing, our algorithm</text>
+<text top="595" left="81" width="252" height="14" font="2">considered two hypotheses â a burst in</text>
+<text top="605" left="338" width="12" height="0" font="7">R</text>
+<text top="607" left="350" width="12" height="0" font="7">23</text>
+<text top="595" left="368" width="72" height="14" font="2">(probability</text>
+<text top="622" left="81" width="40" height="0" font="7">81:8%</text>
+<text top="612" left="121" width="318" height="14" font="2">) or a measurement fault and a persistent negative drift</text>
+<text top="628" left="81" width="12" height="14" font="2">in</text>
+<text top="638" left="96" width="12" height="0" font="7">R</text>
+<text top="640" left="108" width="12" height="0" font="7">23</text>
+<text top="628" left="123" width="72" height="14" font="2">(probability</text>
+<text top="638" left="198" width="40" height="0" font="7">18:2%</text>
+<text top="628" left="237" width="203" height="14" font="2">). After smoothing the probability</text>
+<text top="645" left="81" width="258" height="14" font="2">of the correct hypothesis went up to almost</text>
+<text top="655" left="342" width="35" height="0" font="7">100%</text>
+<text top="645" left="378" width="4" height="14" font="2">.</text>
+<text top="661" left="96" width="343" height="14" font="2">We feel that these results demonstrate the power of our al-</text>
+<text top="677" left="81" width="357" height="14" font="2">gorithm, and its ability to correctly diagnose and track even</text>
+<text top="694" left="81" width="342" height="14" font="2">a complex system with a small number of measurements.</text>
+<text top="725" left="149" width="222" height="16" font="1">Conclusions and future work</text>
+<text top="747" left="81" width="359" height="14" font="2">In this paper, we presented a new approach for monitoring</text>
+<text top="763" left="81" width="358" height="14" font="2">and diagnosis of hybrid systems. We model these systems as</text>
+<text top="780" left="81" width="358" height="14" font="2">DBNs, thus reducing the problem of diagnosis to the prob-</text>
+<text top="796" left="81" width="358" height="14" font="2">lem of tracking. It is not a surprise that tracking hybrid sys-</text>
+<text top="813" left="81" width="358" height="14" font="2">tems is also a difficult problem. In this paper we focus on</text>
+<text top="829" left="81" width="358" height="14" font="2">a special class of hybrid systems: ones that given some par-</text>
+<text top="846" left="81" width="358" height="14" font="2">ticular assignment to the discrete variables have linear dy-</text>
+<text top="862" left="81" width="358" height="14" font="2">namics (or can be linearized with a satisfactory precision).</text>
+<text top="878" left="81" width="358" height="14" font="2">Furthermore, we focus on systems that are composed of sev-</text>
+<text top="895" left="81" width="357" height="14" font="2">eral weakly interacting subsystems. We believe that many</text>
+<text top="911" left="81" width="341" height="14" font="2">real-life physical systems belong to this class of systems.</text>
+<text top="928" left="96" width="343" height="14" font="2">We present a novel tracking algorithm for this class of</text>
+<text top="944" left="81" width="358" height="14" font="2">systems. First, we collapse similar hypotheses instead of</text>
+<text top="961" left="81" width="358" height="14" font="2">just choosing the most likely ones. This technique allows</text>
+<text top="977" left="81" width="358" height="14" font="2">us to use a bounded window look-ahead into the future. We</text>
+<text top="994" left="81" width="358" height="14" font="2">use future observations to assist us in determining which hy-</text>
+<text top="1010" left="81" width="358" height="14" font="2">potheses are the likely candidates and should be kept relative</text>
+<text top="1026" left="81" width="358" height="14" font="2">unchanged, and which are less likely and can be collapsed</text>
+<text top="1043" left="81" width="358" height="14" font="2">more aggressively. Our final contribution is introducing a</text>
+<text top="86" left="479" width="358" height="14" font="2">way to avoid the exponential blowup, caused by many dis-</text>
+<text top="102" left="479" width="358" height="14" font="2">crete variables within a time slice. We do this by reasoning</text>
+<text top="119" left="479" width="358" height="14" font="2">separately about the different subsystems, while still propa-</text>
+<text top="135" left="479" width="202" height="14" font="2">gating correlations between them.</text>
+<text top="151" left="494" width="343" height="14" font="2">Our initial experiments with this approach are very en-</text>
+<text top="168" left="479" width="358" height="14" font="2">couraging. We have tested it on a very large system (one</text>
+<text top="184" left="479" width="27" height="14" font="2">with</text>
+<text top="194" left="510" width="8" height="0" font="7">2</text>
+<text top="189" left="518" width="12" height="0" font="7">27</text>
+<text top="184" left="534" width="303" height="14" font="2">different discrete states per time slice), with a par-</text>
+<text top="201" left="479" width="358" height="14" font="2">ticularly difficult scenario. Our algorithm found most of the</text>
+<text top="217" left="479" width="358" height="14" font="2">faults, showing that it can be used to provide reliable track-</text>
+<text top="234" left="479" width="358" height="14" font="2">ing and diagnosis even for very hard problems. Of course,</text>
+<text top="250" left="479" width="343" height="14" font="2">we plan to conduct further experiments in other domains.</text>
+<text top="267" left="494" width="343" height="14" font="2">We are currently working on extending the calibration al-</text>
+<text top="283" left="479" width="358" height="14" font="2">gorithm to allow us to propagate information between sub-</text>
+<text top="299" left="479" width="359" height="14" font="2">systems not only for the discrete variables but for continu-</text>
+<text top="316" left="479" width="358" height="14" font="2">ous variables as well. We believe that this new feature will</text>
+<text top="332" left="479" width="358" height="14" font="2">significantly improve our tracking capabilities, especially on</text>
+<text top="349" left="479" width="203" height="14" font="2">long sequences with many events.</text>
+<text top="365" left="494" width="343" height="14" font="2">We are also looking for ways to extend the algorithm be-</text>
+<text top="382" left="479" width="358" height="14" font="2">yond the family of conditional linear systems (or systems</text>
+<text top="398" left="479" width="358" height="14" font="2">which can be approximated as such). In particular, we hope</text>
+<text top="415" left="479" width="358" height="14" font="2">to be able to handle discrete children of continuous parents</text>
+<text top="431" left="479" width="236" height="14" font="2">and highly non-linear evidence models.</text>
+<text top="447" left="494" width="343" height="14" font="2">Finally, we hope to apply our algorithm on real-life ap-</text>
+<text top="464" left="479" width="359" height="14" font="2">plications and not just on synthetic data. We are exploring</text>
+<text top="480" left="479" width="358" height="14" font="2">possible applications in the diagnosis domain, such as mon-</text>
+<text top="497" left="479" width="359" height="14" font="2">itoring the performance of an engine, as well as application</text>
+<text top="513" left="479" width="248" height="14" font="2">in other domains, such as visual tracking.</text>
+<text top="540" left="479" width="121" height="14" font="3">Acknowledgments.</text>
+<text top="540" left="615" width="222" height="14" font="2">This research was supported by an</text>
+<text top="556" left="479" width="359" height="14" font="2">ONR Young Investigator Award grant number N00014-99-</text>
+<text top="573" left="479" width="358" height="14" font="2">1-0464 and by ARO under the MURI program, âIntegrated</text>
+<text top="589" left="479" width="358" height="14" font="2">Approach to Intelligent Systems,â grant number DAAH04-</text>
+<text top="605" left="479" width="257" height="14" font="2">96-1-0341, and by the Terman Foundation.</text>
+<text top="635" left="616" width="83" height="16" font="1">References</text>
+<text top="657" left="487" width="350" height="12" font="4">Bar-Shalom, Y., and Fortmann, T. E. 1988. Tracking and Data</text>
+<text top="672" left="487" width="161" height="12" font="5">Association. Academic Press.</text>
+<text top="689" left="487" width="351" height="12" font="4">Boyen, X., and Koller, D. 1998. Tractable inference for complex</text>
+<text top="704" left="487" width="188" height="12" font="4">stochastic processes. In Proc. UAI.</text>
+<text top="721" left="487" width="351" height="12" font="4">Cover, T., and Thomas, J. 1991. Elements of Information Theory.</text>
+<text top="736" left="487" width="35" height="12" font="4">Wiley.</text>
+<text top="754" left="487" width="351" height="12" font="4">Hamscher, W.; Console, L.; and de Kleer (eds.), J. 1992. Read-</text>
+<text top="768" left="487" width="283" height="12" font="5">ings in Model-Based Diagnosis. Morgan Kaufmann.</text>
+<text top="786" left="487" width="73" height="12" font="4">Isermann, R.</text>
+<text top="786" left="576" width="31" height="12" font="4">1997.</text>
+<text top="786" left="622" width="215" height="12" font="4">Supervision, fault-detection and fault-</text>
+<text top="801" left="487" width="350" height="12" font="4">diagnosis methods - an introduction. Control Engineering Prac-</text>
+<text top="816" left="487" width="100" height="12" font="5">tice 5(5):639â652.</text>
+<text top="833" left="487" width="351" height="12" font="4">Kalman, R. 1960. A new approach to linear filtering and predic-</text>
+<text top="848" left="487" width="267" height="12" font="4">tion problems. J. of Basic Engineering 82:34â45.</text>
+<text top="865" left="487" width="351" height="12" font="4">Lauritzen, S., and Spiegelhalter, D. 1988. Local computations</text>
+<text top="880" left="487" width="350" height="12" font="4">with probabilities on graphical structures and their application to</text>
+<text top="895" left="487" width="210" height="12" font="4">expert systems. J. Roy. Stat. Soc. B 50.</text>
+<text top="912" left="487" width="350" height="12" font="4">McIlraith, S.; Biswas, G.; Clancy, D.; and Gupta, V. 2000. Hy-</text>
+<text top="927" left="487" width="350" height="12" font="4">brid systems diagnosis. In Proceedings of Hybrid Systems: Com-</text>
+<text top="942" left="487" width="350" height="12" font="5">putation and Control, Lecture Notes in Computer Science. Berlin</text>
+<text top="957" left="487" width="270" height="12" font="4">Heidelberg New York: Springer-Verlag. 282â295.</text>
+<text top="975" left="487" width="350" height="12" font="4">Mosterman, P. J., and Biswas, G. 1997. Monitoring, prediction,</text>
+<text top="990" left="487" width="350" height="12" font="4">and fault isolation in dynamic physical systems. In Proc. AAAI-</text>
+<text top="1005" left="487" width="71" height="12" font="5">97, 100â105.</text>
+<text top="1022" left="487" width="351" height="12" font="4">Rosenberg, R. C., and Karnopp, D. 1983. Introduction to Physical</text>
+<text top="1037" left="487" width="178" height="12" font="5">System Dynamics. McGraw-Hill.</text>
+</page>
+</pdf2xml>
