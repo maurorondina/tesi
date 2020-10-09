@@ -8,7 +8,7 @@
 
 ## Convert papers
 4. Prepare a single list of the pdf papers you want to transform starting from the previously generated out files. Run [transform_pdf.py](transform_pdf.py) to convert pdf papers to xml and txt format. It uses 'pdftohtml' and 'pdftotext' in [Poppler](http://poppler.freedesktop.org) library. It produces a 'LIST_PAPERS.txt' containing a list of converted papers like [this one](../data/LIST_PAPERS.txt) and it structures a folder, passed as an argument, as 'papers' in [data](../data).
-5. Run [process_all_papers.py](./process_all_papers.py) to convert the paper into a parsable xml format (suffix: analyzable.xml) starting from the xml and txt files generated using Poppler.
+5. Run [process_all_papers.py](./process_all_papers.py) to convert the paper into a parsable xml format (suffix: analyzable.xml) starting from the xml and txt files generated using Poppler. (note: it uses [process_paper.py](process_papers.py) which may fail conversion in case of badly formatted papers or collections of papers.)
 
 ## Generate Training Set and Test Set
 6. Uncomment, adjust the paths as you like and run the piece of code you need. With [analyzable_papers.py](./analyzable_papers.py) you can generate the training set and test set.
