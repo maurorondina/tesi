@@ -6,7 +6,7 @@ import sys
 
 # print(requests.__version__)
 
-logging.basicConfig(filename='./log_transform_pdf.txt', level=logging.DEBUG)
+logging.basicConfig(filename='./log_transform_pdf.log', level=logging.DEBUG)
 
 
 def transform_pdf_xml(paper_id, paper_pdf_path, dir_xml):
@@ -63,29 +63,29 @@ if __name__ == '__main__':
 
     if len(sys.argv) > 4:
         print("Error: too much arguments.\nUsage:\n"
-              "\tpython transform_pdf.py [directory_path_pdf] [directory_path_xml_txt] [papers_to_convert_list.txt]\n")
+              "\tpython transform_pdf.py [directory_path_pdf] [directory_papers] [papers_to_convert_list.txt]\n")
         sys.exit(1)
     elif len(sys.argv) < 4:
         print("Error: missing arguments.\nUsage:\n"
-              "\tpython transform_pdf.py [directory_path_pdf] [directory_path_xml_txt] [papers_to_convert_list.txt]\n")
+              "\tpython transform_pdf.py [directory_path_pdf] [directory_papers] [papers_to_convert_list.txt]\n")
         sys.exit(1)
     else:
         dir_pdf_path = sys.argv[1]
         if not os.path.isdir(dir_pdf_path):
             print("Error: %s not exist.\n"
-                  "Usage:\n\tpython transform_pdf.py [directory_path_pdf] [directory_path_xml_txt]"
+                  "Usage:\n\tpython transform_pdf.py [directory_path_pdf] [directory_papers]"
                   " [papers_to_convert_list.txt]\n" % dir_pdf_path)
             sys.exit(2)
-        dir_xml_txt_path = sys.argv[2]
-        if not os.path.isdir(dir_xml_txt_path):
+        dir_papers_path = sys.argv[2]
+        if not os.path.isdir(dir_papers_path):
             print("Error: %s not exist.\n"
-                  "Usage:\n\tpython transform_pdf.py [directory_path_pdf] [directory_path_xml_txt]"
-                  " [papers_to_convert_list.txt]\n" % dir_xml_txt_path)
+                  "Usage:\n\tpython transform_pdf.py [directory_path_pdf] [directory_papers]"
+                  " [papers_to_convert_list.txt]\n" % dir_papers_path)
             sys.exit(2)
         papers_list_path = sys.argv[3]
         if not os.path.isfile(papers_list_path):
             print("Error: %s not exist.\n"
-                  "Usage:\n\tpython transform_pdf.py [directory_path_pdf] [directory_path_xml_txt]"
+                  "Usage:\n\tpython transform_pdf.py [directory_path_pdf] [directory_papers]"
                   " [papers_to_convert_list.txt]\n" % papers_list_path)
             sys.exit(2)
 
@@ -113,7 +113,7 @@ if __name__ == '__main__':
                 logging.error("Paper '%s': not found in directory %s." % (name_pdf, dir_pdf_path))
 
             # Create output directory for the paper
-            dir_paper = os.path.join(dir_xml_txt_path, 'paper_' + info_paper[0])
+            dir_paper = os.path.join(dir_papers_path, 'paper_' + info_paper[0])
             try:
                 os.mkdir(dir_paper)
             except OSError:

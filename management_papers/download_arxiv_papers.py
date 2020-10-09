@@ -6,7 +6,7 @@ import os
 import logging
 import sys
 
-logging.basicConfig(filename='./log_download_pdf_arxiv.txt', level=logging.DEBUG)
+logging.basicConfig(filename='./log_download_pdf_arxiv.log', level=logging.DEBUG)
 
 
 def get_proxy_list():

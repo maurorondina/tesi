@@ -8,7 +8,7 @@ import sys
 import time
 from expressvpn import wrapper
 
-logging.basicConfig(filename='./log_download_pdf_arxiv.txt', level=logging.DEBUG)
+logging.basicConfig(filename='./log_download_pdf_arxiv.log', level=logging.DEBUG)
 
 def change_ip():
     max_attempts = 10
