@@ -14,4 +14,4 @@
 6. Uncomment, adjust the paths as you like and run the piece of code you need. With [analyzable_papers.py](./analyzable_papers.py) you can generate the training set and test set.
 
 
-_In example_papers you can see an [example](./example_papers) of how the 'papers' folder in data is structured and how the papers are converted._
+_In example_papers you can see an [example](./example_papers) of how the 'papers' folder in [data](../data) is structured and how the papers are converted._
