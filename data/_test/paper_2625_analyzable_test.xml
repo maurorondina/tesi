@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paper id="2625" url="http://www.aaai.org/Papers/AAAI/2000/AAAI00-126.pdf">
+ <title id="2625.0" name="Gridworlds as Testbeds for Planning with Incomplete Information"/>
+ <subsection id="2625.0.1">
+  Craig Tovey and Sven Koenig College of Computing, Georgia Institute of Technology Atlanta, Georgia 30332-0280 ctovey, skoenig @cc.gatech.edu
+ </subsection>
+ <paragraph id="2625.1" name="Abstract">
+  <subsection id="2625.1.1">
+   Gridworlds are popular testbeds for planning with incomplete information but not much is known about their properties.
+  </subsection>
+  <subsection id="2625.1.2">
+   We study a fundamental planning problem, localization, to investigate whether gridworlds make good testbeds for planning with incomplete information. We find empirically that greedy planning methods that interleave planning and plan execution can localize robots very quickly on random gridworlds or mazes. Thus, they may not provide adequately challenging testbeds. On the other hand, we show that finding localization plans that are within a log factor of optimal is NP-hard. Thus there are instances of gridworlds on which all greedy planning methods perform very poorly, and we show how to construct them. These theoretical results help empirical researchers to select appropriate planning methods for planning with incomplete information as well as testbeds to demonstrate them.
+  </subsection>
+ </paragraph>
+ <paragraph id="2625.2" name="Introduction">
+  <subsection id="2625.2.1">
+   Testbeds (prototypical test domains) are planning domains that allow researchers to evaluate their planning methods, communicate performance results of their methods to others, interpret published performance results of others more easily, and compare their methods against these performance results (Hanks, Pollack,  Cohen 1993). Testbeds should be easy to describe, but they should also provide a wide enough variety to mimic real domains. In particular, testbeds must include cases that are not too easy to solve because otherwise planning methods would appear to be more efficient than they actually are in some of the domains of interest. Consequently, planning researchers have studied in detail the properties of their testbeds for planning with complete information, such as blocksworlds and sliding tile puzzles. Examples of such experimental and theoretical studies include (Gupta  Nau 1992; Reinefeld 1993; Slaney  Thiébaux 1996; Koenig  Simmons 1996).
+  </subsection>
+  <subsection id="2625.2.2">
+   In recent years, planning researchers have become interested in planning with incomplete information. This is an important research direction because, in the real world, complete information is often not available. Gridworlds appear to be by far the most frequently used testbeds for this work. However, not much is known about their properties.
+  </subsection>
+  <subsection id="2625.2.3">
+   Copyright c  2000, American Association for Artificial Intelligence (www.aaai.org). All rights reserved.
+  </subsection>
+  <subsection id="2625.2.4">
+   In this paper, we therefore investigate whether gridworlds are good testbeds for planning with incomplete information.
+  </subsection>
+  <subsection id="2625.2.5">
+   We study localization tasks, which are fundamental planning tasks for robots. We find experimentally that greedy planning methods that interleave planning and plan execution can localize robots very quickly on gridworlds with random obstacles or random mazes. Thus, random gridworlds or mazes may not provide adequately challenging cases to push the state of the art. Although the theoretical planning community has shown the complexity of planning tasks with incomplete information to be difficult in general (Littman 1994; Madani, Hanks,  Condon 1999), the reported success of current greedy methods on some gridworlds (Nourbakhsh 1997; Koenig  Simmons 1998a) and our experiments on random gridworlds and mazes reported here suggest that the constrained topology of gridworlds may make them easy to solve. However, we analyze the performance of one greedy planning method in detail, namely the Delayed Planning Architecture (Genesereth  Nourbakhsh 1993), and show that there exist gridworlds on which its performance is poor. Furthermore, we prove that localization even with only suboptimal worst-case performance is NP-hard.
+  </subsection>
+  <subsection id="2625.2.6">
+   Thus there are instances of gridworlds on which all greedy planning methods perform very poorly, and we show how they can be constructed. In general, our results improve the understanding of previously used planning methods and testbeds for planning with incomplete information and help empirical researchers to select appropriate planning methods as well as testbeds to demonstrate them.
+  </subsection>
+ </paragraph>
+ <paragraph id="2625.3" name="Gridworlds">
+  <subsection id="2625.3.1">
+   We study planning with incomplete information in gridworlds of the kind shown in Figure 1. Gridworlds are finite rectangular areas of square cells. Each cell can be either traversable or untraversable. A robot is always in exactly one cell. It starts in a traversable cell and can then always move north, east, south, or west. Gridworlds have been used as testbeds for different planning methods. Planning tasks with a known start cell and deterministic movement have often been modeled as traditional graph search problems. Planning tasks with nondeterministic movement and automatic sensing that determines the current cell uniquely have been modeled as totally observable Markov decision process models (Dean et al. 1993). Planning tasks with From: AAAI-00 Proceedings. Copyright © 2000, AAAI (www.aaai.org). All rights reserved.
+  </subsection>
+  <subsection id="2625.3.2">
+   A B C D E F 1 2 3 4 5 6 Figure 1: Simple Gridworld incompletely known start cell or nondeterministic movement, and nondeterministic sensing or sensing on demand have been modeled as partially observable Markov decision process models (McCallum 1995; Hansen 1997). Planning tasks with incompletely known start cell, deterministic movement, and automatic deterministic sensing have been modeled as AND-OR search tasks (Nourbakhsh 1997; Koenig  Simmons 1998a). In this paper, we present a first analysis of the last case.
+  </subsection>
+ </paragraph>
+ <paragraph id="2625.4" name="The Gridworld Planning Tasks" label="Problem">
+  <subsection id="2625.4.1">
+   We study localization tasks in gridworlds. Localization is a prototypical planning task with incomplete information.
+  </subsection>
+  <subsection id="2625.4.2">
+   The robot knows a map of the gridworld but does not know its start cell. Evidently, the robot may need to localize prior to performing many other tasks. The sensors on-board the robot tell it in every cell whether the cells immediately adjacent to it in the four compass directions (north, east, south, west) are traversable. (The border of the gridworld is untraversable and observed as such.) The robot can then move one cell to the north, east, south, or west, unless that cell is outside of the gridworld or untraversable (in which case the robot remains in its current cell). We assume that there is no uncertainty in actuation and sensing and that the robot always knows its orientation from the on-board compass.
+  </subsection>
+  <subsection id="2625.4.3">
+   These assumptions are simplifying but sufficiently close to reality to enable one to use the resulting planning methods on real robots (Nourbakhsh 1996).
+  </subsection>
+  <subsection id="2625.4.4">
+   The robot is localized if it knows its current cell. A deterministic (randomized) localization plan specifies (a probability distribution for) the movement to execute based on all previous movements and observations. A localization plan is valid iff, no matter which cell the robot is started in, it eventually prints out its current cell or correctly determines that localization is impossible. The objective of planning then is to determine a valid deterministic or randomized localization plan that minimizes the expected number of movements for the worst possible start cell (the “worst-case expected performance”), in the followingsense: We first calculate the expected number of movements for each possible start cell. The expectation is only important for probabilistic plans and is taken with respect to the randomization of the probabilistic plans. The worst-case expected performance is then the maximum of these values.
+  </subsection>
+ </paragraph>
+ <paragraph id="2625.5" name="Modeling the Planning Tasks">
+  <subsection id="2625.5.1">
+   The gridworld planning tasks can be modeled as tree search tasks. The states of the tree search tasks are sets of cells, corresponding to cells that the robot could be in. For example, if the robot has no knowledge of its start cell for the gridworld A1 E3 C5 B1 D5 F3 D6 B2 B1 D5 C1 E5 A1 E3 C5 A1 E3 C5 A1 E3 C5 A1 C5 N untraversable W S E untraversable traversable untraversable N traversable W S E traversable untraversable traversable N untraversable W S E untraversable traversable untraversable N traversable W S E untraversable traversable traversable N untraversable W S E untraversable traversable untraversable N untraversable W S E untraversable traversable untraversable N untraversable W S E traversable traversable untraversable N untraversable W S E traversable traversable traversable N traversable W S E untraversable traversable traversable N traversable W S E untraversable traversable traversable move N move W move S move E move N move W move S move E AND node OR node Figure 2: AND-OR Search Tree planning task from Figure 1 but observes untraversable cells in all compass directions except to its south, then the start state of the robot contains three possible start cells: A1, E3, and C5. In each state, the robot can choose a movement (“OR” nodes of the search tree) and, if it does not stop, then makes a new observation (“AND” nodes of the search tree).
+  </subsection>
+  <subsection id="2625.5.2">
+   For example, Figure 2 shows the beginning of a search tree for the gridworld planning task. (The dashed part of the tree is unnecessary and could be deleted.) A deterministic localization plan assigns each OR node a movement (“deterministic OR node”). Similarly, a randomized localization plan assigns each OR node a probability distribution over the movements (“randomized OR node”). The following theorem shows that valid randomized localization plans cannot perform better than valid deterministic localization plans.
+  </subsection>
+  <subsection id="2625.5.3">
+   Theorem 1 No valid randomized localization plan has a better worst-case expected performance than a valid deterministic localization plan with optimal worst-case performance.
+  </subsection>
+  <subsection id="2625.5.4">
+   Proof Sketch: Given a valid randomized localization plan, transform it into a valid deterministic localization plan by iteratively pruning all but the best alternative, in the worst-case sense, from the lowest nondeterministic node.
+  </subsection>
+  <subsection id="2625.5.5">
+   This theorem implies that there is no point in having robots flip coins (that is, move nondeterministically) to localize them in gridworlds with optimal worst-case (expected) performance. In the following, we therefore consider only deterministic localization plans. The tree search tasks in this case are AND-OR search tasks and valid localization plans are decision trees.
+  </subsection>
+ </paragraph>
+ <paragraph id="2625.6" name="Solving the Planning Tasks Greedily">
+  <subsection id="2625.6.1">
+   Nourbakhsh and Genesereth noticed experimentally that using a complete AND-OR search to find valid localization plans with optimal worst-case performance for gridworld planning tasks was completely infeasible but that planning methods that interleave planning and plan execution could efficiently find valid localization plans with good worstcase performance for their gridworlds (Genesereth  Nourbakhsh 1993; Nourbakhsh 1997). Their Delayed Planning  Table 1: Random Gridworlds gridworld obstacle av. number of av. number of av. total size density subplans steps per number of subplan steps  9.9 % 3.1 1.0 3.2 29.8 % 1.7 1.0 1.8 49.6 % 1.2 1.1 1.3 70.2 % 0.6 1.0 0.7 90.1 % 0.0 1.0 0.0     10.0 % 5.7 1.1 6.1 30.0 % 3.0 1.0 3.2 50.0 % 2.3 1.1 2.5 70.0 % 1.3 1.1 1.5 90.0 % 0.3 1.0 0.3   10.0 % 7.2 1.1 7.5 30.0 % 3.7 1.0 3.9 50.0 % 2.8 1.1 3.1 70.0 % 1.6 1.2 1.1 90.0 % 0.3 1.0 0.3 Table 2: Acyclic Mazes gridworld obstacle av. number of av. number of av. total size density subplans steps per number of subplan steps  41.3 % 2.4 1.5 3.6   45.4 % 3.3 1.7 5.4     46.8 % 3.8 1.7 6.6   47.6 % 4.1 1.8 7.5   48.1 % 4.5 1.8 8.0     48.4 % 4.7 1.8 8.6     48.6 % 4.9 1.9 9.1 Architecture with the viable plan heuristic uses breadth-first search (iterative deepening) in the deterministic part of the state space around the current state in conjunction with pruning rules to find a subplan (movement sequence) that reduces the number of possible robot cells with the smallest number of steps (movements). The robot executes the subplan and then repeats the process until it is localized or detects that localization is impossible. Subsequently, Koenig and Simmons developed a generalization of the Delayed Planning Architecture (Koenig  Simmons 1998a). The Delayed Planning Architecture has been applied to a variety of planning problems with incomplete information, including the Bay Area Transit Problem (Hsu 1990) and the Tool Box Problem (Olawsky, Krebsbach,  Gini 1993). In the context of gridworlds, it has been demonstrated experimentally by their authors on real robots and in simulation.
+  </subsection>
+  <subsection id="2625.6.2">
+   We re-implemented the Delayed Planning Architecture and performed experiments in gridworlds with random obstacles, averaged over 1000 runs with randomly selected start cells. The results in Table 1 show that current planning methods perform very well on random gridworlds. No matter what the size or obstacle density of the gridworld is, the robot can gain information with only slightly more than one move on average, and localizes in a small number of total moves. Table 2 shows that similar results also hold for random acyclic mazes that were generated by depth-first search (using code provided by Joseph Pemberton). Therefore, we need new gridworlds to push the state of the art.
+  </subsection>
+  <subsection id="2625.6.3">
+   Furthermore, the following theorem shows that the worstcase performance of the Delayed Planning Architecture can be extremely suboptimal, much worse than the experimental results in random gridworlds and mazes suggest. All of our example gridworlds are connected and not completely symblock b7 ns1 ns2 ns3 ns4 ns5 ns6 ns7 ns8 ns9 ns10 10 cells untraversable cell = or ; traversable cell = x = 10 winding corridor b1 b2 12 blocks (b 1 ...
+  </subsection>
+  <subsection id="2625.6.4">
+   b 12 ) ...
+  </subsection>
+  <subsection id="2625.6.5">
+   b3 X Figure 3: Greedy Performance metrical (localization is possible). This demonstrates that our lower bounds already hold for these kinds of gridworlds.
+  </subsection>
+  <subsection id="2625.6.6">
+   Theorem 2 The worst-case performance of plans generated by the Delayed Planning Architecture can be a factor of    worse than the optimal worst-case performance, where  is the number of cells of the gridworld, even in gridworlds that are connected (every cell can be reached from every other cell).
+  </subsection>
+  <subsection id="2625.6.7">
+   Proof Sketch: We construct a gridworld on which the Delayed Planning Architecture has the worst-case performance ratio claimed in the theorem. The gridworld contains many copies of rectangular “blocks” of size  "!$#%'(! . Along the south side of each block is a wall of length ) and immediately to the north of the wall is an east-west corridor of length '  . There are  north-south corridors *,+ .-/*,+ 0 of length  each, separated by walls, that branch off of the east-west corridor to the north, starting in the sixth column of the block. To their immediate left is a winding corridor that goes up  cells, goes left two cells, and then goes down 213 cells. Figure 3 (left) shows an example. The gridworld consists of a column of '4 blocks, from block 5  on top to block 5 076 at the bottom. In the extreme west, we add a full length north-south hallway, which makes the gridworld connected. Figure 3 (right) shows an example. We make the last cell of north-south corridor *,+ 08,9 of block 5 0:6 8,9 untraversable, for all ;4=?@1(A . We also make the last = cells of the winding corridor of block 5 076 8B9 untraversable, for all ;2C=DE?)A . This completes the description of how the gridworld is constructed. Clearly, the gridworld is connected and has +DF) ?GH!I JH!I ?!,F)K$  ! cells (which does not include the untraversable border of the gridworld).
+  </subsection>
+  <subsection id="2625.6.8">
+   The robot can find the beginning of some winding corridor from any starting point with at most LM% movements and then move at most :N1OA into the winding corridor, counting its length, which identifies the block and thus localizes the robot. Thus, the worst-case number of movements in an optimal plan is at most G@EAPFQK$,! . Now we show that the Delayed Planning Architecture performs many more than K$,! movements if the robot starts at the east end of the east-west corridor of block 5  (in the figure: marked X). When the robot is started, it knows where it is with the exception of which block it is in. The robot makes R12A movements into north-south corridor *,+ 0 because this is the fastest way of reducing the number of possible robot cells. At this point the robot can eliminate block 5S0:6 . The robot then returns to the eastwest corridor and makes  1A movements into north-south corridor *T+ 08  , at which point it can eliminate block 5 0:6  , and so on. Finally, it makes  1A movements into the winding corridor, at which point it can eliminate block 5 and has localized. The robot has made a total number of movements equal to  UD1@AVF)K$ ! .
+  </subsection>
+  <subsection id="2625.6.9">
+   1 2 3 4 5 6 1 2 3 4 5 6 7 8 n=9 7 8 9 10 11 12 13 14 m=15 X Z x y Figure 4: Two Spirals It follows that the worst-case performance of plans generated by the Delayed Planning Architecture is WDXY[Z:\:Y,] ^)WDXY,]^_WDXa` b c ] worse than the worst-case performance of an optimum plan.
+  </subsection>
+ </paragraph>
+ <paragraph id="2625.7" name="Analysis of the Planning Tasks">
+  <subsection id="2625.7.1">
+   The Delayed Planning Architecture can be applied to finding homing sequences or adaptive homing sequences for deterministic finite state automata whose states are colored, a concept from theoretical computer science. A homing sequence is a linear plan (movement sequence) with the property that the state colors observed during its execution uniquely determine the resulting state (Kohavi 1978), and it is known that finding a shortest homing sequence is NP-hard in general (Schapire 1992). It could be the case that the constrained topology of gridworlds makes them easy to solve and thus that valid localization plans with optimal worstcase performance for the gridworld planning tasks can be found in polynomial time. We prove, however, that finding valid localization plans even with suboptimal worst-case performance in gridworlds is NP-hard and thus that there are instances of gridworlds on which the Delayed Planning Architecture does not perform well. The following theorem shows that it is easy to find valid localization plans in gridworlds.
+  </subsection>
+  <subsection id="2625.7.2">
+   Theorem 3 (Part 1:) For every gridworld of size dfehg , there exists a valid localization plan that executes i@jd2gk movements and that can be found in time i@jldPgk . (Part 2:) This result is the best possible in the sense that there exist gridworlds of size dmeng in which every valid localization plan must execute ojldPgk movements and can only be found in time ojd2gk , even in gridworlds that are connected.
+  </subsection>
+  <subsection id="2625.7.3">
+   Proof Sketch: For Part 1, first determine the connected components prq of the given map of the gridworld. Second, acquire a map p_s of the gridworld component where the robot is, by moving the robot in a depth-first search manner. Third, determine which of the prq are identical to map p s , by depth-first search of every map, starting from the west-most cell of the north-most traversable cells. If exactly one p q matches p s , the robot has been localized. If more than one prq matches p s then the robot cannot localize. This algorithm is correct, needs time t$Xu'vT] , and executes t$XuUv,] movements. For Part 2, construct a gridworld consisting of two spirals as shown in Figure 4. The gridworld is connected.
+  </subsection>
+  <subsection id="2625.7.4">
+   If the start cell is at the end of one of the spirals (in the figure: X), then any valid localization plan has to execute WDXuUv,] movements (in the figure: move to cell Z) before it can distinguish which spiral it is in. Thus, every valid localization plan must execute WDXu'vT] movements and can only be found in time WwXu'v,] .
+  </subsection>
+  <subsection id="2625.7.5">
+   Theorem 3 leaves open the possibility that optimum localization plans may be so complex that they cannot be encoded in polynomial length. Fortunately, the following theorem shows that finding valid localization plans with optimal worst-case performance is in NP.
+  </subsection>
+  <subsection id="2625.7.6">
+   Theorem 4 Determining whether there exists a valid localization plan that executes no more movements than a given value is in NP.
+  </subsection>
+  <subsection id="2625.7.7">
+   Proof Sketch: First, use the method from Theorem 3 to find the start cells from which the robot cannot localize. Second, guess a deterministic localization plan (decision tree). Third, simulate a fictitious robot that executes the localization plan on the map of the gridworld from each possible start cell, verifying that the number of movements is smaller than the given value, and that the localization plan yields a correct answer, when it is possible to localize.
+  </subsection>
+  <subsection id="2625.7.8">
+   Therefore, a decision tree can be guessed and verified in polynomial time, provided that the decision tree has polynomial size. We now ensure this provision to complete the proof. The algorithm needs to guess only decision trees that have as many leaf nodes as there are possible start cells, that is, no more than uUv . This is so because there is at most one branch from the root to a leaf for each start cell. Since there are at most uUv leaves, there are at most uUvyx4z AND nodes with two or more children. The algorithm needs to guess only decision trees that have, on any branch, at most u'vUx%z AND nodes with only one child between two AND nodes with two or more children. If there were more, then a belief state would repeat on that branch and the part of the branch between two repeating belief states (including one of them) could be cut out. Thus, the decision tree has t$Xu?ZHvBZ7] AND nodes and thus t$Xu Z v Z ] nodes, which is at most quadratic in the size of the problem description.
+  </subsection>
+  <subsection id="2625.7.9">
+   The following theorem, our main theorem, shows that finding valid localization plans even with suboptimal worstcase performance is NP-hard.
+  </subsection>
+  <subsection id="2625.7.10">
+   Theorem 5 It is NP-hard to find a valid localization plan in gridworlds of size d{e|g whose worst-case performance is within a factor i@j~},jd2gkSk of optimum, even in gridworlds that are connected.
+  </subsection>
+  <subsection id="2625.7.11">
+   Proof Sketch: An instance of set cover consists of a base set  ^O:a  : and a collection of sets  :   / ,2C . A set cover is a collection of these sets whose union is  , and the objective is to find a set cover of small cardinality. Finding a set cover whose cardinality is within a factor t$XYB] of minimum is NP-hard (Lund  Yannakakis 1994). Let ?(Y denote the cardinality of a minimum set cover for the given instance of the set cover problem. We reduce this problem to finding a valid localization plan in a gridworld of size uQPv with uQ^OY[:)z and vU^(XY,[H]IXYJz7] whose worst-case performance is within a factor t$XHTXu'vT]] of optimal. We assume without loss of generality that H$^4t$XHY,] .
+  </subsection>
+  <subsection id="2625.7.12">
+   We now explain how the gridworld is constructed from the given instance of the set cover problem. The gridworld contains many copies of rectangular “blocks” of size X"]@XY,%H] . Along the south side of each block is a wall of length  and immediately to the north of the wall is an east-west corridor of length  . There are  north-south corridors ns, : ns  of length YB each, separated by walls, that branch off of the east-west corridor to the north, starting in the second column of the block. Figure 5 shows an example.
+  </subsection>
+  <subsection id="2625.7.13">
+   The gridworld contains an array of XY  ]D2XYM)z:] blocks. Thus,  x = 16 elements; y = 15 subsets e2 ∈ S1, S4, S9, S15 block b3209 of east-west hallway ew2 ns1 ns2 ns3 ns4 ns5 ns6 ns7 ns8 ns9 ns10 ns11 ns12 ns13 ns14 ns15 ... ... ... ... ... ... ... ... ... ... ... ... ... ... ...
+  </subsection>
+  <subsection id="2625.7.14">
+   240 cells (shown shorter than actual length) binary representation of 3209 1= ; 0= untraversable cell = or ; traversable cell = ew2 Figure 5: Block for NP-Completeness Proof ............................................. .............................................
+  </subsection>
+  <subsection id="2625.7.15">
+   ............................................. .............................................
+  </subsection>
+  <subsection id="2625.7.16">
+   ............................................. .............................................
+  </subsection>
+  <subsection id="2625.7.17">
+   ew0 ew1 ew2 b0 b1 17 east-west hallways (ew 0 ...
+  </subsection>
+  <subsection id="2625.7.18">
+   ew 16 ) 4096 blocks (b0 ... b4095) ...
+  </subsection>
+  <subsection id="2625.7.19">
+   ...
+  </subsection>
+  <subsection id="2625.7.20">
+   Figure 6: Gridworld for NP-Completeness Proof there are [¡ blocks ¢S£¥¤ ¤/¤¢I¦7§¨.© in the same row. Their east-west corridors form one long east-west hallway. There are ?ª)« eastwest hallways ew£ ¤/¤ ¤ ew¦ of length ¬H ¡:­ each. In the extreme west, we add a full length north-south hallway, which makes the gridworld connected. Figure 6 shows an example. We make the last ® cells of north-south corridor ns¯ of each block in east-west hallway ew° untraversable iff ±H°³²n´ ¯ . (Since there is no element ± £ , no north-south corridor of any block in east-west hallway ew£ is shortened.) To be able to distinguish between the blocks in the same east-west hallway, we put a “signature” at the east end of each block . For block ¢/µ , this signature encodes ¶ in binary form, which needs at most ¬·¸¹V bits. The signature is in the form of northerly “alcoves,” followed by a southerly alcove which marks the beginning of the signature. This completes the description of how the gridworld is constructed in polynomial time.
+  </subsection>
+  <subsection id="2625.7.21">
+   We now calculate an upper bound º[» on the number of movements of a valid localization plan with optimal worst-case performance. Consider the following localization plan: If only north is unblocked, move north one place (since the robot was in a southerly alcove). Otherwise, move south until the robot sees an opening to the west or east (the robot is now in an east-west hallway), then move east to the end of a signature or until the robot gets blocked (the robot is now directly east of a signature). Move west and read the signature. At this point, the robot knows where it is with the exception of which east-west hallway it is in. The robot then moves west and, every time it encounters one of the ­¼ north-south corridors in the current block that corresponds to a smallest set cover Table 3: Gridworlds used to Prove Theorem 2 gridworld obstacle av. number of av. number of av. total size density subplans steps per number of subplan steps ©© ½ ¾¿ 50.2 % 4.5 (4) 2.3 (5) 10.2 (20) © ¡ ½ ¡À 50.2 % 5.9 (5) 2.9 (7) 16.9 (35) ©¿½ ÁÂ 50.2 % 7.4 (6) 3.2 (9) 23.7 (54) ©Ã½ À Á 50.2 % 8.9 (7) 3.4 (11) 30.6 (77) ©Â½ Ä © 50.2 % 10.4 (8) 4.0 (13) 42.0 (104) ¾ ©½© ££ 50.1 % 11.5 (9) 4.4 (15) 50.0 (135) ¾ ¡ ½©¾ © 50.1 % 13.4 (10) 4.5 (17) 60.4 (170) ¾¿½©ÁÁ 50.1 % 14.4 (11) 4.9 (19) 71.1 (209) ¾Ã½© À Â 50.1 % 16.0 (12) 5.2 (21) 82.5 (252) ¾Â½©Â À 50.1 % 18.0 (13) 5.4 (23) 98.0 (299) ¡ ©½ ¾¾¿ 50.1 % 19.4 (14) 5.7 (25) 110.5 (350) ¡¡ ½ ¾¿ À 50.1 % 20.8 (15) 5.8 (27) 121.5 (405) ¡ ¿½ ¾ÄÂ 50.1 % 22.5 (16) 6.1 (29) 137.7 (464) for the given instance of the set cover problem, it moves to the end of the north-south corridor and back to the east-west hallway. If the robot is in east-west hallway ew¯ with Å@Æ(Ç then it will visit at least one north-south corridor that is shorter than ­ . Its length uniquely identifies the east-west hallway the robot is in, which localizes the robot. Otherwise the robot must be in east-west hallway ew£ and is localized as well. Thus, the localization plan is valid.
+  </subsection>
+  <subsection id="2625.7.22">
+   An easy calculation shows that the total number of movements is bounded by º »2ÈnÉ ­ ¼ ­ ªNÊ ­ È ¬ ­ ¼ ­ .
+  </subsection>
+  <subsection id="2625.7.23">
+   It remains to be shown that a solution to the localization problem implies a solution to the set cover problem. Assume that we have found a valid localization plan whose performance is within a factor Ë$Ì·¸¹,ÌÍUÎ,ÏÏ of optimal. An upper bound on the number of movements of this localization plan is Ë$Ì·¸¹,ÌÍUÎ,ÏÏlº »@Ð Ë$Ì·¸H¹TÌÌ¬H ¡ ­ ªÑ«:ÏIÌ ­ ª É ÏIÌRªÑ«:ÏÏÏl¬ ­ ¼ ­ Ð Ë$Ì·¸¹,Ì ¿ ­ ¾ ÏÏl¬ ­ ¼ ­ Ð Ë$ÌÒ.·¸¹,Ì,Ï2ª É ·¸H¹[Ì ­ ÏÏl¬ ­ ¼ ­ Ð Ë$ÌÓÔ·¸H¹TÌ,ÏÏl¬ ­ ¼ ­ Ð Ë$Ì·¸H¹TÌ,ÏÏl¬ ­ ¼ ­ È [¬ ­ ¼ ­ È ¬H ¡:­ .
+  </subsection>
+  <subsection id="2625.7.24">
+   Thus, the number of movements is no larger than the length of an east-west hallway. Now assume that the robot starts at the east end of east-west hallway ew£ . Thus, it cannot visit a different eastwest hallway and, as part of the localization, must determine that no north-south corridor in a block is shorter than ­ . If the robot moves into a north-south corridor less than ­.Õ Õ « , it cannot detect whether the corridor is shorter than ­ because all north-south corridors are at least ­$Õ long. Thus, consider all north-south corridors that the robot moves into at least ­$Õ Õ « . The collection of subsets that these corridors correspond to must be a set cover, for otherwise the robot could not distinguish between the east-west hallways ew£ and ew° for the elements ± ° not covered by the collection of subsets. Let ­Ö denote the cardinality of this set cover. To determine how close to minimum the set cover is, we determine a lower bound on the total number of movements of the robot. A straightforward calculation shows that the robot makes at least Ì É ­ Ö Õ «:ÏIÌ ­Õ Õ «7Ï moves. Combined with the Ë$Ì·¸¹,Ì,ÏÏl¬ ­ ¼ ­ upper bound shown earlier, this implies that ­Ö Ð Ë$Ì·¸¹,Ì,ÏÏ ­¼ , which implies that the set cover is within a factor Ë$Ì·¸H¹TÌ,ÏÏ of minimum.
+  </subsection>
+  <subsection id="2625.7.25">
+   To summarize, Theorem 3 shows that is easy to find valid plans in gridworlds, while Theorems 4 and 5 together show that it is NP-hard to find valid localization plans with optimal or even near-optimal worst-case performance. Combining Theorems 4 and 5 also tells us that the problem stated in Theorem 4 is NP-complete.
+  </subsection>
+ </paragraph>
+ <paragraph id="2625.8" name="Testbeds">
+  <subsection id="2625.8.1">
+   As part of the theoretical results in the previous two sections we constructed hard instances of gridworlds on which greedy planning methods, such as the Delayed Planning Architecture, do not perform well. These gridworlds can be used in test suites in addition to random gridworlds or mazes. Table 3 contains the results of the same experiments that Table 1 reported on, except that we now use the Delayed Planning Architecture in conjunction with the gridworlds that we constructed as part of the proof of Theorem 2 instead of random gridworlds. (The numbers in parentheses refer to the particularly bad case used in the proof, where the robot starts at the east end of the east-west corridor of the top-most block.) Clearly, the robot now needs to execute a larger number of movements to reduce the number of possible cells than in random gridworlds or mazes, and the total number of movements is larger than for random gridworlds or mazes of comparable sizes and obstacle densities as well.
+  </subsection>
+  <subsection id="2625.8.2">
+   Similarly, the gridworlds that we constructed as part of the proof of Theorem 5 also provide challenging testbeds.
+  </subsection>
+ </paragraph>
+ <paragraph id="2625.9" name="Conclusions">
+  <subsection id="2625.9.1">
+   While testbeds for planning with complete information have been studied extensively, this paper provides a first study of testbeds for planning with incomplete information. We studied localization tasks in gridworlds. Previous experimental work had shown that greedy planning methods, such as the Delayed Planning Architecture (Genesereth  Nourbakhsh 1993; Nourbakhsh 1997), can efficiently find valid localization plans with good performance in random gridworlds and mazes. Our theoretical analysis showed that it is easy to find valid localization plans in arbitrary gridworlds but, perhaps surprisingly, NP-hard to find valid localization plans even with only suboptimal worst-case performance in some gridworlds, even if the gridworlds are connected. This suggests that gridworlds are appropriate testbeds for planning with incomplete information. As part of our proofs, we also showed how to construct hard instances of gridworlds on which the Delayed Planning Architecture and all other greedy planning methods do not perform well at all. These gridworlds can be used in addition to random gridworlds and mazes. In the future, we intend to apply similar ideas to localization tasks where the robots use partially observable Markov decision process models (Koenig  Simmons 1998b).
+  </subsection>
+ </paragraph>
+ <paragraph id="2625.10" name="Acknowledgments">
+  <subsection id="2625.10.1">
+   The Intelligent Decision-Making Group is supported by an NSF Career Award under contract IIS-9984827 to Sven Koenig and DARPA's Mobile Autonomous Robot Software (MARS) Program under contract DARPA/SMDC DASG6099-C-0081.
+  </subsection>
+ </paragraph>
+ <paragraph id="2625.11" name="References">
+  <subsection id="2625.11.1">
+   Dean, T.; Kaelbling, L.; Kirman, J.; and Nicholson, A. 1993. Planning with deadlines in stochastic domains. In Proceedings of the National Conference on Artificial Intelligence, 574–579.
+  </subsection>
+  <subsection id="2625.11.2">
+   Genesereth, M., and Nourbakhsh, I. 1993. Time-saving tips for problem solving with incomplete information. In Proceedings of the National Conference on Artificial Intelligence, 724–730.
+  </subsection>
+  <subsection id="2625.11.3">
+   Gupta, N., and Nau, D. 1992. On the complexity of blocks-world planning. Artificial Intelligence 56(2–3):223–254.
+  </subsection>
+  <subsection id="2625.11.4">
+   Hanks, S.; Pollack, M.; and Cohen, P. 1993. Benchmarks, test beds, controlled experimentation, and the design of agent architectures. AI Magazine 14(4):17–42.
+  </subsection>
+  <subsection id="2625.11.5">
+   Hansen, E. 1997. Markov decision processes with observation costs. Technical Report CMPSCI 97–01, Department of Computer Science, University of Massachusetts, Amherst (Massachusetts).
+  </subsection>
+  <subsection id="2625.11.6">
+   Hsu, J. 1990. Partial planning with incomplete information. In Proceedings of the AAAI Spring Symposium on Planning in Uncertain, Unpredictable, or Changing Environments.
+  </subsection>
+  <subsection id="2625.11.7">
+   Koenig, S., and Simmons, R. 1996. Easy and hard testbeds for real-time search algorithms. In Proceedings of the National Conference on Artificial Intelligence, 279–285.
+  </subsection>
+  <subsection id="2625.11.8">
+   Koenig, S., and Simmons, R. 1998a. Solving robot navigation problems with initial pose uncertainty using real-time heuristic search. In Proceedings of the International Conference on Artificial Intelligence Planning Systems, 154–153.
+  </subsection>
+  <subsection id="2625.11.9">
+   Koenig, S., and Simmons, R. 1998b. Xavier: A robot navigation architecture based on partially observable Markov decision process models. In Kortenkamp, D.; Bonasso, R.; and Murphy, R., eds., Artificial Intelligence Based Mobile Robotics: Case Studies of Successful Robot Systems. MIT Press. 91–122.
+  </subsection>
+  <subsection id="2625.11.10">
+   Kohavi, Z. 1978. Switching and Finite Automata Theory.
+  </subsection>
+  <subsection id="2625.11.11">
+   McGraw-Hill, second edition.
+  </subsection>
+  <subsection id="2625.11.12">
+   Littman, M. 1994. Memoryless policies: Theoretical limitations and practical results. In From Animals to Animats 3: Proceedings of the Third International Conference on Simulation of Adaptive Behavior.
+  </subsection>
+  <subsection id="2625.11.13">
+   Lund, C., and Yannakakis, M. 1994. On the hardness of approximating minimization problems. Journal of the ACM 41:960–981.
+  </subsection>
+  <subsection id="2625.11.14">
+   Madani, O.; Hanks, S.; and Condon, A. 1999. On the undecidability of probabilistic planning and infinite-horizon partially observable Markov decision problems. In Proceedings of the National Conference on Artificial Intelligence, 541–548.
+  </subsection>
+  <subsection id="2625.11.15">
+   McCallum, R. 1995. Instance-based utile distinctions for reinforcement learning with hidden state. In Proceedings of the International Conference on Machine Learning, 387–395.
+  </subsection>
+  <subsection id="2625.11.16">
+   Nourbakhsh, I. 1996. Robot Information Packet. Distributed at the AAAI-96 Spring Symposium on Planning with Infomplete Information for Robot Problems.
+  </subsection>
+  <subsection id="2625.11.17">
+   Nourbakhsh, I. 1997. Interleaving Planning and Execution for Autonomous Robots. Kluwer Academic Publishers.
+  </subsection>
+  <subsection id="2625.11.18">
+   Olawsky, D.; Krebsbach, K.; and Gini, M. 1993. An analysis of sensor-based task planning. Technical Report 93-94, Computer Science Department, University of Minnesota, Minneapolis (Minnesota).
+  </subsection>
+  <subsection id="2625.11.19">
+   Reinefeld, A. 1993. Complete solution of the eight-puzzle and the benefit of node ordering in IDA*. In Proceedings of the International Joint Conference on Artificial Intelligence, 248–253.
+  </subsection>
+  <subsection id="2625.11.20">
+   Schapire, R. 1992. The Design and Analysis of Efficient Learning Algorithms. MIT Press.
+  </subsection>
+  <subsection id="2625.11.21">
+   Slaney, J., and Thiébaux, S. 1996. Linear-time near-optimal planning in the blocks world. In Proceedings of the National Conference on Artificial Intelligence Planning.
+  </subsection>
+ </paragraph>
+</paper>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paper id="2596" url="http://www.aaai.org/Papers/AAAI/2000/AAAI00-169.pdf">
+ <title id="2596.0" name="Combining Classification and Temporal Learning"/>
+ <subsection id="2596.0.1">
+  Matthew Winston Mitchell School of Computer Science and Software Engineering, Faculty of Information Technology, Monash University P.O Box 197 Caulfield East, 3145 Australia matt@insect.sd.monash.edu.au Background This introduces TRACA (Temporal Reinforcement-learning and Classification Architecture), a connectionist learning system for solving problems in large state spaces. These types of problems, such as robot control, commonly include the presence of irrelevant attributes and hidden-state.
+ </subsection>
+ <subsection id="2596.0.2">
+  TRACA is capable of dealing with both irrelevant information and hidden-state while addressing two common shortcomings of other learning systems. The first shortcoming is requiring a large number of training examples which is unrealistic for learning in the real world. The second is having to pre-determine or constrain network structure and size.
+ </subsection>
+ <subsection id="2596.0.3" label="Problem">
+  System Overview TRACA dynamically develops a model of its environment while learning. This model consists of combination groups, which are used to construct general rules, and temporal groups, which implement a memory mechanism.
+ </subsection>
+ <subsection id="2596.0.4" label="Problem">
+  Groups represent one or more situations and are connected to detector inputs and/or other groups by arcs which are used to pass a variety of messages. Based on the situations they represent, groups contain nodes which store estimates of action-values (Sutton 1998) and maintain transition probabilities to other situations.
+ </subsection>
+ <subsection id="2596.0.5" label="Problem">
+  New groups are created incrementally while learning by combining existing nodes as selected by a localized probabilistic mechanism. Each new combination of nodes is given a small number of trials to determine its usefulness and is then retained only while it demonstrates an improved value estimate over those of its lower level component nodes.
+ </subsection>
+ <subsection id="2596.0.6">
+  Relationship to Other Work TRACA has several distinguishing features. It is able to reduce the complexity of structures by representing NOT and XOR using only logical AND combinations in conjunction with the organisation of nodes into groups and a suppression mechanism. When compared to Neural Networks (Lin 1993), nodes in TRACA store value estimates independently, allowing it to exploit learning from only a few training examples. Finally, TRACA will not continue to solve Copyright c 2000, American Association for Artificial Intelligence (www.aaai.org). All rights reserved.
+ </subsection>
+ <subsection id="2596.0.7">
+  hidden-state problems if the solution provides no useful improvement in achieving reinforcement. This avoids the problem of choosing to either have a fixed-size history window or to artificially restrict the number of temporal nodes (McCallum 1996; Ring 1994).
+ </subsection>
+ <subsection id="2596.0.8">
+  TRACA’s creation of new groups through combinations has strong parallels to both Holland’s Learning Classifier Systems (Holland 1975) and Drescher’s Schema Mechanism (Drescher 1991).
+ </subsection>
+ <subsection id="2596.0.9">
+  Results Experimental results have demonstrated that TRACA is capable of representing a number of problems including those with hidden-state without having to pre-determine network size or structure. The performance of TRACA in experiments indicate that it can match the accuracy of a number of other systems with a relatively small number of training examples.
+ </subsection>
+ <paragraph id="2596.1" name="References">
+  <subsection id="2596.1.1">
+   Drescher, G. 1991. Made-Up Minds. The MIT Press. Holland, J. 1975. Adaption in natural and artificial systems. University of Michigan Press.
+  </subsection>
+  <subsection id="2596.1.2">
+   Lin, L. 1993. Reinforcement Learning for Robots Using Neural Networks. Ph.D. Dissertation, School of Computer Science, Carnegie Mellon University, Pittburgh USA.
+  </subsection>
+  <subsection id="2596.1.3">
+   McCallum, A. 1996. Reinforcement Learning With Selective Perception and Hidden State. Ph.D. Dissertation, Department of Computer Science, University of Rochester, NY.
+  </subsection>
+  <subsection id="2596.1.4">
+   Ring, M. 1994. Continual Learning in Reinforcement Environments. Ph.D. Dissertation, The University of Texas at Austin.
+  </subsection>
+  <subsection id="2596.1.5">
+   Sutton, R. 1998. Reinforcement Learning: An Introduction. The MIT Press.
+  </subsection>
+  <subsection id="2596.1.6">
+   From: AAAI-00 Proceedings. Copyright © 2000, AAAI (www.aaai.org). All rights reserved.
+  </subsection>
+ </paragraph>
+</paper>

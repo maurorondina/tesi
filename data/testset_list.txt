@@ -9,3 +9,16 @@
 2560		http://www.aaai.org/Papers/AAAI/2000/AAAI00-009.pdf		An Algorithm for Multi-Unit Combinatorial Auctions
 2563		http://www.aaai.org/Papers/AAAI/2000/AAAI00-138.pdf		Change Detection in Heuristic Search
 2564		http://www.aaai.org/Papers/AAAI/2000/AAAI00-102.pdf		A Quantitative Study of Small Disjuncts
+2574		http://www.aaai.org/Papers/AAAI/2000/AAAI00-068.pdf		Dynamic Ontologies on the Web
+2583		http://www.aaai.org/Papers/AAAI/2000/AAAI00-128.pdf		Active Audition for Humanoid
+2593		http://www.aaai.org/Papers/AAAI/2000/AAAI00-006.pdf		Cobot in LambdaMOO: A Social Statistics Agent
+2596		http://www.aaai.org/Papers/AAAI/2000/AAAI00-169.pdf		Combining Classification and Temporal Learning
+2601		http://www.aaai.org/Papers/AAAI/2000/AAAI00-131.pdf		Coordination for Multi-Robot Exploration and Mapping
+2604		http://www.aaai.org/Papers/AAAI/2000/AAAI00-025.pdf		DATALOG with Constraints -- An Answer-Set Programming System
+2606		http://www.aaai.org/Papers/AAAI/2000/AAAI00-055.pdf		Decision-Theoretic, High-Level Agent Programming in the Situation Calculus
+2607		http://www.aaai.org/Papers/AAAI/2000/AAAI00-008.pdf		Deliberation in Equilibrium: Bargaining in Computationally Complex Problems
+2610		http://www.aaai.org/Papers/AAAI/2000/AAAI00-077.pdf		Describing Rigid Body Motions in a Qualitative Theory of Spatial Regions
+2613		http://www.aaai.org/Papers/AAAI/2000/AAAI00-140.pdf		Divide-and-Conquer Frontier Search Applied to Optimal Sequence Alignment
+2616		http://www.aaai.org/Papers/AAAI/2000/AAAI00-161.pdf		Graph-Based Hierarchical Conceptual Clustering in Structural Databases
+2625		http://www.aaai.org/Papers/AAAI/2000/AAAI00-126.pdf		Gridworlds as Testbeds for Planning with Incomplete Information
+2629		http://www.aaai.org/Papers/AAAI/2000/AAAI00-087.pdf		Generalizing Boundary Points

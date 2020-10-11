@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paper id="2629" url="http://www.aaai.org/Papers/AAAI/2000/AAAI00-087.pdf">
+ <title id="2629.0" name="Generalizing Boundary Points"/>
+ <subsection id="2629.0.1">
+  Tapio Elomaa Department of Computer Science P. O. Box 26 (Teollisuuskatu 23) FIN-00014 Univ. of Helsinki, Finland elomaa@cs.helsinki.fi Juho Rousu VTT Biotechnology Tietotie 2, P. O. Box 1500 FIN-02044 VTT, Finland Juho.Rousu@vtt.fi
+ </subsection>
+ <paragraph id="2629.1" name="Abstract">
+  <subsection id="2629.1.1">
+   The complexity of numerical domain partitioning depends on the number of potential cut points. In multiway partitioning this dependency is often quadratic, even exponential. Therefore, reducing the number of candidate cut points is important. For a large family of attribute evaluation functions only boundary points need to be considered as candidates. We prove that an even more general property holds for many commonly-used functions. Their optima are located on the borders of example segments in which the relative class frequency distribution is static. These borders are a subset of boundary points. Thus, even less cut points need to be examined for these functions.
+  </subsection>
+  <subsection id="2629.1.2">
+   The results shed a new light on the splitting properties of common attribute evaluation functions and they have practical value as well. The functions that are examined also include non-convex ones. Hence, the property introduced is not just another consequence of the convexity of a function.
+  </subsection>
+ </paragraph>
+ <paragraph id="2629.2" name="Introduction">
+  <subsection id="2629.2.1">
+   Fayyad and Irani (1992) showed that the Average Class Entropy and Information Gain functions (Quinlan 1986) obtain their optimal values for a numerical value range at a boundary point. Intuitively it means that these functions do not needlessly separate instances of the same class. The result reveals interesting fundamental properties of the functions, and it can also be put to use in practice: only boundary points need to be examined as potential cut points to recover the optimal binary split of the data.
+  </subsection>
+  <subsection id="2629.2.2">
+   Recently the utility of boundary points has been extended to cover other commonly-used evaluation functions and optimal multisplitting of numerical ranges (Elomaa and Rousu 1999). Other recent studies concerning the splitting properties of attribute evaluation functions include Breiman’s (1996) research of the characteristics of ideal partitions of some impurity functions and Codrington and Brodley’s (2000) study of the general requirements of well-behaved splitting functions. Similar research lines for nominal attributes are followed by Coppersmith, Hong, and Hosking (1999).
+  </subsection>
+  <subsection id="2629.2.3">
+   This paper continues to explore the splitting properties of attribute evaluation functions. We introduce a generalCopyright c 2000, American Association for Artificial Intelligence (www.aaai.org). All rights reserved.
+  </subsection>
+  <subsection id="2629.2.4">
+   ized version of boundary points—the so-called segment borders—which exclude all cut points in the numerical range that separate subsets of identical relative class frequency distributions. The separated subsets do not need to be class uniform to warrant the exclusion, as is the case with boundary points.
+  </subsection>
+  <subsection id="2629.2.5">
+   We show that it suffices to examine segment borders in optimizing the value of the best-known attribute evaluation functions. Hence, the changes in class distribution, rather than relative impurities of the subsets, define the potential locations of the optimal cut points (cf. López de Màntaras 1991). Two of the examined functions are non-convex.
+  </subsection>
+  <subsection id="2629.2.6">
+   Hence, the property of splitting on segment borders is not only a consequence of the convexity of a function.
+  </subsection>
+  <subsection id="2629.2.7">
+   A partition Uk i=1 Si of the sample S consists of k nonempty, disjoint subsets and covers the whole domain. When splitting a set S of examples on the basis of the value of an attribute A, there is a set of thresholds fT1;:::;Tk,1g  Dom(A) that defines a partition Uk i=1 Si for the sample in an obvious manner: Si = ( fs 2 S j valA(s)  T1g if i = 1, fs 2 S j Ti,1  valA(s)  Tig if 1  i  k, fs 2 S j valA(s)  Tk,1g if i = k, where valA(s) denotes the value of attribute A in example s.
+  </subsection>
+  <subsection id="2629.2.8">
+   The classification of an example s is its value for the class attribute C, valC(s).
+  </subsection>
+  <subsection id="2629.2.9">
+   Next section recapitulates boundary points and introduces example segments. Then we prove that six well-known functions do not partition within a segment. We also explore empirically the average numbers of boundary points and segment borders in 28 UCI data sets. Finally, we relate our results to those of Breiman (1996) and outline further research directions.
+  </subsection>
+ </paragraph>
+ <paragraph id="2629.3" name="Example Segments" label="Problem">
+  <subsection id="2629.3.1">
+   We recapitulate bins and blocks of examples as well as boundary points. Furthermore, we introduce segments.
+  </subsection>
+  <subsection id="2629.3.2">
+   Rather than give unnecessarily complicated formal definitions for these simple concepts, we present them intuitively with the help of an illustration.
+  </subsection>
+  <subsection id="2629.3.3">
+   From: AAAI-00 Proceedings. Copyright © 2000, AAAI (www.aaai.org). All rights reserved.
+  </subsection>
+  <subsection id="2629.3.4">
+   (a) 2X,– 3X,– 1X,2Y 2X,4Y 3X,5Y –,3Y –,4Y 1X,1Y 3X,3Y valA(s) 1 2 3 4 5 6 7 8 9 (b) 5X,– 1X,2Y 2X,4Y 3X,5Y –,7Y 1X,1Y 3X,3Y valA(s) 2 3 4 5 7 8 9 (c) 5X,– 3X,6Y 3X,5Y –,7Y 4X,4Y valA(s) 2 4 5 7 9 Figure 1: The (a) bins, (b) blocks, and (c) segments in the domain of a numerical attribute A in a hypothetical sample.
+  </subsection>
+  <subsection id="2629.3.5">
+   The definition of boundary points assumes that the sample has been sorted into ascending order with respect to the value of the numerical attribute under consideration (Fayyad and Irani 1992). Sorting is a typical preprocessing step in attribute evaluation strategies. It produces a sequence of bins, where all examples with an equal value for the attribute in question make up a bin of examples. Bin borders are the possible cut points of the value range. In Fig. 1a a hypothetical sample has been arranged into bins with respect to an integer-valued attribute A. The numbers of instances of different classes (X and Y in this case) belonging to the bins are depicted by the figures within them. To determine the correlation between the value of an attribute and that of the class it suffices to examine their mutual frequencies.
+  </subsection>
+  <subsection id="2629.3.6">
+   To construct blocks of examples we merge adjacent class uniform bins with the same class label (see Fig. 1b). The boundary points of the example sequence are the borders of its blocks. The points obtained thus are exactly the same as those that come out from the definition of Fayyad and Irani (1992). Block construction leaves all bins with a mixed class distribution as their own blocks.
+  </subsection>
+  <subsection id="2629.3.7">
+   From bins we obtain segments of examples by combining adjacent bins with an equal relative class distribution (see Fig. 1c). Segments group together adjacent mixeddistribution bins that have equal relative class distribution.
+  </subsection>
+  <subsection id="2629.3.8">
+   Also adjacent class uniform bins fulfill this condition; hence, uniform blocks are a special case of segments and segment borders are a subset of boundary points.
+  </subsection>
+  <subsection id="2629.3.9">
+   Bins, blocks, and segments can all be identified in the same single scan over the sorted sample. Thus, taking advantage of them only incurs a linear computational cost. It is majorized by the O(nlogn) time requirement of sorting, which cannot usually be avoided.
+  </subsection>
+  <subsection id="2629.3.10">
+   In practice, the additional cost for using segment borders in splitting is negligible. In multiway partitioning the evaluation often takes at least quadratic, even exponential, time in the number of candidate cut points. Elomaa and Rousu (2000) demonstrate up to 75% savings in time consumption on UCI data sets (Blake and Merz 1998) by preprocessing the data into segments instead of running the algorithms on the example bins.
+  </subsection>
+ </paragraph>
+ <paragraph id="2629.4" name="Most Common Evaluation Functions Split on Segment Borders">
+  <subsection id="2629.4.1">
+   In this section we show that many commonly-used attribute evaluation functions have their local optima on segment borders. Hence, partitions with intrasegment cut points can be disregarded.
+  </subsection>
+  <subsection id="2629.4.2">
+   All the following proofs have the same setting. The sample S contains three subsets, P, Q, and R with class frequency distributions p = m X j=1 pj; q = m X j=1 qj; and r = m X j=1 rj; where pis the number of examples in P and pj is the number of instances of class j in P. Furthermore, m is the number of classes. The notation is similar also for Q and R. Let us define wj = qj=q 2 [0;1].
+  </subsection>
+  <subsection id="2629.4.3">
+   We consider the k-ary partition Uk i=1 Si of the sample S, where subsets Sh and Sh+1 consist of the set P [Q[R, so that the split point is inside Q, on the border of P and Q, or that of Q and R (see Fig. 2). Let ` be an integer, 0  `  q.
+  </subsection>
+  <subsection id="2629.4.4">
+   We assume that splitting the set Qso that ` examples belong to Sh and q , ` to Sh+1 results in identical class frequency distributions for both subsets of Q regardless of the value of `. In other words, for all j and ` it holds that qj(`) = wj ` where qj(`) is the frequency of class j in Sh.
+  </subsection>
+  <subsection id="2629.4.5">
+   The proofs treat the evaluation functions and their component functions as continuous in [0;q] and twice differentiable, even though they are defined to be discrete. Observe that this causes no harm, since we only consider proving the absence of certain local extremas.
+  </subsection>
+  <subsection id="2629.4.6">
+   The proofs show in the multisplitting situation that the cut point in between two arbitrarily chosen partition subsets Sh and Sh+1 is on a segment border. The remaining partition subsets are not affected by the placement of the cut point within Sh[Sh+1. Therefore, their impact usually disappears when the proof involves differentiation of the function.
+  </subsection>
+  <subsection id="2629.4.7">
+   Average Class Entropy The Average Class Entropy of the partition U i Si is ACE ] i Si ! = X i jSij jSj H(Si) = 1 jSj X i jSijH(Si);  P Q R p = Pm j=1 pj q = Pm j=1 qj r = Pm j=1 rj Uh,1 i=1 Si z }| { Sh z }| { Sh+1 Uk i=h+2 Si ` Figure 2: The following proofs consider partitioning of the example set P [Q[R into two subsets Sh and Sh+1 within Q. No matter where, within Q, the cut point is placed, equal class distributions result.
+  </subsection>
+  <subsection id="2629.4.8">
+   where H is the entropy function, H(S) = , m X j=1 P(Cj;S)logP(Cj;S); in which m denotes the number of classes and P(C;S) stands for the proportion of the examples in S that belong to the class C.
+  </subsection>
+  <subsection id="2629.4.9">
+   We take all logarithms in this paper to be natural logarithms; it makes the manipulation and notation simpler. It is easy to check that our proofs can be worked through with binary logarithms as well.
+  </subsection>
+  <subsection id="2629.4.10">
+   Theorem 1 The Average Class Entropy optimal partitions are defined on segment borders.
+  </subsection>
+  <subsection id="2629.4.11">
+   Proof Let L(`) denote the value of Ph i=1 jSijH(Si) when Sh contains P and the first `examples from Q, and R(`) the value Pk i=h+1 jSijH(Si). Now, L(`) = h,1 X i=1 jSijH(Si) , m X j=1 (pj + wj`)log pj + wj` p+ ` = h,1 X i=1 jSijH(Si) + (p + `)log(p+ `) , m X j=1 (pj + wj`)log(pj + wj`) and, similarly, R(`) = k X i=h+2 jSijH(Si) + (r + q ,`)log(r + q ,`) , m X j=1 (rj + qj ,wj`)log(rj + qj ,wj`): Since the first sum in the formula of L(`) is independent of the placing of the h-th cut point, it differentiates to zero and the second derivative of L(`) is L00(`) = 1 p+ ` , m X j=1 w2 j pj + wj` = 1 p+ ` , m X j=1 wj pj=wj + `: The remaining sum can be interpreted as the weighted arithmetic mean of the terms 1=(pj=wj+`);1  j  m, and by the arithmetic-harmonic mean inequality (Hardy, Littlewood, and Pólya 1934, Meyer 1984) be bound from below by the corresponding harmonic mean m X j=1 wj 1 pj=wj + `  1 Pm j=1 wj(pj=wj + `) = 1 Pm j=1(pj + wj`) = 1 p+ `: Thus, L00(`)  0.
+  </subsection>
+  <subsection id="2629.4.12">
+   Correspondingly, the second derivative of R(`) can be approximated by majorizing the second term by the harmonic mean R00(`) = 1 r + q ,` , m X j=1 w2 j rj + qj ,wj`  1 r + q ,` , 1 Pm j=1 wj((rj + qj)=wj ,`) = 0: Hence, we have shown that the second derivative of ACE, ACE00(`) = (L00(`) + R00(`))=jSj, is non-positive for all `.
+  </subsection>
+  <subsection id="2629.4.13">
+   This forces all local extrema of ACE within Qto be maxima.
+  </subsection>
+  <subsection id="2629.4.14">
+   2 Information Gain Information gain function, or the Mutual Information, is a simple modification of ACE. Thus, proving that it does not partition within segments is straightforward.
+  </subsection>
+  <subsection id="2629.4.15">
+   Theorem 2 The Information Gain optimal partitions are defined on segment borders.
+  </subsection>
+  <subsection id="2629.4.16">
+   Proof The Information Gain of the partition Uk i=1 Si, when the h-th cut point is placed after the `-th example of Q, is IG(`) = H(S) ,ACE(`): The constant term H(S) that does not depend on the value of ` differentiates to zero. Therefore, IG0(`) = ,ACE0(`) and its second derivative is ,ACE00(`). From the proof of Theorem 1 we know that ACE00(`)  0, which means that IG00(`)  0. Hence, IG cannot have a local maximum within segment Q. 2  Gain Ratio To penalize against IG’s excessive favoring of multi-valued nominal attributes and multisplitting numerical attribute value ranges, Quinlan (1986) suggested dividing the IG score of a partition by the term  ] i Si ! = , X i jSij jSj log jSij jSj : The resulting evaluation function is the Gain Ratio GR ] Si  = IG ] Si  = ] Si  : The IG function was already inspected above. Therefore, the following proof concentrates on the denominator .
+  </subsection>
+  <subsection id="2629.4.17">
+   Theorem 3 The Gain Ratio optimal partitions are defined on segment borders.
+  </subsection>
+  <subsection id="2629.4.18">
+   Proof The denominator  of the GR formula in our proof setting is (`) =  h,1 ] i=1 Si ! + 1 jSj  (p + q + r)logjSj ,(p + `)log(p+ `) ,(r + q ,`) log(r + q ,`)  +  k ] i=h+2 Si ! : The second derivative of (`) w.r.t. ` is 00(`) = 1 jSj  ,1 p+ ` + ,1 r + q ,`   0: (1) The first derivative of GR(`) is given by GR0(`) = IG0(`)(`) ,0(`)IG(`) 2(`) : Let us define N(`) = IG0(`)(`),0(`)IG(`), and note that N0(`) = IG00(`)(`) + 0(`)IG0(`) ,00(`)IG(`) ,0(`)IG0(`) = IG00(`)(`) ,00(`)IG(`)  0; because for each 0  `  q it holds by definition that (`)  0 and IG(`)  0. Furthermore, by Theorem 2 we know that IG00(`)  0 and by Eq. 1 that 00(`)  0.
+  </subsection>
+  <subsection id="2629.4.19">
+   Now the second derivative of GR(`) is expressed by GR00(`) = N0(`)2(`) ,2(`)0(`)N(`) 4(`) : Let 2]0;q[ be a potential location for a local maximum of GR, i.e., such a point that GR0( ) = 0. Then also N( ) = 0 and the expression for GR00( ) is further simplified to GR00( ) = N0( )=2( ); which is larger than zero because N0( )  0 and 2( )  0. In other words, GR( ) is not a local maximum. Since was chosen arbitrarily, we have shown that GR(`) can only obtain its maximum value when the threshold is placed at either of the segment borders, where ` = 0 and ` = q, respectively. 2 Normalized Distance Measure The Normalized Distance Measure was proposed by López de Màntaras (1991) as an alternative to the Information Gain and Gain Ratio functions. It can be expressed with the help of the Information Gain as ND ] Si  = 1 ,IG ] Si  = ] Si  ; where  k ] i=1 Si ! = , k X i=1 m X j=1 M(j;Si) jSj log M(j;Si) jSj ; in which M(j;S) stands for the number of instances of class j in the set S.
+  </subsection>
+  <subsection id="2629.4.20">
+   The following proof concerns instead the function ND1 ] Si  = 1 ,ND ] Si  = IG ( U Si) ( U Si) ; from which the claim directly follows for ND.
+  </subsection>
+  <subsection id="2629.4.21">
+   The ND1 formula resembles that of GR. Therefore, the proof outline is also the same.
+  </subsection>
+  <subsection id="2629.4.22">
+   Theorem 4 The Normalized Distance Measure optimal partitions are defined on segment borders.
+  </subsection>
+  <subsection id="2629.4.23">
+   Proof Let L(`) denote the value of ( Uh i=1 Si) and R(`) the value ( Uk i=h+1 Si).
+  </subsection>
+  <subsection id="2629.4.24">
+   L(`) =  h,1 ] i=1 Si ! , m X j=1 pj + wj` jSj log pj + wj` jSj =  h,1 ] i=1 Si ! + 1 jSj (p + `)logjSj , m X j=1 (pj + wj`)log(pj + wj`) ! : and R(`) =  k ] i=h+2 Si ! + 1 jSj (r + q ,`)logjSj , m X j=1 (rj + qj + wj`)log(rj + qj ,`) ! : The second derivative of L(`) is given by L00(`) = ,1 jSj m X j=1 w2 j pj + wj`  0; because jSj, wj, pj, and ` are all non-negative.
+  </subsection>
+  <subsection id="2629.4.25">
+   Correspondingly, the second derivative of R(`) is R00(`) = ,1 jSj m X j=1 w2 j rj + qj ,wj`  0: Thus, we have proved that the second derivative of , 00(`) = L00(`) + R00(`) is non-positive for all `.
+  </subsection>
+  <subsection id="2629.4.26">
+   The proof for ND1 is easy to complete similarly as the proof for the Gain Ratio. Thus, the local extrema of ND1 within Q are minima, which makes them local maxima of ND(`) = 1,ND1(`). Hence, Normalized Distance measure does not obtain its minimum value within a segment. 2  Gini Index Gini Index (of diversity), or the Quadratic Entropy, (Breiman et al. 1984, Breiman 1996) is defined as GI ] i Si ! = X i jSij jSj gini(Si); in which gini is the impurity measure gini(S) = m X j=1 P(Cj;S)(1 ,P(Cj;S)) = 1 , m X j=1 P2(Cj;S); where P(C;S) denotes the proportion of instances of class C in the data S.
+  </subsection>
+  <subsection id="2629.4.27">
+   Theorem 5 The Gini Index optimal partitions are defined on segment borders.
+  </subsection>
+  <subsection id="2629.4.28">
+   Proof Let L(`) denote the value of Ph i=1 jSijgini(Si) when Sh contains P and the first `examples from Q, and R(`) the value Pk i=h+1 jSijgini(Si). Now, L(`) = h,1 X i=1 jSijgini(Si) + (p + `) , m X j=1 (pj + wj`)2 p + ` : The first derivative of L(`) is 1 , m X j=1 2(pj + wj`)wj(p+ `) ,(pj + wj`)2 (p+ `)2 : From which, by straightforward manipulation, we obtain L00(`) = ,2 m X j=1 (pj + wjp)2 (p+ `)3  0: By symmetry we determine that R00(`)  0as well. Thus, GI00(`) = (L00(`) + R00(`))=jSj  0 and, therefore, GI does not obtain its minimum value within the segment Q. 2 Training Set Error The majority class of sample S is its most frequently occurring class: majC(S) = arg max 1jm jfs 2 S j valC(s) = jgj: The number of disagreeing instances, those in the set S not belonging to its majority class, is given by (S) = jfs 2 S j valC(s) 6= majC(S)gj: Training Set Error is the number of training instances falsely classified in the partition. For a partition U Si of S it is defined as TSE ] i Si ! = X i (Si): (1 ,wz)` (1,wx)` (1,wu)` p,pu p,px p,pz | {z } u = majC(Sh) | {z } x = majC(Sh) (Sh) ` Figure 3: The number of instances of other classes than j grows linearly with increasing ` for all j. (Sh) is convex.
+  </subsection>
+  <subsection id="2629.4.29">
+   The number of instances in Sh from other classes than j, (p,pj)+(1,wj)`, is linearly increasing for any j, since the first term is constant and 0  wj  1. Respectively, in Sh+1 the number of those instances, (r ,rj) + (1 ,wj)(q ,`), decreases with increasing `.
+  </subsection>
+  <subsection id="2629.4.30">
+   In our proof setting, the majority class of Sh depends on the growth rates of classes in Q and the number of their instances in P. First, when ` = 0, the majority class of P, say u, is also the majority class of Sh. Subsequently an other class x, with strictly larger growth rate wx  wu may become the majority class of Sh (see Fig. 3). Observe that px  pu. As a combination of non-decreasing functions, (Sh) is also non-decreasing.
+  </subsection>
+  <subsection id="2629.4.31">
+   Theorem 6 The Training Set Error optimal partitions are defined on segment borders.
+  </subsection>
+  <subsection id="2629.4.32">
+   Proof Let us examine the value of TSE(l) = (Sh) + (Sh+1) at an arbitrary cut point ` = l, 0  l  q. Let u and v be the majority classes of Sh and Sh+1, respectively, in this situation. Then, TSE(l) = (p ,pu) + (1 ,wu)l + (r ,rv) + (1 ,wv)(q ,l): We now show that a smaller training set error is obtained by moving the cut point to the left or to the right from l.
+  </subsection>
+  <subsection id="2629.4.33">
+   There are four possible scenarios for the changes of majority classes of Sh and Sh+1 when the cut point is moved: (i) neither of them changes, only the majority class of (ii) Sh or (iii) Sh+1 changes, or (iv) both of them change. Let x and y, when needed, be the new majority classes of Sh and Sh+1, respectively.
+  </subsection>
+  <subsection id="2629.4.34">
+   Assume, now, that wu  wv. Let us consider the four scenarios mentioned when moving the cut point one example to the left.
+  </subsection>
+  <subsection id="2629.4.35">
+   (i) TSE(l ,1) = (p ,pu) + (1 ,wu)(l ,1) + (r ,rv) + (1 ,wv)(q ,l + 1) = TSE(l) + wu ,wv  TSE(l); because wu ,wv  0 by the assumption.
+  </subsection>
+  <subsection id="2629.4.36">
+   (ii) The majority class of Sh becomes x and v remains to be the majority class of Sh+1. Then TSE(l ,1) = (p,px) + (1 ,wx)(l ,1) + (r ,rv) + (1 ,wv)(q ,l + 1)  TSE(l) + wx ,wv; because (p ,px)  (p ,pu) and (1 ,wx)  (1 ,wu).
+  </subsection>
+  <subsection id="2629.4.37">
+   Since wx  wu  wv by the assumption, we have shown that TSE(l ,1)  TSE(l).
+  </subsection>
+  <subsection id="2629.4.38">
+   (iii) The majority class of Sh remains to be uand y becomes the majority class of Sh+1. Observe that then (r ,ry) + (1 , wy)(q ,l + 1)  (r ,rv) + (1 ,wv)(q ,l + 1), by y being the majority class of Sh+1. Thus, TSE(l ,1)  TSE(l) + wu ,wv  TSE(l): (iv) If both majority classes change, then by combining (ii) and (iii) we see that TSE(l ,1)  TSE(l).
+  </subsection>
+  <subsection id="2629.4.39">
+   Hence, in all scenarios a smaller value of TSE is obtained by moving the cut point. Similarly, if wu  wv we can obtain a smaller training set error for Sh ] Sh+1 by sliding the cut point forward in Q.
+  </subsection>
+  <subsection id="2629.4.40">
+   In any case, the cut point can be slid all the way to one of the borders of Q. Because l was chosen arbitrarily and TSE k ] i=1 Si ! = h,1 X i=1 (Si) + TSE(l) + k X i=h+2 (Si); we have proved the claim. 2
+  </subsection>
+ </paragraph>
+ <paragraph id="2629.5" name="Experiments">
+  <subsection id="2629.5.1">
+   We test for 28 well-known UCI domains (Blake and Merz 1998) the effects of concentrating on segment borders. Fig.
+  </subsection>
+  <subsection id="2629.5.2">
+   4 depicts the average numbers of bin borders (the figures on the right) and the relative portions of boundary points (black bars) and segment borders (white bars) per numerical attribute of the domain. Gray bars indicate that the numbers of boundary points and segment borders are the same.
+  </subsection>
+  <subsection id="2629.5.3">
+   From Fig. 4 we see that the average number of segment borders per attribute is only marginally smaller than that of the boundary points. By combining bins into segments, in real-world data, almost all reduction in the number of points that need to be examined comes from combination of class uniform bins, only very few mixed bins get combined. The reason for this is obvious: even small changes—caused, e.g., by attribute noise—to the class distribution prevent combining neighboring mixed bins.
+  </subsection>
+  <subsection id="2629.5.4">
+   The segment construction is as efficient as block combination. Therefore, nothing is lost by taking advantage of the small reduction in the number of cut points examined.
+  </subsection>
+ </paragraph>
+ <paragraph id="2629.6" name="Discussion">
+  <subsection id="2629.6.1">
+   We have shown that the result of Fayyad and Irani (1992) can be properly generalized. Class uniform bins are not the only ones that can be grouped together without losing the optimal partition. In practice, though, they turn out to be far more numerous than other segments with static relative class 25% 50% 75% Abalone 863.7 Adult 3673.7 Annealing 27.5 Australian 188.2 Auto insurance 61.3 Breast Wisconsin 9.9 Colic 85.8 Diabetes 156.8 Euthyroid 164.0 German 203.0 Glass 115.3 Heart Cleveland 30.5 Heart Hungarian 26.8 Hepatitis 53.8 Hypothyroid 184.3 Iris 30.8 Letter recognition 16.0 Liver 54.7 Page blocks 909.2 Satellite 76.3 Segmentation 145.3 Shuttle 123.2 Sonar 187.6 Vehicle 79.4 Vowel 808.7 Waveform 714.0 Wine 98.2 Yeast 51.5 Figure 4: The average number of bin borders (the figures on the right) and the relative numbers of boundary points (black bars) and segment borders (white bars) per numerical attribute of the domain. Gray bars indicate that the numbers of segment borders and boundary points are the same.
+  </subsection>
+  <subsection id="2629.6.2">
+   frequency distribution. However, even small reductions in the number of cut points are valuable in the optimal partitioning tasks, where the time complexity can be quadratic or exponential in the number of cut points.
+  </subsection>
+  <subsection id="2629.6.3">
+   Most common evaluation functions behave in the way we would like them to: minimizing on non-boundary cut points would mean needless separation of instances of the same class. Moreover, minimizing within segments that have an identical relative class distributions would mean separating instances even if we have no evidence that they need different handling.
+  </subsection>
+  <subsection id="2629.6.4">
+   Even if the popular evaluation functions are similar in the  Y X Figure 5: The effects on vector of moving the cut point through the data set in Fig. 1 in Breiman’s model. The discs denote boundary points other than segment borders and the squares denote non-boundary cut points.
+  </subsection>
+  <subsection id="2629.6.5">
+   above sense, their biases are different. Breiman (1996) studied for Gini Index and Average Class Entropy which class frequency distribution, if given the freedom to choose any, would produce the optimal score for a binary partition. He showed that Gini Index ideally separates all the instances of the majority class from the rest of the examples. Entropy minimization, on the other hand, aims at producing equalsized subsets. In practice, the choices for the class frequency distributions are limited by the sample characteristics and the ideal partitions cannot necessarily be realized.
+  </subsection>
+  <subsection id="2629.6.6">
+   In Breiman’s (1996) setting j denotes the proportion of examples of class j that lie to the left of a binary split.
+  </subsection>
+  <subsection id="2629.6.7">
+   Hence, the vector = h 1;:::; mi is a point in the hypercube A = [0;1]m. Moving the cut point within an example segment corresponds to moving vector on a straight line in the hypercube A. Moving it over a set that spans multiple segments, forms a piecewise linear trajectory in A. The segment borders are the turning points of the trajectory (see Fig. 5). If the example segment is class uniform, the line is axis-parallel. Non-boundary cut points fall on such line segments. Boundary points other than segment borders are situated on lines that are not axis-parallel, which correspond to segments with a mixed class distribution.
+  </subsection>
+  <subsection id="2629.6.8">
+   The practical uses of the results in this paper are somewhat hampered by the fact that small differences in neighboring blocks are inevitably present even if their underlying true class distributions were the same. These differences arise because of sampling of examples and noise. Hence, it is rare to find a sequence of cut points to lie exactly on a single line in the space A.
+  </subsection>
+  <subsection id="2629.6.9">
+   Thus, it would be useful to consider situations where the the relative class distributions of the neighboring blocks were allowed to differ. The questions for further research include whether the absence of optima can still be guaranteed, how much deviation can be allowed, and which types of deviations make it easier to guarantee the absence of optima within the example segment.
+  </subsection>
+ </paragraph>
+ <paragraph id="2629.7" name="Acknowledgments">
+  <subsection id="2629.7.1">
+   We thank Jyrki Kivinen for advice on the arithmeticharmonic mean inequality.
+  </subsection>
+ </paragraph>
+ <paragraph id="2629.8" name="References">
+  <subsection id="2629.8.1">
+   Blake, C. L. and Merz, C. J. 1998. UCI Repository of Machine Learning Databases. Univ. of California, Irvine, Dept. of Information and Computer Science.
+  </subsection>
+  <subsection id="2629.8.2">
+   http://www.ics.uci.edu/mlearn/MLRepository.html.
+  </subsection>
+  <subsection id="2629.8.3">
+   Breiman, L. 1996. Some Properties of Splitting Criteria.
+  </subsection>
+  <subsection id="2629.8.4">
+   Machine Learning 24: 41–47.
+  </subsection>
+  <subsection id="2629.8.5">
+   Breiman, L., Friedman, J. H., Olshen, R. A., and Stone, C.
+  </subsection>
+  <subsection id="2629.8.6">
+   J. 1984. Classification and Regression Trees. Pacific Grove, Calif.: Wadsworth.
+  </subsection>
+  <subsection id="2629.8.7">
+   Codrington, C. W. and Brodley, C. E. 2000. On the Qualitative Behavior of Impurity-Based Splitting Rules I: The Minima-Free Property. Machine Learning. Forthcoming.
+  </subsection>
+  <subsection id="2629.8.8">
+   Coppersmith, D., Hong, S. J., and Hosking, J. R. M. 1999.
+  </subsection>
+  <subsection id="2629.8.9">
+   Partitioning Nominal Attributes in Decision Trees. Data Mining and Knowledge Discovery 3: 197–217.
+  </subsection>
+  <subsection id="2629.8.10">
+   Elomaa, T. and Rousu, J. 1999. General and Efficient Multisplitting of Numerical Attributes. Machine Learning 36: 201–244.
+  </subsection>
+  <subsection id="2629.8.11">
+   Elomaa, T. and Rousu, J. 2000. Uses of Convexity in Numerical Domain Partitioning. Submitted.
+  </subsection>
+  <subsection id="2629.8.12">
+   Fayyad, U. M. and Irani, K. B. 1992. On the Handling of Continuous-Valued Attributes in Decision Tree Generation. Machine Learning 8: 87–102.
+  </subsection>
+  <subsection id="2629.8.13">
+   Hardy, G. H., Littlewood, J. E., and Pólya, G. 1934. Inequalities. Cambridge, UK: Cambridge Univ. Press.
+  </subsection>
+  <subsection id="2629.8.14">
+   López de Màntaras, R. 1991. A Distance-Based Attribute Selection Measure for Decision Tree Induction. Machine Learning 6: 81–92.
+  </subsection>
+  <subsection id="2629.8.15">
+   Meyer, B. 1984. Some Inequalities for Elementary Mean Values. Mathematics of Computation 42: 193–194.
+  </subsection>
+  <subsection id="2629.8.16">
+   Quinlan, J. R. 1986. Induction of Decision Trees. Machine Learning 1: 81–106.
+  </subsection>
+ </paragraph>
+</paper>
