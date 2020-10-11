@@ -6,6 +6,7 @@ import logging
 import pandas as pd
 import numpy as np
 import pickle
+import sys
 
 logging.basicConfig(filename='./log_analyzable_papers.log', level=logging.DEBUG)
 
@@ -91,6 +92,15 @@ def label_subsections_problem_description(root):
         return out_root
 
     return None
+
+
+def getLabel(subsection, paragraph):
+    if "label" in subsection.attrib and subsection.attrib["label"] == "Problem":
+        return "PD"
+    elif "label" in paragraph.attrib and paragraph.attrib["label"] == "Problem":
+        return "PD"
+    else:
+        return "N_PD"
 
 
 
@@ -223,43 +233,51 @@ if __name__ == '__main__':
 
     ###################################################################################################################
     ########## CREATE A TEST SET:
-    # testset_list = "../data/testset_list.txt"
-    # paper_line_list = []
-    # with open(testset_list, 'r') as in_file:
-    #    paper_line_list = in_file.readlines()
-    #
-    # data_dir = "../data/papers"
-    # df_test = pd.DataFrame(columns=["id_subsection", "paragraph_name", "text_subsection", "label_subsection"])
-    # for paper_line in paper_line_list:
-    #    info_paper = paper_line.split("\t\t")
-    #    path_dir = os.path.join(data_dir, "paper_" + info_paper[0])
-    #    if os.path.isdir(path_dir):
-    #        analyzable_test_paper_path = os.path.join(path_dir, "paper_" + info_paper[0] + "_analyzable_test.xml")
-    #        #analyzable_paper_path = os.path.join(path_dir, "paper_" + info_paper[0] + "_analyzable.xml")
-    #        if os.path.exists(analyzable_test_paper_path) #and os.path.exists(analyzable_paper_path):
-    #        ##if os.path.exists(analyzable_paper_path):
-    #            # 1- parse xml
-    #            tree = ET.parse(analyzable_test_paper_path)
-    #            ##tree = ET.parse(analyzable_paper_path)
-    #            root = tree.getroot()
-    #            # 2- get all subsections
-    #            found_subsections = root.findall('.//subsection')
-    #            for subsection in found_subsections:
-    #                if '.-1.' in subsection.attrib['id']:
-    #                    continue
-    #                else:
-    #                    paragraph_id = subsection.attrib['id'][:subsection.attrib['id'].rfind('.')]
-    #                    paragraph = root.find("./paragraph[@id='" + paragraph_id + "']")
-    #                    if paragraph is None or 'reference' in paragraph.attrib['name'].lower():
-    #                        continue
-    #                    # add to dataset
-    #                    df_test = df_test.append({"id_subsection": subsection.attrib['id'],
-    #                                            "paragraph_name": paragraph.attrib['name'],
-    #                                            "text_subsection": subsection.text,
-    #                                            "label_subsection": np.nan
-    #                                            }, ignore_index=True)
-    # print(df_test)
-    # dataset_path = "../data/test_set.pkl"
-    # df_test.to_pickle(dataset_path)  # to save it
+    testset_list = "../data/testset_list.txt"
+    paper_line_list = []
+    with open(testset_list, 'r') as in_file:
+       paper_line_list = in_file.readlines()
+
+    data_dir = "../data/papers"
+    df_test = pd.DataFrame(columns=["id_subsection", "paragraph_name", "text_subsection", "label_subsection"])
+    for paper_line in paper_line_list:
+       info_paper = paper_line.split("\t\t")
+       path_dir = os.path.join(data_dir, "paper_" + info_paper[0])
+       if os.path.isdir(path_dir):
+           analyzable_test_paper_path = os.path.join(path_dir, "paper_" + info_paper[0] + "_analyzable_test.xml")
+           #analyzable_paper_path = os.path.join(path_dir, "paper_" + info_paper[0] + "_analyzable.xml")
+           if os.path.exists(analyzable_test_paper_path): #and os.path.exists(analyzable_paper_path):
+               # 1- parse xml
+               try:
+                   tree = ET.parse(analyzable_test_paper_path)
+               except ET.ParseError as e:
+                   logging.error("Parse Error for paper %s." % info_paper[0])
+                   sys.exit(1)
+               ##tree = ET.parse(analyzable_paper_path)
+               root = tree.getroot()
+               # 2- get all subsections
+               found_subsections = root.findall('.//subsection')
+               for subsection in found_subsections:
+                   if '.-1.' in subsection.attrib['id']:
+                       continue
+                   else:
+                       paragraph_id = subsection.attrib['id'][:subsection.attrib['id'].rfind('.')]
+                       paragraph = root.find("./paragraph[@id='" + paragraph_id + "']")
+                       if paragraph is None or 'reference' in paragraph.attrib['name'].lower():
+
+                           continue
+                       # add to dataset
+                       df_test = df_test.append({"id_subsection": subsection.attrib['id'],
+                                               "paragraph_name": paragraph.attrib['name'],
+                                               "text_subsection": subsection.text,
+                                               "label_subsection": getLabel(subsection, paragraph)
+                                               }, ignore_index=True)
+           else:
+               logging.error("Error path for paper %s." % info_paper[0])
+       else:
+           logging.error("Error path dir for paper %s." % info_paper[0])
+    print(df_test)
+    dataset_path = "../data/test_set.pkl"
+    df_test.to_pickle(dataset_path)  # to save it
     # #df_test = pd.read_pickle(dataset_path)   # to read it
     ###################################################################################################################

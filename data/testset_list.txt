@@ -12,7 +12,6 @@
 2574		http://www.aaai.org/Papers/AAAI/2000/AAAI00-068.pdf		Dynamic Ontologies on the Web
 2583		http://www.aaai.org/Papers/AAAI/2000/AAAI00-128.pdf		Active Audition for Humanoid
 2593		http://www.aaai.org/Papers/AAAI/2000/AAAI00-006.pdf		Cobot in LambdaMOO: A Social Statistics Agent
-2596		http://www.aaai.org/Papers/AAAI/2000/AAAI00-169.pdf		Combining Classification and Temporal Learning
 2601		http://www.aaai.org/Papers/AAAI/2000/AAAI00-131.pdf		Coordination for Multi-Robot Exploration and Mapping
 2604		http://www.aaai.org/Papers/AAAI/2000/AAAI00-025.pdf		DATALOG with Constraints -- An Answer-Set Programming System
 2606		http://www.aaai.org/Papers/AAAI/2000/AAAI00-055.pdf		Decision-Theoretic, High-Level Agent Programming in the Situation Calculus
@@ -22,3 +21,35 @@
 2616		http://www.aaai.org/Papers/AAAI/2000/AAAI00-161.pdf		Graph-Based Hierarchical Conceptual Clustering in Structural Databases
 2625		http://www.aaai.org/Papers/AAAI/2000/AAAI00-126.pdf		Gridworlds as Testbeds for Planning with Incomplete Information
 2629		http://www.aaai.org/Papers/AAAI/2000/AAAI00-087.pdf		Generalizing Boundary Points
+2635		http://www.aaai.org/Papers/AAAI/2000/AAAI00-119.pdf		Graph Construction and Analysis as a Paradigm for Plan Recognition
+2638		http://www.aaai.org/Papers/AAAI/2000/AAAI00-014.pdf		Improved Algorithms for Optimal Winner Determination in Combinatorial Auctions and Generalizations
+2640		http://www.aaai.org/Papers/AAAI/2000/AAAI00-089.pdf		Information Extraction with HMM Structures Learned by Stochastic Optimization
+2643		http://www.aaai.org/Papers/AAAI/2000/AAAI00-001.pdf		Inter-Layer Learning Towards Emergent Cooperative Behavior
+2646		http://www.aaai.org/Papers/AAAI/2000/AAAI00-012.pdf		Iterative Combinatorial Auctions: Theory and Practice
+2649		http://www.aaai.org/Papers/AAAI/2000/AAAI00-163.pdf		Language Learning in Large Parameter Spaces
+2651		http://www.aaai.org/Papers/AAAI/2000/AAAI00-093.pdf		Learning the Common Structure of Data
+2653		http://www.aaai.org/Papers/AAAI/2000/AAAI00-046.pdf		Local Search Characteristics of Incomplete SAT Procedures
+2657		http://www.aaai.org/Papers/AAAI/2000/AAAI00-090.pdf		Localizing Search in Reinforcement Learning
+2660		http://www.aaai.org/Papers/AAAI/2000/AAAI00-204.pdf		Non-Axiomatic Reasoning System (Version 4.1)
+2665		http://www.aaai.org/Papers/AAAI/2000/AAAI00-047.pdf		MarketSAT: An Extremely Decentralized (but Really Slow) Algorithm for Propositional Satisfiability
+2668		http://www.aaai.org/Papers/AAAI/2000/AAAI00-199.pdf		Matchmaking to Support Intelligent Agents for Portfolio Management
+2670		http://www.aaai.org/Papers/AAAI/2000/AAAI00-051.pdf		Memory-Based Forecasting for Weather Image Patterns
+2685		http://www.aaai.org/Papers/AAAI/2000/AAAI00-139.pdf		Preference-Based Search for Scheduling
+2688		http://www.aaai.org/Papers/AAAI/2000/AAAI00-111.pdf		Predicting and Adapting to Poor Speech Recognition in a Spoken Dialogue System
+2689		http://www.aaai.org/Papers/AAAI/2000/AAAI00-107.pdf		Preserving Ambiguities in Generation via Automata Intersection
+2692		http://www.aaai.org/Papers/AAAI/2000/AAAI00-129.pdf		Property Mapping: A Simple Technique for Mobile Robot Programming
+2694		http://www.aaai.org/Papers/AAAI/2000/AAAI00-022.pdf		Reading a Robot's Mind: A Model of Utterance Understanding Based on the Theory of Mind Mechanism
+2695		http://www.aaai.org/Papers/AAAI/2000/AAAI00-125.pdf		RealPlan: Decoupling Causal and Resource Reasoning in Planning
+2698		http://www.aaai.org/Papers/AAAI/2000/AAAI00-210.pdf		Structure, Duality, and Randomization: Common Themes in AI and OR
+2700		http://www.aaai.org/Papers/AAAI/2000/AAAI00-122.pdf		TCBB Scheme: Applications to Single Machine Job Sequencing Problems
+2702		http://www.aaai.org/Papers/AAAI/2000/AAAI00-197.pdf		TV Content Recommender System
+2703		http://www.aaai.org/Papers/AAAI/2000/AAAI00-017.pdf		Robust Combinatorial Auction Protocol against False-Name Bids
+2704		http://www.aaai.org/Papers/AAAI/2000/AAAI00-040.pdf		Solving the Round Robin Problem Using Propositional Logic
+2713		http://www.aaai.org/Papers/AAAI/2000/AAAI00-018.pdf		Self-Organization of Innate Face Preferences: Could Genetics Be Expressed through Learning?
+2715		http://www.aaai.org/Papers/AAAI/2000/AAAI00-037.pdf		Self-Supervised Learning for Visual Tracking and Recognition of Human Hand
+2718		http://www.aaai.org/Papers/AAAI/2000/AAAI00-110.pdf		The Automatic Interpretation of Nominalizations
+2728		http://www.aaai.org/Papers/AAAI/2000/AAAI00-108.pdf		Statistics-Based Summarization -- Step One: Sentence Compression
+2733		http://www.aaai.org/Papers/AAAI/2000/AAAI00-206.pdf		Symbol Recognition and Artificial Emotion for Making an Autonomous Robot Attend the AAAI Conference
+2735		http://www.aaai.org/Papers/AAAI/2000/AAAI00-104.pdf		The Rules Behind Roles: Identifying Speaker Role in Radio Broadcasts
+2741		http://www.aaai.org/Papers/AAAI/2000/AAAI00-205.pdf		Untangle: A New Ontology for Card Catalog Systems
+2747		http://www.aaai.org/Papers/AAAI/2000/AAAI00-074.pdf		What Sensing Tells Us: Towards a Formal Theory of Testing for Dynamical Systems
