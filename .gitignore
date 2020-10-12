@@ -12,9 +12,6 @@ data/.DS_Store
 prediction_pd/.ipynb_checkpoints/
 prediction_pd/dask-worker-space/
 prediction_pd/.DS_Store
-prediciton_pd/AI_4.1.2-computeClassifier.ipynb
-prediciton_pd/AI_4.4-computeClassifier.ipynb
-prediciton_pd/AI_8.ipynb
 prediction_pd/resources/tdidf_bigram.pkl
 
 management_papers/.DS_Store
