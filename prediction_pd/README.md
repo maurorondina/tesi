@@ -26,7 +26,7 @@ In this phase, several classifiers were computed.
 
 ## Test Set
 
-Creation and prediction on test set           ->> sistema
+Prediction and evaluation on test set.
 
 ## Data Set
 

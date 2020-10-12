@@ -53,3 +53,48 @@
 2735		http://www.aaai.org/Papers/AAAI/2000/AAAI00-104.pdf		The Rules Behind Roles: Identifying Speaker Role in Radio Broadcasts
 2741		http://www.aaai.org/Papers/AAAI/2000/AAAI00-205.pdf		Untangle: A New Ontology for Card Catalog Systems
 2747		http://www.aaai.org/Papers/AAAI/2000/AAAI00-074.pdf		What Sensing Tells Us: Towards a Formal Theory of Testing for Dynamical Systems
+2750		http://www.aaai.org/Papers/AAAI/2002/AAAI02-052.pdf		(Im)possibility of Safe Exchange Mechanism Design
+2751		http://www.aaai.org/Papers/AAAI/2002/AAAI02-173.pdf		An Automated Negotiator for an International Crisis
+2757		http://www.aaai.org/Papers/AAAI/2002/AAAI02-124.pdf		A Decision-Support System for Quote Generation
+2759		http://www.aaai.org/Papers/AAAI/2002/AAAI02-168.pdf		A Dialogue System with Digression Handling - An Ontology-Based Approach
+2760		http://www.aaai.org/Papers/AAAI/2002/AAAI02-096.pdf		Automated Discovery of Composite SAT Variable-Selection Heuristics
+2766		http://www.aaai.org/Papers/AAAI/2002/AAAI02-143.pdf		A Genetic Algorithm for Tuning Variable Orderings in Bayesian Network Structure Learning
+2771		http://www.aaai.org/Papers/AAAI/2002/AAAI02-145.pdf		Analogical Inference over a Common Sense Database
+2772		http://www.aaai.org/Papers/AAAI/2002/AAAI02-049.pdf		A Logic-Based Model of Intentions for Multi-Agent Subcontracting
+2785		http://www.aaai.org/Papers/AAAI/2002/AAAI02-007.pdf		Human-Guided Tabu Search
+2790		http://www.aaai.org/Papers/AAAI/2002/AAAI02-037.pdf		A POMDP Formulation of Preference Elicitation Problems
+2800		http://www.aaai.org/Papers/AAAI/2002/AAAI02-027.pdf		Bootstrap Learning for Place Recognition
+2802		http://www.aaai.org/Papers/AAAI/2002/AAAI02-180.pdf		Most Informative Dimension Reduction
+2803		http://www.aaai.org/Papers/AAAI/2002/AAAI02-152.pdf		An Extended Alternating-Offers Bargaining Protocol for Automated Negotiation in Multi-Agent Systems
+2805		http://www.aaai.org/Papers/AAAI/2002/AAAI02-131.pdf		Applying Perceptually Driven Cognitive Mapping to Virtual Urban Environments
+2807		http://www.aaai.org/Papers/AAAI/2002/AAAI02-177.pdf		Fuzzy Neural Networks in a Palm Environment
+2810		http://www.aaai.org/Papers/AAAI/2002/AAAI02-015.pdf		Cluster Ensembles - A Knowledge Reuse Framework for Combining Partitionings
+2812		http://www.aaai.org/Papers/AAAI/2002/AAAI02-160.pdf		Combining Inference and Search for the Propositional Satisfiability Problem
+2820		http://www.aaai.org/Papers/AAAI/2002/AAAI02-030.pdf		Constructive Adaptive User Interfaces - Composing Music Based on Human Feelings
+2828		http://www.aaai.org/Papers/AAAI/2002/AAAI02-001.pdf		The Yard Allocation Problem
+2831		http://www.aaai.org/Papers/AAAI/2002/AAAI02-169.pdf		Disciple-RKF/COG: Agent Teaching by Subject Matter Experts
+2836		http://www.aaai.org/Papers/AAAI/2002/AAAI02-135.pdf		Intelligent Control of Auxiliary Ship Systems
+2840		http://www.aaai.org/Papers/AAAI/2002/AAAI02-089.pdf		FastSLAM: A Factored Solution to the Simultaneous Localization and Mapping Problem
+2848		http://www.aaai.org/Papers/AAAI/2002/AAAI02-142.pdf		Fuzzy Numbers for the Improvement of Causal Knowledge Representation in Fuzzy Cognitive Maps
+2849		http://www.aaai.org/Papers/AAAI/2002/AAAI02-002.pdf		Integrating Local Search and Network Flow to Solve the Inventory Routing Problem
+2850		http://www.aaai.org/Papers/AAAI/2002/AAAI02-063.pdf		Learning Pattern Rules for Chinese Named Entity Extraction
+2856		http://www.aaai.org/Papers/AAAI/2002/AAAI02-146.pdf		MAKEBELIEVE: Using Commonsense Knowledge to Generate Stories
+2865		http://www.aaai.org/Papers/AAAI/2002/AAAI02-141.pdf		Mixed-Initiative Exception-Based Learning for Knowledge Base Refinement
+2871		http://www.aaai.org/Papers/AAAI/2002/AAAI02-176.pdf		Multi-ViewPoint Clustering Analysis (MVP-CA) Tool
+2878		http://www.aaai.org/Papers/AAAI/2002/AAAI02-050.pdf		Reinforcement Learning of Coordination in Cooperative Multi-Agent Systems
+2882		http://www.aaai.org/Papers/AAAI/2002/AAAI02-082.pdf		Strategies for Determining Causes of Events
+2888		http://www.aaai.org/Papers/AAAI/2002/AAAI02-120.pdf		Stochastic Link and Group Detection
+2891		http://www.aaai.org/Papers/AAAI/2002/AAAI02-108.pdf		Optimal Schedules for Parallelizing Anytime Algorithms: The Case of Independent Processes
+2896		http://www.aaai.org/Papers/AAAI/2002/AAAI02-068.pdf		Planning with a Language for Extended Goals
+2898		http://www.aaai.org/Papers/AAAI/2002/AAAI02-116.pdf		Recognizing Multitasked Activities from Video Using Stochastic Context-Free Grammar
+2899		http://www.aaai.org/Papers/AAAI/2002/AAAI02-031.pdf		Reinforcement Learning for POMDPs Based on Action Values and Stochastic Optimization
+2907		http://www.aaai.org/Papers/AAAI/2002/AAAI02-073.pdf		Speeding Up the Calculation of Heuristics for Heuristic Search-Based Planning
+2908		http://www.aaai.org/Papers/AAAI/2002/AAAI02-123.pdf		Staff Scheduling for Inbound Call Centers and Customer Contact Centers
+2911		http://www.aaai.org/Papers/AAAI/2002/AAAI02-059.pdf		Structural Leverage and Fictitious Play in Sequential Auctions
+2912		http://www.aaai.org/Papers/AAAI/2002/AAAI02-151.pdf		Student Modeling for a Web-Based Learning Environment: A Data Mining Approach
+2919		http://www.aaai.org/Papers/AAAI/2002/AAAI02-067.pdf		Towards CST-Enhanced Summarization
+2923		http://www.aaai.org/Papers/AAAI/2002/AAAI02-175.pdf		UTTSExam: A University Examination Timetable Scheduler
+2927		http://www.aaai.org/Papers/AAAI/2002/AAAI02-060.pdf		Vote Elicitation: Complexity and Strategy-Proofness
+2928		http://www.aaai.org/Papers/AAAI/2002/AAAI02-129.pdf		WhyNot: Debugging Failed Queries in Large Knowledge Bases
+2929		http://www.aaai.org/Papers/AAAI/2004/AAAI04-050.pdf		Evaluating Ontology Cleaning
+2930		http://www.aaai.org/Papers/AAAI/2004/AAAI04-132.pdf		A Bayes Net Approach to Argumentation
