@@ -1,0 +1,1306 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pdf2xml SYSTEM "pdf2xml.dtd">
+
+<pdf2xml producer="poppler" version="0.90.1">
+<page number="1" position="absolute" top="0" left="0" height="1188" width="918">
+	<fontspec id="0" size="21" family="Times" color="#000000"/>
+	<fontspec id="1" size="0" family="Times" color="#000000"/>
+	<fontspec id="2" size="17" family="Times" color="#000000"/>
+	<fontspec id="3" size="14" family="Times" color="#000000"/>
+	<fontspec id="4" size="13" family="Courier" color="#000000"/>
+	<fontspec id="5" size="14" family="Times" color="#000000"/>
+	<fontspec id="6" size="13" family="Times" color="#000000"/>
+	<fontspec id="7" size="13" family="Times" color="#000000"/>
+	<fontspec id="8" size="14" family="Times" color="#000000"/>
+	<fontspec id="9" size="12" family="Helvetica" color="#000000"/>
+	<fontspec id="10" size="12" family="ArialMT" color="#000000"/>
+<text top="140" left="223" width="473" height="19" font="0"><b>Iterative Flattening: A Scalable Method for Solving</b></text>
+<text top="164" left="282" width="341" height="19" font="0"><b>Multi-Capacity Scheduling Problems</b></text>
+<text top="171" left="628" width="8" height="0" font="1"></text>
+<text top="200" left="161" width="110" height="16" font="2"><b>Amedeo Cesta</b></text>
+<text top="218" left="192" width="49" height="13" font="3">IP-CNR</text>
+<text top="234" left="135" width="162" height="13" font="3">National Research Council</text>
+<text top="251" left="173" width="86" height="13" font="3">Viale Marx 15</text>
+<text top="267" left="155" width="122" height="13" font="3">I-00137 Rome, Italy</text>
+<text top="285" left="143" width="144" height="11" font="4">cesta@ip.rm.cnr.it</text>
+<text top="200" left="410" width="97" height="16" font="2"><b>Angelo Oddi</b></text>
+<text top="218" left="435" width="49" height="13" font="3">IP-CNR</text>
+<text top="234" left="378" width="162" height="13" font="3">National Research Council</text>
+<text top="251" left="416" width="86" height="13" font="3">Viale Marx 15</text>
+<text top="267" left="398" width="122" height="13" font="3">I-00137 Rome, Italy</text>
+<text top="285" left="390" width="136" height="11" font="4">oddi@ip.rm.cnr.it</text>
+<text top="200" left="637" width="130" height="16" font="2"><b>Stephen F. Smith</b></text>
+<text top="218" left="636" width="133" height="13" font="3">The Robotics Institute</text>
+<text top="234" left="618" width="167" height="13" font="3">Carnegie Mellon University</text>
+<text top="251" left="640" width="123" height="13" font="3">5000 Forbes Avenue</text>
+<text top="267" left="620" width="165" height="13" font="3">Pittsburgh, PA 15213, USA</text>
+<text top="285" left="645" width="112" height="11" font="4">sfs@cs.cmu.edu</text>
+<text top="329" left="232" width="55" height="13" font="5"><b>Abstract</b></text>
+<text top="353" left="96" width="328" height="12" font="6">One challenge for research in constraint-based scheduling</text>
+<text top="368" left="96" width="328" height="12" font="6">has been to produce scalable solution procedures under fairly</text>
+<text top="383" left="96" width="328" height="12" font="6">general representational assumptions. Quite often, the com-</text>
+<text top="398" left="96" width="328" height="12" font="6">putational burden of techniques for reasoning about more</text>
+<text top="413" left="96" width="328" height="12" font="6">complex types of temporal and resource capacity constraints</text>
+<text top="428" left="96" width="328" height="12" font="6">places fairly restrictive limits on the size of problems that</text>
+<text top="442" left="96" width="328" height="12" font="6">can be effectively addressed. In this paper, we focus on</text>
+<text top="457" left="96" width="329" height="12" font="6">developing a scalable heuristic procedure to an extended,</text>
+<text top="472" left="96" width="328" height="12" font="6">multi-capacity resource version of the job shop scheduling</text>
+<text top="487" left="96" width="328" height="12" font="6">problem (MCJSSP). Our starting point is a previously de-</text>
+<text top="502" left="96" width="328" height="12" font="6">veloped procedure for generating feasible solutions to more</text>
+<text top="517" left="96" width="328" height="12" font="6">complex, multi-capacity scheduling problems with maximum</text>
+<text top="532" left="96" width="328" height="12" font="6">time lags. Adapting this procedure to exploit the simpler tem-</text>
+<text top="546" left="96" width="328" height="12" font="6">poral structure of MCJSSP, we are able to produce a quite</text>
+<text top="561" left="96" width="328" height="12" font="6">efficient solution generator. However, the procedure only in-</text>
+<text top="576" left="96" width="328" height="12" font="6">directly attends to MCJSSP’s objective criterion and produces</text>
+<text top="591" left="96" width="328" height="12" font="6">sub-optimal solutions. To provide a scalable, optimizing pro-</text>
+<text top="606" left="96" width="328" height="12" font="6">cedure, we propose a simple, local-search procedure called</text>
+<text top="621" left="96" width="328" height="12" font="7"><i>iterative flattening</i>, which utilizes the core solution generator</text>
+<text top="636" left="96" width="328" height="12" font="6">to perform an extended iterative improvement search. Despite</text>
+<text top="650" left="96" width="328" height="12" font="6">its simplicity, experimental analysis shows the iterative im-</text>
+<text top="665" left="96" width="328" height="12" font="6">provement search to be quite effective. On a set of reference</text>
+<text top="680" left="96" width="327" height="12" font="6">problems ranging in size from 100 to 900 activities, the itera-</text>
+<text top="695" left="96" width="328" height="12" font="6">tive flattening procedure efficiently and consistently produces</text>
+<text top="710" left="96" width="328" height="12" font="6">solutions within 10% of computed upper bounds. Overall, the</text>
+<text top="725" left="96" width="328" height="12" font="6">concept of iterative flattening is quite general and provides an</text>
+<text top="739" left="96" width="328" height="12" font="6">interesting new basis for designing more sophisticated local</text>
+<text top="754" left="96" width="101" height="12" font="6">search procedures.</text>
+<text top="790" left="211" width="98" height="16" font="2"><b>Introduction</b></text>
+<text top="812" left="81" width="358" height="13" font="3">Constraint-based search techniques have gained increasing</text>
+<text top="828" left="81" width="358" height="13" font="3">attention in recent years as a basis for scheduling procedures</text>
+<text top="845" left="81" width="358" height="13" font="3">that are capable of accommodating a wide range of con-</text>
+<text top="861" left="81" width="358" height="13" font="3">straints. In its most basic form, a constraint based scheduling</text>
+<text top="877" left="81" width="358" height="13" font="3">model operates over some sort of constraint-network encod-</text>
+<text top="894" left="81" width="358" height="13" font="3">ing of the problem at hand, and problem solving proceeds</text>
+<text top="910" left="81" width="278" height="13" font="3">through the interleaving of three basic actions:</text>
+<text top="936" left="99" width="6" height="0" font="1"></text>
+<text top="933" left="114" width="325" height="12" font="6">Cesta and Oddi’s work has been supported by ASI (Ital-</text>
+<text top="947" left="81" width="358" height="12" font="6">ian Space Agency) under contract ASI-ARS-99-96 and by Ital-</text>
+<text top="962" left="81" width="177" height="12" font="6">ian National Research Council.</text>
+<text top="962" left="271" width="168" height="12" font="6">Smith’s work has been spon-</text>
+<text top="977" left="81" width="358" height="12" font="6">sored in part by the US Department of Defense Advanced Re-</text>
+<text top="992" left="81" width="358" height="12" font="6">search Projects Agency under contract F30602-97-20227, and by</text>
+<text top="1007" left="81" width="153" height="12" font="6">the CMU Robotics Institute.</text>
+<text top="1029" left="81" width="70" height="12" font="6">Copyright c</text>
+<text top="1038" left="141" width="14" height="0" font="1"></text>
+<text top="1029" left="161" width="277" height="12" font="6">2000, American Association for Artificial Intelli-</text>
+<text top="1044" left="81" width="229" height="12" font="6">gence (www.aaai.org). All rights reserved.</text>
+<text top="329" left="479" width="358" height="13" font="5"><b>constraint propagation: </b>a deduction step where conse-</text>
+<text top="345" left="494" width="343" height="13" font="3">quences of the current set of scheduling decisions are in-</text>
+<text top="361" left="494" width="286" height="13" font="3">ferred and inconsistent search states are pruned;</text>
+<text top="386" left="479" width="357" height="13" font="5"><b>search decision commitment: </b>a choice step where search</text>
+<text top="402" left="494" width="343" height="13" font="3">control heuristics are applied to assign some new value to</text>
+<text top="419" left="494" width="342" height="13" font="3">some decision variable, and move the scheduling search</text>
+<text top="435" left="494" width="52" height="13" font="3">forward;</text>
+<text top="460" left="479" width="358" height="13" font="5"><b>search decision retraction: </b>a choice step where one or</text>
+<text top="476" left="494" width="343" height="13" font="3">more previously made decisions are retracted, allowing</text>
+<text top="492" left="494" width="343" height="13" font="3">problem solving to back out of and continue from an in-</text>
+<text top="509" left="494" width="183" height="13" font="3">consistent or undesirable state.</text>
+<text top="535" left="479" width="358" height="13" font="3">Recent research has promoted techniques for each of these</text>
+<text top="551" left="479" width="358" height="13" font="3">basic actions as a means for addressing scheduling problems</text>
+<text top="568" left="479" width="357" height="13" font="3">with increasingly more complex temporal and resource ca-</text>
+<text top="584" left="479" width="358" height="13" font="3">pacity constraints. Work in constraint deduction (Baptiste &amp;</text>
+<text top="600" left="479" width="358" height="13" font="3">Le Pape 1995; Baptiste, Le Pape, &amp; Nuijten 1997; Nuijten</text>
+<text top="617" left="479" width="357" height="13" font="3">1994) has achieved strong performance through specifica-</text>
+<text top="633" left="479" width="358" height="13" font="3">tion of propagation rules that exploit the special structure</text>
+<text top="650" left="479" width="358" height="13" font="3">and character of particular classes of resource constraints.</text>
+<text top="666" left="479" width="358" height="13" font="3">Work in search control heuristics (Smith &amp; Cheng 1993;</text>
+<text top="682" left="479" width="358" height="13" font="3">Cesta, Oddi, &amp; Smith 1998; 1999; Beck &amp; Fox 1999), al-</text>
+<text top="699" left="479" width="358" height="13" font="3">ternatively, has demonstrated the effectiveness of different</text>
+<text top="715" left="479" width="358" height="13" font="3">forms of constraint analysis in directing the scheduling pro-</text>
+<text top="731" left="479" width="358" height="13" font="3">cess toward good solutions. Progress with various local and</text>
+<text top="748" left="479" width="358" height="13" font="3">iterative sampling search frameworks (Zweben <i>et al. </i>1994;</text>
+<text top="764" left="479" width="358" height="13" font="3">Harvey &amp; Ginsberg 1995; Bresina 1996; Crawford 1996;</text>
+<text top="780" left="479" width="358" height="13" font="3">Oddi &amp; Smith 1997; Cesta, Oddi, &amp; Smith 1999), while</text>
+<text top="797" left="479" width="358" height="13" font="3">not directly emphasizing treatment of more complex con-</text>
+<text top="813" left="479" width="358" height="13" font="3">straints, has provided several more effective alternatives to</text>
+<text top="829" left="479" width="286" height="13" font="3">simple, backtracking-search retraction schemes.</text>
+<text top="847" left="494" width="343" height="13" font="3">One challenge in extending constraint-based scheduling</text>
+<text top="863" left="479" width="358" height="13" font="3">models to accommodate more complex constraints is scal-</text>
+<text top="879" left="479" width="358" height="13" font="3">ability. Quite often, techniques for reasoning about more</text>
+<text top="896" left="479" width="358" height="13" font="3">complex types of temporal and resource capacity constraints</text>
+<text top="912" left="479" width="358" height="13" font="3">come at a computational cost that places fairly restrictive</text>
+<text top="928" left="479" width="358" height="13" font="3">limits on the size of problems that can be effectively ad-</text>
+<text top="945" left="479" width="358" height="13" font="3">dressed. Edge finding techniques, for example, provide a</text>
+<text top="961" left="479" width="358" height="13" font="3">very powerful basis for resource constraint propagation, but</text>
+<text top="977" left="479" width="358" height="13" font="3">are quite computationally heavy and are often impractical</text>
+<text top="994" left="479" width="358" height="13" font="3">in large-scale settings (Baptiste &amp; Le Pape 1995). Like-</text>
+<text top="1010" left="479" width="358" height="13" font="3">wise, the texture-based heuristics defined in (Beck &amp; Fox</text>
+<text top="1027" left="479" width="358" height="13" font="3">1999) for scheduling with alternative resources are effective</text>
+<text top="1043" left="479" width="358" height="13" font="3">on small problems. But they rely on an explicit representa-</text>
+<text top="77" left="75" width="66" height="11" font="9">From: AAAI-</text>
+<text top="77" left="141" width="13" height="11" font="10">00</text>
+<text top="77" left="154" width="144" height="11" font="9"> Proceedings. Copyright © </text>
+<text top="77" left="298" width="27" height="11" font="10">2000</text>
+<text top="77" left="325" width="227" height="11" font="9">, AAAI (www.aaai.org). All rights reserved. </text>
+</page>
+<page number="2" position="absolute" top="0" left="0" height="1188" width="918">
+	<fontspec id="11" size="13" family="Times" color="#000000"/>
+	<fontspec id="12" size="10" family="Times" color="#000000"/>
+	<fontspec id="13" size="8" family="Times" color="#000000"/>
+<text top="86" left="81" width="358" height="13" font="3">tion of the entire space of choices, which quickly becomes</text>
+<text top="102" left="81" width="271" height="13" font="3">intractable as larger problems are considered.</text>
+<text top="119" left="96" width="343" height="13" font="3">In this paper, we focus on developing a scalable heuristic</text>
+<text top="135" left="81" width="358" height="13" font="3">procedure to an extended, multi-capacity resource version of</text>
+<text top="152" left="81" width="358" height="13" font="3">the job shop scheduling problem (MCJSSP) first proposed</text>
+<text top="168" left="81" width="358" height="13" font="3">in (Nuijten 1994). Following from recent successes with</text>
+<text top="184" left="81" width="358" height="13" font="3">non-systematic, local search techniques, we de-emphasize</text>
+<text top="200" left="81" width="358" height="13" font="3">the use of sophisticated constraint propagation and analy-</text>
+<text top="217" left="81" width="358" height="13" font="3">sis techniques in the generation of any given schedule. In-</text>
+<text top="233" left="81" width="358" height="13" font="3">stead, our design approach is to define a simple (and ef-</text>
+<text top="249" left="81" width="358" height="13" font="3">ficient) greedy procedure for generating feasible solutions,</text>
+<text top="266" left="81" width="358" height="13" font="3">and then specify a decision retraction scheme that will allow</text>
+<text top="282" left="81" width="357" height="13" font="3">its repeated use within a larger iterative improvement search</text>
+<text top="299" left="81" width="69" height="13" font="3">framework.</text>
+<text top="315" left="96" width="343" height="13" font="3">Our starting point is the work of (Cesta, Oddi, &amp; Smith</text>
+<text top="332" left="81" width="358" height="13" font="3">1998), which developed a procedure for generating feasible</text>
+<text top="348" left="81" width="358" height="13" font="3">solutions to a more complex class of multi-capacity schedul-</text>
+<text top="364" left="81" width="246" height="13" font="3">ing problem with maximum time lags.</text>
+<text top="364" left="341" width="98" height="13" font="3">By customizing</text>
+<text top="380" left="81" width="358" height="13" font="3">this procedure to exploit the simpler temporal structure of</text>
+<text top="398" left="81" width="49" height="12" font="6">MCJSSP</text>
+<text top="397" left="130" width="309" height="13" font="3">, we are able to produce a quite efficient (though less</text>
+<text top="413" left="81" width="236" height="13" font="3">general) solution generator. To address</text>
+<text top="414" left="321" width="49" height="12" font="6">MCJSSP</text>
+<text top="413" left="370" width="69" height="13" font="3">’s objective</text>
+<text top="430" left="81" width="357" height="13" font="3">criteria of minimizing overall schedule makespan and define</text>
+<text top="446" left="81" width="358" height="13" font="3">a scalable, optimizing procedure, we introduce a novel local-</text>
+<text top="462" left="81" width="358" height="13" font="3">search framework called <i>iterative flattening</i>. The core solu-</text>
+<text top="479" left="81" width="357" height="13" font="3">tion generation procedure, which is designed to post prece-</text>
+<text top="495" left="81" width="358" height="13" font="3">dence constraints between activities to reduce (or flatten) re-</text>
+<text top="512" left="81" width="359" height="13" font="3">source contention peaks, is first applied to produce an initial</text>
+<text top="528" left="81" width="357" height="13" font="3">feasible solution. New contention peaks are then iteratively</text>
+<text top="544" left="81" width="358" height="13" font="3">created and flattened by (1) retracting some subset of previ-</text>
+<text top="560" left="81" width="358" height="13" font="3">ously posted constraints along the current solution’s critical</text>
+<text top="577" left="81" width="358" height="13" font="3">path and (2) restarting the solution generator from this par-</text>
+<text top="593" left="81" width="358" height="13" font="3">tially developed solution. Any time a lower makespan solu-</text>
+<text top="609" left="81" width="359" height="13" font="3">tion is produced during this iterative process, it becomes the</text>
+<text top="626" left="81" width="127" height="13" font="3">new current solution.</text>
+<text top="643" left="96" width="343" height="13" font="3">The remainder of the paper is organized as follows. First,</text>
+<text top="659" left="81" width="357" height="13" font="3">we define MCJSSP and a set of reference problems for ex-</text>
+<text top="675" left="81" width="358" height="13" font="3">perimental evaluation. We then describe and evaluate our</text>
+<text top="692" left="81" width="358" height="13" font="3">core greedy search procedure for generating feasible solu-</text>
+<text top="708" left="81" width="358" height="13" font="3">tions to MCJSSP instances. Next, we introduce our iter-</text>
+<text top="724" left="81" width="358" height="13" font="3">ative flattening framework for extended local search using</text>
+<text top="740" left="81" width="358" height="13" font="3">the core solution generator previously defined. Experimen-</text>
+<text top="757" left="81" width="358" height="13" font="3">tal results are given that demonstrate the efficacy of the ap-</text>
+<text top="773" left="81" width="358" height="13" font="3">proach across a range of problems of increasing scale. Fi-</text>
+<text top="789" left="81" width="358" height="13" font="3">nally, we briefly discuss opportunities for extending and en-</text>
+<text top="806" left="81" width="312" height="13" font="3">hancing the basic iterative flattening search concept.</text>
+<text top="842" left="155" width="53" height="12" font="11"><b>MCJSSP</b></text>
+<text top="839" left="212" width="152" height="16" font="2"><b>and its Benchmarks</b></text>
+<text top="863" left="81" width="163" height="13" font="5"><b>The Scheduling Problem.</b></text>
+<text top="863" left="259" width="180" height="13" font="3">The Multi-Capacity Job-Shop</text>
+<text top="879" left="81" width="135" height="13" font="3">Scheduling Problem (</text>
+<text top="880" left="216" width="49" height="12" font="6">MCJSSP</text>
+<text top="879" left="265" width="174" height="13" font="3">) involves synchronizing the</text>
+<text top="896" left="81" width="156" height="13" font="3">use of a set of resources</text>
+<text top="906" left="243" width="12" height="0" font="1">R</text>
+<text top="906" left="264" width="12" height="0" font="1">=</text>
+<text top="906" left="284" width="14" height="0" font="1">fr</text>
+<text top="908" left="299" width="6" height="0" font="1">1</text>
+<text top="906" left="308" width="4" height="0" font="1">:</text>
+<text top="906" left="315" width="4" height="0" font="1">:</text>
+<text top="906" left="321" width="4" height="0" font="1">:</text>
+<text top="906" left="328" width="7" height="0" font="1">r</text>
+<text top="908" left="335" width="10" height="0" font="1">m</text>
+<text top="906" left="346" width="8" height="0" font="1">g</text>
+<text top="896" left="360" width="79" height="13" font="3">to perform a</text>
+<text top="912" left="81" width="65" height="13" font="3">set of jobs</text>
+<text top="922" left="151" width="8" height="0" font="1">J</text>
+<text top="922" left="168" width="12" height="0" font="1">=</text>
+<text top="922" left="187" width="14" height="0" font="1">fj</text>
+<text top="924" left="201" width="6" height="0" font="1">1</text>
+<text top="922" left="210" width="4" height="0" font="1">:</text>
+<text top="922" left="217" width="4" height="0" font="1">:</text>
+<text top="922" left="224" width="4" height="0" font="1">:</text>
+<text top="922" left="230" width="6" height="0" font="1">j</text>
+<text top="924" left="236" width="8" height="0" font="1">n</text>
+<text top="922" left="244" width="8" height="0" font="1">g</text>
+<text top="912" left="257" width="182" height="13" font="3">over time. The processing of</text>
+<text top="928" left="81" width="31" height="13" font="3">a job</text>
+<text top="938" left="118" width="6" height="0" font="1">j</text>
+<text top="940" left="124" width="4" height="0" font="1">i</text>
+<text top="928" left="134" width="243" height="13" font="3">requires the execution of a sequence of</text>
+<text top="938" left="382" width="13" height="0" font="1">m</text>
+<text top="928" left="401" width="38" height="13" font="3">activi-</text>
+<text top="945" left="81" width="21" height="13" font="3">ties</text>
+<text top="955" left="107" width="15" height="0" font="1">fa</text>
+<text top="957" left="122" width="4" height="0" font="1">i</text>
+<text top="958" left="127" width="5" height="0" font="1">1</text>
+<text top="955" left="136" width="4" height="0" font="1">:</text>
+<text top="955" left="143" width="4" height="0" font="1">:</text>
+<text top="955" left="149" width="4" height="0" font="1">:</text>
+<text top="955" left="156" width="8" height="0" font="1">a</text>
+<text top="957" left="163" width="4" height="0" font="1">i</text>
+<text top="958" left="168" width="9" height="0" font="1">m</text>
+<text top="955" left="178" width="8" height="0" font="1">g</text>
+<text top="945" left="186" width="36" height="13" font="3">, each</text>
+<text top="955" left="228" width="8" height="0" font="1">a</text>
+<text top="957" left="235" width="9" height="0" font="1">ij</text>
+<text top="945" left="251" width="188" height="13" font="3">has a constant processing time</text>
+<text top="971" left="81" width="8" height="0" font="1">p</text>
+<text top="973" left="89" width="9" height="0" font="1">ij</text>
+<text top="961" left="103" width="286" height="13" font="3">and requires the use of a single unit of resource</text>
+<text top="971" left="393" width="7" height="0" font="1">r</text>
+<text top="973" left="400" width="6" height="0" font="1">a</text>
+<text top="975" left="407" width="8" height="0" font="1">ij</text>
+<text top="961" left="421" width="18" height="13" font="3">for</text>
+<text top="977" left="81" width="205" height="13" font="3">its entire duration. Each resource</text>
+<text top="987" left="291" width="7" height="0" font="1">r</text>
+<text top="989" left="298" width="5" height="0" font="1">j</text>
+<text top="977" left="309" width="129" height="13" font="3">is required only once</text>
+<text top="994" left="81" width="204" height="13" font="3">in a job and can process at most</text>
+<text top="1004" left="290" width="6" height="0" font="1">c</text>
+<text top="1006" left="297" width="5" height="0" font="1">j</text>
+<text top="994" left="309" width="130" height="13" font="3">activities at the same</text>
+<text top="1010" left="81" width="36" height="13" font="3">time (</text>
+<text top="1020" left="117" width="6" height="0" font="1">c</text>
+<text top="1022" left="123" width="5" height="0" font="1">j</text>
+<text top="1020" left="135" width="12" height="0" font="1"></text>
+<text top="1020" left="152" width="8" height="0" font="1">1</text>
+<text top="1010" left="159" width="155" height="13" font="3">). A <i>feasible solution </i>to a</text>
+<text top="1011" left="319" width="49" height="12" font="6">MCJSSP</text>
+<text top="1010" left="372" width="67" height="13" font="3">is any tem-</text>
+<text top="1027" left="81" width="358" height="13" font="3">porally consistent assignment to the activities’ start times</text>
+<text top="1043" left="81" width="358" height="13" font="3">which does not violate resource capacity constraints. An</text>
+<text top="86" left="479" width="358" height="13" font="8"><i>optimal solution </i>is a feasible solution with minimal over-</text>
+<text top="102" left="479" width="281" height="13" font="3">all duration or makespan. Generally speaking,</text>
+<text top="103" left="764" width="49" height="12" font="6">MCJSSP</text>
+<text top="102" left="817" width="20" height="13" font="3">has</text>
+<text top="118" left="479" width="124" height="13" font="3">the same structure as</text>
+<text top="119" left="607" width="28" height="12" font="6">JSSP</text>
+<text top="118" left="638" width="199" height="13" font="3">but involves multi-capacitated re-</text>
+<text top="135" left="479" width="253" height="13" font="3">sources instead of unit-capacity resources.</text>
+<text top="177" left="479" width="84" height="13" font="5"><b>Benchmarks.</b></text>
+<text top="177" left="579" width="258" height="13" font="3">In (Nuijten &amp; Aarts 1996) a method for cre-</text>
+<text top="194" left="479" width="358" height="13" font="3">ating challenging problems is proposed that starts from the</text>
+<text top="211" left="479" width="28" height="12" font="6">JSSP</text>
+<text top="210" left="512" width="325" height="13" font="3">benchmarks of (Lawrence 1984). The idea is to take</text>
+<text top="226" left="479" width="79" height="13" font="3">each original</text>
+<text top="227" left="563" width="28" height="12" font="6">JSSP</text>
+<text top="226" left="596" width="241" height="13" font="3">problem, double (or triple) the capacity</text>
+<text top="243" left="479" width="358" height="13" font="3">of each resource, and then duplicate (or triplicate) the activ-</text>
+<text top="259" left="479" width="358" height="13" font="3">ities of each job. Since all activities continue to require 1</text>
+<text top="275" left="479" width="358" height="13" font="3">unit of resource capacity, the result is a similarly structured</text>
+<text top="293" left="479" width="49" height="12" font="6">MCJSSP</text>
+<text top="292" left="528" width="4" height="13" font="3">.</text>
+<text top="309" left="494" width="251" height="13" font="3">We have used this procedure to obtain 80</text>
+<text top="310" left="749" width="49" height="12" font="6">MCJSSP</text>
+<text top="309" left="798" width="39" height="13" font="3">s from</text>
+<text top="325" left="479" width="358" height="13" font="3">Lawrence’s 40 original problems: 40 problems with re-</text>
+<text top="341" left="479" width="358" height="13" font="3">sources of capacity 2 and 40 with resources of capacity 3.</text>
+<text top="358" left="479" width="357" height="13" font="3">The generated problems range in size from 100 to 900 ac-</text>
+<text top="374" left="479" width="359" height="13" font="3">tivities. To organize the presentation of results we subdivide</text>
+<text top="390" left="479" width="219" height="13" font="3">the 80 problems in 4 sets of 20 each:</text>
+<text top="416" left="479" width="358" height="13" font="5"><b>Set A: </b>LA1-10 x2 x3 (Lawrence’s problems numbered 1</text>
+<text top="432" left="494" width="213" height="13" font="3">to 10, duplicated and triplicated).</text>
+<text top="432" left="720" width="117" height="13" font="3">Using the notation</text>
+<text top="449" left="494" width="33" height="13" font="3">#jobs</text>
+<text top="459" left="532" width="12" height="0" font="1"></text>
+<text top="449" left="548" width="289" height="13" font="3">#resources (resource capacity), this set consists</text>
+<text top="465" left="494" width="343" height="13" font="3">of 5 problems each of sizes 20x5(2), 30x5(3), 30x5(2),</text>
+<text top="481" left="494" width="52" height="13" font="3">45x5(3).</text>
+<text top="505" left="479" width="358" height="13" font="5"><b>Set B: </b>LA11-20 x2 x3. 5 problems each of sizes 40x5(2),</text>
+<text top="522" left="494" width="176" height="13" font="3">60x5(3), 20x10(2), 30x10(3).</text>
+<text top="545" left="479" width="358" height="13" font="5"><b>SetC: </b>LA21-30 x2 x3. 5 problems each of sizes 30x10(2),</text>
+<text top="562" left="494" width="184" height="13" font="3">45x10(3), 40x10(2), 60x10(3).</text>
+<text top="586" left="479" width="358" height="13" font="5"><b>Set D: </b>LA31-40 x2 x3. 5 problems each of sizes 60x10(2),</text>
+<text top="602" left="494" width="184" height="13" font="3">90x10(3), 30x15(2), 45x15(3).</text>
+<text top="627" left="479" width="358" height="13" font="3">Why have we chosen this benchmarks? From one side be-</text>
+<text top="644" left="479" width="358" height="13" font="3">cause in relatively few instances they cover a wide range</text>
+<text top="660" left="479" width="358" height="13" font="3">of problem sizes; from the other because they also provide</text>
+<text top="677" left="479" width="358" height="13" font="3">a direct basis for comparative evaluation. In fact, as noted</text>
+<text top="693" left="479" width="358" height="13" font="3">in (Nuijten &amp; Aarts 1996), one consequence of the problem</text>
+<text top="709" left="479" width="358" height="13" font="3">generation method is that the optimal makespan for the orig-</text>
+<text top="726" left="479" width="359" height="13" font="3">inal JSSP is also a tight upper bound for the corresponding</text>
+<text top="743" left="479" width="49" height="12" font="6">MCJSSP</text>
+<text top="742" left="528" width="310" height="13" font="3">. Hence, distance from these upper-bound solutions</text>
+<text top="758" left="479" width="306" height="13" font="3">can provide one useful measure of solution quality.</text>
+<text top="775" left="494" width="343" height="13" font="3">The problems in set A and the smallest, 20x10 problems</text>
+<text top="792" left="479" width="359" height="13" font="3">in set B have also been solved by (Nuijten &amp; Aarts 1996),</text>
+<text top="808" left="479" width="358" height="13" font="3">providing a further basis for calibrating and evaluating per-</text>
+<text top="824" left="479" width="357" height="13" font="3">formance on the smaller problems. Nuijten’s approach relies</text>
+<text top="841" left="479" width="358" height="13" font="3">on a quite sophisticated set of resource propagation rules in-</text>
+<text top="857" left="479" width="358" height="13" font="3">cluding edge-finding, and is well known for its strong per-</text>
+<text top="873" left="479" width="358" height="13" font="3">formance on this problem subset. The goal of our current in-</text>
+<text top="890" left="479" width="358" height="13" font="3">vestigation is not to perform a competitive comparison with</text>
+<text top="906" left="479" width="260" height="13" font="3">this work per se, but to instead develop a</text>
+<text top="907" left="744" width="49" height="12" font="6">MCJSSP</text>
+<text top="906" left="799" width="38" height="13" font="3">proce-</text>
+<text top="923" left="479" width="358" height="13" font="3">dure that avoids the computational cost of sophisticated con-</text>
+<text top="939" left="479" width="358" height="13" font="3">straint analysis techniques and effectively scales to larger-</text>
+<text top="955" left="479" width="273" height="13" font="3">scale problems such as those in Sets C and D.</text>
+<text top="953" left="752" width="5" height="9" font="12">1</text>
+<text top="982" left="498" width="4" height="8" font="13">1</text>
+<text top="985" left="503" width="334" height="12" font="6">For example, Nuijten’s approach incorporates a family of</text>
+<text top="999" left="479" width="358" height="12" font="6">propagation rules of different computational complexity. The most</text>
+<text top="1014" left="479" width="358" height="12" font="6">effective rule of his set is cubic in the number of activities on a re-</text>
+<text top="1029" left="479" width="358" height="12" font="6">source, which becomes increasingly problematic as the number of</text>
+<text top="1044" left="479" width="359" height="12" font="6">activities increases. The decision step of the algorithm we present</text>
+</page>
+<page number="3" position="absolute" top="0" left="0" height="1188" width="918">
+	<fontspec id="14" size="11" family="Times" color="#000000"/>
+<text top="84" left="139" width="186" height="16" font="2"><b>A Greedy Algorithm for</b></text>
+<text top="87" left="328" width="53" height="12" font="11"><b>MCJSSP</b></text>
+<text top="107" left="81" width="358" height="13" font="3">As indicated earlier, our approach to designing a scalable</text>
+<text top="123" left="81" width="183" height="13" font="3">heuristic procedure for solving</text>
+<text top="124" left="267" width="49" height="12" font="6">MCJSSP</text>
+<text top="123" left="316" width="123" height="13" font="3">s follows an iterative</text>
+<text top="139" left="81" width="358" height="13" font="3">improvement schema. Our procedure is composed of two</text>
+<text top="156" left="81" width="358" height="13" font="3">basic steps: (a) a greedy search algorithm is first applied to</text>
+<text top="172" left="81" width="358" height="13" font="3">produce an initial feasible solution; (b) a local-search algo-</text>
+<text top="189" left="81" width="357" height="13" font="3">rithm is then used to iteratively improve the quality of the</text>
+<text top="205" left="81" width="358" height="13" font="3">current solution until a termination condition is met. In this</text>
+<text top="221" left="81" width="358" height="13" font="3">section we first consider the core procedure for generating</text>
+<text top="238" left="81" width="357" height="13" font="3">feasible solutions. In the next, we turn attention to the ex-</text>
+<text top="254" left="81" width="167" height="13" font="3">tended local search process.</text>
+<text top="270" left="96" width="343" height="13" font="3">Our greedy search algorithm is inspired by prior work on</text>
+<text top="287" left="81" width="218" height="13" font="3">the Earliest Start Time Algorithm (</text>
+<text top="288" left="299" width="33" height="12" font="6">ESTA</text>
+<text top="287" left="332" width="108" height="13" font="3">), proposed origi-</text>
+<text top="303" left="81" width="358" height="13" font="3">nally in (Cesta, Oddi, &amp; Smith 1998) and further refined in</text>
+<text top="319" left="81" width="176" height="13" font="3">(Cesta, Oddi, &amp; Smith 1999).</text>
+<text top="320" left="260" width="33" height="12" font="6">ESTA</text>
+<text top="319" left="296" width="142" height="13" font="3">was designed to address</text>
+<text top="335" left="81" width="358" height="13" font="3">more general, multi-capacity scheduling problems with gen-</text>
+<text top="352" left="81" width="358" height="13" font="3">eralized precedence relations between activities (i.e., corre-</text>
+<text top="368" left="81" width="358" height="13" font="3">sponding to metric separation constraints with minimum and</text>
+<text top="384" left="81" width="358" height="13" font="3">maximum time lags). We briefly summarize the basic ideas</text>
+<text top="401" left="81" width="358" height="13" font="3">that have been taken from this work, and then describe the</text>
+<text top="417" left="81" width="241" height="13" font="3">modifications made to better address the</text>
+<text top="418" left="326" width="49" height="12" font="6">MCJSSP</text>
+<text top="417" left="378" width="49" height="13" font="3">domain.</text>
+<text top="456" left="81" width="187" height="13" font="5"><b>Previous Profile-Based Work.</b></text>
+<text top="457" left="281" width="33" height="12" font="6">ESTA</text>
+<text top="456" left="317" width="122" height="13" font="3">is a variant of a class</text>
+<text top="472" left="81" width="358" height="13" font="3">of profile-based scheduling procedures, characterized by a</text>
+<text top="488" left="81" width="236" height="13" font="3">two-phase, solution generation process:</text>
+<text top="512" left="81" width="249" height="13" font="5"><b>Construct an infinite capacity solution:</b></text>
+<text top="529" left="96" width="343" height="13" font="3">A constraint based representation of the current problem</text>
+<text top="545" left="96" width="343" height="13" font="3">is formulated as an STP (Dechter, Meiri, &amp; Pearl 1991)</text>
+<text top="561" left="96" width="178" height="13" font="3">temporal constraint network.</text>
+<text top="559" left="274" width="5" height="9" font="12">2</text>
+<text top="561" left="294" width="145" height="13" font="3">In this initial represen-</text>
+<text top="578" left="96" width="343" height="13" font="3">tation temporal constraints are modeled and satisfied</text>
+<text top="594" left="96" width="343" height="13" font="3">(via constraint propagation) but resource constraints are</text>
+<text top="611" left="96" width="342" height="13" font="3">ignored, yielding a time feasible solution that assumes</text>
+<text top="627" left="96" width="153" height="13" font="3">infinite resource capacity.</text>
+<text top="649" left="81" width="296" height="13" font="5"><b>Level resource demand by posting precedence:</b></text>
+<text top="666" left="96" width="343" height="13" font="3">Resource constraints are super-imposed by project-</text>
+<text top="682" left="96" width="272" height="13" font="3">ing “resource demand profiles” over time.</text>
+<text top="682" left="386" width="53" height="13" font="3">Detected</text>
+<text top="698" left="96" width="343" height="13" font="3">resource conflicts are then resolved by iteratively post-</text>
+<text top="715" left="96" width="343" height="13" font="3">ing simple precedence constraints between pairs of</text>
+<text top="731" left="96" width="124" height="13" font="3">competing activities.</text>
+<text top="755" left="81" width="264" height="13" font="3">To perform the process of constraint posting</text>
+<text top="756" left="348" width="33" height="12" font="6">ESTA</text>
+<text top="755" left="384" width="55" height="13" font="3">follows a</text>
+<text top="771" left="81" width="92" height="13" font="3">four step cycle:</text>
+<text top="793" left="72" width="367" height="13" font="3">(a) An ESS (for Earliest Start Solution) consistent with cur-</text>
+<text top="810" left="96" width="344" height="13" font="3">rently imposed temporal constraints is computed. This</text>
+<text top="826" left="96" width="343" height="13" font="3">can be done quickly since the earliest start values of all</text>
+<text top="842" left="96" width="343" height="13" font="3">nodes in any STP network are known to constitute a tem-</text>
+<text top="859" left="96" width="149" height="13" font="3">porally feasible solution.</text>
+<text top="881" left="71" width="368" height="13" font="3">(b) Given the ESS, a <i>contention peak </i>is recognized on re-</text>
+<text top="897" left="96" width="39" height="13" font="3">source</text>
+<text top="907" left="139" width="7" height="0" font="1">r</text>
+<text top="909" left="146" width="6" height="0" font="1">k</text>
+<text top="897" left="157" width="42" height="13" font="3">at time</text>
+<text top="907" left="203" width="5" height="0" font="1">t</text>
+<text top="897" left="212" width="70" height="13" font="3">if condition</text>
+<text top="907" left="286" width="21" height="0" font="1">r eq</text>
+<text top="909" left="307" width="6" height="0" font="1">k</text>
+<text top="907" left="314" width="17" height="0" font="1">(E</text>
+<text top="907" left="332" width="9" height="0" font="1">S</text>
+<text top="907" left="341" width="13" height="0" font="1">S;</text>
+<text top="907" left="357" width="11" height="0" font="1">t)</text>
+<text top="907" left="373" width="12" height="0" font="1">&gt;</text>
+<text top="907" left="388" width="6" height="0" font="1">c</text>
+<text top="909" left="395" width="6" height="0" font="1">k</text>
+<text top="897" left="406" width="33" height="13" font="3">holds</text>
+<text top="914" left="96" width="32" height="13" font="3">(with</text>
+<text top="924" left="132" width="21" height="0" font="1">r eq</text>
+<text top="926" left="153" width="6" height="0" font="1">k</text>
+<text top="914" left="164" width="256" height="13" font="3">being the sum of requirements of resource</text>
+<text top="924" left="425" width="7" height="0" font="1">r</text>
+<text top="926" left="432" width="6" height="0" font="1">k</text>
+<text top="938" left="81" width="358" height="12" font="6">below is also cubic in the worst case. But within the local search</text>
+<text top="953" left="81" width="358" height="12" font="6">framework we propose, this algorithm is executed from scratch</text>
+<text top="968" left="81" width="289" height="12" font="6">only once, as opposed to repeatedly in Nuijten’s case.</text>
+<text top="982" left="100" width="4" height="8" font="13">2</text>
+<text top="985" left="105" width="334" height="12" font="6">In a STP (Simple Temporal Problem) network: temporal vari-</text>
+<text top="999" left="81" width="358" height="12" font="6">ables (nodes or time-points) represent beginning and end of ac-</text>
+<text top="1014" left="81" width="358" height="12" font="6">tivities and beginning and end of temporal horizon; distance con-</text>
+<text top="1029" left="81" width="358" height="12" font="6">straints (edges) represent duration of activities and separation con-</text>
+<text top="1044" left="81" width="206" height="12" font="6">straints including simple precedences.</text>
+<text top="86" left="494" width="43" height="13" font="3">at time</text>
+<text top="96" left="542" width="5" height="0" font="1">t</text>
+<text top="86" left="547" width="271" height="13" font="3">). Intuitively, a contention peak on resource</text>
+<text top="96" left="823" width="7" height="0" font="1">r</text>
+<text top="98" left="830" width="6" height="0" font="1">k</text>
+<text top="102" left="494" width="325" height="13" font="3">identifies a set of activities that simultaneously require</text>
+<text top="112" left="823" width="7" height="0" font="1">r</text>
+<text top="114" left="830" width="6" height="0" font="1">k</text>
+<text top="118" left="494" width="229" height="13" font="3">with a combined capacity requirement</text>
+<text top="128" left="727" width="12" height="0" font="1">&gt;</text>
+<text top="128" left="743" width="6" height="0" font="1">c</text>
+<text top="130" left="749" width="6" height="0" font="1">k</text>
+<text top="118" left="757" width="4" height="13" font="3">.</text>
+<text top="144" left="470" width="267" height="13" font="3">(c) For each peak, Minimal Critical Sets (</text>
+<text top="146" left="738" width="27" height="11" font="14">MCS</text>
+<text top="144" left="765" width="72" height="13" font="3">s) are com-</text>
+<text top="160" left="494" width="201" height="13" font="3">puted. A <i>Minimal Critical Set </i>(</text>
+<text top="162" left="696" width="27" height="11" font="14">MCS</text>
+<text top="160" left="723" width="115" height="13" font="3">) specifies <i>a set of</i></text>
+<text top="176" left="494" width="285" height="13" font="8"><i>activities that simultaneously require a resource</i></text>
+<text top="186" left="783" width="7" height="0" font="1">r</text>
+<text top="188" left="790" width="6" height="0" font="1">k</text>
+<text top="176" left="800" width="37" height="13" font="8"><i>with a</i></text>
+<text top="193" left="494" width="189" height="13" font="8"><i>combined capacity requirement</i></text>
+<text top="202" left="688" width="12" height="0" font="1">&gt;</text>
+<text top="202" left="704" width="6" height="0" font="1">c</text>
+<text top="205" left="711" width="6" height="0" font="1">k</text>
+<text top="193" left="718" width="119" height="13" font="8"><i>, such that the com-</i></text>
+<text top="209" left="494" width="209" height="13" font="8"><i>bined requirement of any subset is</i></text>
+<text top="219" left="708" width="12" height="0" font="1"></text>
+<text top="219" left="726" width="6" height="0" font="1">c</text>
+<text top="221" left="732" width="6" height="0" font="1">k</text>
+<text top="209" left="739" width="98" height="13" font="8"><i>. </i>The important</text>
+<text top="225" left="494" width="136" height="13" font="3">advantage of isolating</text>
+<text top="227" left="635" width="27" height="11" font="14">MCS</text>
+<text top="225" left="662" width="174" height="13" font="3">s is that a single precedence</text>
+<text top="242" left="494" width="270" height="13" font="3">relation between any pair of activities in the</text>
+<text top="244" left="769" width="27" height="11" font="14">MCS</text>
+<text top="242" left="801" width="36" height="13" font="3">elimi-</text>
+<text top="258" left="494" width="305" height="13" font="3">nates the conflict. Since complete enumeration of</text>
+<text top="260" left="804" width="27" height="11" font="14">MCS</text>
+<text top="258" left="831" width="6" height="13" font="3">s</text>
+<text top="274" left="494" width="343" height="13" font="3">is a combinatorial problem, a <i>sampling strategy </i>of fixed</text>
+<text top="290" left="494" width="343" height="13" font="3">computational complexity (e.g., linear, quadratic in the</text>
+<text top="307" left="494" width="343" height="13" font="3">number of activities) is proposed in (Cesta, Oddi, &amp; Smith</text>
+<text top="323" left="494" width="186" height="13" font="3">1999) to collect some subset of</text>
+<text top="325" left="685" width="27" height="11" font="14">MCS</text>
+<text top="323" left="712" width="88" height="13" font="3">s in each peak.</text>
+<text top="348" left="469" width="75" height="13" font="3">(d) A single</text>
+<text top="350" left="548" width="27" height="11" font="14">MCS</text>
+<text top="348" left="579" width="258" height="13" font="3">is selected and resolved by posting a prece-</text>
+<text top="365" left="494" width="343" height="13" font="3">dence constraint between two of the constituent activities.</text>
+<text top="383" left="495" width="27" height="11" font="14">MCS</text>
+<text top="381" left="526" width="311" height="13" font="3">selection (variable ordering) is performed according</text>
+<text top="397" left="494" width="33" height="13" font="3">to the</text>
+<text top="407" left="530" width="13" height="0" font="1">K</text>
+<text top="397" left="547" width="290" height="13" font="3">estimator proposed in (Laborie &amp; Ghallab 1995).</text>
+<text top="414" left="494" width="343" height="13" font="3">The specific constraint to be posted (value ordering) is de-</text>
+<text top="430" left="494" width="343" height="13" font="3">termined so as to preserve maximal temporal slack (in a</text>
+<text top="446" left="494" width="339" height="13" font="3">style similar to that proposed in (Smith &amp; Cheng 1993)).</text>
+<text top="472" left="479" width="176" height="13" font="3">Previous research has shown</text>
+<text top="473" left="660" width="33" height="12" font="6">ESTA</text>
+<text top="472" left="697" width="139" height="13" font="3">to be effective in over-</text>
+<text top="488" left="479" width="358" height="13" font="3">coming efficiency problems that have plagued other profile-</text>
+<text top="504" left="479" width="358" height="13" font="3">based scheduling procedures, while tending to better mini-</text>
+<text top="521" left="479" width="358" height="13" font="3">mize the number of precedence constraints posted. As such,</text>
+<text top="537" left="479" width="358" height="13" font="3">it seems a good starting point for building a heuristic ap-</text>
+<text top="553" left="479" width="57" height="13" font="3">proach to</text>
+<text top="554" left="539" width="49" height="12" font="6">MCJSSP</text>
+<text top="553" left="588" width="4" height="13" font="3">.</text>
+<text top="599" left="479" width="60" height="13" font="5"><b>Adapting</b></text>
+<text top="600" left="543" width="34" height="12" font="11"><b>ESTA</b></text>
+<text top="599" left="581" width="13" height="13" font="5"><b>to</b></text>
+<text top="600" left="597" width="53" height="12" font="11"><b>MCJSSP</b></text>
+<text top="599" left="650" width="4" height="13" font="5"><b>.</b></text>
+<text top="599" left="669" width="103" height="13" font="3">Though the basic</text>
+<text top="600" left="776" width="33" height="12" font="6">ESTA</text>
+<text top="599" left="812" width="25" height="13" font="3">pro-</text>
+<text top="615" left="479" width="278" height="13" font="3">cedure just described is directly applicable to</text>
+<text top="616" left="761" width="49" height="12" font="6">MCJSSP</text>
+<text top="615" left="810" width="27" height="13" font="3">, the</text>
+<text top="632" left="479" width="358" height="13" font="3">simpler temporal structure of this problem domain suggests</text>
+<text top="648" left="479" width="359" height="13" font="3">two adaptations in the interest of obtaining a computation-</text>
+<text top="664" left="479" width="311" height="13" font="3">ally lighter procedure for initial solution generation.</text>
+<text top="682" left="494" width="343" height="13" font="3">A first change concerns the choice of how to sample</text>
+<text top="700" left="480" width="27" height="11" font="14">MCS</text>
+<text top="698" left="507" width="186" height="13" font="3">s. Previous point (c) performs</text>
+<text top="700" left="698" width="27" height="11" font="14">MCS</text>
+<text top="698" left="730" width="107" height="13" font="3">sampling on each</text>
+<text top="715" left="479" width="358" height="13" font="3">peak detected in the current solution. Simplifying, we not</text>
+<text top="731" left="479" width="358" height="13" font="3">only pay attention to non-redundancy in peak computation</text>
+<text top="747" left="479" width="92" height="13" font="3">but also restrict</text>
+<text top="749" left="575" width="27" height="11" font="14">MCS</text>
+<text top="747" left="605" width="232" height="13" font="3">sampling to only the “maximal peaks”,</text>
+<text top="764" left="479" width="357" height="13" font="3">i.e., those peaks that contain the maximum number of ac-</text>
+<text top="780" left="479" width="358" height="13" font="3">tivities. This choice is motivated by the observation that in</text>
+<text top="796" left="479" width="358" height="13" font="3">the absence of maximal time lags the criticality of a given</text>
+<text top="813" left="479" width="321" height="13" font="3">resource conflict is more clearly a function of its size.</text>
+<text top="830" left="494" width="344" height="13" font="3">A second change involves the propagation algorithms</text>
+<text top="847" left="479" width="359" height="13" font="3">used to maintain consistency of the problem’s temporal in-</text>
+<text top="863" left="479" width="359" height="13" font="3">formation. The solution of scheduling problems with gener-</text>
+<text top="879" left="479" width="358" height="13" font="3">alized precedence relations require computation of the tran-</text>
+<text top="896" left="479" width="358" height="13" font="3">sitive closure of the STP representation of the current solu-</text>
+<text top="912" left="479" width="358" height="13" font="3">tion (Dechter, Meiri, &amp; Pearl 1991). Computation of this</text>
+<text top="928" left="479" width="358" height="13" font="3">information is fundamental, for example, for early detec-</text>
+<text top="945" left="479" width="358" height="13" font="3">tion and pruning of temporally infeasible search states. It</text>
+<text top="961" left="479" width="357" height="13" font="3">is well known that such information is computable via all</text>
+<text top="977" left="479" width="358" height="13" font="3">pairs shortest path algorithms, which are quadratic in space</text>
+<text top="994" left="479" width="358" height="13" font="3">and cubic in time with regard to the number of temporal</text>
+<text top="1010" left="479" width="358" height="13" font="3">variables in the network. Unfortunately, as problem size</text>
+<text top="1027" left="479" width="358" height="13" font="3">increases, this computation tends to increasingly dominate</text>
+<text top="1043" left="479" width="127" height="13" font="3">overall solution time.</text>
+</page>
+<page number="4" position="absolute" top="0" left="0" height="1188" width="918">
+	<fontspec id="15" size="14" family="Courier" color="#000000"/>
+	<fontspec id="16" size="16" family="Times" color="#000000"/>
+<text top="82" left="81" width="38" height="13" font="5"><b>ESTA</b></text>
+<text top="94" left="119" width="12" height="0" font="1">M</text>
+<text top="82" left="132" width="61" height="13" font="3">(Problem)</text>
+<text top="99" left="81" width="55" height="13" font="3">1. TCSP</text>
+<text top="108" left="140" width="15" height="0" font="1"> </text>
+<text top="99" left="159" width="126" height="13" font="3">CreateCSP(Problem)</text>
+<text top="115" left="81" width="48" height="13" font="3">2. <b>loop</b></text>
+<text top="131" left="81" width="11" height="13" font="3">3.</text>
+<text top="131" left="114" width="105" height="13" font="3">Propagate(TCSP)</text>
+<text top="148" left="81" width="11" height="13" font="3">4.</text>
+<text top="148" left="114" width="68" height="13" font="3">ConflictSet</text>
+<text top="157" left="185" width="15" height="0" font="1"> </text>
+<text top="148" left="204" width="211" height="13" font="3">ComputeResourceConflicts(TCSP)</text>
+<text top="164" left="81" width="11" height="13" font="3">5.</text>
+<text top="164" left="114" width="131" height="13" font="5"><b>if </b>Empty(ConflictSet)</text>
+<text top="180" left="81" width="11" height="13" font="3">6.</text>
+<text top="180" left="114" width="223" height="13" font="5"><b>then return</b>(ExtractSolution(TCSP))</text>
+<text top="197" left="81" width="11" height="13" font="3">7.</text>
+<text top="197" left="114" width="23" height="13" font="5"><b>else</b></text>
+<text top="213" left="81" width="11" height="13" font="3">8.</text>
+<text top="213" left="127" width="159" height="13" font="5"><b>if </b>Unsolvable(ConflictSet)</text>
+<text top="229" left="81" width="11" height="13" font="3">9.</text>
+<text top="229" left="127" width="174" height="13" font="5"><b>then return</b>(EmptySolution)</text>
+<text top="246" left="81" width="19" height="13" font="3">10.</text>
+<text top="246" left="127" width="23" height="13" font="5"><b>else</b></text>
+<text top="262" left="81" width="19" height="13" font="3">11.</text>
+<text top="262" left="141" width="48" height="13" font="3">Conflict</text>
+<text top="272" left="193" width="15" height="0" font="1"> </text>
+<text top="262" left="211" width="163" height="13" font="3">SelectConflict(ConflictSet)</text>
+<text top="278" left="81" width="19" height="13" font="3">12.</text>
+<text top="278" left="141" width="130" height="13" font="3">PrecedenceConstraint</text>
+<text top="305" left="207" width="15" height="0" font="1"> </text>
+<text top="295" left="226" width="162" height="13" font="3">SelectPrecedence(Conflict)</text>
+<text top="311" left="81" width="19" height="13" font="3">13.</text>
+<text top="311" left="141" width="262" height="13" font="3">PostCostraint(TCSP, PrecedenceConstraint)</text>
+<text top="328" left="81" width="76" height="13" font="3">14.<b>end-loop</b></text>
+<text top="344" left="81" width="43" height="13" font="3">15.<b>end</b></text>
+<text top="383" left="135" width="92" height="13" font="3">Figure 1: Basic</text>
+<text top="384" left="231" width="33" height="12" font="6">ESTA</text>
+<text top="395" left="264" width="12" height="0" font="1">M</text>
+<text top="383" left="280" width="105" height="13" font="3">Search Procedure</text>
+<text top="432" left="81" width="198" height="13" font="3">A second observation concerning</text>
+<text top="433" left="282" width="49" height="12" font="6">MCJSSP</text>
+<text top="432" left="334" width="104" height="13" font="3">helps in this case:</text>
+<text top="448" left="81" width="37" height="13" font="3">in any</text>
+<text top="449" left="123" width="49" height="12" font="6">MCJSSP</text>
+<text top="448" left="176" width="263" height="13" font="3">all separation constraints between activities</text>
+<text top="464" left="81" width="358" height="13" font="3">are simple precedence, and the only metric temporal con-</text>
+<text top="481" left="81" width="358" height="13" font="3">straints present are activity durations. This being the case, it</text>
+<text top="497" left="81" width="357" height="13" font="3">is possible to detect infeasible orderings between pairs of ac-</text>
+<text top="513" left="81" width="358" height="13" font="3">tivities using simpler, single source shortest path algorithms.</text>
+<text top="530" left="81" width="358" height="13" font="3">In fact, temporal consistency can be maintained by a sin-</text>
+<text top="546" left="81" width="358" height="13" font="3">gle source shortest path algorithm whose complexity instead</text>
+<text top="562" left="81" width="358" height="13" font="3">depends on the number of edges (or temporal constraints)</text>
+<text top="578" left="81" width="358" height="13" font="3">in the network. Because the STP network representing a</text>
+<text top="595" left="81" width="358" height="13" font="3">scheduling problem is typically sparse (few edges, number</text>
+<text top="611" left="81" width="358" height="13" font="3">of edges of the same order as number of nodes) this leads</text>
+<text top="627" left="81" width="358" height="13" font="3">to a real advantage in terms of lightening the algorithm on</text>
+<text top="644" left="81" width="168" height="13" font="3">problems of significant size.</text>
+<text top="661" left="96" width="342" height="13" font="3">One side-effect of this shift to a more efficient (but less</text>
+<text top="677" left="81" width="358" height="13" font="3">informative) propagation algorithm is a simplification of the</text>
+<text top="693" left="81" width="19" height="13" font="3">the</text>
+<text top="703" left="103" width="13" height="0" font="1">K</text>
+<text top="693" left="120" width="319" height="13" font="3">estimator computation utilized by the basic search al-</text>
+<text top="710" left="81" width="136" height="13" font="3">gorithm, In particular,</text>
+<text top="720" left="223" width="13" height="0" font="1">K</text>
+<text top="710" left="242" width="197" height="13" font="3">is instead computed in terms of</text>
+<text top="726" left="81" width="358" height="13" font="3">simple calculations of temporal slack (i.e., given a pair of ac-</text>
+<text top="742" left="81" width="41" height="13" font="3">tivities</text>
+<text top="752" left="126" width="8" height="0" font="1">a</text>
+<text top="754" left="134" width="4" height="0" font="1">i</text>
+<text top="752" left="143" width="8" height="0" font="1">a</text>
+<text top="754" left="151" width="5" height="0" font="1">j</text>
+<text top="742" left="157" width="4" height="13" font="3">,</text>
+<text top="752" left="165" width="48" height="0" font="1">sl ack (a</text>
+<text top="754" left="213" width="4" height="0" font="1">i</text>
+<text top="752" left="218" width="4" height="0" font="1">;</text>
+<text top="752" left="225" width="8" height="0" font="1">a</text>
+<text top="754" left="233" width="5" height="0" font="1">j</text>
+<text top="752" left="239" width="6" height="0" font="1">)</text>
+<text top="742" left="249" width="190" height="13" font="3">is defined as the difference bet-</text>
+<text top="759" left="81" width="31" height="13" font="3">ween</text>
+<text top="769" left="116" width="8" height="0" font="1">a</text>
+<text top="771" left="124" width="5" height="0" font="1">j</text>
+<text top="759" left="130" width="153" height="13" font="3">’s latest start time the and</text>
+<text top="769" left="287" width="8" height="0" font="1">a</text>
+<text top="771" left="294" width="4" height="0" font="1">i</text>
+<text top="759" left="300" width="133" height="13" font="3">’s earliest finish time).</text>
+<text top="775" left="96" width="343" height="13" font="3">We refer to the procedure resulting from incorporation of</text>
+<text top="792" left="81" width="126" height="13" font="3">the above changes as</text>
+<text top="793" left="211" width="33" height="12" font="6">ESTA</text>
+<text top="804" left="244" width="12" height="0" font="1">M</text>
+<text top="792" left="257" width="104" height="13" font="3">, where the suffix</text>
+<text top="802" left="365" width="14" height="0" font="1">M</text>
+<text top="792" left="386" width="53" height="13" font="3">indicates</text>
+<text top="808" left="81" width="257" height="13" font="3">the modified version. A schematic view of</text>
+<text top="809" left="342" width="33" height="12" font="6">ESTA</text>
+<text top="820" left="375" width="12" height="0" font="1">M</text>
+<text top="808" left="392" width="47" height="13" font="3">is given</text>
+<text top="825" left="81" width="359" height="13" font="3">in Figure 1. In this formulation we have hidden details of</text>
+<text top="841" left="81" width="263" height="13" font="3">the previous points (a)-(c) in Step 4, where</text>
+<text top="842" left="349" width="90" height="12" font="15">ComputeRe-</text>
+<text top="858" left="81" width="135" height="12" font="15">sourceConflicts</text>
+<text top="857" left="220" width="219" height="13" font="3">performs both peak detection on the</text>
+<text top="874" left="81" width="55" height="13" font="3">ESS, and</text>
+<text top="876" left="140" width="27" height="11" font="14">MCS</text>
+<text top="874" left="171" width="187" height="13" font="3">sampling on the maximal peak.</text>
+<text top="905" left="81" width="176" height="15" font="16"><b>Experimental Evaluation</b></text>
+<text top="928" left="81" width="237" height="13" font="3">In Table 1 we show the performance of</text>
+<text top="929" left="322" width="33" height="12" font="6">ESTA</text>
+<text top="940" left="355" width="12" height="0" font="1">M</text>
+<text top="928" left="372" width="67" height="13" font="3">on the four</text>
+<text top="945" left="81" width="358" height="13" font="3">benchmark problem sets. The algorithm is implemented in</text>
+<text top="961" left="81" width="358" height="13" font="3">Allegro Common Lisp and the reported results are obtained</text>
+<text top="977" left="81" width="358" height="13" font="3">on a SUN UltraSparc 30 (266MHz). For each algorithm and</text>
+<text top="994" left="81" width="132" height="13" font="3">for each set we report</text>
+<text top="1004" left="217" width="13" height="0" font="1"></text>
+<text top="1006" left="230" width="8" height="0" font="1">U</text>
+<text top="1006" left="239" width="9" height="0" font="1">B</text>
+<text top="1004" left="249" width="13" height="0" font="1">%</text>
+<text top="994" left="266" width="173" height="13" font="3">(upper row), the average rel-</text>
+<text top="1010" left="81" width="302" height="13" font="3">ative deviation from the known upper bound, and</text>
+<text top="1020" left="388" width="11" height="0" font="1">C</text>
+<text top="1020" left="400" width="10" height="0" font="1">P</text>
+<text top="1020" left="411" width="10" height="0" font="1">U</text>
+<text top="1022" left="422" width="17" height="0" font="1">sec</text>
+<text top="1027" left="81" width="358" height="13" font="3">(lower row), the average CPU time in seconds. The column</text>
+<text top="1043" left="81" width="358" height="13" font="3">“All” gives the average values over all 80 problems. We</text>
+<text top="86" left="479" width="357" height="13" font="3">also include the performance results obtained in (Nuijten &amp;</text>
+<text top="102" left="479" width="359" height="13" font="3">Aarts 1996) (the rows labelled CCA), which unfortunately</text>
+<text top="118" left="479" width="352" height="13" font="3">are available only for set A and a few instances of set B.</text>
+<text top="116" left="831" width="5" height="9" font="12">3</text>
+<text top="135" left="479" width="358" height="13" font="3">But we note again that the upper-bound reference also pro-</text>
+<text top="151" left="479" width="219" height="13" font="3">vides a very good comparison value.</text>
+<text top="168" left="494" width="343" height="13" font="3">Observing the Table, two comments are appropriate: (a) it</text>
+<text top="184" left="479" width="358" height="13" font="3">is not surprising that, compared with an algorithm like CCA</text>
+<text top="200" left="479" width="358" height="13" font="3">aimed at finding a solution with an optimal makespan, a sin-</text>
+<text top="217" left="479" width="57" height="13" font="3">gle run of</text>
+<text top="218" left="540" width="33" height="12" font="6">ESTA</text>
+<text top="229" left="572" width="12" height="0" font="1">M</text>
+<text top="217" left="589" width="248" height="13" font="3">is generally not able to find an optimal so-</text>
+<text top="233" left="479" width="39" height="13" font="3">lution.</text>
+<text top="234" left="525" width="33" height="12" font="6">ESTA</text>
+<text top="245" left="557" width="12" height="0" font="1">M</text>
+<text top="233" left="575" width="263" height="13" font="3">does not contain any attempt at optimizing,</text>
+<text top="250" left="479" width="357" height="13" font="3">but is designed to simply search for a feasible solution. The</text>
+<text top="266" left="479" width="357" height="13" font="3">fact that it attempts to minimize the number of precedence</text>
+<text top="282" left="479" width="358" height="13" font="3">constraints posted will at best contribute only indirectly to</text>
+<text top="299" left="479" width="232" height="13" font="3">minimizing makespan; (b) Generally,</text>
+<text top="300" left="718" width="33" height="12" font="6">ESTA</text>
+<text top="311" left="751" width="12" height="0" font="1">M</text>
+<text top="299" left="770" width="67" height="13" font="3">finds a so-</text>
+<text top="315" left="479" width="358" height="13" font="3">lution quite efficiently, with resulting makespan that varies</text>
+<text top="332" left="479" width="358" height="13" font="3">from 15 to 25% of the upper bound. In fact, the 758 sec-</text>
+<text top="348" left="479" width="358" height="13" font="3">onds required on average for set D are due mostly to the 5</text>
+<text top="364" left="479" width="358" height="13" font="3">largest, 900 activity, problems which on average took over</text>
+<text top="380" left="479" width="358" height="13" font="3">2450 seconds to solve. These problems are characterized by</text>
+<text top="397" left="479" width="358" height="13" font="3">huge peaks that require large numbers of precedence to be</text>
+<text top="413" left="479" width="358" height="13" font="3">leveled. This is the only subset in which the time spent is</text>
+<text top="429" left="479" width="89" height="13" font="3">really relevant.</text>
+<text top="477" left="579" width="89" height="13" font="3">Table 1: ESTA</text>
+<text top="489" left="667" width="12" height="0" font="1">M</text>
+<text top="477" left="685" width="53" height="13" font="3">vs. CCA</text>
+<text top="505" left="500" width="63" height="13" font="3">Algorithm</text>
+<text top="505" left="584" width="33" height="13" font="3">Set A</text>
+<text top="505" left="635" width="33" height="13" font="3">Set B</text>
+<text top="505" left="687" width="33" height="13" font="3">Set C</text>
+<text top="505" left="738" width="33" height="13" font="3">Set D</text>
+<text top="505" left="791" width="19" height="13" font="3">All</text>
+<text top="526" left="509" width="33" height="12" font="6">ESTA</text>
+<text top="536" left="542" width="10" height="0" font="1">M</text>
+<text top="525" left="584" width="34" height="13" font="3">17.91</text>
+<text top="525" left="635" width="34" height="13" font="3">16.04</text>
+<text top="525" left="687" width="34" height="13" font="3">25.27</text>
+<text top="525" left="738" width="34" height="13" font="3">24.83</text>
+<text top="525" left="793" width="15" height="13" font="3">21</text>
+<text top="541" left="593" width="15" height="13" font="3">45</text>
+<text top="541" left="641" width="23" height="13" font="3">125</text>
+<text top="541" left="692" width="23" height="13" font="3">190</text>
+<text top="541" left="744" width="23" height="13" font="3">758</text>
+<text top="541" left="790" width="23" height="13" font="3">279</text>
+<text top="559" left="518" width="28" height="12" font="6">CCA</text>
+<text top="558" left="587" width="26" height="13" font="3">1.57</text>
+<text top="558" left="648" width="7" height="13" font="3">*</text>
+<text top="558" left="700" width="7" height="13" font="3">–</text>
+<text top="558" left="751" width="7" height="13" font="3">–</text>
+<text top="558" left="797" width="7" height="13" font="3">–</text>
+<text top="575" left="589" width="23" height="13" font="3">369</text>
+<text top="575" left="648" width="7" height="13" font="3">*</text>
+<text top="575" left="700" width="7" height="13" font="3">–</text>
+<text top="575" left="751" width="7" height="13" font="3">–</text>
+<text top="575" left="797" width="7" height="13" font="3">–</text>
+<text top="636" left="527" width="81" height="16" font="2"><b>Improving</b></text>
+<text top="639" left="613" width="34" height="12" font="11"><b>ESTA</b></text>
+<text top="651" left="647" width="12" height="0" font="1">M</text>
+<text top="636" left="666" width="123" height="16" font="2"><b>by Local Search</b></text>
+<text top="661" left="479" width="358" height="13" font="3">Given an efficient procedure for generating feasible solu-</text>
+<text top="677" left="479" width="45" height="13" font="3">tions to</text>
+<text top="678" left="528" width="49" height="12" font="6">MCJSSP</text>
+<text top="677" left="577" width="260" height="13" font="3">, the important remaining design issue con-</text>
+<text top="693" left="479" width="359" height="13" font="3">cerns how to exploit it to perform an extended optimizing</text>
+<text top="710" left="479" width="358" height="13" font="3">search. In both (Nuijten &amp; Aarts 1996; Cesta, Oddi, &amp; Smith</text>
+<text top="726" left="479" width="358" height="13" font="3">1999), an iterative sampling framework is used to provide a</text>
+<text top="742" left="479" width="358" height="13" font="3">basis for optimization. However, in the interest of scalabil-</text>
+<text top="758" left="479" width="358" height="13" font="3">ity we choose instead to emphasize a local search approach.</text>
+<text top="775" left="479" width="359" height="13" font="3">The intuition is simply that computation of neighborhood</text>
+<text top="791" left="479" width="358" height="13" font="3">solutions is likely to be more cost effective than solution re-</text>
+<text top="807" left="479" width="358" height="13" font="3">generation. But this requires an effective approach to gener-</text>
+<text top="824" left="479" width="179" height="13" font="3">ating neighborhood solutions.</text>
+<text top="841" left="494" width="343" height="13" font="3">To describe our approach, we first introduce a few def-</text>
+<text top="857" left="479" width="245" height="13" font="3">initions. Assume that a given solution</text>
+<text top="867" left="729" width="9" height="0" font="1">S</text>
+<text top="867" left="739" width="12" height="0" font="1">ol</text>
+<text top="857" left="757" width="25" height="13" font="3">to a</text>
+<text top="858" left="788" width="49" height="12" font="6">MCJSSP</text>
+<text top="873" left="479" width="78" height="13" font="3">produced by</text>
+<text top="874" left="565" width="33" height="12" font="6">ESTA</text>
+<text top="885" left="598" width="12" height="0" font="1">M</text>
+<text top="873" left="618" width="218" height="13" font="3">is represented as a directed graph</text>
+<text top="899" left="479" width="12" height="0" font="1">G</text>
+<text top="902" left="491" width="7" height="0" font="1">S</text>
+<text top="899" left="500" width="21" height="0" font="1">(A;</text>
+<text top="899" left="523" width="11" height="0" font="1">E</text>
+<text top="899" left="535" width="6" height="0" font="1">)</text>
+<text top="890" left="541" width="4" height="13" font="3">.</text>
+<text top="899" left="554" width="11" height="0" font="1">A</text>
+<text top="890" left="571" width="208" height="13" font="3">is the set of activities specified in</text>
+<text top="891" left="785" width="49" height="12" font="6">MCJSSP</text>
+<text top="890" left="834" width="4" height="13" font="3">,</text>
+<text top="906" left="479" width="96" height="13" font="3">plus a fictitious</text>
+<text top="916" left="580" width="8" height="0" font="1">a</text>
+<text top="918" left="588" width="36" height="0" font="1">sour ce</text>
+<text top="906" left="630" width="207" height="13" font="3">activity temporally constrained to</text>
+<text top="922" left="479" width="238" height="13" font="3">occur before all others and a fictitious</text>
+<text top="932" left="721" width="8" height="0" font="1">a</text>
+<text top="934" left="729" width="24" height="0" font="1">sink</text>
+<text top="922" left="760" width="77" height="13" font="3">activity tem-</text>
+<text top="938" left="479" width="273" height="13" font="3">porally constrained to occur after all others.</text>
+<text top="948" left="763" width="11" height="0" font="1">E</text>
+<text top="938" left="781" width="56" height="13" font="3">is the set</text>
+<text top="955" left="479" width="338" height="13" font="3">of precedence constraints imposed between activities in</text>
+<text top="965" left="822" width="11" height="0" font="1">A</text>
+<text top="955" left="833" width="4" height="13" font="3">.</text>
+<text top="981" left="479" width="11" height="0" font="1">E</text>
+<text top="971" left="496" width="206" height="13" font="3">can be partitioned in two subsets,</text>
+<text top="981" left="708" width="11" height="0" font="1">E</text>
+<text top="981" left="727" width="12" height="0" font="1">=</text>
+<text top="981" left="746" width="11" height="0" font="1">E</text>
+<text top="983" left="757" width="23" height="0" font="1">pr ob</text>
+<text top="981" left="785" width="10" height="0" font="1">[</text>
+<text top="981" left="799" width="11" height="0" font="1">E</text>
+<text top="983" left="810" width="22" height="0" font="1">post</text>
+<text top="971" left="833" width="4" height="13" font="3">,</text>
+<text top="997" left="498" width="4" height="8" font="13">3</text>
+<text top="999" left="503" width="335" height="12" font="6">Only the smallest 5 20x10 problems were solved (not enough</text>
+<text top="1014" left="479" width="358" height="12" font="6">for comparison on the whole set). The performance amounts to an</text>
+<text top="1029" left="479" width="42" height="12" font="6">average</text>
+<text top="1038" left="523" width="12" height="0" font="1"></text>
+<text top="1029" left="537" width="300" height="12" font="6">of -0.84% and an average CPU of 591 seconds (i.e., very</text>
+<text top="1044" left="479" width="326" height="12" font="6">good solutions but with substantially increasing CPU times).</text>
+</page>
+<page number="5" position="absolute" top="0" left="0" height="1188" width="918">
+<text top="86" left="81" width="37" height="13" font="3">where</text>
+<text top="96" left="121" width="11" height="0" font="1">E</text>
+<text top="98" left="132" width="23" height="0" font="1">pr ob</text>
+<text top="86" left="160" width="280" height="13" font="3">is the set of precedence constraints originating</text>
+<text top="102" left="81" width="177" height="13" font="3">in the problem definition, and</text>
+<text top="112" left="262" width="11" height="0" font="1">E</text>
+<text top="114" left="273" width="22" height="0" font="1">post</text>
+<text top="102" left="300" width="139" height="13" font="3">is the set of precedence</text>
+<text top="118" left="81" width="132" height="13" font="3">constraints posted by</text>
+<text top="119" left="219" width="33" height="12" font="6">ESTA</text>
+<text top="130" left="252" width="12" height="0" font="1">M</text>
+<text top="118" left="271" width="168" height="13" font="3">to resolve various resource</text>
+<text top="135" left="81" width="125" height="13" font="3">conflicts. A <i>path </i>in</text>
+<text top="145" left="211" width="12" height="0" font="1">G</text>
+<text top="147" left="223" width="7" height="0" font="1">S</text>
+<text top="145" left="232" width="21" height="0" font="1">(A;</text>
+<text top="145" left="256" width="11" height="0" font="1">E</text>
+<text top="145" left="267" width="6" height="0" font="1">)</text>
+<text top="135" left="279" width="160" height="13" font="3">is a sequence of activities</text>
+<text top="161" left="81" width="8" height="0" font="1">a</text>
+<text top="163" left="89" width="6" height="0" font="1">1</text>
+<text top="161" left="98" width="4" height="0" font="1">:</text>
+<text top="161" left="105" width="4" height="0" font="1">:</text>
+<text top="161" left="112" width="4" height="0" font="1">:</text>
+<text top="161" left="118" width="8" height="0" font="1">a</text>
+<text top="163" left="126" width="6" height="0" font="1">k</text>
+<text top="151" left="133" width="66" height="13" font="3">, such that,</text>
+<text top="161" left="204" width="14" height="0" font="1">(a</text>
+<text top="163" left="218" width="4" height="0" font="1">i</text>
+<text top="161" left="223" width="4" height="0" font="1">;</text>
+<text top="161" left="230" width="8" height="0" font="1">a</text>
+<text top="163" left="238" width="19" height="0" font="1">i+1</text>
+<text top="161" left="257" width="6" height="0" font="1">)</text>
+<text top="161" left="269" width="10" height="0" font="1">2</text>
+<text top="161" left="284" width="11" height="0" font="1">E</text>
+<text top="151" left="300" width="27" height="13" font="3">with</text>
+<text top="161" left="331" width="5" height="0" font="1">i</text>
+<text top="161" left="342" width="12" height="0" font="1">=</text>
+<text top="161" left="359" width="8" height="0" font="1">1</text>
+<text top="161" left="369" width="4" height="0" font="1">:</text>
+<text top="161" left="375" width="4" height="0" font="1">:</text>
+<text top="161" left="382" width="4" height="0" font="1">:</text>
+<text top="161" left="388" width="14" height="0" font="1">(k</text>
+<text top="161" left="422" width="13" height="0" font="1">1)</text>
+<text top="151" left="435" width="4" height="13" font="3">.</text>
+<text top="167" left="81" width="357" height="13" font="3">The length of a path is the sum of the activities’ process-</text>
+<text top="184" left="81" width="258" height="13" font="3">ing times and a <i>critical path </i>is a path from</text>
+<text top="194" left="342" width="8" height="0" font="1">a</text>
+<text top="196" left="350" width="36" height="0" font="1">sour ce</text>
+<text top="184" left="391" width="12" height="13" font="3">to</text>
+<text top="194" left="406" width="8" height="0" font="1">a</text>
+<text top="196" left="414" width="24" height="0" font="1">sink</text>
+<text top="200" left="81" width="256" height="13" font="3">which determines the solution’s makespan.</text>
+<text top="217" left="96" width="343" height="13" font="3">As is well recognized in the scheduling literature, infor-</text>
+<text top="233" left="81" width="358" height="13" font="3">mation about <i>critical paths </i>can provide a strong heuristic ba-</text>
+<text top="250" left="81" width="358" height="13" font="3">sis for makespan minimization. In the case of solutions gen-</text>
+<text top="266" left="81" width="56" height="13" font="3">erated by</text>
+<text top="267" left="141" width="33" height="12" font="6">ESTA</text>
+<text top="278" left="174" width="12" height="0" font="1">M</text>
+<text top="266" left="187" width="251" height="13" font="3">, any improvement in makespan will nec-</text>
+<text top="282" left="81" width="358" height="13" font="3">essarily require retraction of some subset of precedence con-</text>
+<text top="299" left="81" width="359" height="13" font="3">straints situated on the <i>critical path</i>, since these constraints</text>
+<text top="315" left="81" width="358" height="13" font="3">collectively determine the solution’s current makespan. Fol-</text>
+<text top="332" left="81" width="358" height="13" font="3">lowing this observation, we propose a simple, two-step</text>
+<text top="348" left="81" width="358" height="13" font="3">method for generating <i>moves </i>in the neighborhood of a given</text>
+<text top="364" left="81" width="53" height="13" font="3">solution:</text>
+<text top="389" left="81" width="358" height="13" font="5"><b>Shrinking Step: </b>We first randomly retract a subset of</text>
+<text top="405" left="96" width="137" height="13" font="3">precedence constraints</text>
+<text top="415" left="237" width="14" height="0" font="1">pc</text>
+<text top="417" left="251" width="4" height="0" font="1">i</text>
+<text top="415" left="261" width="10" height="0" font="1">2</text>
+<text top="415" left="276" width="11" height="0" font="1">E</text>
+<text top="417" left="287" width="22" height="0" font="1">post</text>
+<text top="405" left="314" width="125" height="13" font="3">which fall on the so-</text>
+<text top="422" left="96" width="343" height="13" font="3">lution’s <i>critical path</i>. In this way, the Earliest Start Solu-</text>
+<text top="438" left="96" width="343" height="13" font="3">tion is compressed and new peaks appear in the resource</text>
+<text top="454" left="96" width="49" height="13" font="3">profiles.</text>
+<text top="477" left="81" width="233" height="13" font="5"><b>Flattening Step: </b>We then re-apply the</text>
+<text top="478" left="317" width="33" height="12" font="6">ESTA</text>
+<text top="489" left="350" width="12" height="0" font="1">M</text>
+<text top="477" left="366" width="73" height="13" font="3">algorithm to</text>
+<text top="494" left="96" width="343" height="13" font="3">level (or flatten) the newly introduced resource conflicts</text>
+<text top="510" left="96" width="235" height="13" font="3">by posting new precedence constraints.</text>
+<text top="535" left="81" width="358" height="13" font="3">Because of the character of this local search cycle, we call</text>
+<text top="551" left="81" width="202" height="13" font="3">the algorithm <i>iterative flattening </i>(</text>
+<text top="553" left="283" width="40" height="12" font="6">i-FLAT</text>
+<text top="551" left="324" width="9" height="13" font="3">).</text>
+<text top="568" left="96" width="253" height="13" font="3">From a performance standpoint, note that</text>
+<text top="569" left="354" width="33" height="12" font="6">ESTA</text>
+<text top="580" left="387" width="12" height="0" font="1">M</text>
+<text top="568" left="405" width="34" height="13" font="3">is not</text>
+<text top="585" left="81" width="358" height="13" font="3">applied from scratch (as is done on the initial problem for-</text>
+<text top="601" left="81" width="357" height="13" font="3">mulation), but in an incremental way to a partially generated</text>
+<text top="617" left="81" width="358" height="13" font="3">solution. In fact, the removal of a subset of precedence con-</text>
+<text top="634" left="81" width="358" height="13" font="3">straints generally creates both fewer and smaller peaks than</text>
+<text top="650" left="81" width="358" height="13" font="3">the set of peaks contained in an initial infinite capacity so-</text>
+<text top="666" left="81" width="358" height="13" font="3">lution. Additional efficiency gains are obtained through use</text>
+<text top="683" left="81" width="358" height="13" font="3">of temporal reasoning techniques that support incremental</text>
+<text top="699" left="81" width="217" height="13" font="3">retraction of precedence constraints</text>
+<text top="709" left="303" width="14" height="0" font="1">pc</text>
+<text top="711" left="317" width="4" height="0" font="1">i</text>
+<text top="709" left="328" width="10" height="0" font="1">2</text>
+<text top="709" left="345" width="11" height="0" font="1">E</text>
+<text top="711" left="356" width="22" height="0" font="1">post</text>
+<text top="699" left="384" width="55" height="13" font="3">(Cesta &amp;</text>
+<text top="715" left="81" width="72" height="13" font="3">Oddi 1996).</text>
+<text top="732" left="96" width="343" height="13" font="3">Figure 2 shows the <i>iterative flattening </i>algorithm in more</text>
+<text top="748" left="81" width="359" height="13" font="3">detail. It takes as input three elements: (1) a starting solution</text>
+<text top="774" left="81" width="9" height="0" font="1">S</text>
+<text top="774" left="91" width="12" height="0" font="1">ol</text>
+<text top="765" left="103" width="156" height="13" font="3">; (2) an integer number P</text>
+<text top="777" left="258" width="22" height="0" font="1">r em</text>
+<text top="774" left="288" width="10" height="0" font="1">2</text>
+<text top="774" left="304" width="39" height="0" font="1">1::100</text>
+<text top="765" left="347" width="92" height="13" font="3">designating the</text>
+<text top="781" left="81" width="228" height="13" font="3">percentage of precedence constraints</text>
+<text top="791" left="314" width="14" height="0" font="1">pc</text>
+<text top="793" left="328" width="4" height="0" font="1">i</text>
+<text top="791" left="341" width="10" height="0" font="1">2</text>
+<text top="791" left="360" width="11" height="0" font="1">E</text>
+<text top="793" left="371" width="22" height="0" font="1">post</text>
+<text top="781" left="400" width="39" height="13" font="3">on the</text>
+<text top="797" left="81" width="358" height="13" font="3">critical path to be removed at each execution of the basic</text>
+<text top="814" left="81" width="194" height="13" font="3">move; and (3) a positive integer</text>
+<text top="823" left="279" width="14" height="0" font="1">M</text>
+<text top="823" left="296" width="26" height="0" font="1">axF</text>
+<text top="823" left="324" width="17" height="0" font="1">ail</text>
+<text top="814" left="346" width="92" height="13" font="3">which specifies</text>
+<text top="830" left="81" width="358" height="13" font="3">the maximum number of moves without an improvement in</text>
+<text top="846" left="81" width="358" height="13" font="3">makespan that the algorithm will tolerate before terminating.</text>
+<text top="863" left="96" width="249" height="13" font="3">After initialization (Steps 1-2), within the</text>
+<text top="864" left="349" width="45" height="12" font="15">While</text>
+<text top="863" left="397" width="41" height="13" font="3">loop at</text>
+<text top="879" left="81" width="358" height="13" font="3">Step 3, a solution is repeatedly modified by the application</text>
+<text top="896" left="81" width="197" height="13" font="3">of the following subprocedures:</text>
+<text top="897" left="286" width="153" height="12" font="15">SamplingCritical-</text>
+<text top="913" left="81" width="36" height="12" font="15">Path</text>
+<text top="912" left="121" width="318" height="13" font="3">is first applied to randomly select a set of previously</text>
+<text top="928" left="81" width="358" height="13" font="3">posted precedence constraints on the solution critical path;</text>
+<text top="946" left="81" width="144" height="12" font="15">RemovePrecedence</text>
+<text top="945" left="228" width="211" height="13" font="3">then removes this set of constraints</text>
+<text top="961" left="81" width="358" height="13" font="3">through application of incremental temporal reasoning algo-</text>
+<text top="977" left="81" width="43" height="13" font="3">rithms;</text>
+<text top="978" left="129" width="33" height="12" font="6">ESTA</text>
+<text top="989" left="162" width="12" height="0" font="1">M</text>
+<text top="977" left="180" width="259" height="13" font="3">is next invoked to find a new earliest start</text>
+<text top="994" left="81" width="358" height="13" font="3">time solution. In the case that a better makespan solution is</text>
+<text top="1010" left="81" width="288" height="13" font="3">found (at Step 7), the new solution is stored in S</text>
+<text top="1022" left="369" width="22" height="0" font="1">best</text>
+<text top="1010" left="395" width="44" height="13" font="3">and the</text>
+<text top="1027" left="81" width="358" height="13" font="3">counter is reset to 0 (Steps 9-10). Otherwise, if no improve-</text>
+<text top="1043" left="81" width="97" height="13" font="3">ment is found in</text>
+<text top="1053" left="181" width="14" height="0" font="1">M</text>
+<text top="1053" left="198" width="26" height="0" font="1">axF</text>
+<text top="1053" left="226" width="17" height="0" font="1">ail</text>
+<text top="1043" left="247" width="192" height="13" font="3">moves, the algorithm terminates</text>
+<text top="83" left="479" width="42" height="12" font="11"><b>i-FLAT</b></text>
+<text top="82" left="522" width="37" height="13" font="3">(Sol,P</text>
+<text top="94" left="559" width="22" height="0" font="1">r em</text>
+<text top="82" left="582" width="59" height="13" font="3">,MaxFail)</text>
+<text top="99" left="479" width="28" height="13" font="3">1. S</text>
+<text top="111" left="508" width="22" height="0" font="1">best</text>
+<text top="108" left="533" width="15" height="0" font="1"> </text>
+<text top="108" left="552" width="9" height="0" font="1">S</text>
+<text top="108" left="562" width="12" height="0" font="1">ol</text>
+<text top="115" left="479" width="65" height="13" font="3">2. counter</text>
+<text top="125" left="548" width="15" height="0" font="1"> </text>
+<text top="115" left="566" width="7" height="13" font="3">0</text>
+<text top="131" left="479" width="108" height="13" font="3">3. <b>while </b>(counter</text>
+<text top="141" left="590" width="12" height="0" font="1"></text>
+<text top="131" left="606" width="113" height="13" font="3">MaxFail) <b>do begin</b></text>
+<text top="148" left="479" width="11" height="13" font="3">4.</text>
+<text top="148" left="512" width="132" height="13" font="3">PrecedenceToRemove</text>
+<text top="174" left="539" width="15" height="0" font="1"> </text>
+<text top="164" left="558" width="166" height="13" font="3">SamplingCriticalPath(Sol,P</text>
+<text top="176" left="724" width="22" height="0" font="1">r em</text>
+<text top="164" left="746" width="5" height="13" font="3">)</text>
+<text top="180" left="479" width="11" height="13" font="3">5.</text>
+<text top="180" left="512" width="283" height="13" font="3">RemovePrecedence(Sol,PrecedenceToRemove)</text>
+<text top="197" left="479" width="11" height="13" font="3">6.</text>
+<text top="197" left="512" width="20" height="13" font="3">Sol</text>
+<text top="206" left="532" width="15" height="0" font="1"> </text>
+<text top="197" left="548" width="36" height="13" font="3">ESTA</text>
+<text top="209" left="583" width="12" height="0" font="1">M</text>
+<text top="197" left="597" width="30" height="13" font="3">(Sol)</text>
+<text top="213" left="479" width="11" height="13" font="3">7.</text>
+<text top="213" left="512" width="64" height="13" font="5"><b>if </b>Mk(Sol)</text>
+<text top="223" left="580" width="12" height="0" font="1">&lt;</text>
+<text top="213" left="595" width="34" height="13" font="3">Mk(S</text>
+<text top="225" left="629" width="22" height="0" font="1">best</text>
+<text top="213" left="651" width="5" height="13" font="3">)</text>
+<text top="229" left="479" width="11" height="13" font="3">8.</text>
+<text top="229" left="526" width="67" height="13" font="5"><b>then begin</b></text>
+<text top="246" left="479" width="11" height="13" font="3">9.</text>
+<text top="246" left="539" width="8" height="13" font="3">S</text>
+<text top="258" left="547" width="22" height="0" font="1">best</text>
+<text top="256" left="573" width="15" height="0" font="1"> </text>
+<text top="246" left="591" width="20" height="13" font="3">Sol</text>
+<text top="262" left="479" width="19" height="13" font="3">10.</text>
+<text top="262" left="539" width="45" height="13" font="3">counter</text>
+<text top="272" left="588" width="15" height="0" font="1"> </text>
+<text top="262" left="606" width="7" height="13" font="3">0</text>
+<text top="278" left="479" width="19" height="13" font="3">11.</text>
+<text top="278" left="526" width="23" height="13" font="5"><b>end</b></text>
+<text top="295" left="479" width="19" height="13" font="3">12.</text>
+<text top="295" left="526" width="72" height="13" font="5"><b>else </b>counter</text>
+<text top="305" left="601" width="15" height="0" font="1"> </text>
+<text top="295" left="620" width="68" height="13" font="3">counter + 1</text>
+<text top="311" left="479" width="82" height="13" font="3">13.<b>end-while</b></text>
+<text top="328" left="479" width="73" height="13" font="3">14.<b>return</b>(S</text>
+<text top="340" left="553" width="22" height="0" font="1">best</text>
+<text top="328" left="575" width="5" height="13" font="3">)</text>
+<text top="344" left="479" width="43" height="13" font="3">15.<b>end</b></text>
+<text top="383" left="524" width="269" height="13" font="3">Figure 2: The <i>Iterative Flattening </i>Algorithm</text>
+<text top="429" left="571" width="48" height="13" font="3">Table 2:</text>
+<text top="430" left="624" width="40" height="12" font="6">i-FLAT</text>
+<text top="429" left="669" width="76" height="13" font="3">Performance</text>
+<text top="455" left="499" width="63" height="13" font="3">Algorithm</text>
+<text top="455" left="586" width="33" height="13" font="3">Set A</text>
+<text top="455" left="638" width="33" height="13" font="3">Set B</text>
+<text top="455" left="690" width="33" height="13" font="3">Set C</text>
+<text top="455" left="741" width="33" height="13" font="3">Set D</text>
+<text top="455" left="796" width="19" height="13" font="3">All</text>
+<text top="476" left="507" width="33" height="12" font="6">ESTA</text>
+<text top="486" left="540" width="10" height="0" font="1">M</text>
+<text top="475" left="586" width="34" height="13" font="3">17.91</text>
+<text top="475" left="638" width="34" height="13" font="3">16.04</text>
+<text top="475" left="689" width="34" height="13" font="3">25.27</text>
+<text top="475" left="741" width="34" height="13" font="3">24.83</text>
+<text top="475" left="798" width="15" height="13" font="3">21</text>
+<text top="491" left="596" width="15" height="13" font="3">45</text>
+<text top="491" left="644" width="23" height="13" font="3">125</text>
+<text top="491" left="695" width="23" height="13" font="3">190</text>
+<text top="491" left="747" width="23" height="13" font="3">758</text>
+<text top="491" left="795" width="23" height="13" font="3">279</text>
+<text top="509" left="494" width="72" height="12" font="6">i-FLAT(E+1)</text>
+<text top="508" left="590" width="26" height="13" font="3">8.99</text>
+<text top="508" left="642" width="26" height="13" font="3">8.29</text>
+<text top="508" left="689" width="34" height="13" font="3">14.61</text>
+<text top="508" left="741" width="34" height="13" font="3">12.22</text>
+<text top="508" left="798" width="15" height="13" font="3">11</text>
+<text top="524" left="596" width="15" height="13" font="3">60</text>
+<text top="524" left="644" width="23" height="13" font="3">161</text>
+<text top="524" left="695" width="23" height="13" font="3">286</text>
+<text top="524" left="743" width="30" height="13" font="3">1199</text>
+<text top="524" left="795" width="23" height="13" font="3">426</text>
+<text top="542" left="494" width="72" height="12" font="6">i-FLAT(E+5)</text>
+<text top="541" left="590" width="26" height="13" font="3">7.76</text>
+<text top="541" left="642" width="26" height="13" font="3">7.10</text>
+<text top="541" left="689" width="34" height="13" font="3">13.03</text>
+<text top="541" left="741" width="34" height="13" font="3">11.92</text>
+<text top="541" left="793" width="26" height="13" font="3">9.95</text>
+<text top="558" left="592" width="23" height="13" font="3">124</text>
+<text top="558" left="644" width="23" height="13" font="3">329</text>
+<text top="558" left="695" width="23" height="13" font="3">657</text>
+<text top="558" left="743" width="30" height="13" font="3">1875</text>
+<text top="558" left="795" width="23" height="13" font="3">746</text>
+<text top="615" left="479" width="211" height="13" font="3">and returns the best solution found.</text>
+<text top="646" left="479" width="151" height="15" font="16"><b>Experimental Results</b></text>
+<text top="667" left="479" width="203" height="13" font="3">Table 2 shows the performance of</text>
+<text top="668" left="686" width="40" height="12" font="6">i-FLAT</text>
+<text top="667" left="730" width="107" height="13" font="3">on the benchmark</text>
+<text top="683" left="479" width="268" height="13" font="3">problem set. For this set of experiments, P</text>
+<text top="695" left="747" width="22" height="0" font="1">r em</text>
+<text top="683" left="775" width="62" height="13" font="3">was set to</text>
+<text top="700" left="479" width="55" height="13" font="3">10% and</text>
+<text top="710" left="540" width="14" height="0" font="1">M</text>
+<text top="710" left="556" width="26" height="0" font="1">axF</text>
+<text top="710" left="584" width="17" height="0" font="1">ail</text>
+<text top="700" left="607" width="145" height="13" font="3">to 300. The version of</text>
+<text top="701" left="758" width="33" height="12" font="6">ESTA</text>
+<text top="712" left="791" width="12" height="0" font="1">M</text>
+<text top="700" left="810" width="27" height="13" font="3">used</text>
+<text top="716" left="479" width="39" height="13" font="3">within</text>
+<text top="717" left="521" width="40" height="12" font="6">i-FLAT</text>
+<text top="716" left="565" width="272" height="13" font="3">is the same as the basic version. We report re-</text>
+<text top="733" left="479" width="83" height="13" font="3">sults for basic</text>
+<text top="734" left="566" width="33" height="12" font="6">ESTA</text>
+<text top="745" left="599" width="12" height="0" font="1">M</text>
+<text top="733" left="612" width="25" height="13" font="3">, for</text>
+<text top="734" left="641" width="40" height="12" font="6">i-FLAT</text>
+<text top="733" left="685" width="153" height="13" font="3">starting from the solution</text>
+<text top="749" left="479" width="75" height="13" font="3">produced by</text>
+<text top="750" left="558" width="33" height="12" font="6">ESTA</text>
+<text top="761" left="591" width="12" height="0" font="1">M</text>
+<text top="749" left="608" width="75" height="13" font="3">(row labeled</text>
+<text top="750" left="687" width="40" height="12" font="6">i-FLAT</text>
+<text top="749" left="728" width="109" height="13" font="3">(E+1)), and for an</text>
+<text top="765" left="479" width="135" height="13" font="3">extended execution of</text>
+<text top="766" left="620" width="40" height="12" font="6">i-FLAT</text>
+<text top="765" left="666" width="28" height="13" font="3">(row</text>
+<text top="766" left="700" width="40" height="12" font="6">i-FLAT</text>
+<text top="765" left="740" width="97" height="13" font="3">(E+5)) that will</text>
+<text top="782" left="479" width="282" height="13" font="3">be explained below. CPU times reported for the</text>
+<text top="783" left="765" width="40" height="12" font="6">i-FLAT</text>
+<text top="782" left="808" width="29" height="13" font="3">rows</text>
+<text top="798" left="479" width="182" height="13" font="3">include the initial execution of</text>
+<text top="799" left="664" width="33" height="12" font="6">ESTA</text>
+<text top="810" left="697" width="12" height="0" font="1">M</text>
+<text top="798" left="710" width="127" height="13" font="3">, giving the total time</text>
+<text top="814" left="479" width="305" height="13" font="3">taken by the algorithm to produce its best solution.</text>
+<text top="830" left="494" width="343" height="13" font="3">Two observations are immediate: (a) the time spent by</text>
+<text top="848" left="479" width="33" height="12" font="6">ESTA</text>
+<text top="859" left="512" width="12" height="0" font="1">M</text>
+<text top="847" left="529" width="308" height="13" font="3">in generating an initial solution dominates the time</text>
+<text top="863" left="479" width="204" height="13" font="3">spent improving it by the iterative</text>
+<text top="864" left="687" width="40" height="12" font="6">i-FLAT</text>
+<text top="863" left="732" width="105" height="13" font="3">process across all</text>
+<text top="879" left="479" width="358" height="13" font="3">problem sets (e.g., 45 seconds versus 15 seconds in the case</text>
+<text top="896" left="479" width="206" height="13" font="3">of Set A); (b) the improvement of</text>
+<text top="897" left="689" width="33" height="12" font="6">ESTA</text>
+<text top="908" left="722" width="12" height="0" font="1">M</text>
+<text top="896" left="735" width="102" height="13" font="3">’s initial solution</text>
+<text top="912" left="479" width="15" height="13" font="3">by</text>
+<text top="913" left="499" width="40" height="12" font="6">i-FLAT</text>
+<text top="912" left="545" width="292" height="13" font="3">is rather significant (lowering an average devia-</text>
+<text top="928" left="479" width="126" height="13" font="3">tion of 21% to 11%).</text>
+<text top="945" left="494" width="137" height="13" font="3">It should be noted that</text>
+<text top="946" left="636" width="40" height="12" font="6">i-FLAT</text>
+<text top="945" left="681" width="156" height="13" font="3">currently performs a rela-</text>
+<text top="961" left="479" width="358" height="13" font="3">tively undirected search (basically a random walk) and there</text>
+<text top="977" left="479" width="358" height="13" font="3">appear several opportunities for further empowering the lo-</text>
+<text top="994" left="479" width="358" height="13" font="3">cal search strategy (see concluding discussion below). Here,</text>
+<text top="1010" left="479" width="358" height="13" font="3">we consider an alternative approach to improving experi-</text>
+<text top="1027" left="479" width="256" height="13" font="3">mental performance, by simply restarting</text>
+<text top="1028" left="741" width="40" height="12" font="6">i-FLAT</text>
+<text top="1027" left="787" width="51" height="13" font="3">multiple</text>
+<text top="1043" left="479" width="130" height="13" font="3">times from the same</text>
+<text top="1044" left="616" width="33" height="12" font="6">ESTA</text>
+<text top="1055" left="648" width="12" height="0" font="1">M</text>
+<text top="1043" left="668" width="169" height="13" font="3">solution. This approach is</text>
+</page>
+<page number="6" position="absolute" top="0" left="0" height="1188" width="918">
+<text top="86" left="81" width="170" height="13" font="3">justified by the random step</text>
+<text top="87" left="256" width="180" height="12" font="15">SamplingCriticalPath</text>
+<text top="86" left="436" width="4" height="13" font="3">,</text>
+<text top="102" left="81" width="358" height="13" font="3">which guarantees different execution on different restarts.</text>
+<text top="118" left="81" width="358" height="13" font="3">Table 2 shows the results obtained with 5 random restarts of</text>
+<text top="136" left="81" width="40" height="12" font="6">i-FLAT</text>
+<text top="135" left="126" width="48" height="13" font="3">(labeled</text>
+<text top="136" left="179" width="40" height="12" font="6">i-FLAT</text>
+<text top="135" left="219" width="220" height="13" font="3">(E+5)). In this case, performance is</text>
+<text top="151" left="81" width="358" height="13" font="3">improved on all four problem sets and the overall average</text>
+<text top="167" left="81" width="196" height="13" font="3">deviation is lowered below 10%.</text>
+<text top="185" left="96" width="343" height="13" font="3">Finally, a comment concerning comparison with Nuijten’s</text>
+<text top="202" left="81" width="221" height="13" font="3">work. The performance of the two</text>
+<text top="203" left="307" width="40" height="12" font="6">i-FLAT</text>
+<text top="202" left="353" width="86" height="13" font="3">configurations</text>
+<text top="218" left="81" width="358" height="13" font="3">on Set A should be seen as quite positive in relation to the</text>
+<text top="234" left="81" width="358" height="13" font="3">results obtained by the CCA algorithm. If we consider the</text>
+<text top="251" left="81" width="158" height="13" font="3">relatively simple steps that</text>
+<text top="252" left="242" width="40" height="12" font="6">i-FLAT</text>
+<text top="251" left="286" width="153" height="13" font="3">executes in contrast to the</text>
+<text top="267" left="81" width="358" height="13" font="3">rather sophisticated resource propagation rule that is coupled</text>
+<text top="284" left="81" width="358" height="13" font="3">with random restarting in the CCA approach, the difference</text>
+<text top="300" left="81" width="358" height="13" font="3">in deviation of about 6% is quite respectable. If we consider</text>
+<text top="316" left="81" width="68" height="13" font="3">further that</text>
+<text top="317" left="154" width="40" height="12" font="6">i-FLAT</text>
+<text top="316" left="194" width="245" height="13" font="3">’s deviation from upper-bound solutions</text>
+<text top="333" left="81" width="358" height="13" font="3">does not worsen substantially with increasing problem scale,</text>
+<text top="349" left="81" width="358" height="13" font="3">and that CCA scalability (particularly with use of the most</text>
+<text top="365" left="81" width="358" height="13" font="3">effective propagation rules) is an open issue, then the results</text>
+<text top="382" left="81" width="82" height="13" font="3">obtained with</text>
+<text top="383" left="167" width="40" height="12" font="6">i-FLAT</text>
+<text top="382" left="211" width="199" height="13" font="3">assume even greater significance.</text>
+<text top="419" left="144" width="231" height="16" font="2"><b>Conclusions and Future Work</b></text>
+<text top="446" left="81" width="358" height="13" font="3">This paper has presented a new iterative improvement tech-</text>
+<text top="463" left="81" width="358" height="13" font="3">nique, called <i>iterative flattening </i>for solving large-scale</text>
+<text top="479" left="81" width="218" height="13" font="3">multi-capacity scheduling problems.</text>
+<text top="497" left="96" width="343" height="13" font="3">Several aspects of this algorithm are worth underscoring.</text>
+<text top="513" left="81" width="358" height="13" font="3">First, the algorithm provides a novel, local search model that</text>
+<text top="530" left="81" width="358" height="13" font="3">integrates naturally with typical constraint-guided sched-</text>
+<text top="546" left="81" width="245" height="13" font="3">ule generation methods and heuristics.</text>
+<text top="546" left="341" width="98" height="13" font="3">Second, the al-</text>
+<text top="562" left="81" width="358" height="13" font="3">gorithm is quite general and is applicable not only to</text>
+<text top="578" left="81" width="19" height="13" font="3">the</text>
+<text top="580" left="106" width="49" height="12" font="6">MCJSSP</text>
+<text top="578" left="155" width="284" height="13" font="3">, but also to problems such as resource con-</text>
+<text top="595" left="81" width="358" height="13" font="3">strained project scheduling where activities require multi-</text>
+<text top="611" left="81" width="358" height="13" font="3">ple resources and/or resource capacity of varying amounts.</text>
+<text top="628" left="81" width="358" height="13" font="3">Finally, the algorithm has be shown to scale effectively to</text>
+<text top="644" left="81" width="215" height="13" font="3">large-scale problem instances of the</text>
+<text top="645" left="299" width="49" height="12" font="6">MCJSSP</text>
+<text top="644" left="348" width="91" height="13" font="3">, creating a ref-</text>
+<text top="660" left="81" width="358" height="13" font="3">erence point (being within 10% of computed upper bounds)</text>
+<text top="677" left="81" width="349" height="13" font="3">for other approaches on a rich set of benchmark problems.</text>
+<text top="695" left="96" width="343" height="13" font="3">The basic concept of iterative flattening presented in this</text>
+<text top="711" left="81" width="358" height="13" font="3">paper is very general, and many possibilities of performance</text>
+<text top="727" left="81" width="358" height="13" font="3">enhancement through incorporation of more sophisticated</text>
+<text top="744" left="81" width="358" height="13" font="3">and better informed local-search procedures appear possi-</text>
+<text top="760" left="81" width="358" height="13" font="3">ble. Among the directions we are considering for future</text>
+<text top="776" left="81" width="357" height="13" font="3">work are the following: examination of different precedence</text>
+<text top="793" left="81" width="358" height="13" font="3">constraint retraction strategies; enrichment of the basic ran-</text>
+<text top="809" left="81" width="359" height="13" font="3">dom search with standard concepts such as neighborhood</text>
+<text top="825" left="81" width="358" height="13" font="3">analysis or a taboo-list; and, more generally, the insertion of</text>
+<text top="842" left="81" width="358" height="13" font="3">iterative flattening within a <i>meta </i>local search strategy (e.g.,</text>
+<text top="858" left="81" width="273" height="13" font="3">(Nowicki &amp; Smutnicki 1996) for the classical</text>
+<text top="859" left="357" width="28" height="12" font="6">JSSP</text>
+<text top="858" left="386" width="9" height="13" font="3">).</text>
+<text top="895" left="218" width="83" height="16" font="2"><b>References</b></text>
+<text top="923" left="89" width="350" height="13" font="3">Baptiste, P., and Le Pape, C. 1995. A Theoretical and</text>
+<text top="939" left="89" width="350" height="13" font="3">Experimental Comparison of Constraint Propagation Tech-</text>
+<text top="955" left="89" width="350" height="13" font="3">niques for Disjunctive Scheduling. In <i>Proceedings of the</i></text>
+<text top="982" left="89" width="15" height="0" font="1">14</text>
+<text top="976" left="104" width="12" height="0" font="1">th</text>
+<text top="972" left="120" width="280" height="13" font="8"><i>Int. Joint Conference on Artificial Intelligence</i>.</text>
+<text top="994" left="89" width="350" height="13" font="3">Baptiste, P.; Le Pape, C.; and Nuijten, W. 1997. Sati-</text>
+<text top="1010" left="89" width="351" height="13" font="3">fiability Tests and Time-Bound Adjustments for Cumula-</text>
+<text top="1027" left="89" width="350" height="13" font="3">tive Scheduling Problems. Technical report, University of</text>
+<text top="1043" left="89" width="345" height="13" font="3">Compi´egnie. to appear in <i>Annals of Operations Research</i>.</text>
+<text top="86" left="487" width="350" height="13" font="3">Beck, J., and Fox, M. 1999. Scheduling Alternative Ac-</text>
+<text top="102" left="487" width="146" height="13" font="3">tivities. In <i>Proceedings</i></text>
+<text top="112" left="639" width="15" height="0" font="1">16</text>
+<text top="107" left="654" width="12" height="0" font="1">th</text>
+<text top="102" left="671" width="166" height="13" font="8"><i>National Conference on AI</i></text>
+<text top="118" left="487" width="66" height="13" font="8"><i>(AAAI-99)</i>.</text>
+<text top="139" left="487" width="350" height="13" font="3">Bresina, J. 1996. Heuristic-biased Stochastic Sampling. In</text>
+<text top="155" left="487" width="74" height="13" font="8"><i>Proceedings</i></text>
+<text top="165" left="564" width="15" height="0" font="1">13</text>
+<text top="160" left="580" width="12" height="0" font="1">th</text>
+<text top="155" left="595" width="231" height="13" font="8"><i>National Conference on AI (AAAI-96)</i>.</text>
+<text top="176" left="487" width="350" height="13" font="3">Cesta, A., and Oddi, A. 1996. Gaining Efficiency and Flex-</text>
+<text top="192" left="487" width="350" height="13" font="3">ibility in the Simple Temporal Problem. In <i>Proceedings of</i></text>
+<text top="208" left="487" width="350" height="13" font="8"><i>the Third International Workshop on Temporal Represen-</i></text>
+<text top="225" left="487" width="201" height="13" font="8"><i>tation and Reasoning (TIME-96)</i>.</text>
+<text top="245" left="487" width="351" height="13" font="3">Cesta, A.; Oddi, A.; and Smith, S. 1998. Profile Based Al-</text>
+<text top="261" left="487" width="351" height="13" font="3">gorithms to Solve Multiple Capacitated Metric Scheduling</text>
+<text top="278" left="487" width="192" height="13" font="3">Problems. In <i>Proceedings of the</i></text>
+<text top="288" left="682" width="8" height="0" font="1">4</text>
+<text top="282" left="690" width="12" height="0" font="1">th</text>
+<text top="278" left="706" width="132" height="13" font="8"><i>Int. Conf. on Artificial</i></text>
+<text top="294" left="487" width="248" height="13" font="8"><i>Intelligence Planning Systems (AIPS-98)</i>.</text>
+<text top="315" left="487" width="350" height="13" font="3">Cesta, A.; Oddi, A.; and Smith, S. 1999. An Iterative Sam-</text>
+<text top="331" left="487" width="350" height="13" font="3">pling Procedure for Resource Constrained Project Schedul-</text>
+<text top="347" left="487" width="293" height="13" font="3">ing with Time Windows. In <i>Proceedings of the</i></text>
+<text top="357" left="784" width="15" height="0" font="1">16</text>
+<text top="351" left="800" width="12" height="0" font="1">th</text>
+<text top="347" left="817" width="21" height="13" font="8"><i>Int.</i></text>
+<text top="364" left="487" width="325" height="13" font="8"><i>Joint Conference on Artificial Intelligence (IJCAI-99)</i>.</text>
+<text top="384" left="487" width="351" height="13" font="3">Crawford, J. 1996. An Approach to Resource Constrained</text>
+<text top="400" left="487" width="350" height="13" font="3">Project Scheduling. In <i>Proceedings of the 1996 Artificial</i></text>
+<text top="416" left="487" width="350" height="13" font="8"><i>Intelligence and Manufacturing Research Planning Work-</i></text>
+<text top="433" left="487" width="32" height="13" font="8"><i>shop</i>.</text>
+<text top="453" left="487" width="351" height="13" font="3">Dechter, R.; Meiri, I.; and Pearl, J. 1991. Temporal Con-</text>
+<text top="470" left="487" width="300" height="13" font="3">straint Networks. <i>Artificial Intelligence </i>49:61–95.</text>
+<text top="490" left="487" width="350" height="13" font="3">Harvey, W., and Ginsberg, M. 1995. Limited Discrepancy</text>
+<text top="506" left="487" width="185" height="13" font="3">Search. In <i>Proceedings of the</i></text>
+<text top="516" left="677" width="15" height="0" font="1">14</text>
+<text top="511" left="692" width="12" height="0" font="1">th</text>
+<text top="506" left="709" width="128" height="13" font="8"><i>Int. Joint Conference</i></text>
+<text top="523" left="487" width="219" height="13" font="8"><i>on Artificial Intelligence (IJCAI-95)</i>.</text>
+<text top="543" left="487" width="350" height="13" font="3">Laborie, P., and Ghallab, M. 1995. Planning with Sharable</text>
+<text top="559" left="487" width="263" height="13" font="3">Resource Constraints. In <i>Proceedings of the</i></text>
+<text top="569" left="753" width="15" height="0" font="1">14</text>
+<text top="564" left="768" width="12" height="0" font="1">th</text>
+<text top="559" left="784" width="54" height="13" font="8"><i>Int. Joint</i></text>
+<text top="576" left="487" width="291" height="13" font="8"><i>Conference on Artificial Intelligence (IJCAI-95)</i>.</text>
+<text top="596" left="487" width="350" height="13" font="3">Lawrence, S. 1984. Resource Constrained Project Schedul-</text>
+<text top="613" left="487" width="350" height="13" font="3">ing: An Experimental Investigation of Heuristic Schedul-</text>
+<text top="629" left="487" width="351" height="13" font="3">ing Techniques (Supplement). Technical report, Graduate</text>
+<text top="645" left="487" width="350" height="13" font="3">School of Industrial Administration, Carnegie Mellon Uni-</text>
+<text top="662" left="487" width="43" height="13" font="3">versity.</text>
+<text top="682" left="487" width="350" height="13" font="3">Nowicki, E., and Smutnicki, C. 1996. A Fast Taboo Search</text>
+<text top="698" left="487" width="350" height="13" font="3">Algorithm for the Job Shop Problem. <i>Management Science</i></text>
+<text top="715" left="487" width="76" height="13" font="3">42:797–813.</text>
+<text top="735" left="487" width="350" height="13" font="3">Nuijten, W., and Aarts, E. 1996. A Computational Study of</text>
+<text top="752" left="487" width="351" height="13" font="3">Constraint Satisfaction for Multiple Capacitated Job Shop</text>
+<text top="768" left="487" width="349" height="13" font="3">Scheduling. <i>European Journal of Operational Research</i></text>
+<text top="784" left="487" width="94" height="13" font="3">90(2):269–284.</text>
+<text top="805" left="487" width="74" height="13" font="3">Nuijten, W.</text>
+<text top="805" left="580" width="34" height="13" font="3">1994.</text>
+<text top="805" left="633" width="204" height="13" font="8"><i>Time and Resource Constrained</i></text>
+<text top="821" left="487" width="350" height="13" font="8"><i>Scheduling - A Constraint Satisfaction Approach</i>. Ph.D.</text>
+<text top="837" left="487" width="350" height="13" font="3">Dissertation, Eindhoven University of Technology, The</text>
+<text top="854" left="487" width="76" height="13" font="3">Netherlands.</text>
+<text top="874" left="487" width="351" height="13" font="3">Oddi, A., and Smith, S. 1997. Stochastic Procedures for</text>
+<text top="890" left="487" width="291" height="13" font="3">Generating Feasible Schedules. In <i>Proceedings</i></text>
+<text top="900" left="783" width="15" height="0" font="1">14</text>
+<text top="895" left="798" width="12" height="0" font="1">th</text>
+<text top="890" left="815" width="23" height="13" font="8"><i>Na-</i></text>
+<text top="907" left="487" width="213" height="13" font="8"><i>tional Conference on AI (AAAI-97)</i>.</text>
+<text top="927" left="487" width="351" height="13" font="3">Smith, S., and Cheng, C. 1993. Slack-Based Heuristics for</text>
+<text top="944" left="487" width="318" height="13" font="3">Constraint Satisfaction Scheduling. In <i>Proceedings</i></text>
+<text top="953" left="810" width="15" height="0" font="1">11</text>
+<text top="948" left="825" width="12" height="0" font="1">th</text>
+<text top="960" left="487" width="231" height="13" font="8"><i>National Conference on AI (AAAI-93)</i>.</text>
+<text top="980" left="487" width="351" height="13" font="3">Zweben, M.; Duan, B.; Davis, E.; and Deale, M. 1994.</text>
+<text top="996" left="487" width="323" height="13" font="3">Scheduling and Rescheduling with Iterative Repair.</text>
+<text top="996" left="825" width="13" height="13" font="3">In</text>
+<text top="1013" left="487" width="351" height="13" font="3">Zweben, M., and Fox, S. M., eds., <i>Intelligent Scheduling</i>.</text>
+<text top="1029" left="487" width="117" height="13" font="3">Morgan Kaufmann.</text>
+</page>
+</pdf2xml>

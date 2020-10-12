@@ -1,0 +1,866 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pdf2xml SYSTEM "pdf2xml.dtd">
+
+<pdf2xml producer="poppler" version="0.90.1">
+<page number="1" position="absolute" top="0" left="0" height="1188" width="918">
+	<fontspec id="0" size="21" family="Times" color="#000000"/>
+	<fontspec id="1" size="17" family="Times" color="#000000"/>
+	<fontspec id="2" size="14" family="Times" color="#000000"/>
+	<fontspec id="3" size="14" family="Courier" color="#000000"/>
+	<fontspec id="4" size="14" family="Times" color="#000000"/>
+	<fontspec id="5" size="13" family="Times" color="#000000"/>
+	<fontspec id="6" size="14" family="Times" color="#000000"/>
+	<fontspec id="7" size="12" family="Helvetica" color="#000000"/>
+	<fontspec id="8" size="12" family="ArialMT" color="#000000"/>
+<text top="146" left="215" width="487" height="19" font="0">A Method for Clustering the Experiences of a Mobile</text>
+<text top="170" left="256" width="405" height="19" font="0">Robot that Accords with Human Judgments</text>
+<text top="211" left="264" width="390" height="16" font="1">Tim Oates, Matthew D. Schmill and Paul R. Cohen</text>
+<text top="229" left="376" width="166" height="13" font="2">Computer Science Building</text>
+<text top="245" left="338" width="243" height="13" font="2">University of Massachusetts, Box 34610</text>
+<text top="262" left="379" width="160" height="13" font="2">Amherst, MA 01003-4610</text>
+<text top="279" left="346" width="9" height="12" font="3">f</text>
+<text top="278" left="354" width="118" height="13" font="2">oates,schmill,cohen</text>
+<text top="279" left="472" width="9" height="12" font="3">g</text>
+<text top="278" left="480" width="93" height="13" font="2">@cs.umass.edu</text>
+<text top="329" left="232" width="56" height="13" font="4">Abstract</text>
+<text top="356" left="96" width="328" height="12" font="5">If robotic agents are to act autonomously they must have the</text>
+<text top="371" left="96" width="327" height="12" font="5">ability to construct and reason about models of their physi-</text>
+<text top="386" left="96" width="327" height="12" font="5">cal environment. For example, planning to achieve goals re-</text>
+<text top="401" left="96" width="328" height="12" font="5">quires knowledge of how the robotâs actions affect the state</text>
+<text top="416" left="96" width="328" height="12" font="5">of the world over time. The traditional approach of hand-</text>
+<text top="431" left="96" width="328" height="12" font="5">coding this knowledge is often quite difficult, especially for</text>
+<text top="446" left="96" width="327" height="12" font="5">robotic agents with rich sensing abilities that exist in dynamic</text>
+<text top="461" left="96" width="328" height="12" font="5">and uncertain environments. Ideally, robots would acquire</text>
+<text top="476" left="96" width="327" height="12" font="5">knowledge of their environment and then use this knowledge</text>
+<text top="491" left="96" width="328" height="12" font="5">to act. We present an unsupervised learning method that al-</text>
+<text top="506" left="96" width="328" height="12" font="5">lows a robotic agent to identify and represent qualitatively</text>
+<text top="521" left="96" width="328" height="12" font="5">different outcomes of actions. Experiments with a Pioneer-1</text>
+<text top="536" left="96" width="328" height="12" font="5">mobile robot demonstrate the utility of the approach with re-</text>
+<text top="551" left="96" width="328" height="12" font="5">spect to capturing the structure and dynamics of a complex,</text>
+<text top="565" left="96" width="328" height="12" font="5">real-world environment, and show that the models acquired</text>
+<text top="580" left="96" width="328" height="12" font="5">by the robot correlate surprisingly well with human models</text>
+<text top="595" left="96" width="105" height="12" font="5">of the environment.</text>
+<text top="635" left="211" width="97" height="16" font="1">Introduction</text>
+<text top="659" left="81" width="358" height="13" font="2">If robotic agents are to act autonomously they must have the</text>
+<text top="675" left="81" width="358" height="13" font="2">ability to construct and reason about models of their phys-</text>
+<text top="692" left="81" width="358" height="13" font="2">ical environment. In all but the simplest, static domains,</text>
+<text top="708" left="81" width="358" height="13" font="2">such models must represent the dynamics of environmental</text>
+<text top="725" left="81" width="358" height="13" font="2">change. For example, because the effects of actions are not</text>
+<text top="741" left="81" width="358" height="13" font="2">instantaneous, planning to achieve goals requires knowledge</text>
+<text top="758" left="81" width="358" height="13" font="2">of how the robots actions affect the state of the world over</text>
+<text top="774" left="81" width="359" height="13" font="2">time. The traditional approach of hand-coding this knowl-</text>
+<text top="790" left="81" width="358" height="13" font="2">edge is often quite difficult, especially for robotic agents</text>
+<text top="807" left="81" width="358" height="13" font="2">with rich sensing abilities that exist in dynamic and uncer-</text>
+<text top="823" left="81" width="358" height="13" font="2">tain environments. Ideally, agents would acquire knowledge</text>
+<text top="840" left="81" width="336" height="13" font="2">of their environment and then use this knowledge to act.</text>
+<text top="856" left="96" width="343" height="13" font="2">This paper presents an unsupervised method for learning</text>
+<text top="873" left="81" width="358" height="13" font="2">models of environmental dynamics based on clustering mul-</text>
+<text top="889" left="81" width="359" height="13" font="2">tivariate time series. An unsupervised learning approach to</text>
+<text top="906" left="81" width="358" height="13" font="2">this problem is desirable because, as noted previously, hand-</text>
+<text top="922" left="81" width="358" height="13" font="2">coding models of dynamic, stochastic environments is a dif-</text>
+<text top="939" left="81" width="358" height="13" font="2">ficult task, and inadequacies of the encoding undermine the</text>
+<text top="955" left="81" width="358" height="13" font="2">agentâs autonomy. Experiments with a Pioneer-1 mobile</text>
+<text top="971" left="81" width="359" height="13" font="2">robot demonstrate the utility of the method and show that</text>
+<text top="988" left="81" width="358" height="13" font="2">the models acquired by the robot correlate surprisingly well</text>
+<text top="1004" left="81" width="239" height="13" font="2">with human models of the environment.</text>
+<text top="1029" left="81" width="358" height="12" font="5">Copyright c 2000, American Association for Artificial Intelli-</text>
+<text top="1044" left="81" width="229" height="12" font="5">gence (www.aaai.org). All rights reserved.</text>
+<text top="329" left="494" width="343" height="13" font="2">Individual time series are obtained by recording the out-</text>
+<text top="345" left="479" width="359" height="13" font="2">put of a subset of an agentâs sensors. We call these time</text>
+<text top="362" left="479" width="358" height="13" font="2">series experiences. An example of a sensor subset on the</text>
+<text top="378" left="479" width="359" height="13" font="2">Pioneer-1 robot is its array of seven sonars. Each sonar re-</text>
+<text top="395" left="479" width="358" height="13" font="2">turns the distance to the closest object in the direction that</text>
+<text top="411" left="479" width="358" height="13" font="2">it points. Recording of time series is usually triggered by</text>
+<text top="427" left="479" width="358" height="13" font="2">events, such as the initiation of a particular action. Each</text>
+<text top="444" left="479" width="358" height="13" font="2">time a given event occurs, the time series that was recorded</text>
+<text top="460" left="479" width="359" height="13" font="2">is added to a bucket associated with that event. Once a suf-</text>
+<text top="477" left="479" width="358" height="13" font="2">ficient number of experiences are recorded, clusters can be</text>
+<text top="493" left="479" width="358" height="13" font="2">formed. Clustering requires a measure of similarity between</text>
+<text top="510" left="479" width="358" height="13" font="2">multivariate time series. One such measure that is particu-</text>
+<text top="526" left="479" width="358" height="13" font="2">larly appropriate for this problem is Dynamic Time Warping</text>
+<text top="542" left="479" width="358" height="13" font="2">(DTW) (Sankoff &amp; Kruskal 1983). (We discuss DTW in de-</text>
+<text top="559" left="479" width="358" height="13" font="2">tail in a later section.) Each cluster can then be represented</text>
+<text top="575" left="479" width="358" height="13" font="2">by a prototype, either the cluster centroid or an average of</text>
+<text top="592" left="479" width="358" height="13" font="2">its members. This process is depicted graphically in Figure</text>
+<text top="608" left="479" width="11" height="13" font="2">1.</text>
+<text top="625" left="494" width="343" height="13" font="2">Cluster prototypes formed in this manner are useful for</text>
+<text top="641" left="479" width="358" height="13" font="2">a variety of purposes. If the event driving the collection of</text>
+<text top="658" left="479" width="358" height="13" font="2">time series was the initiation of an action, cluster prototypes</text>
+<text top="674" left="479" width="358" height="13" font="2">correspond to qualitatively different outcomes of engaging</text>
+<text top="691" left="479" width="358" height="13" font="2">in that action. As such, they can be used for off-line planning</text>
+<text top="707" left="479" width="358" height="13" font="2">and for on-line prediction by finding the best partial match</text>
+<text top="724" left="479" width="291" height="13" font="2">among the prototypes to current sensor readings.</text>
+<text top="740" left="494" width="343" height="13" font="2">The remainder of the paper is organized as follows. The</text>
+<text top="757" left="479" width="358" height="13" font="2">next section describes our method for clustering time series</text>
+<text top="773" left="479" width="358" height="13" font="2">in detail, including a discussion of Dynamic Time Warping,</text>
+<text top="789" left="479" width="358" height="13" font="2">the particular clustering algorithm used, and prototype for-</text>
+<text top="806" left="479" width="358" height="13" font="2">mation. We then present an evaluation of the method as ap-</text>
+<text top="822" left="479" width="358" height="13" font="2">plied to the Pioneer-1 mobile robot. The last two sections</text>
+<text top="839" left="479" width="358" height="13" font="2">review related work, pointing out the connection between</text>
+<text top="855" left="479" width="358" height="13" font="2">Dynamic Time Warping and Hidden Markov Models, and</text>
+<text top="872" left="479" width="217" height="13" font="2">outline future research, respectively.</text>
+<text top="904" left="569" width="178" height="16" font="1">Clustering Experiences</text>
+<text top="928" left="479" width="358" height="13" font="2">This section presents our method for unsupervised learning</text>
+<text top="944" left="479" width="358" height="13" font="2">of models of environmental dynamics based on clustering of</text>
+<text top="961" left="479" width="358" height="13" font="2">multivariate time series. To ground the discussion, consider</text>
+<text top="977" left="479" width="358" height="13" font="2">the Pioneer-1 mobile robot. Its sensors include, among oth-</text>
+<text top="994" left="479" width="358" height="13" font="2">ers, a bump switch on the end of each gripper paddle that</text>
+<text top="1010" left="479" width="358" height="13" font="2">indicates when the gripper hits an object, an infrared break</text>
+<text top="1027" left="479" width="358" height="13" font="2">beam between the gripper paddles that indicates when an</text>
+<text top="1043" left="479" width="358" height="13" font="2">object enters the gripper, and wheel encoders that measure</text>
+<text top="77" left="75" width="66" height="11" font="7">From: AAAI-</text>
+<text top="77" left="141" width="13" height="11" font="8">00</text>
+<text top="77" left="154" width="144" height="11" font="7"> Proceedings. Copyright Â© </text>
+<text top="77" left="298" width="27" height="11" font="8">2000</text>
+<text top="77" left="325" width="227" height="11" font="7">, AAAI (www.aaai.org). All rights reserved. </text>
+</page>
+<page number="2" position="absolute" top="0" left="0" height="1188" width="918">
+	<fontspec id="9" size="10" family="Times" color="#000000"/>
+	<fontspec id="10" size="10" family="Courier" color="#000000"/>
+<text top="451" left="233" width="49" height="10" font="9">Prototypes</text>
+<text top="377" left="238" width="38" height="10" font="9">Clusters</text>
+<text top="236" left="218" width="79" height="10" font="9">Raw Experiences</text>
+<text top="492" left="81" width="358" height="13" font="2">Figure 1: The formation of prototypes of qualitatively dif-</text>
+<text top="508" left="81" width="122" height="13" font="2">ference experiences.</text>
+<text top="560" left="81" width="248" height="13" font="2">the rate at which the wheels are spinning.</text>
+<text top="578" left="96" width="343" height="13" font="2">Suppose the robot is moving forward at a fixed velocity.</text>
+<text top="595" left="81" width="358" height="13" font="2">Collectively, the values returned by the sensors mentioned</text>
+<text top="611" left="81" width="358" height="13" font="2">above can discriminate many different situations. For exam-</text>
+<text top="628" left="81" width="358" height="13" font="2">ple, if the robot runs into a large immovable object, such as</text>
+<text top="644" left="81" width="358" height="13" font="2">a wall, the bump sensors go high and the wheel velocities</text>
+<text top="661" left="81" width="358" height="13" font="2">abruptly drop to zero. If it bumps into a trash can, which is</text>
+<text top="677" left="81" width="357" height="13" font="2">large but movable, the bump sensors go high and the wheel</text>
+<text top="694" left="81" width="358" height="13" font="2">velocities remain constant. If it comes across an object that</text>
+<text top="710" left="81" width="358" height="13" font="2">can be grasped, the break beam goes high when the object</text>
+<text top="726" left="81" width="358" height="13" font="2">enters the gripper and there is no change in wheel velocity.</text>
+<text top="743" left="81" width="358" height="13" font="2">As observers of the robotâs actions, we can label and catego-</text>
+<text top="759" left="81" width="358" height="13" font="2">rize its experiences. Our goal is to provide mechanisms that</text>
+<text top="776" left="81" width="294" height="13" font="2">will allow the robot to perform that task by itself.</text>
+<text top="794" left="96" width="20" height="13" font="2">Let</text>
+<text top="795" left="122" width="9" height="12" font="3">E</text>
+<text top="794" left="140" width="299" height="13" font="2">denote an experience, a multivariate time series</text>
+<text top="811" left="81" width="63" height="13" font="2">containing</text>
+<text top="811" left="149" width="9" height="12" font="3">n</text>
+<text top="811" left="162" width="276" height="13" font="2">measurements from a set of sensors such that</text>
+<text top="828" left="81" width="54" height="12" font="3">E = fe</text>
+<text top="833" left="133" width="6" height="8" font="10">t</text>
+<text top="828" left="138" width="13" height="12" font="3">j1</text>
+<text top="828" left="175" width="9" height="12" font="3">t</text>
+<text top="828" left="205" width="18" height="12" font="3">ng</text>
+<text top="827" left="222" width="36" height="13" font="2">. The</text>
+<text top="828" left="263" width="9" height="12" font="3">e</text>
+<text top="833" left="270" width="6" height="8" font="10">i</text>
+<text top="827" left="280" width="159" height="13" font="2">are vectors of values con-</text>
+<text top="844" left="81" width="316" height="13" font="2">taining one element for each sensor. Given a set of</text>
+<text top="844" left="402" width="9" height="12" font="3">m</text>
+<text top="844" left="420" width="19" height="13" font="2">ex-</text>
+<text top="860" left="81" width="358" height="13" font="2">periences, we want to obtain, in an unsupervised manner, a</text>
+<text top="877" left="81" width="358" height="13" font="2">partition into subsets of experiences such that each subset</text>
+<text top="893" left="81" width="358" height="13" font="2">corresponds to a qualitatively different type of experience.</text>
+<text top="909" left="81" width="358" height="13" font="2">Given such a partition, reasoning with entire sets of expe-</text>
+<text top="926" left="81" width="358" height="13" font="2">riences is unwieldy, so a simpler representation such as the</text>
+<text top="942" left="81" width="252" height="13" font="2">average experience in a subset is required.</text>
+<text top="961" left="96" width="343" height="13" font="2">If an appropriate measure of the similarity of two time se-</text>
+<text top="977" left="81" width="358" height="13" font="2">ries is available, clustering followed by prototype extraction</text>
+<text top="994" left="81" width="358" height="13" font="2">is a suitable unsupervised learning method for this problem</text>
+<text top="1010" left="81" width="359" height="13" font="2">(see Figure 1). Finding such a measure of similarity is diffi-</text>
+<text top="1027" left="81" width="358" height="13" font="2">cult because experiences that are qualitatively the same may</text>
+<text top="1043" left="81" width="358" height="13" font="2">be quantitatively different in at least two ways. First, they</text>
+<text top="86" left="479" width="358" height="13" font="2">may be of different lengths, making it difficult or impossible</text>
+<text top="102" left="479" width="358" height="13" font="2">to embed the time series in a metric space and use, for ex-</text>
+<text top="119" left="479" width="358" height="13" font="2">ample, Euclidean distance to determine similarity. Second,</text>
+<text top="135" left="479" width="358" height="13" font="2">within a single time series, the rate at which progress is made</text>
+<text top="151" left="479" width="358" height="13" font="2">can vary non-linearly. For example, the robot may move</text>
+<text top="168" left="479" width="358" height="13" font="2">slowly or quickly toward a wall, leading to either a slow</text>
+<text top="184" left="479" width="358" height="13" font="2">or rapid decrease in the distance returned by its forward-</text>
+<text top="201" left="479" width="358" height="13" font="2">pointing sonar. In each case, though, then end result is the</text>
+<text top="217" left="479" width="358" height="13" font="2">same, the robot bumps into the wall. Such differences in</text>
+<text top="234" left="479" width="358" height="13" font="2">rate make similarity measures such as cross-correlation un-</text>
+<text top="250" left="479" width="42" height="13" font="2">usable.</text>
+<text top="268" left="494" width="343" height="13" font="2">The measure of similarity that we use is Dynamic Time</text>
+<text top="284" left="479" width="358" height="13" font="2">Warping (DTW) (Sankoff &amp; Kruskal 1983). It is ideally</text>
+<text top="300" left="479" width="358" height="13" font="2">suited for the time series generated by a robotâs sensors.</text>
+<text top="317" left="479" width="358" height="13" font="2">DTW is a generalization of classical algorithms for compar-</text>
+<text top="333" left="479" width="358" height="13" font="2">ing discrete sequences (e.g. minimum string edit distance</text>
+<text top="350" left="479" width="358" height="13" font="2">(Corman, Leiserson, &amp; Rivest 1990)) to sequences of con-</text>
+<text top="366" left="479" width="358" height="13" font="2">tinuous values. It was used extensively in speech recogni-</text>
+<text top="383" left="479" width="358" height="13" font="2">tion, a domain in which the time series are notoriously com-</text>
+<text top="399" left="479" width="358" height="13" font="2">plex and noisy, until the advent of Hidden Markov Models</text>
+<text top="416" left="479" width="358" height="13" font="2">which offered a unified probabilistic framework for the en-</text>
+<text top="432" left="479" width="234" height="13" font="2">tire recognition process (Jelinek 1997).</text>
+<text top="449" left="494" width="142" height="13" font="2">Given two experiences,</text>
+<text top="450" left="640" width="9" height="12" font="3">E</text>
+<text top="455" left="651" width="6" height="8" font="10">1</text>
+<text top="449" left="663" width="22" height="13" font="2">and</text>
+<text top="450" left="689" width="9" height="12" font="3">E</text>
+<text top="455" left="700" width="6" height="8" font="10">2</text>
+<text top="449" left="711" width="126" height="13" font="2">(more generally, two</text>
+<text top="466" left="479" width="358" height="13" font="2">continuous multivariate time series), DTW finds the warping</text>
+<text top="482" left="479" width="151" height="13" font="2">of the time dimension in</text>
+<text top="483" left="636" width="9" height="12" font="3">E</text>
+<text top="488" left="647" width="6" height="8" font="10">1</text>
+<text top="482" left="659" width="179" height="13" font="2">that minimizes the difference</text>
+<text top="499" left="479" width="358" height="13" font="2">between the two experiences. Consider the two univariate</text>
+<text top="515" left="479" width="358" height="13" font="2">time series shown in Figure 2. Imagine that the time axis of</text>
+<text top="532" left="479" width="9" height="12" font="3">E</text>
+<text top="537" left="490" width="6" height="8" font="10">1</text>
+<text top="532" left="500" width="337" height="13" font="2">is an elastic string, and that you can grab that string at any</text>
+<text top="548" left="479" width="358" height="13" font="2">point corresponding to a time at which a value was recorded</text>
+<text top="564" left="479" width="358" height="13" font="2">for the time series. Warping of the time dimension consists</text>
+<text top="581" left="479" width="358" height="13" font="2">of grabbing one of those points and moving it to a new posi-</text>
+<text top="597" left="479" width="358" height="13" font="2">tion on the time axis. As the point moves, the elastic string</text>
+<text top="614" left="479" width="358" height="13" font="2">(the time dimension) compresses in the direction of motion</text>
+<text top="630" left="479" width="358" height="13" font="2">and expands in the other direction. Consider the middle col-</text>
+<text top="647" left="479" width="358" height="13" font="2">umn in Figure 2. Moving the point at the third time step from</text>
+<text top="663" left="479" width="358" height="13" font="2">its original location to the seventh time step causes all of the</text>
+<text top="679" left="479" width="358" height="13" font="2">points to its right to compress into the remaining available</text>
+<text top="696" left="479" width="358" height="13" font="2">space, and all of the points to its left to fill the newly created</text>
+<text top="712" left="479" width="357" height="13" font="2">space. Of course, more complicated warpings of the time</text>
+<text top="729" left="479" width="358" height="13" font="2">dimension are possible, as with the third column in Figure 2</text>
+<text top="745" left="479" width="191" height="13" font="2">in which four points are moved.</text>
+<text top="762" left="494" width="261" height="13" font="2">Given a warping of the time dimension in</text>
+<text top="763" left="761" width="9" height="12" font="3">E</text>
+<text top="768" left="772" width="6" height="8" font="10">1</text>
+<text top="762" left="778" width="59" height="13" font="2">, yielding</text>
+<text top="779" left="479" width="200" height="13" font="2">a time series that we will denote</text>
+<text top="780" left="685" width="9" height="12" font="3">E</text>
+<text top="777" left="697" width="6" height="8" font="10">0</text>
+<text top="786" left="696" width="6" height="8" font="10">1</text>
+<text top="779" left="702" width="135" height="13" font="2">, one can measure the</text>
+<text top="795" left="479" width="75" height="13" font="2">similarity of</text>
+<text top="796" left="560" width="9" height="12" font="3">E</text>
+<text top="794" left="572" width="6" height="8" font="10">0</text>
+<text top="803" left="571" width="6" height="8" font="10">1</text>
+<text top="795" left="584" width="22" height="13" font="2">and</text>
+<text top="796" left="611" width="9" height="12" font="3">E</text>
+<text top="801" left="622" width="6" height="8" font="10">2</text>
+<text top="795" left="634" width="203" height="13" font="2">by determining the area between</text>
+<text top="812" left="479" width="358" height="13" font="2">the two curves. That area is shown in gray in the bottom</text>
+<text top="828" left="479" width="279" height="13" font="2">row of Figure 2. Note that the first warping of</text>
+<text top="829" left="763" width="9" height="12" font="3">E</text>
+<text top="834" left="774" width="6" height="8" font="10">1</text>
+<text top="828" left="785" width="52" height="13" font="2">in which</text>
+<text top="845" left="479" width="358" height="13" font="2">a single point was moved results in a poor match, one with</text>
+<text top="861" left="479" width="358" height="13" font="2">a large area between the curves. However, the fit given by</text>
+<text top="878" left="479" width="358" height="13" font="2">the second, more complex warping is quite good. In general,</text>
+<text top="894" left="479" width="358" height="13" font="2">there are exponentially many ways to warp the time dimen-</text>
+<text top="910" left="479" width="43" height="13" font="2">sion of</text>
+<text top="911" left="527" width="9" height="12" font="3">E</text>
+<text top="916" left="538" width="6" height="8" font="10">1</text>
+<text top="910" left="545" width="292" height="13" font="2">. DTW uses dynamic programming to find the</text>
+<text top="927" left="479" width="358" height="13" font="2">warping that minimizes the area between the curves in time</text>
+<text top="943" left="479" width="284" height="13" font="2">that is a low order polynomial of the lengths of</text>
+<text top="944" left="768" width="9" height="12" font="3">E</text>
+<text top="949" left="779" width="6" height="8" font="10">1</text>
+<text top="943" left="790" width="22" height="13" font="2">and</text>
+<text top="944" left="816" width="9" height="12" font="3">E</text>
+<text top="949" left="827" width="6" height="8" font="10">2</text>
+<text top="943" left="833" width="4" height="13" font="2">,</text>
+<text top="960" left="479" width="18" height="13" font="2">i.e.</text>
+<text top="961" left="501" width="31" height="12" font="3">O (jE</text>
+<text top="966" left="534" width="6" height="8" font="10">1</text>
+<text top="961" left="541" width="17" height="12" font="3">jjE</text>
+<text top="966" left="560" width="6" height="8" font="10">2</text>
+<text top="961" left="567" width="13" height="12" font="3">j)</text>
+<text top="960" left="577" width="4" height="13" font="2">.</text>
+<text top="977" left="494" width="216" height="13" font="2">DTW returns the optimal warping of</text>
+<text top="978" left="713" width="9" height="12" font="3">E</text>
+<text top="983" left="724" width="6" height="8" font="10">1</text>
+<text top="977" left="731" width="106" height="13" font="2">, the one that min-</text>
+<text top="994" left="479" width="144" height="13" font="2">imizes the area between</text>
+<text top="994" left="627" width="9" height="12" font="3">E</text>
+<text top="992" left="639" width="6" height="8" font="10">0</text>
+<text top="1001" left="638" width="6" height="8" font="10">1</text>
+<text top="994" left="648" width="22" height="13" font="2">and</text>
+<text top="994" left="674" width="9" height="12" font="3">E</text>
+<text top="999" left="685" width="6" height="8" font="10">2</text>
+<text top="994" left="692" width="146" height="13" font="2">, and the area associated</text>
+<text top="1010" left="479" width="358" height="13" font="2">with that warping. The area is used as a measure of simi-</text>
+<text top="1027" left="479" width="358" height="13" font="2">larity between the two time series. Note that this measure</text>
+<text top="1043" left="479" width="358" height="13" font="2">of similarity handles nonlinearities in the rates at which ex-</text>
+</page>
+<page number="3" position="absolute" top="0" left="0" height="1188" width="918">
+	<fontspec id="11" size="9" family="Times" color="#000000"/>
+<text top="239" left="149" width="11" height="8" font="11">E2</text>
+<text top="82" left="149" width="11" height="8" font="11">E1</text>
+<text top="312" left="81" width="155" height="13" font="2">Figure 2: Two time series,</text>
+<text top="313" left="239" width="9" height="12" font="3">E</text>
+<text top="318" left="250" width="6" height="8" font="10">1</text>
+<text top="312" left="260" width="22" height="13" font="2">and</text>
+<text top="313" left="284" width="9" height="12" font="3">E</text>
+<text top="318" left="295" width="6" height="8" font="10">2</text>
+<text top="312" left="302" width="311" height="13" font="2">, (the leftmost column) and two possible warpings of</text>
+<text top="313" left="616" width="9" height="12" font="3">E</text>
+<text top="318" left="627" width="6" height="8" font="10">1</text>
+<text top="312" left="637" width="23" height="13" font="2">into</text>
+<text top="313" left="663" width="9" height="12" font="3">E</text>
+<text top="318" left="674" width="6" height="8" font="10">2</text>
+<text top="312" left="684" width="153" height="13" font="2">(the middle and rightmost</text>
+<text top="328" left="81" width="60" height="13" font="2">columns).</text>
+<text top="376" left="81" width="358" height="13" font="2">periences progress and is not affected by differences in the</text>
+<text top="392" left="81" width="311" height="13" font="2">lengths of experiences. In general, the area between</text>
+<text top="393" left="396" width="9" height="12" font="3">E</text>
+<text top="391" left="408" width="6" height="8" font="10">0</text>
+<text top="400" left="407" width="6" height="8" font="10">1</text>
+<text top="392" left="417" width="22" height="13" font="2">and</text>
+<text top="410" left="81" width="9" height="12" font="3">E</text>
+<text top="415" left="92" width="6" height="8" font="10">2</text>
+<text top="409" left="102" width="240" height="13" font="2">may not be the same as the area between</text>
+<text top="410" left="346" width="9" height="12" font="3">E</text>
+<text top="407" left="357" width="6" height="8" font="10">0</text>
+<text top="416" left="357" width="6" height="8" font="10">2</text>
+<text top="409" left="367" width="23" height="13" font="2">into</text>
+<text top="410" left="393" width="9" height="12" font="3">E</text>
+<text top="415" left="404" width="6" height="8" font="10">1</text>
+<text top="409" left="411" width="28" height="13" font="2">. We</text>
+<text top="425" left="81" width="358" height="13" font="2">use a symmetrized version of DTW that essentially com-</text>
+<text top="442" left="81" width="358" height="13" font="2">putes the average of those two areas based on a single warp-</text>
+<text top="458" left="81" width="358" height="13" font="2">ing (Kruskall &amp; Liberman 1983). Although a straightfor-</text>
+<text top="475" left="81" width="358" height="13" font="2">ward implementation of DTW is more expensive than com-</text>
+<text top="491" left="81" width="359" height="13" font="2">puting Euclidean distance or cross-correlation, there are nu-</text>
+<text top="507" left="81" width="358" height="13" font="2">merous speedups that both improve the properties of DTW</text>
+<text top="524" left="81" width="358" height="13" font="2">as a distance metric and make its computation nearly linear</text>
+<text top="540" left="81" width="315" height="13" font="2">in the length of the time series with a small constant.</text>
+<text top="578" left="96" width="36" height="13" font="2">Given</text>
+<text top="579" left="136" width="9" height="12" font="3">m</text>
+<text top="578" left="154" width="285" height="13" font="2">experiences, we can construct a complete pair-</text>
+<text top="594" left="81" width="238" height="13" font="2">wise distance matrix by invoking DTW</text>
+<text top="595" left="323" width="28" height="12" font="3">m (m</text>
+<text top="595" left="374" width="30" height="12" font="3">1)=2</text>
+<text top="594" left="406" width="32" height="13" font="2">times</text>
+<text top="611" left="81" width="358" height="13" font="2">(the factor of 2 is due to the use of symmetrized DTW). We</text>
+<text top="627" left="81" width="358" height="13" font="2">then apply a standard hierarchical, agglomerative clustering</text>
+<text top="644" left="81" width="358" height="13" font="2">algorithm that starts with one cluster for each experience and</text>
+<text top="660" left="81" width="358" height="13" font="2">merges the pair of clusters with the minimum average inter-</text>
+<text top="677" left="81" width="358" height="13" font="2">cluster distance (Everitt 1993). Without a stopping criterion,</text>
+<text top="693" left="81" width="358" height="13" font="2">merging will continue until there is a single cluster contain-</text>
+<text top="709" left="81" width="39" height="13" font="2">ing all</text>
+<text top="710" left="126" width="9" height="12" font="3">m</text>
+<text top="709" left="145" width="294" height="13" font="2">experiences. To avoid that situation, we do not</text>
+<text top="726" left="81" width="358" height="13" font="2">merge clusters for which the mean intercluster distance is</text>
+<text top="742" left="81" width="358" height="13" font="2">significantly different from the mean intracluster distance as</text>
+<text top="759" left="81" width="123" height="13" font="2">measured by a t-test.</text>
+<text top="796" left="96" width="343" height="13" font="2">Finally, for each cluster we select a prototype. Two meth-</text>
+<text top="813" left="81" width="358" height="13" font="2">ods commonly used are to choose the cluster member that</text>
+<text top="829" left="81" width="359" height="13" font="2">minimizes the distance to all other members of the cluster,</text>
+<text top="846" left="81" width="358" height="13" font="2">or to simply average the members of the cluster. The ad-</text>
+<text top="862" left="81" width="358" height="13" font="2">vantage of the latter method is that it smooths out noise that</text>
+<text top="879" left="81" width="358" height="13" font="2">may be present in any individual data item. Unfortunately, it</text>
+<text top="895" left="81" width="358" height="13" font="2">is only workable when the cluster elements are embedded in</text>
+<text top="911" left="81" width="358" height="13" font="2">a metric space (e.g. Cartesian space). Although we cannot</text>
+<text top="928" left="81" width="358" height="13" font="2">embed experiences in a metric space, DTW allows us to use</text>
+<text top="944" left="81" width="358" height="13" font="2">a combination of the two methods as follows. First, we se-</text>
+<text top="961" left="81" width="358" height="13" font="2">lect the time series that minimizes distance to all other time</text>
+<text top="977" left="81" width="358" height="13" font="2">series in a given cluster. Then we warp all other patterns into</text>
+<text top="994" left="81" width="358" height="13" font="2">that centroid, resulting in a set of patterns that are all on the</text>
+<text top="1010" left="81" width="358" height="13" font="2">same time scale. It is then a simple matter to take the aver-</text>
+<text top="1027" left="81" width="358" height="13" font="2">age value at each time point over all of the series and use the</text>
+<text top="1043" left="81" width="180" height="13" font="2">result as the cluster prototype.</text>
+<text top="374" left="616" width="84" height="16" font="1">Evaluation</text>
+<text top="416" left="479" width="358" height="13" font="2">We are interested in the results of our clustering algorithm</text>
+<text top="432" left="479" width="357" height="13" font="2">for two key reasons. First, for the purposes of planning,</text>
+<text top="449" left="479" width="358" height="13" font="2">we would like clusters to map to action outcomes, so that</text>
+<text top="465" left="479" width="358" height="13" font="2">each cluster prototype can serve as the basis for an operator</text>
+<text top="481" left="479" width="358" height="13" font="2">model. Second, we would like agents to be able to acquire</text>
+<text top="498" left="479" width="358" height="13" font="2">a believable ontology of activity. That is, we would like our</text>
+<text top="514" left="479" width="357" height="13" font="2">agents to be able to differentiate actions as a human would so</text>
+<text top="531" left="479" width="357" height="13" font="2">that their representations of outcome are in accordance with</text>
+<text top="547" left="479" width="358" height="13" font="2">our own. As such, our primary means of evaluating clus-</text>
+<text top="564" left="479" width="358" height="13" font="2">ter quality is to compare the clusters generated by our au-</text>
+<text top="580" left="479" width="358" height="13" font="2">tomated system against clusters generated manually by the</text>
+<text top="597" left="479" width="353" height="13" font="2">experimenter who designed the experiences they comprise.</text>
+<text top="619" left="494" width="343" height="13" font="2">Data were collected for 4 sets of experiences: 102 expe-</text>
+<text top="636" left="479" width="358" height="13" font="2">riences with the robot moving in a straight line while col-</text>
+<text top="652" left="479" width="358" height="13" font="2">lecting data from the velocity encoders, break beams, and</text>
+<text top="669" left="479" width="358" height="13" font="2">gripper bumper (which we will call the tactile sensors), 102</text>
+<text top="685" left="479" width="358" height="13" font="2">move experiences collecting data from the Pioneerâs vision</text>
+<text top="702" left="479" width="358" height="13" font="2">system, including the X and Y location, area, and distance</text>
+<text top="718" left="479" width="358" height="13" font="2">to a single visible object being tracked (which we will call</text>
+<text top="734" left="479" width="358" height="13" font="2">the visual sensors), 50 experiences with the robot turning in</text>
+<text top="751" left="479" width="358" height="13" font="2">place collecting tactile data, and 50 turn experiences collect-</text>
+<text top="767" left="479" width="358" height="13" font="2">ing visual data. In each experience, the robot attempted to</text>
+<text top="784" left="479" width="358" height="13" font="2">move or turn for a duration between 2 and 8 seconds in the</text>
+<text top="800" left="479" width="357" height="13" font="2">laboratory environment. Visible objects and objects that im-</text>
+<text top="817" left="479" width="358" height="13" font="2">peded or obstructed the robotâs path were present in many of</text>
+<text top="833" left="479" width="56" height="13" font="2">the trials.</text>
+<text top="856" left="494" width="343" height="13" font="2">The labels given to the hand-built clusters generated are</text>
+<text top="872" left="479" width="358" height="13" font="2">summarized in table 3. In the visual tracking problems, the</text>
+<text top="889" left="479" width="358" height="13" font="2">clusters correspond to visible objectsâ relations to the agent</text>
+<text top="905" left="479" width="358" height="13" font="2">during activity; the object may move across the visual field</text>
+<text top="922" left="479" width="358" height="13" font="2">while turning or it may loom while being approached. In the</text>
+<text top="938" left="479" width="358" height="13" font="2">tactile problems, clusters correspond to the Pioneerâs veloc-</text>
+<text top="954" left="479" width="358" height="13" font="2">ity and the types of contact made with objects in the envi-</text>
+<text top="971" left="479" width="358" height="13" font="2">ronment during the activity; heavy objects halt the Pioneerâs</text>
+<text top="987" left="479" width="358" height="13" font="2">progress, and are labeled âcrashâ, while light, small objects</text>
+<text top="1004" left="479" width="329" height="13" font="2">merely trigger the break beams and are labeled âpushâ.</text>
+<text top="1027" left="494" width="343" height="13" font="2">We evaluate the clusters generated by DTW and agglom-</text>
+<text top="1043" left="479" width="147" height="13" font="2">erative clustering with a</text>
+<text top="1044" left="631" width="9" height="12" font="3">2</text>
+<text top="1044" left="658" width="9" height="12" font="3">2</text>
+<text top="1043" left="671" width="166" height="13" font="2">contingency table called an</text>
+</page>
+<page number="4" position="absolute" top="0" left="0" height="1188" width="918">
+	<fontspec id="12" size="13" family="Times" color="#000000"/>
+	<fontspec id="13" size="13" family="Courier" color="#000000"/>
+	<fontspec id="14" size="8" family="Courier" color="#000000"/>
+	<fontspec id="15" size="7" family="Courier" color="#000000"/>
+<text top="83" left="203" width="69" height="12" font="12">move/tactile</text>
+<text top="83" left="356" width="64" height="12" font="12">turn/tactile</text>
+<text top="83" left="494" width="67" height="12" font="12">move/visual</text>
+<text top="83" left="628" width="63" height="12" font="12">turn/visual</text>
+<text top="99" left="203" width="100" height="12" font="5">+250 unobstructed</text>
+<text top="99" left="356" width="100" height="12" font="5">+100 unobstructed</text>
+<text top="99" left="494" width="50" height="12" font="5">no object</text>
+<text top="99" left="628" width="50" height="12" font="5">no object</text>
+<text top="113" left="203" width="100" height="12" font="5">+100 unobstructed</text>
+<text top="113" left="356" width="92" height="12" font="5">+100 never stops</text>
+<text top="113" left="494" width="64" height="12" font="5">heavy noise</text>
+<text top="113" left="628" width="59" height="12" font="5">canât move</text>
+<text top="128" left="203" width="97" height="12" font="5">-100 unobstructed</text>
+<text top="128" left="356" width="61" height="12" font="5">+100 bump</text>
+<text top="128" left="494" width="95" height="12" font="5">approach on right</text>
+<text top="128" left="628" width="87" height="12" font="5">pass left to right</text>
+<text top="143" left="203" width="97" height="12" font="5">-250 unobstructed</text>
+<text top="143" left="356" width="73" height="12" font="5">+100 blocked</text>
+<text top="143" left="494" width="104" height="12" font="5">approach disappear</text>
+<text top="143" left="628" width="87" height="12" font="5">pass right to left</text>
+<text top="158" left="203" width="120" height="12" font="5">+250 temporary bump</text>
+<text top="158" left="356" width="120" height="12" font="5">+100 temporary bump</text>
+<text top="158" left="494" width="108" height="12" font="5">discover left reverse</text>
+<text top="158" left="628" width="74" height="12" font="5">discover right</text>
+<text top="173" left="203" width="120" height="12" font="5">+100 temporary bump</text>
+<text top="173" left="356" width="107" height="12" font="5">+100 blocked bump</text>
+<text top="173" left="494" width="80" height="12" font="5">vanish on right</text>
+<text top="173" left="628" width="67" height="12" font="5">discover left</text>
+<text top="188" left="203" width="135" height="12" font="5">+250 push delayed bump</text>
+<text top="188" left="356" width="97" height="12" font="5">-100 unobstructed</text>
+<text top="188" left="494" width="73" height="12" font="5">vanish on left</text>
+<text top="188" left="628" width="60" height="12" font="5">left to right</text>
+<text top="203" left="203" width="107" height="12" font="5">+250 delayed bump</text>
+<text top="203" left="356" width="117" height="12" font="5">-100 temporary bump</text>
+<text top="203" left="494" width="56" height="12" font="5">retreat left</text>
+<text top="203" left="628" width="82" height="12" font="5">vanish off right</text>
+<text top="218" left="203" width="107" height="12" font="5">+100 delayed bump</text>
+<text top="218" left="356" width="99" height="12" font="5">-100 impeded turn</text>
+<text top="218" left="494" width="74" height="12" font="5">discover right</text>
+<text top="218" left="628" width="75" height="12" font="5">vanish off left</text>
+<text top="233" left="203" width="98" height="12" font="5">+250 crash beam1</text>
+<text top="233" left="356" width="70" height="12" font="5">-100 blocked</text>
+<text top="233" left="494" width="84" height="12" font="5">approach ahead</text>
+<text top="248" left="203" width="68" height="12" font="5">+250 squash</text>
+<text top="248" left="494" width="98" height="12" font="5">approach, gets big</text>
+<text top="263" left="203" width="102" height="12" font="5">+250 push blocked</text>
+<text top="263" left="494" width="87" height="12" font="5">approach on left</text>
+<text top="278" left="203" width="56" height="12" font="5">+250 push</text>
+<text top="278" left="494" width="116" height="12" font="5">approach, stays small</text>
+<text top="293" left="203" width="56" height="12" font="5">+100 push</text>
+<text top="308" left="203" width="101" height="12" font="5">+100 push shallow</text>
+<text top="323" left="203" width="73" height="12" font="5">+100 blocked</text>
+<text top="338" left="203" width="70" height="12" font="5">-100 blocked</text>
+<text top="376" left="190" width="539" height="13" font="2">Figure 3: Outcome labels given to the hand built clusters for each of the 4 experience sets.</text>
+<text top="424" left="81" width="286" height="13" font="6">accordance table. Consider the following table:</text>
+<text top="452" left="237" width="8" height="11" font="13">t</text>
+<text top="456" left="242" width="5" height="7" font="14">e</text>
+<text top="452" left="307" width="17" height="11" font="13">: t</text>
+<text top="456" left="321" width="5" height="7" font="14">e</text>
+<text top="474" left="180" width="8" height="11" font="13">t</text>
+<text top="478" left="185" width="5" height="7" font="14">t</text>
+<text top="474" left="235" width="8" height="11" font="13">n</text>
+<text top="478" left="244" width="5" height="7" font="14">1</text>
+<text top="474" left="310" width="8" height="11" font="13">n</text>
+<text top="478" left="318" width="5" height="7" font="14">2</text>
+<text top="499" left="174" width="17" height="11" font="13">: t</text>
+<text top="503" left="189" width="5" height="7" font="14">t</text>
+<text top="499" left="235" width="8" height="11" font="13">n</text>
+<text top="503" left="244" width="5" height="7" font="14">3</text>
+<text top="499" left="310" width="8" height="11" font="13">n</text>
+<text top="503" left="318" width="5" height="7" font="14">4</text>
+<text top="532" left="81" width="358" height="13" font="2">We calculate the cells of this table by considering all pairs</text>
+<text top="548" left="81" width="87" height="13" font="2">of experiences</text>
+<text top="549" left="170" width="9" height="12" font="3">e</text>
+<text top="554" left="177" width="6" height="8" font="10">j</text>
+<text top="548" left="187" width="22" height="13" font="2">and</text>
+<text top="549" left="212" width="9" height="12" font="3">e</text>
+<text top="554" left="219" width="6" height="8" font="10">k</text>
+<text top="548" left="226" width="213" height="13" font="2">, and their relationships in the target</text>
+<text top="564" left="81" width="297" height="13" font="2">(hand-built) and evaluation (DTW) clusterings. If</text>
+<text top="565" left="382" width="9" height="12" font="3">e</text>
+<text top="570" left="389" width="6" height="8" font="10">j</text>
+<text top="564" left="399" width="22" height="13" font="2">and</text>
+<text top="565" left="424" width="9" height="12" font="3">e</text>
+<text top="570" left="431" width="6" height="8" font="10">k</text>
+<text top="581" left="81" width="358" height="13" font="2">reside in the same cluster in the target clustering (denoted</text>
+<text top="597" left="81" width="15" height="13" font="2">by</text>
+<text top="598" left="101" width="9" height="12" font="3">t</text>
+<text top="603" left="106" width="6" height="8" font="10">t</text>
+<text top="597" left="111" width="35" height="13" font="2">), and</text>
+<text top="598" left="152" width="9" height="12" font="3">e</text>
+<text top="603" left="159" width="6" height="8" font="10">j</text>
+<text top="597" left="170" width="22" height="13" font="2">and</text>
+<text top="598" left="196" width="9" height="12" font="3">e</text>
+<text top="603" left="203" width="6" height="8" font="10">k</text>
+<text top="597" left="215" width="224" height="13" font="2">also reside in the same cluster in the</text>
+<text top="614" left="81" width="202" height="13" font="2">evaluation clustering (denoted by</text>
+<text top="614" left="287" width="9" height="12" font="3">t</text>
+<text top="619" left="293" width="6" height="8" font="10">e</text>
+<text top="614" left="299" width="66" height="13" font="2">), then cell</text>
+<text top="614" left="369" width="9" height="12" font="3">n</text>
+<text top="619" left="378" width="6" height="8" font="10">1</text>
+<text top="614" left="389" width="50" height="13" font="2">is incre-</text>
+<text top="630" left="81" width="358" height="13" font="2">mented. The other cells of the table are incremented when</text>
+<text top="647" left="81" width="358" height="13" font="2">either the target or evaluation clusterings places the experi-</text>
+<text top="663" left="81" width="162" height="13" font="2">ences in different clusters (</text>
+<text top="664" left="242" width="19" height="12" font="3">:t</text>
+<text top="669" left="258" width="6" height="8" font="10">t</text>
+<text top="663" left="267" width="22" height="13" font="2">and</text>
+<text top="664" left="292" width="19" height="12" font="3">:t</text>
+<text top="669" left="307" width="6" height="8" font="10">e</text>
+<text top="663" left="314" width="88" height="13" font="2">, respectively).</text>
+<text top="683" left="96" width="31" height="13" font="2">Cells</text>
+<text top="684" left="131" width="9" height="12" font="3">n</text>
+<text top="689" left="140" width="6" height="8" font="10">1</text>
+<text top="683" left="151" width="22" height="13" font="2">and</text>
+<text top="684" left="176" width="9" height="12" font="3">n</text>
+<text top="689" left="185" width="6" height="8" font="10">4</text>
+<text top="683" left="196" width="243" height="13" font="2">of this table represent the number of ex-</text>
+<text top="699" left="81" width="358" height="13" font="2">perience pairs in which the clustering algorithms are in ac-</text>
+<text top="716" left="81" width="112" height="13" font="2">cordance. We call</text>
+<text top="717" left="197" width="9" height="12" font="3">n</text>
+<text top="722" left="206" width="6" height="8" font="10">1</text>
+<text top="717" left="217" width="25" height="12" font="3">+ n</text>
+<text top="722" left="242" width="6" height="8" font="10">4</text>
+<text top="716" left="253" width="186" height="13" font="2">the number of agreements and</text>
+<text top="733" left="81" width="9" height="12" font="3">n</text>
+<text top="738" left="90" width="6" height="8" font="10">2</text>
+<text top="733" left="97" width="21" height="12" font="3">+ n</text>
+<text top="738" left="118" width="6" height="8" font="10">3</text>
+<text top="732" left="127" width="312" height="13" font="2">the number of disagreements. The accordance ratios</text>
+<text top="749" left="81" width="164" height="13" font="2">that we are interested in are</text>
+<text top="746" left="262" width="6" height="8" font="10">n</text>
+<text top="749" left="269" width="4" height="6" font="15">1</text>
+<text top="757" left="251" width="6" height="8" font="10">n</text>
+<text top="761" left="258" width="4" height="6" font="15">1</text>
+<text top="757" left="264" width="15" height="8" font="10">+ n</text>
+<text top="761" left="280" width="4" height="6" font="15">2</text>
+<text top="749" left="288" width="151" height="13" font="2">, accordance with respect</text>
+<text top="767" left="81" width="12" height="13" font="2">to</text>
+<text top="768" left="96" width="9" height="12" font="3">t</text>
+<text top="773" left="102" width="6" height="8" font="10">t</text>
+<text top="767" left="107" width="29" height="13" font="2">, and</text>
+<text top="765" left="153" width="6" height="8" font="10">n</text>
+<text top="768" left="160" width="4" height="6" font="15">4</text>
+<text top="776" left="142" width="6" height="8" font="10">n</text>
+<text top="779" left="149" width="4" height="6" font="15">3</text>
+<text top="776" left="155" width="15" height="8" font="10">+ n</text>
+<text top="779" left="171" width="4" height="6" font="15">4</text>
+<text top="767" left="179" width="166" height="13" font="2">, accordance with respect to</text>
+<text top="768" left="349" width="19" height="12" font="3">:t</text>
+<text top="773" left="365" width="6" height="8" font="10">t</text>
+<text top="767" left="370" width="4" height="13" font="2">.</text>
+<text top="789" left="96" width="343" height="13" font="2">Table 4 shows the breakdown of accordance for the com-</text>
+<text top="806" left="81" width="357" height="13" font="2">bination of dynamic time warping and agglomerative clus-</text>
+<text top="822" left="81" width="357" height="13" font="2">tering versus the ideal clustering built by hand. The column</text>
+<text top="839" left="81" width="358" height="13" font="2">labeled â#â indicates the difference between the number of</text>
+<text top="855" left="81" width="358" height="13" font="2">hand-built and automated clusters. In each problem, the au-</text>
+<text top="872" left="81" width="358" height="13" font="2">tomated algorithm clustered more aggressively, resulting in</text>
+<text top="888" left="81" width="358" height="13" font="2">fewer clusters. The columns that follow present the accor-</text>
+<text top="904" left="81" width="358" height="13" font="2">dance ratios for experiences grouped together, apart, and the</text>
+<text top="921" left="81" width="283" height="13" font="2">total number of agreements and disagreements.</text>
+<text top="941" left="96" width="343" height="13" font="2">The table shows very high levels of accordance. Ratios</text>
+<text top="957" left="81" width="358" height="13" font="2">ranged from a minimum of 82.2% for experiences clustered</text>
+<text top="974" left="81" width="58" height="13" font="2">together (</text>
+<text top="974" left="139" width="9" height="12" font="3">t</text>
+<text top="979" left="144" width="6" height="8" font="10">t</text>
+<text top="974" left="149" width="290" height="13" font="2">) in the move/visual set to 100% for experiences</text>
+<text top="990" left="81" width="358" height="13" font="2">clustered together in the turn problems. For the turn prob-</text>
+<text top="1007" left="81" width="342" height="13" font="2">lems, the aggressive clustering may account for the high</text>
+<text top="1007" left="428" width="9" height="12" font="3">t</text>
+<text top="1012" left="433" width="6" height="8" font="10">t</text>
+<text top="1023" left="81" width="285" height="13" font="2">accuracy, causing slightly lower accuracy in the</text>
+<text top="1024" left="370" width="19" height="12" font="3">:t</text>
+<text top="1029" left="385" width="6" height="8" font="10">t</text>
+<text top="1023" left="394" width="29" height="13" font="2">case.</text>
+<text top="1043" left="96" width="343" height="13" font="2">The disparity in the number of clusters suggests that tun-</text>
+<text top="424" left="479" width="358" height="13" font="2">ing the parameters of the clustering algorithm to produce</text>
+<text top="440" left="479" width="154" height="13" font="2">more clusters might boost</text>
+<text top="441" left="636" width="19" height="12" font="3">:t</text>
+<text top="446" left="651" width="6" height="8" font="10">t</text>
+<text top="440" left="660" width="177" height="13" font="2">accuracy while preserving the</text>
+<text top="458" left="479" width="9" height="12" font="3">t</text>
+<text top="463" left="485" width="6" height="8" font="10">t</text>
+<text top="457" left="495" width="343" height="13" font="2">accuracy. The table for this condition is omitted for the</text>
+<text top="473" left="479" width="358" height="13" font="2">sake of brevity, but our findings were that tuning the cluster-</text>
+<text top="490" left="479" width="357" height="13" font="2">ing algorithm in this way leads to a reduction in accuracy in</text>
+<text top="506" left="479" width="218" height="13" font="2">all but the turn/tactile dataset, whose</text>
+<text top="507" left="700" width="19" height="12" font="3">:t</text>
+<text top="512" left="716" width="6" height="8" font="10">t</text>
+<text top="506" left="724" width="113" height="13" font="2">accuracy increased</text>
+<text top="523" left="479" width="52" height="13" font="2">7 points.</text>
+<text top="542" left="494" width="237" height="13" font="2">The failure of this strategy to increase</text>
+<text top="543" left="737" width="19" height="12" font="3">:t</text>
+<text top="548" left="753" width="6" height="8" font="10">t</text>
+<text top="542" left="764" width="74" height="13" font="2">accuracy by</text>
+<text top="559" left="479" width="358" height="13" font="2">tuning the clustering algorithm to terminate with more clus-</text>
+<text top="575" left="479" width="358" height="13" font="2">ters indicates that it is not simply a matter of the num-</text>
+<text top="592" left="479" width="211" height="13" font="2">ber of clusters. Exploration of the</text>
+<text top="593" left="696" width="9" height="12" font="3">t</text>
+<text top="598" left="701" width="6" height="8" font="10">t</text>
+<text top="592" left="711" width="126" height="13" font="2">disagreements in the</text>
+<text top="608" left="479" width="358" height="13" font="2">move/visual data, the problem with the highest error rate,</text>
+<text top="625" left="479" width="358" height="13" font="2">indicates that 132 out of the 156 errors can be traced to</text>
+<text top="641" left="479" width="358" height="13" font="2">two clusters in the automatically generated set that were</text>
+<text top="658" left="479" width="358" height="13" font="2">distributed differently in the target set. The target clusters</text>
+<text top="674" left="479" width="358" height="13" font="2">were âno objectâ (no visible object being tracked, some</text>
+<text top="690" left="479" width="357" height="13" font="2">minor noise) and âheavy noiseâ (noise makes it unclear</text>
+<text top="707" left="479" width="358" height="13" font="2">whether anything was being tracked). The automated set had</text>
+<text top="723" left="479" width="358" height="13" font="2">made the split differently; experiences with any noise were</text>
+<text top="740" left="479" width="358" height="13" font="2">grouped together from those that had none. The remaining</text>
+<text top="756" left="479" width="358" height="13" font="2">24 errors were covered by a handful of six or seven expe-</text>
+<text top="773" left="479" width="358" height="13" font="2">riences that were also attracted into clusters by experiences</text>
+<text top="789" left="479" width="250" height="13" font="2">the hand builder did not feel were similar.</text>
+<text top="809" left="494" width="343" height="13" font="2">The problem is rooted in the tendency of greedy cluster-</text>
+<text top="826" left="479" width="358" height="13" font="2">ing algorithms to suffer from ordering effects (Fisher, Xu,</text>
+<text top="842" left="479" width="358" height="13" font="2">&amp; Zard 1992). In clustering schemes based on sorting, the</text>
+<text top="858" left="479" width="358" height="13" font="2">order in which instances are considered biases the clusters</text>
+<text top="875" left="479" width="358" height="13" font="2">that result. In agglomerative clustering algorithms, the clus-</text>
+<text top="891" left="479" width="358" height="13" font="2">ters that result are biased by the algorithmâs greedy choice</text>
+<text top="908" left="479" width="358" height="13" font="2">of always considering merging the lowest distance clusters.</text>
+<text top="924" left="479" width="358" height="13" font="2">Figure 5 illustrates how the ordering effect works on a 2d</text>
+<text top="941" left="479" width="358" height="13" font="2">representation of the move/visual data. Because two of the</text>
+<text top="957" left="479" width="226" height="13" font="2">noisy data are very similar (distance=</text>
+<text top="958" left="705" width="9" height="12" font="3">d</text>
+<text top="963" left="712" width="6" height="8" font="10">2</text>
+<text top="957" left="719" width="118" height="13" font="2">), they are clustered</text>
+<text top="974" left="479" width="358" height="13" font="2">together early in the clustering process. This early decision</text>
+<text top="990" left="479" width="358" height="13" font="2">creates two cluster centers that individually attract members</text>
+<text top="1006" left="479" width="358" height="13" font="2">based on the local greedy policy, where a global view (like</text>
+<text top="1023" left="479" width="289" height="13" font="2">our hand-builderâs) would cluster them together.</text>
+<text top="1043" left="494" width="343" height="13" font="2">Fortunately, optimization techniques exist that can re-</text>
+</page>
+<page number="5" position="absolute" top="0" left="0" height="1188" width="918">
+	<fontspec id="16" size="7" family="Times" color="#000000"/>
+<text top="83" left="278" width="7" height="12" font="5">#</text>
+<text top="84" left="312" width="8" height="11" font="13">t</text>
+<text top="88" left="318" width="5" height="7" font="14">t</text>
+<text top="84" left="341" width="8" height="11" font="13">t</text>
+<text top="88" left="346" width="5" height="7" font="14">t</text>
+<text top="84" left="350" width="17" height="11" font="13">^ t</text>
+<text top="88" left="365" width="5" height="7" font="14">e</text>
+<text top="83" left="406" width="13" height="12" font="12">%</text>
+<text top="84" left="445" width="17" height="11" font="13">: t</text>
+<text top="88" left="459" width="5" height="7" font="14">t</text>
+<text top="84" left="482" width="17" height="11" font="13">: t</text>
+<text top="88" left="496" width="5" height="7" font="14">t</text>
+<text top="84" left="501" width="26" height="11" font="13">^ : t</text>
+<text top="88" left="524" width="5" height="7" font="14">e</text>
+<text top="83" left="558" width="13" height="12" font="12">%</text>
+<text top="83" left="590" width="33" height="12" font="5">Agree</text>
+<text top="83" left="641" width="48" height="12" font="5">Disagree</text>
+<text top="83" left="716" width="13" height="12" font="12">%</text>
+<text top="99" left="188" width="66" height="12" font="5">Move visual</text>
+<text top="99" left="273" width="11" height="12" font="5">-5</text>
+<text top="99" left="302" width="20" height="12" font="5">876</text>
+<text top="99" left="351" width="20" height="12" font="5">720</text>
+<text top="99" left="395" width="23" height="12" font="12">82.2</text>
+<text top="99" left="437" width="27" height="12" font="5">4275</text>
+<text top="99" left="503" width="27" height="12" font="5">4125</text>
+<text top="99" left="548" width="23" height="12" font="12">96.4</text>
+<text top="99" left="596" width="27" height="12" font="5">4845</text>
+<text top="99" left="668" width="20" height="12" font="5">306</text>
+<text top="99" left="706" width="23" height="12" font="12">94.0</text>
+<text top="114" left="188" width="67" height="12" font="5">Move tactile</text>
+<text top="114" left="273" width="11" height="12" font="5">-7</text>
+<text top="114" left="302" width="20" height="12" font="5">443</text>
+<text top="114" left="351" width="20" height="12" font="5">378</text>
+<text top="114" left="395" width="23" height="12" font="12">85.3</text>
+<text top="114" left="437" width="27" height="12" font="5">4708</text>
+<text top="114" left="503" width="27" height="12" font="5">4468</text>
+<text top="114" left="548" width="23" height="12" font="12">95.0</text>
+<text top="114" left="596" width="27" height="12" font="5">4846</text>
+<text top="114" left="668" width="20" height="12" font="5">305</text>
+<text top="114" left="706" width="23" height="12" font="12">94.0</text>
+<text top="130" left="188" width="61" height="12" font="5">Turn visual</text>
+<text top="130" left="273" width="11" height="12" font="5">-5</text>
+<text top="130" left="302" width="20" height="12" font="5">262</text>
+<text top="130" left="351" width="20" height="12" font="5">262</text>
+<text top="130" left="389" width="30" height="12" font="12">100.0</text>
+<text top="130" left="444" width="20" height="12" font="5">599</text>
+<text top="130" left="510" width="20" height="12" font="5">571</text>
+<text top="130" left="548" width="23" height="12" font="12">95.3</text>
+<text top="130" left="602" width="20" height="12" font="5">833</text>
+<text top="130" left="675" width="13" height="12" font="5">28</text>
+<text top="130" left="706" width="23" height="12" font="12">96.7</text>
+<text top="145" left="188" width="62" height="12" font="5">Turn tactile</text>
+<text top="145" left="273" width="11" height="12" font="5">-6</text>
+<text top="145" left="302" width="20" height="12" font="5">163</text>
+<text top="145" left="351" width="20" height="12" font="5">163</text>
+<text top="145" left="389" width="30" height="12" font="12">100.0</text>
+<text top="145" left="444" width="20" height="12" font="5">698</text>
+<text top="145" left="510" width="20" height="12" font="5">593</text>
+<text top="145" left="548" width="23" height="12" font="12">85.0</text>
+<text top="145" left="602" width="20" height="12" font="5">756</text>
+<text top="145" left="668" width="20" height="12" font="5">105</text>
+<text top="145" left="706" width="23" height="12" font="12">87.8</text>
+<text top="183" left="192" width="534" height="13" font="2">Figure 4: Accordance statistics for automated clustering against the hand built clustering.</text>
+<text top="328" left="216" width="14" height="13" font="2">d2</text>
+<text top="355" left="194" width="14" height="13" font="2">d1</text>
+<text top="293" left="138" width="16" height="13" font="2">(a)</text>
+<text top="235" left="277" width="17" height="13" font="2">(b)</text>
+<text top="345" left="273" width="16" height="13" font="2">(c)</text>
+<text top="464" left="81" width="358" height="13" font="2">Figure 5: (a) A 2d representation of experiences. (b) The</text>
+<text top="480" left="81" width="358" height="13" font="2">ordering effect of greedily merging based on the shorter dis-</text>
+<text top="497" left="81" width="357" height="13" font="2">tance d2 than the group average distance d1. (c) The most</text>
+<text top="513" left="81" width="120" height="13" font="2">desirable clustering.</text>
+<text top="562" left="81" width="358" height="13" font="2">fine initial clusterings to better reflect a global view (Fisher</text>
+<text top="578" left="81" width="358" height="13" font="2">1996). We have implemented a simple optimization tech-</text>
+<text top="595" left="81" width="359" height="13" font="2">nique which iteratively reassigns experiences to neighboring</text>
+<text top="611" left="81" width="359" height="13" font="2">clusters if a cluster is found with a smaller group average</text>
+<text top="628" left="81" width="359" height="13" font="2">distance than to the one the experience is in. After applying</text>
+<text top="644" left="81" width="358" height="13" font="2">this optimization technique to the clusters used to generate</text>
+<text top="661" left="81" width="190" height="13" font="2">table 4, many of the errors in the</text>
+<text top="662" left="274" width="9" height="12" font="3">t</text>
+<text top="667" left="279" width="6" height="8" font="10">t</text>
+<text top="661" left="287" width="151" height="13" font="2">cases disappeared: accor-</text>
+<text top="677" left="81" width="333" height="13" font="2">dance climbed to 91.9% or better in all cases except the</text>
+<text top="678" left="418" width="19" height="12" font="3">:t</text>
+<text top="683" left="433" width="6" height="8" font="10">t</text>
+<text top="694" left="81" width="358" height="13" font="2">case of turn/tactile, which decreased to below 80%, which</text>
+<text top="710" left="81" width="358" height="13" font="2">reflects the disparity between the number of clusters gener-</text>
+<text top="726" left="81" width="307" height="13" font="2">ated by our algorithm and the hand built clustering.</text>
+<text top="765" left="86" width="9" height="7" font="16">E1</text>
+<text top="827" left="86" width="9" height="7" font="16">E2</text>
+<text top="759" left="283" width="9" height="7" font="16">E1</text>
+<text top="893" left="81" width="158" height="13" font="2">Figure 6: Two time series,</text>
+<text top="893" left="243" width="9" height="12" font="3">E</text>
+<text top="898" left="254" width="6" height="8" font="10">1</text>
+<text top="893" left="264" width="22" height="13" font="2">and</text>
+<text top="893" left="290" width="9" height="12" font="3">E</text>
+<text top="898" left="301" width="6" height="8" font="10">2</text>
+<text top="893" left="307" width="132" height="13" font="2">, and a possible warp-</text>
+<text top="909" left="81" width="35" height="13" font="2">ing of</text>
+<text top="910" left="120" width="9" height="12" font="3">E</text>
+<text top="915" left="131" width="6" height="8" font="10">1</text>
+<text top="909" left="141" width="23" height="13" font="2">into</text>
+<text top="910" left="168" width="9" height="12" font="3">E</text>
+<text top="915" left="179" width="6" height="8" font="10">2</text>
+<text top="909" left="190" width="211" height="13" font="2">that obscures the salient difference.</text>
+<text top="944" left="96" width="343" height="13" font="2">The remaining few percent of misses appear to be related</text>
+<text top="961" left="81" width="358" height="13" font="2">to dynamic time warpingâs ability to manipulate the time di-</text>
+<text top="977" left="81" width="358" height="13" font="2">mension. Figure 6 illustrates two time series that correspond</text>
+<text top="994" left="81" width="358" height="13" font="2">to the horizontal location of an object on the Pioneerâs visual</text>
+<text top="1010" left="81" width="121" height="13" font="2">plane. In experience</text>
+<text top="1011" left="205" width="9" height="12" font="3">e</text>
+<text top="1016" left="212" width="6" height="8" font="10">1</text>
+<text top="1010" left="219" width="220" height="13" font="2">, the object comes into view from the</text>
+<text top="1027" left="81" width="358" height="13" font="2">right, passes across, and disappears off the left side of the</text>
+<text top="1043" left="81" width="150" height="13" font="2">visual plane. Experience</text>
+<text top="1044" left="235" width="9" height="12" font="3">e</text>
+<text top="1049" left="242" width="6" height="8" font="10">2</text>
+<text top="1043" left="253" width="186" height="13" font="2">represents an object moving in</text>
+<text top="231" left="479" width="358" height="13" font="2">the opposite direction across the visual plane. Clearly, this is</text>
+<text top="248" left="479" width="357" height="13" font="2">a salient distinction for many purposes, including planning,</text>
+<text top="264" left="479" width="357" height="13" font="2">but it is one that DTW is able to obscure by sliding a single</text>
+<text top="281" left="479" width="47" height="13" font="2">point of</text>
+<text top="282" left="530" width="9" height="12" font="3">e</text>
+<text top="287" left="537" width="6" height="8" font="10">1</text>
+<text top="281" left="547" width="107" height="13" font="2">backward in time.</text>
+<text top="315" left="605" width="107" height="16" font="1">Related Work</text>
+<text top="341" left="479" width="358" height="13" font="2">The use of DTW as a measure of similarity between mul-</text>
+<text top="357" left="479" width="358" height="13" font="2">tivariate time series dates back a number of years to early</text>
+<text top="373" left="479" width="357" height="13" font="2">work in speech recognition (Sakoe &amp; Chiba 1978), al-</text>
+<text top="390" left="479" width="358" height="13" font="2">though it was ultimately displaced by HMMâs (Jelinek</text>
+<text top="406" left="479" width="358" height="13" font="2">1997). HMMâs are actually a powerful generalization of</text>
+<text top="423" left="479" width="358" height="13" font="2">DTW, and recent years have seen renewed interest in DTW</text>
+<text top="439" left="479" width="358" height="13" font="2">for applications where the full power of HMMâs may not</text>
+<text top="456" left="479" width="357" height="13" font="2">be required (Berndt &amp; Clifford 1994). That fact notwith-</text>
+<text top="472" left="479" width="357" height="13" font="2">standing, it is unclear how one would apply standard HMM</text>
+<text top="488" left="479" width="357" height="13" font="2">algorithms (such as Baum-Welch and Viterbi) directly to</text>
+<text top="505" left="479" width="358" height="13" font="2">clustering time series. One recent attempt (Smyth 1997)</text>
+<text top="521" left="479" width="358" height="13" font="2">at that problem is much more complex, both computation-</text>
+<text top="538" left="479" width="358" height="13" font="2">ally and descriptively, than our application of DTW and</text>
+<text top="554" left="479" width="358" height="13" font="2">requires a priori knowledge of the number of clusters (al-</text>
+<text top="571" left="479" width="357" height="13" font="2">though a method for attempting to determine that number is</text>
+<text top="587" left="479" width="66" height="13" font="2">presented).</text>
+<text top="604" left="494" width="343" height="13" font="2">Other approaches to measuring similarity between con-</text>
+<text top="621" left="479" width="358" height="13" font="2">tinuous time series have been proposed in the literature</text>
+<text top="637" left="479" width="358" height="13" font="2">(Agrawal et al. 1995; Keogh &amp; Pazzani 1998). However,</text>
+<text top="654" left="479" width="358" height="13" font="2">these approaches are limited to univariate time series and are</text>
+<text top="670" left="479" width="358" height="13" font="2">therefore not applicable to our problem, in which one sensor</text>
+<text top="686" left="479" width="341" height="13" font="2">alone is insufficient to discriminate between experiences.</text>
+<text top="721" left="615" width="86" height="16" font="1">Conclusion</text>
+<text top="746" left="479" width="358" height="13" font="2">We have presented an approach to clustering the experiences</text>
+<text top="763" left="479" width="357" height="13" font="2">of an autonomous agent acting in a complex, stochastic en-</text>
+<text top="779" left="479" width="358" height="13" font="2">vironment. Using Dynamic Time Warping as a measure of</text>
+<text top="796" left="479" width="358" height="13" font="2">the similarity between time series sensor data, we produced</text>
+<text top="812" left="479" width="358" height="13" font="2">clusters based on the dynamics of experiences, rather than</text>
+<text top="829" left="479" width="358" height="13" font="2">static features. We evaluated the effectiveness of the un-</text>
+<text top="845" left="479" width="358" height="13" font="2">supervised clustering algorithm by measuring the amount of</text>
+<text top="861" left="479" width="357" height="13" font="6">accordance between the clusters it generated and cluster sets</text>
+<text top="878" left="479" width="358" height="13" font="2">generated by hand as an answer key. Using only Dynamic</text>
+<text top="894" left="479" width="358" height="13" font="2">Time Warping and agglomerative clustering on 150 trials of</text>
+<text top="911" left="479" width="358" height="13" font="2">real Pioneer data in a variety of experiences, we measured</text>
+<text top="927" left="479" width="357" height="13" font="2">82-100% accordance between the automated and hand-built</text>
+<text top="944" left="479" width="358" height="13" font="2">clusterings. By applying a simple iterative optimization al-</text>
+<text top="960" left="479" width="358" height="13" font="2">gorithm to the initial clusterings, accordance measures in-</text>
+<text top="976" left="479" width="169" height="13" font="2">creased to 91.9% and better.</text>
+<text top="994" left="494" width="343" height="13" font="2">Still, pathological cases exist where Dynamic Time Warp-</text>
+<text top="1010" left="479" width="358" height="13" font="2">ing was able to find a temporal mapping that glossed over</text>
+<text top="1027" left="479" width="358" height="13" font="2">significant differences in time series exist. Though these</text>
+<text top="1043" left="479" width="358" height="13" font="2">cases cover only a small percentage of the robotâs practical</text>
+</page>
+<page number="6" position="absolute" top="0" left="0" height="1188" width="918">
+<text top="86" left="81" width="358" height="13" font="2">experiences, it is possible to constrain DTW so that these</text>
+<text top="102" left="81" width="305" height="13" font="2">differences will be felt through the distance metric.</text>
+<text top="119" left="96" width="343" height="13" font="2">Future work will extend the approach described above in</text>
+<text top="135" left="81" width="357" height="13" font="2">three ways. First, we plan on extending the autonomy of</text>
+<text top="152" left="81" width="358" height="13" font="2">our system by utilizing cluster prototypes as bases for plan-</text>
+<text top="168" left="81" width="358" height="13" font="2">ning models, which will allow the Pioneer-1 agent to create</text>
+<text top="184" left="81" width="358" height="13" font="2">basic action sequences to achieve sensorimotor goals. Sec-</text>
+<text top="201" left="81" width="358" height="13" font="2">ond, rather than using each experience in its entirety, we</text>
+<text top="217" left="81" width="358" height="13" font="2">will develop methods for identifying subsequences within</text>
+<text top="234" left="81" width="358" height="13" font="2">the experiences that are relevant to the clustering process.</text>
+<text top="250" left="81" width="358" height="13" font="2">Finally, we intend to leverage the relationship between DTW</text>
+<text top="267" left="81" width="358" height="13" font="2">and HMMâs to develop a method of clustering time series in</text>
+<text top="283" left="81" width="340" height="13" font="2">which the output is a set of HMMâs, one for each cluster.</text>
+<text top="315" left="218" width="83" height="16" font="1">References</text>
+<text top="338" left="89" width="351" height="13" font="2">Agrawal, R.; Lin, K.; Sawhney, H. S.; and Shim, K. 1995.</text>
+<text top="355" left="89" width="350" height="13" font="2">Fast similarity search in the presence of noise, scaling and</text>
+<text top="371" left="89" width="350" height="13" font="2">translation in time series databases. In Proceedings of the</text>
+<text top="388" left="89" width="338" height="13" font="6">21st International Conference on Very Large Databases.</text>
+<text top="408" left="89" width="350" height="13" font="2">Berndt, D. J., and Clifford, J. 1994. Using dynamic time</text>
+<text top="425" left="89" width="350" height="13" font="2">warping to find patterns in time series. In Working Notes</text>
+<text top="441" left="89" width="350" height="13" font="6">of the Knowledge Discovery in Databases Workshop, 359â</text>
+<text top="458" left="89" width="26" height="13" font="2">370.</text>
+<text top="478" left="89" width="351" height="13" font="2">Corman, T. H.; Leiserson, C. E.; and Rivest, R. L. 1990.</text>
+<text top="494" left="89" width="235" height="13" font="6">Introduction to Algorithms. MIT Press.</text>
+<text top="515" left="89" width="350" height="13" font="2">Everitt, B. 1993. Cluster Analysis. John Wiley &amp; Sons,</text>
+<text top="531" left="89" width="23" height="13" font="2">Inc.</text>
+<text top="552" left="89" width="351" height="13" font="2">Fisher, D. H.; Xu, L.; and Zard, N. 1992. Ordering effects</text>
+<text top="568" left="89" width="351" height="13" font="2">in clustering. In Proceedings of the 9th Annual Conference</text>
+<text top="585" left="89" width="193" height="13" font="6">on Machine Learning, 163â168.</text>
+<text top="605" left="89" width="350" height="13" font="2">Fisher, D. 1996. Iterative optimization and simplifica-</text>
+<text top="622" left="89" width="350" height="13" font="2">tion of hierarchical clusterings. Journal of Artificial In-</text>
+<text top="638" left="89" width="189" height="13" font="6">telligence Research 4:147â179.</text>
+<text top="659" left="89" width="351" height="13" font="2">Jelinek, F. 1997. Statistical Methods for Speech Recogni-</text>
+<text top="675" left="89" width="99" height="13" font="6">tion. MIT Press.</text>
+<text top="696" left="89" width="351" height="13" font="2">Keogh, E., and Pazzani, M. J. 1998. An enhanced rep-</text>
+<text top="712" left="89" width="351" height="13" font="2">resentation of time series which allows fast and accurate</text>
+<text top="728" left="89" width="350" height="13" font="2">classification, clustering and relevance feedback. In Work-</text>
+<text top="745" left="89" width="351" height="13" font="6">ing Notes of the AAAI-98 workshop on Predicting the Fu-</text>
+<text top="761" left="89" width="314" height="13" font="6">ture: AI Approaches to Time-Series Analysis, 44â51.</text>
+<text top="782" left="89" width="351" height="13" font="2">Kruskall, J. B., and Liberman, M. 1983. The symmetric</text>
+<text top="798" left="89" width="350" height="13" font="2">time warping problem: From continuous to discrete. In</text>
+<text top="815" left="89" width="351" height="13" font="6">Time Warps, String Edits and Macromolecules: The Theory</text>
+<text top="831" left="89" width="341" height="13" font="6">and Practice of Sequence Comparison. Addison-Wesley.</text>
+<text top="852" left="89" width="351" height="13" font="2">Sakoe, H., and Chiba, S. 1978. Dynamic programming</text>
+<text top="868" left="89" width="350" height="13" font="2">algorithm optimization for spoken word recognition. IEEE</text>
+<text top="885" left="89" width="350" height="13" font="6">Transaction on Acoustics, Speech and Signal Processing</text>
+<text top="901" left="89" width="76" height="13" font="2">26:143â165.</text>
+<text top="922" left="89" width="350" height="13" font="2">Sankoff, D., and Kruskal, J. B., eds. 1983. Time Warps,</text>
+<text top="938" left="89" width="350" height="13" font="6">String Edits, and Macromolecules: Theory and Practice</text>
+<text top="954" left="89" width="351" height="13" font="6">of Sequence Comparisons. Reading, MA: Addison-Wesley</text>
+<text top="971" left="89" width="129" height="13" font="2">Publishing Company.</text>
+<text top="991" left="89" width="351" height="13" font="2">Smyth, P. 1997. Clustering sequences with hidden markov</text>
+<text top="1008" left="89" width="346" height="13" font="2">models. In Advances in Neural Information Processing 9.</text>
+</page>
+</pdf2xml>

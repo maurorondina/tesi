@@ -1,0 +1,32 @@
+DEBUG - find_abstract() - abstract found: "Abstract".
+INFO - get_paragraph_titles() - Abstract with font=4 found: "Abstract".
+DEBUG - find_references() - references found: "References".
+INFO - get_paragraph_titles() - References with font=1 found: "References".
+INFO - get_paragraph_titles() - Introduction with References font=1 found: "Introduction".
+INFO - get_paragraph_titles() - Valid paragraph titles found:
+	- Introduction
+	- Clustering Experiences
+	- Evaluation
+	- Related Work
+	- Conclusion
+	- References
+INFO - Paragraph titles detected:
+	- Abstract	in page: 1
+	- Introduction	in page: 1
+	- Clustering Experiences	in page: 1
+	- Evaluation	in page: 3
+	- Related Work	in page: 5
+	- Conclusion	in page: 5
+	- References	in page: 6
+DEBUG - parse_txt() - Title line "a method for clustering the experiences of a mobile" found for the title "a method for clustering the experiences of a mobile robot that accords with human judgments", from the index 1.
+DEBUG - parse_txt() - Title line "robot that accords with human judgments" found for the title "a method for clustering the experiences of a mobile robot that accords with human judgments", from the index 2.
+INFO - parse_txt() - Titles matched:
+	- 0# A Method for Clustering the Experiences of a Mobile
+	- 0# Robot that Accords with Human Judgments
+	- 1# Abstract
+	- 2# Introduction
+	- 3# Clustering Experiences
+	- 4# Evaluation
+	- 5# Related Work
+	- 6# Conclusion
+	- 7# References
