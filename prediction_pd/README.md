@@ -10,7 +10,7 @@ Each subsection is labeled as 'PD' if:
 - contains in the text "problem description" or "problem statement"
 - is "close" to a sub-section that contains "problem description" or "problem statement" in the text. (different measures have been taken according to the situation)
 
-The other subsections have been labeled as 'N_PD'. There are situations in which it is not certain that some sub-sections are necessarily 'N_PD' and, having an unbalanced training set, it has been decided to eliminate them.
+The other subsections have been labeled as 'N_PD'. There are situations in which it is not certain that some subsections are necessarily 'N_PD' and, having an unbalanced training set, it has been decided to eliminate them.
 
 ## Text Cleaning Training Set
 
