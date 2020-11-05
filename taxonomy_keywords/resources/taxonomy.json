@@ -1,0 +1,851 @@
+{
+  "taxonomy": [
+    {
+      "name-category": "Physics",
+      "id-category": null,
+      "macro-categories": [
+        {
+          "name-category": "Astrophysics",
+          "id-category": "astro-ph",
+          "categories": [
+            {
+              "name-category": "Astrophysics of Galaxies",
+              "id-category": "astro-ph.GA",
+              "descr-category": "Phenomena pertaining to galaxies or the Milky Way. Star clusters, HII regions and planetary nebulae, the interstellar medium, atomic and molecular clouds, dust. Stellar populations. Galactic structure, formation, dynamics. Galactic nuclei, bulges, disks, halo. Active Galactic Nuclei, supermassive black holes, quasars. Gravitational lens systems. The Milky Way and its contents."
+            },
+            {
+              "name-category": "Cosmology and Nongalactic Astrophysics",
+              "id-category": "astro-ph.CO",
+              "descr-category": "Phenomenology of early universe, cosmic microwave background, cosmological parameters, primordial element abundances, extragalactic distance scale, large-scale structure of the universe. Groups, superclusters, voids, intergalactic medium. Particle astrophysics: dark energy, dark matter, baryogenesis, leptogenesis, inflationary models, reheating, monopoles, WIMPs, cosmic strings, primordial black holes, cosmological gravitational radiation."
+            },
+            {
+              "name-category": "Earth and Planetary Astrophysics",
+              "id-category": "astro-ph.EP",
+              "descr-category": "Interplanetary medium, planetary physics, planetary astrobiology, extrasolar planets, comets, asteroids, meteorites. Structure and formation of the solar system."
+            },
+            {
+              "name-category": "High Energy Astrophysical Phenomena",
+              "id-category": "astro-ph.HE",
+              "descr-category": "Cosmic ray production, acceleration, propagation, detection. Gamma ray astronomy and bursts, X-rays, charged particles, supernovae and other explosive phenomena, stellar remnants and accretion systems, jets, microquasars, neutron stars, pulsars, black holes."
+            },
+            {
+              "name-category": "Instrumentation and Methods for Astrophysics",
+              "id-category": "astro-ph.IM",
+              "descr-category": "Detector and telescope design, experiment proposals. Laboratory Astrophysics. Methods for data analysis, statistical methods. Software, database design."
+            },
+            {
+              "name-category": "Solar and Stellar Astrophysics",
+              "id-category": "astro-ph.SR",
+              "descr-category": "White dwarfs, brown dwarfs, cataclysmic variables. Star formation and protostellar systems, stellar astrobiology, binary and multiple systems of stars, stellar evolution and structure, coronas. Central stars of planetary nebulae. Helioseismology, solar neutrinos, production and detection of gravitational radiation from stellar systems."
+            }
+          ]
+        },
+        {
+          "name-category": "Condensed Matter",
+          "id-category": "cond-mat",
+          "categories": [
+            {
+              "name-category": "Disordered Systems and Neural Networks",
+              "id-category": "cond-mat.dis-nn",
+              "descr-category": ""
+            },
+            {
+              "name-category": "Materials Science",
+              "id-category": "cond-mat.mtrl-sci",
+              "descr-category": "Techniques, synthesis, characterization, structure.  Structural phase transitions, mechanical properties, phonons. Defects, adsorbates, interfaces."
+            },
+            {
+              "name-category": "Mesoscale and Nanoscale Physics",
+              "id-category": "cond-mat.mes-hall",
+              "descr-category": "Semiconducting nanostructures: quantum dots, wires, and wells. Single electronics, spintronics, 2d electron gases, quantum Hall effect, nanotubes, graphene, plasmonic nanostructures."
+            },
+            {
+              "name-category": "Other Condensed Matter",
+              "id-category": "cond-mat.other",
+              "descr-category": "Work in condensed matter that does not fit into the other cond-mat classifications."
+            },
+            {
+              "name-category": "Quantum Gases",
+              "id-category": "cond-mat.quant-gas",
+              "descr-category": "Ultracold atomic and molecular gases, Bose-Einstein condensation, Feshbach resonances, spinor condensates, optical lattices, quantum simulation with cold atoms and molecules, macroscopic interference phenomena."
+            },
+            {
+              "name-category": "Soft Condensed Matter",
+              "id-category": "cond-mat.soft",
+              "descr-category": "Membranes, polymers, liquid crystals, glasses, colloids, granular matter."
+            },
+            {
+              "name-category": "Statistical Mechanics",
+              "id-category": "cond-mat.stat-mech",
+              "descr-category": "Phase transitions, thermodynamics, field theory, non-equilibrium phenomena, renormalization group and scaling, integrable models, turbulence."
+            },
+            {
+              "name-category": "Strongly Correlated Electrons",
+              "id-category": "cond-mat.str-el",
+              "descr-category": "Quantum magnetism, non-Fermi liquids, spin liquids, quantum criticality, charge density waves, metal-insulator transitions."
+            },
+            {
+              "name-category": "Superconductivity",
+              "id-category": "cond-mat.supr-con",
+              "descr-category": "Superconductivity: theory, models, experiment.  Superflow in helium."
+            }
+          ]
+        },
+        {
+          "name-category": "General Relativity and Quantum Cosmology",
+          "id-category": "gr-qc",
+          "categories": []
+        },
+        {
+          "name-category": "High Energy Physics - Experiment",
+          "id-category": "hep-ex",
+          "categories": []
+        },
+        {
+          "name-category": "High Energy Physics - Lattice",
+          "id-category": "hep-lat",
+          "categories": []
+        },
+        {
+          "name-category": "High Energy Physics - Phenomenology",
+          "id-category": "hep-ph",
+          "categories": []
+        },
+        {
+          "name-category": "High Energy Physics - Theory",
+          "id-category": "hep-th",
+          "categories": []
+        },
+        {
+          "name-category": "Mathematical Physics",
+          "id-category": "math-ph",
+          "categories": []
+        },
+        {
+          "name-category": "Nonlinear Sciences",
+          "id-category": "nlin",
+          "categories": [
+            {
+              "name-category": "Adaptation and Self-Organizing Systems",
+              "id-category": "nlin.AO",
+              "descr-category": "adaptation, self-organizing systems, statistical physics, fluctuating systems, stochastic processes, interacting particle systems, machine learning"
+            },
+            {
+              "name-category": "Cellular Automata and Lattice Gases",
+              "id-category": "nlin.CG",
+              "descr-category": "computational methods, time series analysis, signal processing, wavelets, lattice gases"
+            },
+            {
+              "name-category": "Chaotic Dynamics",
+              "id-category": "nlin.CD",
+              "descr-category": "dynamical systems, chaos, quantum chaos, topological dynamics, cycle expansions, turbulence, propagation"
+            },
+            {
+              "name-category": "Exactly Solvable and Integrable Systems",
+              "id-category": "nlin.SI",
+              "descr-category": "exactly solvable systems, integrable PDEs, integrable ODEs, Painleve analysis, integrable discrete maps, solvable lattice models, integrable quantum systems"
+            },
+            {
+              "name-category": "Pattern Formation and Solitons",
+              "id-category": "nlin.PS",
+              "descr-category": "pattern formation, coherent structures, solitons"
+            }
+          ]
+        },
+        {
+          "name-category": "Nuclear Experiment",
+          "id-category": "nucl-ex",
+          "categories": []
+        },
+        {
+          "name-category": "Nuclear Theory",
+          "id-category": "nucl-th",
+          "categories": []
+        },
+        {
+          "name-category": "Physics",
+          "id-category": "physics",
+          "categories": [
+            {
+              "name-category": "Accelerator Physics",
+              "id-category": "physics.acc-ph",
+              "descr-category": ""
+            },
+            {
+              "name-category": "Applied Physics",
+              "id-category": "physics.app-ph",
+              "descr-category": ""
+            },
+            {
+              "name-category": "Atmospheric and Oceanic Physics",
+              "id-category": "physics.ao-ph",
+              "descr-category": ""
+            },
+            {
+              "name-category": "Atomic Physics",
+              "id-category": "physics.atom-ph",
+              "descr-category": ""
+            },
+            {
+              "name-category": "Atomic and Molecular Clusters",
+              "id-category": "physics.atm-clus",
+              "descr-category": ""
+            },
+            {
+              "name-category": "Biological Physics",
+              "id-category": "physics.bio-ph",
+              "descr-category": ""
+            },
+            {
+              "name-category": "Chemical Physics",
+              "id-category": "physics.chem-ph",
+              "descr-category": ""
+            },
+            {
+              "name-category": "Classical Physics",
+              "id-category": "physics.class-ph",
+              "descr-category": ""
+            },
+            {
+              "name-category": "Computational Physics",
+              "id-category": "physics.comp-ph",
+              "descr-category": ""
+            },
+            {
+              "name-category": "Data Analysis, Statistics and Probability",
+              "id-category": "physics.data-an",
+              "descr-category": ""
+            },
+            {
+              "name-category": "Fluid Dynamics",
+              "id-category": "physics.flu-dyn",
+              "descr-category": ""
+            },
+            {
+              "name-category": "General Physics",
+              "id-category": "physics.gen-ph",
+              "descr-category": ""
+            },
+            {
+              "name-category": "Geophysics",
+              "id-category": "physics.geo-ph",
+              "descr-category": ""
+            },
+            {
+              "name-category": "History and Philosophy of Physics",
+              "id-category": "physics.hist-ph",
+              "descr-category": ""
+            },
+            {
+              "name-category": "Instrumentation and Detectors",
+              "id-category": "physics.ins-det",
+              "descr-category": ""
+            },
+            {
+              "name-category": "Medical Physics",
+              "id-category": "physics.med-ph",
+              "descr-category": ""
+            },
+            {
+              "name-category": "Optics",
+              "id-category": "physics.optics",
+              "descr-category": ""
+            },
+            {
+              "name-category": "Physics Education",
+              "id-category": "physics.ed-ph",
+              "descr-category": ""
+            },
+            {
+              "name-category": "Physics and Society",
+              "id-category": "physics.soc-ph",
+              "descr-category": ""
+            },
+            {
+              "name-category": "Plasma Physics",
+              "id-category": "physics.plasm-ph",
+              "descr-category": ""
+            },
+            {
+              "name-category": "Popular Physics",
+              "id-category": "physics.pop-ph",
+              "descr-category": ""
+            },
+            {
+              "name-category": "Space Physics",
+              "id-category": "physics.space-ph",
+              "descr-category": ""
+            }
+          ]
+        },
+        {
+          "name-category": "Quantum Physics",
+          "id-category": "quant-ph",
+          "categories": []
+        }
+      ]
+    },
+    {
+      "name-category": "Mathematics",
+      "id-category": "math",
+      "categories": [
+        {
+          "name-category": "Algebraic Geometry",
+          "id-category": "math.AG",
+          "descr-category": "Algebraic varieties, stacks, sheaves, schemes, moduli spaces, complex geometry, quantum cohomology."
+        },
+        {
+          "name-category": "Algebraic Topology",
+          "id-category": "math.AT",
+          "descr-category": "Homotopy theory, homological algebra, algebraic treatments of manifolds."
+        },
+        {
+          "name-category": "Analysis of PDEs",
+          "id-category": "math.AP",
+          "descr-category": "Existence and uniqueness, boundary conditions, linear and non-linear operators, stability, soliton theory, integrable PDE's, conservation laws, qualitative dynamics."
+        },
+        {
+          "name-category": "Category Theory",
+          "id-category": "math.CT",
+          "descr-category": "Enriched categories, topoi, abelian categories, monoidal categories, homological algebra."
+        },
+        {
+          "name-category": "Classical Analysis and ODEs",
+          "id-category": "math.CA",
+          "descr-category": "Special functions, orthogonal polynomials, harmonic analysis, ODE's, differential relations, calculus of variations, approximations, expansions, asymptotics."
+        },
+        {
+          "name-category": "Combinatorics",
+          "id-category": "math.CO",
+          "descr-category": "Discrete mathematics, graph theory, enumeration, combinatorial optimization, Ramsey theory, combinatorial game theory."
+        },
+        {
+          "name-category": "Commutative Algebra",
+          "id-category": "math.AC",
+          "descr-category": "Commutative rings, modules, ideals, homological algebra, computational aspects, invariant theory, connections to algebraic geometry and combinatorics."
+        },
+        {
+          "name-category": "Complex Variables",
+          "id-category": "math.CV",
+          "descr-category": "Holomorphic functions, automorphic group actions and forms, pseudoconvexity, complex geometry, analytic spaces, analytic sheaves."
+        },
+        {
+          "name-category": "Differential Geometry",
+          "id-category": "math.DG",
+          "descr-category": "Complex, contact, Riemannian, pseudo-Riemannian and Finsler geometry, relativity, gauge theory, global analysis."
+        },
+        {
+          "name-category": "Dynamical Systems",
+          "id-category": "math.DS",
+          "descr-category": "Dynamics of differential equations and flows, mechanics, classical few-body problems, iterations, complex dynamics, delayed differential equations."
+        },
+        {
+          "name-category": "Functional Analysis",
+          "id-category": "math.FA",
+          "descr-category": "Banach spaces, function spaces, real functions, integral transforms, theory of distributions, measure theory."
+        },
+        {
+          "name-category": "General Mathematics",
+          "id-category": "math.GM",
+          "descr-category": "Mathematical material of general interest, topics not covered elsewhere."
+        },
+        {
+          "name-category": "General Topology",
+          "id-category": "math.GN",
+          "descr-category": "Continuum theory, point-set topology, spaces with algebraic structure, foundations, dimension theory, local and global properties."
+        },
+        {
+          "name-category": "Geometric Topology",
+          "id-category": "math.GT",
+          "descr-category": "Manifolds, orbifolds, polyhedra, cell complexes, foliations, geometric structures."
+        },
+        {
+          "name-category": "Group Theory",
+          "id-category": "math.GR",
+          "descr-category": "Finite groups, topological groups, representation theory, cohomology, classification and structure."
+        },
+        {
+          "name-category": "History and Overview",
+          "id-category": "math.HO",
+          "descr-category": "Biographies, philosophy of mathematics, mathematics education, recreational mathematics, communication of mathematics."
+        },
+        {
+          "name-category": "Information Theory",
+          "id-category": "math.IT",
+          "descr-category": "math.IT is an alias for cs.IT. Covers theoretical and experimental aspects of information theory and coding."
+        },
+        {
+          "name-category": "K-Theory and Homology",
+          "id-category": "math.KT",
+          "descr-category": "Algebraic and topological K-theory, relations with topology, commutative algebra, and operator algebras."
+        },
+        {
+          "name-category": "Logic",
+          "id-category": "math.LO",
+          "descr-category": "Logic, set theory, point-set topology, formal mathematics."
+        },
+        {
+          "name-category": "Mathematical Physics",
+          "id-category": "math.MP",
+          "descr-category": "math.MP is an alias for math-ph. Mathematical methods in quantum field theory, quantum mechanics, statistical mechanics, condensed matter, nuclear and atomic physics."
+        },
+        {
+          "name-category": "Metric Geometry",
+          "id-category": "math.MG",
+          "descr-category": "Euclidean, hyperbolic, discrete, convex, coarse geometry, comparisons in Riemannian geometry, symmetric spaces."
+        },
+        {
+          "name-category": "Number Theory",
+          "id-category": "math.NT",
+          "descr-category": "Prime numbers, diophantine equations, analytic number theory, algebraic number theory, arithmetic geometry, Galois theory."
+        },
+        {
+          "name-category": "Numerical Analysis",
+          "id-category": "math.NA",
+          "descr-category": "Numerical algorithms for problems in analysis and algebra, scientific computation."
+        },
+        {
+          "name-category": "Operator Algebras",
+          "id-category": "math.OA",
+          "descr-category": "Algebras of operators on Hilbert space, C^*-algebras, von Neumann algebras, non-commutative geometry."
+        },
+        {
+          "name-category": "Optimization and Control",
+          "id-category": "math.OC",
+          "descr-category": "Operations research, linear programming, control theory, systems theory, optimal control, game theory."
+        },
+        {
+          "name-category": "Probability",
+          "id-category": "math.PR",
+          "descr-category": "Theory and applications of probability and stochastic processes: e.g. central limit theorems, large deviations, stochastic differential equations, models from statistical mechanics, queuing theory."
+        },
+        {
+          "name-category": "Quantum Algebra",
+          "id-category": "math.QA",
+          "descr-category": "Quantum groups, skein theories, operadic and diagrammatic algebra, quantum field theory."
+        },
+        {
+          "name-category": "Representation Theory",
+          "id-category": "math.RT",
+          "descr-category": "Linear representations of algebras and groups, Lie theory, associative algebras, multilinear algebra."
+        },
+        {
+          "name-category": "Rings and Algebras",
+          "id-category": "math.RA",
+          "descr-category": "Non-commutative rings and algebras, non-associative algebras, universal algebra and lattice theory, linear algebra, semigroups."
+        },
+        {
+          "name-category": "Spectral Theory",
+          "id-category": "math.SP",
+          "descr-category": "Schrodinger operators, operators on manifolds, general differential operators, numerical studies, integral operators, discrete models, resonances, non-self-adjoint operators, random operators/matrices."
+        },
+        {
+          "name-category": "Statistics Theory",
+          "id-category": "math.ST",
+          "descr-category": "Applied, computational and theoretical statistics: e.g. statistical inference, regression, time series, multivariate analysis, data analysis, Markov chain Monte Carlo, design of experiments, case studies."
+        },
+        {
+          "name-category": "Symplectic Geometry",
+          "id-category": "math.SG",
+          "descr-category": "Hamiltonian systems, symplectic flows, classical integrable systems."
+        }
+      ]
+    },
+    {
+      "name-category": "Computer Science",
+      "id-category": "cs",
+      "categories": [
+        {
+          "name-category": "Artificial Intelligence",
+          "id-category": "cs.AI",
+          "descr-category": "Covers all areas of AI except Vision, Robotics, Machine Learning, Multiagent Systems, and Computation and Language (Natural Language Processing), which have separate subject areas. In particular, includes Expert Systems, Theorem Proving (although this may overlap with Logic in Computer Science), Knowledge Representation, Planning, and Uncertainty in AI. Roughly includes material in ACM Subject Classes I.2.0, I.2.1, I.2.3, I.2.4, I.2.8, and I.2.11."
+        },
+        {
+          "name-category": "Computation and Language",
+          "id-category": "cs.CL",
+          "descr-category": "Covers natural language processing. Roughly includes material in ACM Subject Class I.2.7. Note that work on artificial languages (programming languages, logics, formal systems) that does not explicitly address natural-language issues broadly construed (natural-language processing, computational linguistics, speech, text retrieval, etc.) is not appropriate for this area."
+        },
+        {
+          "name-category": "Computational Complexity",
+          "id-category": "cs.CC",
+          "descr-category": "Covers models of computation, complexity classes, structural complexity, complexity tradeoffs, upper and lower bounds. Roughly includes material in ACM Subject Classes F.1 (computation by abstract devices), F.2.3 (tradeoffs among complexity measures), and F.4.3 (formal languages), although some material in formal languages may be more appropriate for Logic in Computer Science. Some material in F.2.1 and F.2.2, may also be appropriate here, but is more likely to have Data Structures and Algorithms as the primary subject area."
+        },
+        {
+          "name-category": "Computational Engineering, Finance, and Science",
+          "id-category": "cs.CE",
+          "descr-category": "Covers applications of computer science to the mathematical modeling of complex systems in the fields of science, engineering, and finance. Papers here are interdisciplinary and applications-oriented, focusing on techniques and tools that enable challenging computational simulations to be performed, for which the use of supercomputers or distributed computing platforms is often required. Includes material in ACM Subject Classes J.2, J.3, and J.4 (economics)."
+        },
+        {
+          "name-category": "Computational Geometry",
+          "id-category": "cs.CG",
+          "descr-category": "Roughly includes material in ACM Subject Classes I.3.5 and F.2.2."
+        },
+        {
+          "name-category": "Computer Science and Game Theory",
+          "id-category": "cs.GT",
+          "descr-category": "Covers all theoretical and applied aspects at the intersection of computer science and game theory, including work in mechanism design, learning in games (which may overlap with Learning), foundations of agent modeling in games (which may overlap with Multiagent systems), coordination, specification and formal methods for non-cooperative computational environments. The area also deals with applications of game theory to areas such as electronic commerce."
+        },
+        {
+          "name-category": "Computer Vision and Pattern Recognition",
+          "id-category": "cs.CV",
+          "descr-category": "Covers image processing, computer vision, pattern recognition, and scene understanding. Roughly includes material in ACM Subject Classes I.2.10, I.4, and I.5."
+        },
+        {
+          "name-category": "Computers and Society",
+          "id-category": "cs.CY",
+          "descr-category": "Covers impact of computers on society, computer ethics, information technology and public policy, legal aspects of computing, computers and education. Roughly includes material in ACM Subject Classes K.0, K.2, K.3, K.4, K.5, and K.7."
+        },
+        {
+          "name-category": "Cryptography and Security",
+          "id-category": "cs.CR",
+          "descr-category": "Covers all areas of cryptography and security including authentication, public key cryptosytems, proof-carrying code, etc. Roughly includes material in ACM Subject Classes D.4.6 and E.3."
+        },
+        {
+          "name-category": "Data Structures and Algorithms",
+          "id-category": "cs.DS",
+          "descr-category": "Covers data structures and analysis of algorithms. Roughly includes material in ACM Subject Classes E.1, E.2, F.2.1, and F.2.2."
+        },
+        {
+          "name-category": "Databases",
+          "id-category": "cs.DB",
+          "descr-category": "Covers database management, datamining, and data processing. Roughly includes material in ACM Subject Classes E.2, E.5, H.0, H.2, and J.1."
+        },
+        {
+          "name-category": "Digital Libraries",
+          "id-category": "cs.DL",
+          "descr-category": "Covers all aspects of the digital library design and document and text creation. Note that there will be some overlap with Information Retrieval (which is a separate subject area). Roughly includes material in ACM Subject Classes H.3.5, H.3.6, H.3.7, I.7."
+        },
+        {
+          "name-category": "Discrete Mathematics",
+          "id-category": "cs.DM",
+          "descr-category": "Covers combinatorics, graph theory, applications of probability. Roughly includes material in ACM Subject Classes G.2 and G.3."
+        },
+        {
+          "name-category": "Distributed, Parallel, and Cluster Computing",
+          "id-category": "cs.DC",
+          "descr-category": "Covers fault-tolerance, distributed algorithms, stabilility, parallel computation, and cluster computing. Roughly includes material in ACM Subject Classes C.1.2, C.1.4, C.2.4, D.1.3, D.4.5, D.4.7, E.1."
+        },
+        {
+          "name-category": "Emerging Technologies",
+          "id-category": "cs.ET",
+          "descr-category": "Covers approaches to information processing (computing, communication, sensing) and bio-chemical analysis based on alternatives to silicon CMOS-based technologies, such as nanoscale electronic, photonic, spin-based, superconducting, mechanical, bio-chemical and quantum technologies (this list is not exclusive). Topics of interest include (1) building blocks for emerging technologies, their scalability and adoption in larger systems, including integration with traditional technologies, (2) modeling, design and optimization of novel devices and systems, (3) models of computation, algorithm design and programming for emerging technologies."
+        },
+        {
+          "name-category": "Formal Languages and Automata Theory",
+          "id-category": "cs.FL",
+          "descr-category": "Covers automata theory, formal language theory, grammars, and combinatorics on words. This roughly corresponds to ACM Subject Classes F.1.1, and F.4.3. Papers dealing with computational complexity should go to cs.CC; papers dealing with logic should go to cs.LO."
+        },
+        {
+          "name-category": "General Literature",
+          "id-category": "cs.GL",
+          "descr-category": "Covers introductory material, survey material, predictions of future trends, biographies, and miscellaneous computer-science related material. Roughly includes all of ACM Subject Class A, except it does not include conference proceedings (which will be listed in the appropriate subject area)."
+        },
+        {
+          "name-category": "Graphics",
+          "id-category": "cs.GR",
+          "descr-category": "Covers all aspects of computer graphics. Roughly includes material in all of ACM Subject Class I.3, except that I.3.5 is is likely to have Computational Geometry as the primary subject area."
+        },
+        {
+          "name-category": "Hardware Architecture",
+          "id-category": "cs.AR",
+          "descr-category": "Covers systems organization and hardware architecture. Roughly includes material in ACM Subject Classes C.0, C.1, and C.5."
+        },
+        {
+          "name-category": "Human-Computer Interaction",
+          "id-category": "cs.HC",
+          "descr-category": "Covers human factors, user interfaces, and collaborative computing. Roughly includes material in ACM Subject Classes H.1.2 and all of H.5, except for H.5.1, which is more likely to have Multimedia as the primary subject area."
+        },
+        {
+          "name-category": "Information Retrieval",
+          "id-category": "cs.IR",
+          "descr-category": "Covers indexing, dictionaries, retrieval, content and analysis. Roughly includes material in ACM Subject Classes H.3.0, H.3.1, H.3.2, H.3.3, and H.3.4."
+        },
+        {
+          "name-category": "Information Theory",
+          "id-category": "cs.IT",
+          "descr-category": "Covers theoretical and experimental aspects of information theory and coding. Includes material in ACM Subject Class E.4 and intersects with H.1.1."
+        },
+        {
+          "name-category": "Logic in Computer Science",
+          "id-category": "cs.LO",
+          "descr-category": "Covers all aspects of logic in computer science, including finite model theory, logics of programs, modal logic, and program verification. Programming language semantics should have Programming Languages as the primary subject area. Roughly includes material in ACM Subject Classes D.2.4, F.3.1, F.4.0, F.4.1, and F.4.2; some material in F.4.3 (formal languages) may also be appropriate here, although Computational Complexity is typically the more appropriate subject area."
+        },
+        {
+          "name-category": "Machine Learning",
+          "id-category": "cs.LG",
+          "descr-category": "Papers on all aspects of machine learning research (supervised, unsupervised, reinforcement learning, bandit problems, and so on) including also robustness, explanation, fairness, and methodology. cs.LG is also an appropriate primary category for applications of machine learning methods."
+        },
+        {
+          "name-category": "Mathematical Software",
+          "id-category": "cs.MS",
+          "descr-category": "Roughly includes material in ACM Subject Class G.4."
+        },
+        {
+          "name-category": "Multiagent Systems",
+          "id-category": "cs.MA",
+          "descr-category": "Covers multiagent systems, distributed artificial intelligence, intelligent agents, coordinated interactions. and practical applications. Roughly covers ACM Subject Class I.2.11."
+        },
+        {
+          "name-category": "Multimedia",
+          "id-category": "cs.MM",
+          "descr-category": "Roughly includes material in ACM Subject Class H.5.1."
+        },
+        {
+          "name-category": "Networking and Internet Architecture",
+          "id-category": "cs.NI",
+          "descr-category": "Covers all aspects of computer communication networks, including network architecture and design, network protocols, and internetwork standards (like TCP/IP). Also includes topics, such as web caching, that are directly relevant to Internet architecture and performance. Roughly includes all of ACM Subject Class C.2 except C.2.4, which is more likely to have Distributed, Parallel, and Cluster Computing as the primary subject area."
+        },
+        {
+          "name-category": "Neural and Evolutionary Computing",
+          "id-category": "cs.NE",
+          "descr-category": "Covers neural networks, connectionism, genetic algorithms, artificial life, adaptive behavior. Roughly includes some material in ACM Subject Class C.1.3, I.2.6, I.5."
+        },
+        {
+          "name-category": "Numerical Analysis",
+          "id-category": "cs.NA",
+          "descr-category": "cs.NA is an alias for math.NA. Roughly includes material in ACM Subject Class G.1."
+        },
+        {
+          "name-category": "Operating Systems",
+          "id-category": "cs.OS",
+          "descr-category": "Roughly includes material in ACM Subject Classes D.4.1, D.4.2., D.4.3, D.4.4, D.4.5, D.4.7, and D.4.9."
+        },
+        {
+          "name-category": "Other Computer Science",
+          "id-category": "cs.OH",
+          "descr-category": "This is the classification to use for documents that do not fit anywhere else."
+        },
+        {
+          "name-category": "Performance",
+          "id-category": "cs.PF",
+          "descr-category": "Covers performance measurement and evaluation, queueing, and simulation. Roughly includes material in ACM Subject Classes D.4.8 and K.6.2."
+        },
+        {
+          "name-category": "Programming Languages",
+          "id-category": "cs.PL",
+          "descr-category": "Covers programming language semantics, language features, programming approaches (such as object-oriented programming, functional programming, logic programming). Also includes material on compilers oriented towards programming languages; other material on compilers may be more appropriate in Architecture (AR). Roughly includes material in ACM Subject Classes D.1 and D.3."
+        },
+        {
+          "name-category": "Robotics",
+          "id-category": "cs.RO",
+          "descr-category": "Roughly includes material in ACM Subject Class I.2.9."
+        },
+        {
+          "name-category": "Social and Information Networks",
+          "id-category": "cs.SI",
+          "descr-category": "Covers the design, analysis, and modeling of social and information networks, including their applications for on-line information access, communication, and interaction, and their roles as datasets in the exploration of questions in these and other domains, including connections to the social and biological sciences. Analysis and modeling of such networks includes topics in ACM Subject classes F.2, G.2, G.3, H.2, and I.2; applications in computing include topics in H.3, H.4, and H.5; and applications at the interface of computing and other disciplines include topics in J.1--J.7. Papers on computer communication systems and network protocols (e.g. TCP/IP) are generally a closer fit to the Networking and Internet Architecture (cs.NI) category."
+        },
+        {
+          "name-category": "Software Engineering",
+          "id-category": "cs.SE",
+          "descr-category": "Covers design tools, software metrics, testing and debugging, programming environments, etc. Roughly includes material in all of ACM Subject Classes D.2, except that D.2.4 (program verification) should probably have Logics in Computer Science as the primary subject area."
+        },
+        {
+          "name-category": "Sound",
+          "id-category": "cs.SD",
+          "descr-category": "Covers all aspects of computing with sound, and sound as an information channel. Includes models of sound, analysis and synthesis, audio user interfaces, sonification of data, computer music, and sound signal processing. Includes ACM Subject Class H.5.5, and intersects with H.1.2, H.5.1, H.5.2, I.2.7, I.5.4, I.6.3, J.5, K.4.2."
+        },
+        {
+          "name-category": "Symbolic Computation",
+          "id-category": "cs.SC",
+          "descr-category": "Roughly includes material in ACM Subject Class I.1."
+        },
+        {
+          "name-category": "Systems and Control",
+          "id-category": "cs.SY",
+          "descr-category": "cs.SY is an alias for eess.SY. This section includes theoretical and experimental research covering all facets of automatic control systems. The section is focused on methods of control system analysis and design using tools of modeling, simulation and optimization. Specific areas of research include nonlinear, distributed, adaptive, stochastic and robust control in addition to hybrid and discrete event systems. Application areas include automotive and aerospace control systems, network control, biological systems, multiagent and cooperative control, robotics, reinforcement learning, sensor networks, control of cyber-physical and energy-related systems, and control of computing systems."
+        }
+      ]
+    },
+    {
+      "name-category": "Quantitative Biology",
+      "id-category": "q-bio",
+      "categories": [
+        {
+          "name-category": "Biomolecules",
+          "id-category": "q-bio.BM",
+          "descr-category": "DNA, RNA, proteins, lipids, etc.; molecular structures and folding kinetics; molecular interactions; single-molecule manipulation."
+        },
+        {
+          "name-category": "Cell Behavior",
+          "id-category": "q-bio.CB",
+          "descr-category": "Cell-cell signaling and interaction; morphogenesis and development; apoptosis; bacterial conjugation; viral-host interaction; immunology."
+        },
+        {
+          "name-category": "Genomics",
+          "id-category": "q-bio.GN",
+          "descr-category": "DNA sequencing and assembly; gene and motif finding; RNA editing and alternative splicing; genomic structure and processes (replication, transcription, methylation, etc); mutational processes."
+        },
+        {
+          "name-category": "Molecular Networks",
+          "id-category": "q-bio.MN",
+          "descr-category": "Gene regulation, signal transduction, proteomics, metabolomics, gene and enzymatic networks."
+        },
+        {
+          "name-category": "Neurons and Cognition",
+          "id-category": "q-bio.NC",
+          "descr-category": "Synapse, cortex, neuronal dynamics, neural network, sensorimotor control, behavior, attention."
+        },
+        {
+          "name-category": "Other Quantitative Biology",
+          "id-category": "q-bio.OT",
+          "descr-category": "Work in quantitative biology that does not fit into the other q-bio classifications."
+        },
+        {
+          "name-category": "Populations and Evolution",
+          "id-category": "q-bio.PE",
+          "descr-category": "Population dynamics, spatio-temporal and epidemiological models, dynamic speciation, co-evolution, biodiversity, foodwebs, aging; molecular evolution and phylogeny; directed evolution; origin of life."
+        },
+        {
+          "name-category": "Quantitative Methods",
+          "id-category": "q-bio.QM",
+          "descr-category": "All experimental, numerical, statistical and mathematical contributions of value to biology."
+        },
+        {
+          "name-category": "Subcellular Processes",
+          "id-category": "q-bio.SC",
+          "descr-category": "Assembly and control of subcellular structures (channels, organelles, cytoskeletons, capsules, etc.); molecular motors, transport, subcellular localization; mitosis and meiosis."
+        },
+        {
+          "name-category": "Tissues and Organs",
+          "id-category": "q-bio.TO",
+          "descr-category": "Blood flow in vessels, biomechanics of bones, electrical waves, endocrine system, tumor growth."
+        }
+      ]
+    },
+    {
+      "name-category": "Quantitative Finance",
+      "id-category": "q-fin",
+      "categories": [
+        {
+          "name-category": "Computational Finance",
+          "id-category": "q-fin.CP",
+          "descr-category": "Computational methods, including Monte Carlo, PDE, lattice and other numerical methods with applications to financial modeling."
+        },
+        {
+          "name-category": "Economics",
+          "id-category": "q-fin.EC",
+          "descr-category": "q-fin.EC is an alias for econ.GN. Economics, including micro and macro economics, international economics, theory of the firm, labor economics, and other economic topics outside finance."
+        },
+        {
+          "name-category": "General Finance",
+          "id-category": "q-fin.GN",
+          "descr-category": "Development of general quantitative methodologies with applications in finance."
+        },
+        {
+          "name-category": "Mathematical Finance",
+          "id-category": "q-fin.MF",
+          "descr-category": "Mathematical and analytical methods of finance, including stochastic, probabilistic and functional analysis, algebraic, geometric and other methods."
+        },
+        {
+          "name-category": "Portfolio Management",
+          "id-category": "q-fin.PM",
+          "descr-category": "Security selection and optimization, capital allocation, investment strategies and performance measurement."
+        },
+        {
+          "name-category": "Pricing of Securities",
+          "id-category": "q-fin.PR",
+          "descr-category": "Valuation and hedging of financial securities, their derivatives, and structured products."
+        },
+        {
+          "name-category": "Risk Management",
+          "id-category": "q-fin.RM",
+          "descr-category": "Measurement and management of financial risks in trading, banking, insurance, corporate and other applications."
+        },
+        {
+          "name-category": "Statistical Finance",
+          "id-category": "q-fin.ST",
+          "descr-category": "Statistical, econometric and econophysics analyses with applications to financial markets and economic data."
+        },
+        {
+          "name-category": "Trading and Market Microstructure",
+          "id-category": "q-fin.TR",
+          "descr-category": "Market microstructure, liquidity, exchange and auction design, automated trading, agent-based modeling and market-making."
+        }
+      ]
+    },
+    {
+      "name-category": "Statistics",
+      "id-category": "stat",
+      "categories": [
+        {
+          "name-category": "Applications",
+          "id-category": "stat.AP",
+          "descr-category": "Biology, Education, Epidemiology, Engineering, Environmental Sciences, Medical, Physical Sciences, Quality Control, Social Sciences."
+        },
+        {
+          "name-category": "Computation",
+          "id-category": "stat.CO",
+          "descr-category": "Algorithms, Simulation, Visualization."
+        },
+        {
+          "name-category": "Machine Learning",
+          "id-category": "stat.ML",
+          "descr-category": "Classification, Graphical Models, High Dimensional Inference."
+        },
+        {
+          "name-category": "Methodology",
+          "id-category": "stat.ME",
+          "descr-category": "Design, Surveys, Model Selection, Multiple Testing, Multivariate Methods, Signal and Image Processing, Time Series, Smoothing, Spatial Statistics, Survival Analysis, Nonparametric and Semiparametric Methods."
+        },
+        {
+          "name-category": "Other Statistics",
+          "id-category": "stat.OT",
+          "descr-category": "Work in statistics that does not fit into the other stat classifications."
+        },
+        {
+          "name-category": "Statistics Theory",
+          "id-category": "stat.TH",
+          "descr-category": "stat.TH is an alias for math.ST. Asymptotics, Bayesian Inference, Decision Theory, Estimation, Foundations, Inference, Testing."
+        }
+      ]
+    },
+    {
+      "name-category": "Electrical Engineering and Systems Science",
+      "id-category": "eess",
+      "categories": [
+        {
+          "name-category": "Audio and Speech Processing",
+          "id-category": "eess.AS",
+          "descr-category": "Theory and methods for processing signals representing audio, speech, and language, and their applications. This includes analysis, synthesis, enhancement, transformation, classification and interpretation of such signals as well as the design, development, and evaluation of associated signal processing systems. Machine learning and pattern analysis applied to any of the above areas is also welcome. Specific topics of interest include: auditory modeling and hearing aids; acoustic beamforming and source localization; classification of acoustic scenes; speaker separation; active noise control and echo cancellation; enhancement; de-reverberation; bioacoustics; music signals analysis, synthesis and modification; music information retrieval; audio for multimedia and joint audio-video processing; spoken and written language modeling, segmentation, tagging, parsing, understanding, and translation; text mining; speech production, perception, and psychoacoustics; speech analysis, synthesis, and perceptual modeling and coding; robust speech recognition; speaker recognition and characterization; deep learning, online learning, and graphical models applied to speech, audio, and language signals; and implementation aspects ranging from system architecture to fast algorithms."
+        },
+        {
+          "name-category": "Image and Video Processing",
+          "id-category": "eess.IV",
+          "descr-category": "Theory, algorithms, and architectures for the formation, capture, processing, communication, analysis, and display of images, video, and multidimensional signals in a wide variety of applications. Topics of interest include: mathematical, statistical, and perceptual image and video modeling and representation; linear and nonlinear filtering, de-blurring, enhancement, restoration, and reconstruction from degraded, low-resolution or tomographic data; lossless and lossy compression and coding; segmentation, alignment, and recognition; image rendering, visualization, and printing; computational imaging, including ultrasound, tomographic and magnetic resonance imaging; and image and video analysis, synthesis, storage, search and retrieval."
+        },
+        {
+          "name-category": "Signal Processing",
+          "id-category": "eess.SP",
+          "descr-category": "Theory, algorithms, performance analysis and applications of signal and data analysis, including physical modeling, processing, detection and parameter estimation, learning, mining, retrieval, and information extraction. The term \"signal\" includes speech, audio, sonar, radar, geophysical, physiological, (bio-) medical, image, video, and multimodal natural and man-made signals, including communication signals and data. Topics of interest include: statistical signal processing, spectral estimation and system identification; filter design, adaptive filtering / stochastic learning; (compressive) sampling, sensing, and transform-domain methods including fast algorithms; signal processing for machine learning and machine learning for signal processing applications; in-network and graph signal processing; convex and nonconvex optimization methods for signal processing applications; radar, sonar, and sensor array beamforming and direction finding; communications signal processing; low power, multi-core and system-on-chip signal processing; sensing, communication, analysis and optimization for cyber-physical systems such as power grids and the Internet of Things."
+        },
+        {
+          "name-category": "Systems and Control",
+          "id-category": "eess.SY",
+          "descr-category": "This section includes theoretical and experimental research covering all facets of automatic control systems. The section is focused on methods of control system analysis and design using tools of modeling, simulation and optimization. Specific areas of research include nonlinear, distributed, adaptive, stochastic and robust control in addition to hybrid and discrete event systems. Application areas include automotive and aerospace control systems, network control, biological systems, multiagent and cooperative control, robotics, reinforcement learning, sensor networks, control of cyber-physical and energy-related systems, and control of computing systems."
+        }
+      ]
+    },
+    {
+      "name-category": "Economics",
+      "id-category": "econ",
+      "categories": [
+        {
+          "name-category": "Econometrics",
+          "id-category": "econ.EM",
+          "descr-category": "Econometric Theory, Micro-Econometrics, Macro-Econometrics, Empirical Content of Economic Relations discovered via New Methods, Methodological Aspects of the Application of Statistical Inference to Economic Data."
+        },
+        {
+          "name-category": "General Economics",
+          "id-category": "econ.GN",
+          "descr-category": "General methodological and applied contributions to economics."
+        },
+        {
+          "name-category": "Theoretical Economics",
+          "id-category": "econ.TH",
+          "descr-category": "Includes theoretical contributions to Contract Theory, Decision Theory, Game Theory, General Equilibrium, Growth, Learning and Evolution, Macroeconomics, Market and Mechanism Design, and Social Choice."
+        }
+      ]
+    }
+  ]
+}

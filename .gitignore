@@ -15,3 +15,5 @@ prediction_pd/.DS_Store
 prediction_pd/resources/tdidf_bigram.pkl
 
 management_papers/.DS_Store
+
+taxonomy_keywords/.DS_Store
