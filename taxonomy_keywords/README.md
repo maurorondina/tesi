@@ -10,5 +10,5 @@
 ## Retrieve keywords from papers
 
 1. Run [find_papers_with_keywords.py](./find_papers_with_keywords.py) to generate a [list](./resources/LIST_PAPERS_keywords.txt) of arxiv papers containing keywords and/or CCS CONCEPTS.
-2. Run [extract_keywords.py](./extract_keywords.py) to extract keywords and/or CCS CONCEPTS from arxiv papers in pdf. It generates a [file](./resources/papers_keywords.json) containing information that for some papers is inaccurate. (note: some information is extracted incorrectly due to the diversity of the papers)
+2. Run [extract_keywords.py](./extract_keywords.py) to extract keywords and/or CCS CONCEPTS from arxiv papers in pdf. It generates the file [papers_keywords.json](./resources/papers_keywords.json) containing information that for some papers is inaccurate. (note: some information is extracted incorrectly due to the diversity of the papers)
 3. In order to extract all the keywords correctly, in the [fix_keywords.py]('./fix_keywords.py') there are pieces of code that try to extract the keywords of a subset of papers. Each attempt must be checked for correctness. (note: I suggest using regular expression)
