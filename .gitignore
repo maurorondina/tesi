@@ -18,3 +18,12 @@ prediction_pd/resources/tdidf_bigram.pkl
 management_papers/.DS_Store
 
 taxonomy_keywords/.DS_Store
+taxonomy_keywords/jup/.ipynb_checkpoints
+taxonomy_keywords/jup/dask-worker-space
+taxonomy_keywords/jup/inutile
+taxonomy_keywords/hlta_arxiv_auto_3000_cv/HLTA.jar
+taxonomy_keywords/hlta_arxiv_auto_3000_cv/HLTA-deps.jar
+taxonomy_keywords/hlta_arxiv_auto_3000_cv/run_subroutine.py
+taxonomy_keywords/hlta_arxiv_auto_3000_others/HLTA.jar
+taxonomy_keywords/hlta_arxiv_auto_3000_others/HLTA-deps.jar
+taxonomy_keywords/hlta_arxiv_auto_3000_others/run_subroutine.py
