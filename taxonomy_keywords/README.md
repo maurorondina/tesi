@@ -22,10 +22,10 @@
 1. Use [HLTA](https://github.com/kmpoon/hlta) to extract topics for paper with keywords. 
 
 
-Recap:
-	- [taxonomy](./resources/taxonomy.json)
-	- [paper and subjects](./resources/papers_subjects.json) (for all arxiv papers: 37368)
-	- [paper and information](./resources/papers_info.json) (for all arxiv papers: 37368)
-	- [paper and keywords](./resources/papers_keywords.json) (for all arxiv papers that have explicit keywords: 15118)
-	- [topic_cv](./hlta_arxiv_auto_3000_cv/arxiv.html) (for all arxiv documents that have explicit keywords belonging to the subject 'cs.CV': 7872)
-	- [topic_others](./hlta_arxiv_auto_3000_others/arxiv.html) (for all arxiv documents that have explicit keywords belonging to the other subjects: 7246)
+##### Recap:
+- [taxonomy](./resources/taxonomy.json)
+- [paper and subjects](./resources/papers_subjects.json) (for all arxiv papers: 37368)
+- [paper and information](./resources/papers_info.json) (for all arxiv papers: 37368)
+- [paper and keywords](./resources/papers_keywords.json) (for all arxiv papers that have explicit keywords: 15118)
+- [topic_cv](./hlta_arxiv_auto_3000_cv/arxiv.html) (for all arxiv documents that have explicit keywords belonging to the subject 'cs.CV': 7872)
+- [topic_others](./hlta_arxiv_auto_3000_others/arxiv.html) (for all arxiv documents that have explicit keywords belonging to the other subjects: 7246)
