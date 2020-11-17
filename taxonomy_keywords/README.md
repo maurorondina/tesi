@@ -17,7 +17,7 @@
 In file [simplified_taxonomy](./predict_subjects/simplified_taxonomy.ipynb) a simplified taxonomy with 56 subjects is created.
 
 1. In the file [datasetPaperSubject](./predict_subjects/datasetPaperSubject.ipynb) you see the relationship between all arxiv papers and the subjects of the taxonomy. You also prepare a text-clean dataset useful for prediction.
-2. In the file [predictSubject](./predict_subjects/predictSubject.ipynb) the subjects are predicted for each arxiv paper. To this end, several attempts are made with different classifiers.
+2. In the file [predictSubjects](./predict_subjects/predictSubjects.ipynb) the subjects are predicted for each arxiv paper. To this end, several attempts are made with different classifiers.
 
 | METHOD | num_subjects | train_score | test_score |
 |--------|:------------:|:-----------:|:----------:|
@@ -29,7 +29,7 @@ In file [simplified_taxonomy](./predict_subjects/simplified_taxonomy.ipynb) a si
 | **OneVsRest - Logistic Regression** | 56 | 0.576 | 0.521 |
 
 1. In the file [datasetPaperKeywordsSubject](./predict_subjects/datasetPaperKeywordsSubject.ipynb) you see the relationship between arxiv papers with keywords and the subjects of the taxonomy. You also prepare a text-clean dataset useful for prediction.
-2. In the file [predictSubject_k](./predict_subjects/predictSubject_k.ipynb) the subjects are predicted for each arxiv paper with keywords. To this end, several attempts are made with different classifiers.
+2. In the file [predictSubjects_k](./predict_subjects/predictSubjects_k.ipynb) the subjects are predicted for each arxiv paper with keywords. To this end, several attempts are made with different classifiers.
 
 | METHOD | num_subjects | train_score | test_score |
 |--------|:------------:|:-----------:|:----------:|
@@ -45,7 +45,7 @@ A paragraph was considered "interesting" if:
 	- it is a "problem description"
 	- at least one subsection of it has been predicted as a "problem description"
 	- its title belongs to a group of standard titles that are used to understand the context and information on the paper's problem.
-2. In the file [predictSubject_interesting](./predict_subjects/predictSubject_interesting.ipynb) the subjects are predicted for each analyzable arxiv paper. To this end, several attempts are made with different classifiers.
+2. In the file [predictSubjects_interesting](./predict_subjects/predictSubjects_interesting.ipynb) the subjects are predicted for each analyzable arxiv paper. To this end, several attempts are made with different classifiers.
 
 | METHOD | num_subjects | train_score | test_score |
 |--------|:------------:|:-----------:|:----------:|
