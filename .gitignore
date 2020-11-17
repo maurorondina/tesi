@@ -18,12 +18,21 @@ prediction_pd/resources/tdidf_bigram.pkl
 management_papers/.DS_Store
 
 taxonomy_keywords/.DS_Store
-taxonomy_keywords/jup/.ipynb_checkpoints
-taxonomy_keywords/jup/dask-worker-space
-taxonomy_keywords/jup/inutile
+taxonomy_keywords/predict_subjects/.ipynb_checkpoints
+taxonomy_keywords/predict_subjects/dask-worker-space
+taxonomy_keywords/predict_subjects/inutile
 taxonomy_keywords/hlta_arxiv_auto_3000_cv/HLTA.jar
 taxonomy_keywords/hlta_arxiv_auto_3000_cv/HLTA-deps.jar
 taxonomy_keywords/hlta_arxiv_auto_3000_cv/run_subroutine.py
 taxonomy_keywords/hlta_arxiv_auto_3000_others/HLTA.jar
 taxonomy_keywords/hlta_arxiv_auto_3000_others/HLTA-deps.jar
 taxonomy_keywords/hlta_arxiv_auto_3000_others/run_subroutine.py
+taxonomy_keywords/resources/papers-parquets
+taxonomy_keywords/resources/papers-textclean-parquets
+taxonomy_keywords/resources/papers-k-parquets
+taxonomy_keywords/resources/papers-k-textclean-parquets
+taxonomy_keywords/resources/interesting_arxiv_papers.pkl
+taxonomy_keywords/resources/interesting_arxiv_papers_textclean.pkl
+taxonomy_keywords/resources/tdidf_bigram_vectorizer.pkl
+taxonomy_keywords/resources/tdidf_bigram_k_vectorizer.pkl
+taxonomy_keywords/resources/tdidf_bigram_interesting_vectorizer.pkl
