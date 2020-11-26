@@ -18,6 +18,7 @@ prediction_pd/resources/tdidf_bigram.pkl
 management_papers/.DS_Store
 
 taxonomy_keywords/.DS_Store
+taxonomy_keywords/predict_subjects/.DS_Store
 taxonomy_keywords/predict_subjects/.ipynb_checkpoints
 taxonomy_keywords/predict_subjects/dask-worker-space
 taxonomy_keywords/predict_subjects/inutile
@@ -27,6 +28,7 @@ taxonomy_keywords/hlta_arxiv_auto_3000_cv/run_subroutine.py
 taxonomy_keywords/hlta_arxiv_auto_3000_others/HLTA.jar
 taxonomy_keywords/hlta_arxiv_auto_3000_others/HLTA-deps.jar
 taxonomy_keywords/hlta_arxiv_auto_3000_others/run_subroutine.py
+taxonomy_keywords/resources/.DS_Store
 taxonomy_keywords/resources/papers-parquets
 taxonomy_keywords/resources/papers-textclean-parquets
 taxonomy_keywords/resources/papers-k-parquets

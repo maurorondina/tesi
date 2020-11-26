@@ -15,6 +15,7 @@
 ## Predict subjects for paper
 
 In file [simplified_taxonomy](./predict_subjects/simplified_taxonomy.ipynb) a simplified taxonomy with 56 subjects is created.
+In files [simplest_taxonomy](./predict_subjects/simplest_taxonomy.ipynb) and [simplest_taxonomy-v2](./predict_subjects/simplest_taxonomy-v2.ipynb) a further simplified taxonomy is created in two different versions.
 
 1. In the file [datasetPaperSubject](./predict_subjects/datasetPaperSubject.ipynb) you see the relationship between all arxiv papers and the subjects of the taxonomy. You also prepare a text-clean dataset useful for prediction.
 2. In the file [predictSubjects](./predict_subjects/predictSubjects.ipynb) the subjects are predicted for each arxiv paper. To this end, several attempts are made with different classifiers.
@@ -28,6 +29,9 @@ In file [simplified_taxonomy](./predict_subjects/simplified_taxonomy.ipynb) a si
 | **OneVsRest - Logistic Regression** | 133 | 0.572 | 0.518 |
 | **OneVsRest - Logistic Regression** | 56 | 0.576 | 0.521 |
 
+3. In the file [predictSubjects_2](./predict_subjects/predictSubjects_2.ipynb) the subjects are predicted for each arxiv paper. To this end, several attempts are made with different classifiers and some new tricks and metrics to consider the imbalance of the dataset.
+4. In files [predictSubjects_3](./predict_subjects/predictSubjects_3.ipynb) and [predictSubjects_3-v2](./predict_subjects/predictSubjects_3-v2.ipynb) the subjects are predicted for each arxiv paper, using the two different versions of the simplest taxonomy respectively.
+
 1. In the file [datasetPaperKeywordsSubject](./predict_subjects/datasetPaperKeywordsSubject.ipynb) you see the relationship between arxiv papers with keywords and the subjects of the taxonomy. You also prepare a text-clean dataset useful for prediction.
 2. In the file [predictSubjects_k](./predict_subjects/predictSubjects_k.ipynb) the subjects are predicted for each arxiv paper with keywords. To this end, several attempts are made with different classifiers.
 
@@ -39,6 +43,9 @@ In file [simplified_taxonomy](./predict_subjects/simplified_taxonomy.ipynb) a si
 | **OneVsRest - Linear SVC** | 56 | 0.881 | 0.552 |
 | **OneVsRest - Logistic Regression** | 114 | 0.602 | 0.554 |
 | **OneVsRest - Logistic Regression** | 56 | 0.604 | 0.556 |
+
+3. In the file [predictSubjects_k_2](./predict_subjects/predictSubjects_k_2.ipynb) the subjects are predicted for each arxiv paper with keywords. To this end, several attempts are made with different classifiers and some new tricks and metrics to consider the imbalance of the dataset.
+4. In files [predictSubjects_k_3](./predict_subjects/predictSubjects_k_3.ipynb) and [predictSubjects_k_3-v2](./predict_subjects/predictSubjects_3-v2.ipynb) the subjects are predicted for each arxiv paper, using the two different versions of the simplest taxonomy respectively.
 
 1. In files [create_intersting_arxiv_Dataset](./predict_subjects/create_intersting_arxiv_Dataset.ipynb) and [create_intersting_arxiv_textclean_Dataset](./predict_subjects/create_intersting_arxiv_textclean_Dataset.ipynb) two datasets are created, one of which is text-clean, and they contain all the interesting paragraphs of all analyzable arxiv papers.
 A paragraph was considered "interesting" if:
@@ -56,9 +63,15 @@ A paragraph was considered "interesting" if:
 | **OneVsRest - Logistic Regression** | 121 | 0.559 | 0.510 |
 | **OneVsRest - Logistic Regression** | 56 | 0.562 | 0.511 |
 
+3. In the file [predictSubjects_interesting_2](./predict_subjects/predictSubjects_interesting_2.ipynb) the subjects are predicted for each analyzable arxiv paper. To this end, several attempts are made with different classifiers and some new tricks and metrics to consider the imbalance of the dataset.
+4. In files [predictSubjects_interesting_3](./predict_subjects/predictSubjects_interesting_3.ipynb) and [predictSubjects_interesting_3-v2](./predict_subjects/predictSubjects_3-v2.ipynb) the subjects are predicted for each arxiv paper, using the two different versions of the simplest taxonomy respectively.
+
+
+__The results of all files in steps 3 and 4 are visible in this Excell [file](./predict_subjects/results-prediction.xlsx). Further information can be found in the respective log files.__
+
 ## HLTA
 
-1. Use [HLTA](https://github.com/kmpoon/hlta) to extract topics for paper with keywords. 
+1. Use [HLTA](https://github.com/kmpoon/hlta) to extract topics for paper with keywords.
 
 
 ##### Important Resources:

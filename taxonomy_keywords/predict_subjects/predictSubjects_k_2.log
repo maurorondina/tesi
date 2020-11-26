@@ -1,0 +1,3226 @@
+INFO:root:
+
+>>> TAXONOMY WITH 114 SUBJECTS
+
+
+INFO:root:OneVsRest - Multinomial NB
+INFO:root:... training on 12088 samples
+INFO:root:... predicting on train set
+INFO:root:
+		 accuracy = 0.5448378557246857
+INFO:root:
+		 f1_macro = 0.02805661251693246
+INFO:root:
+                    precision    recall  f1-score   support
+
+          astro-ph       0.00      0.00      0.00         3
+       astro-ph.CO       0.00      0.00      0.00         4
+       astro-ph.EP       0.00      0.00      0.00         1
+       astro-ph.GA       0.00      0.00      0.00         6
+       astro-ph.HE       0.00      0.00      0.00         1
+       astro-ph.IM       0.00      0.00      0.00        17
+       astro-ph.SR       0.00      0.00      0.00         2
+   cond-mat.dis-nn       0.00      0.00      0.00        11
+ cond-mat.mtrl-sci       0.00      0.00      0.00         4
+cond-mat.stat-mech       0.00      0.00      0.00         6
+             cs.AI       0.90      0.53      0.67      2378
+             cs.AR       0.00      0.00      0.00         6
+             cs.CC       0.00      0.00      0.00        15
+             cs.CE       0.00      0.00      0.00        33
+             cs.CG       0.00      0.00      0.00        12
+             cs.CL       0.00      0.00      0.00       209
+             cs.CR       0.00      0.00      0.00       114
+             cs.CV       0.94      0.91      0.93      6297
+             cs.CY       0.00      0.00      0.00        86
+             cs.DB       0.00      0.00      0.00        30
+             cs.DC       0.00      0.00      0.00        70
+             cs.DL       0.00      0.00      0.00         6
+             cs.DM       0.00      0.00      0.00         8
+             cs.DS       0.00      0.00      0.00        47
+             cs.ET       0.00      0.00      0.00         6
+             cs.FL       0.00      0.00      0.00         2
+             cs.GL       0.00      0.00      0.00         2
+             cs.GR       0.00      0.00      0.00        32
+             cs.GT       0.00      0.00      0.00        22
+             cs.HC       0.00      0.00      0.00        97
+             cs.IR       0.00      0.00      0.00       223
+             cs.IT       0.00      0.00      0.00       188
+             cs.LG       0.79      0.84      0.82      5281
+             cs.LO       0.00      0.00      0.00        18
+             cs.MA       0.00      0.00      0.00        31
+             cs.MM       0.00      0.00      0.00        56
+             cs.MS       0.00      0.00      0.00         7
+             cs.NE       0.00      0.00      0.00       319
+             cs.NI       0.00      0.00      0.00        27
+             cs.OH       0.00      0.00      0.00         1
+             cs.PF       0.00      0.00      0.00        18
+             cs.PL       0.00      0.00      0.00         7
+             cs.RO       0.00      0.00      0.00       134
+             cs.SC       0.00      0.00      0.00         2
+             cs.SD       0.00      0.00      0.00       148
+             cs.SE       0.00      0.00      0.00        28
+             cs.SI       0.00      0.00      0.00       102
+           econ.EM       0.00      0.00      0.00        10
+           econ.GN       0.00      0.00      0.00         2
+           eess.AS       0.00      0.00      0.00       120
+           eess.IV       0.00      0.00      0.00        65
+           eess.SP       0.00      0.00      0.00       121
+           eess.SY       0.00      0.00      0.00        56
+             gr-qc       0.00      0.00      0.00         2
+           hep-lat       0.00      0.00      0.00         1
+            hep-ph       0.00      0.00      0.00         2
+            hep-th       0.00      0.00      0.00         2
+           math-ph       0.00      0.00      0.00         1
+           math.AG       0.00      0.00      0.00         2
+           math.AP       0.00      0.00      0.00         8
+           math.AT       0.00      0.00      0.00         2
+           math.CA       0.00      0.00      0.00         2
+           math.CO       0.00      0.00      0.00         3
+           math.DG       0.00      0.00      0.00         1
+           math.DS       0.00      0.00      0.00        12
+           math.FA       0.00      0.00      0.00        13
+           math.GM       0.00      0.00      0.00         1
+           math.GR       0.00      0.00      0.00         1
+           math.LO       0.00      0.00      0.00         2
+           math.NA       0.00      0.00      0.00        74
+           math.OA       0.00      0.00      0.00         1
+           math.OC       0.00      0.00      0.00       188
+           math.PR       0.00      0.00      0.00        32
+           math.RT       0.00      0.00      0.00         1
+           math.SP       0.00      0.00      0.00         2
+           math.ST       0.00      0.00      0.00       105
+           nlin.AO       0.00      0.00      0.00         4
+           nlin.CD       0.00      0.00      0.00         2
+           nlin.CG       0.00      0.00      0.00         1
+           nlin.PS       0.00      0.00      0.00         1
+           nucl-ex       0.00      0.00      0.00         1
+     physics.ao-ph       0.00      0.00      0.00         1
+    physics.app-ph       0.00      0.00      0.00         2
+    physics.bio-ph       0.00      0.00      0.00         2
+   physics.chem-ph       0.00      0.00      0.00         2
+   physics.comp-ph       0.00      0.00      0.00        14
+   physics.data-an       0.00      0.00      0.00        36
+   physics.flu-dyn       0.00      0.00      0.00         5
+    physics.geo-ph       0.00      0.00      0.00         5
+   physics.ins-det       0.00      0.00      0.00         3
+    physics.med-ph       0.00      0.00      0.00        14
+    physics.optics       0.00      0.00      0.00         2
+    physics.soc-ph       0.00      0.00      0.00        13
+             q-bio       0.00      0.00      0.00         1
+          q-bio.BM       0.00      0.00      0.00         5
+          q-bio.GN       0.00      0.00      0.00         9
+          q-bio.MN       0.00      0.00      0.00         3
+          q-bio.NC       0.00      0.00      0.00        67
+          q-bio.OT       0.00      0.00      0.00         1
+          q-bio.PE       0.00      0.00      0.00         2
+          q-bio.QM       0.00      0.00      0.00        71
+          q-bio.TO       0.00      0.00      0.00         5
+          q-fin.CP       0.00      0.00      0.00         7
+          q-fin.GN       0.00      0.00      0.00         3
+          q-fin.PM       0.00      0.00      0.00         4
+          q-fin.RM       0.00      0.00      0.00         2
+          q-fin.ST       0.00      0.00      0.00        12
+          q-fin.TR       0.00      0.00      0.00         3
+          quant-ph       0.00      0.00      0.00         5
+           stat.AP       0.00      0.00      0.00       123
+           stat.CO       0.00      0.00      0.00        59
+           stat.ME       0.00      0.00      0.00       100
+           stat.ML       0.77      0.80      0.78      4326
+           stat.OT       0.00      0.00      0.00         1
+
+         micro avg       0.85      0.68      0.76     21866
+         macro avg       0.03      0.03      0.03     21866
+      weighted avg       0.71      0.68      0.69     21866
+       samples avg       0.87      0.80      0.80     21866
+
+INFO:root:... predicting on test set
+INFO:root:
+		 accuracy = 0.5287128712871287
+INFO:root:
+		 f1_macro = 0.027607998310490912
+INFO:root:
+                    precision    recall  f1-score   support
+
+          astro-ph       0.00      0.00      0.00         1
+       astro-ph.CO       0.00      0.00      0.00         1
+       astro-ph.EP       0.00      0.00      0.00         0
+       astro-ph.GA       0.00      0.00      0.00         1
+       astro-ph.HE       0.00      0.00      0.00         0
+       astro-ph.IM       0.00      0.00      0.00         4
+       astro-ph.SR       0.00      0.00      0.00         0
+   cond-mat.dis-nn       0.00      0.00      0.00         3
+ cond-mat.mtrl-sci       0.00      0.00      0.00         1
+cond-mat.stat-mech       0.00      0.00      0.00         2
+             cs.AI       0.90      0.51      0.65       595
+             cs.AR       0.00      0.00      0.00         2
+             cs.CC       0.00      0.00      0.00         4
+             cs.CE       0.00      0.00      0.00         8
+             cs.CG       0.00      0.00      0.00         3
+             cs.CL       0.00      0.00      0.00        52
+             cs.CR       0.00      0.00      0.00        29
+             cs.CV       0.93      0.91      0.92      1575
+             cs.CY       0.00      0.00      0.00        22
+             cs.DB       0.00      0.00      0.00         7
+             cs.DC       0.00      0.00      0.00        17
+             cs.DL       0.00      0.00      0.00         2
+             cs.DM       0.00      0.00      0.00         2
+             cs.DS       0.00      0.00      0.00        12
+             cs.ET       0.00      0.00      0.00         2
+             cs.FL       0.00      0.00      0.00         0
+             cs.GL       0.00      0.00      0.00         0
+             cs.GR       0.00      0.00      0.00         8
+             cs.GT       0.00      0.00      0.00         6
+             cs.HC       0.00      0.00      0.00        24
+             cs.IR       0.00      0.00      0.00        56
+             cs.IT       0.00      0.00      0.00        47
+             cs.LG       0.79      0.84      0.82      1320
+             cs.LO       0.00      0.00      0.00         5
+             cs.MA       0.00      0.00      0.00         8
+             cs.MM       0.00      0.00      0.00        14
+             cs.MS       0.00      0.00      0.00         2
+             cs.NE       0.00      0.00      0.00        80
+             cs.NI       0.00      0.00      0.00         7
+             cs.OH       0.00      0.00      0.00         0
+             cs.PF       0.00      0.00      0.00         5
+             cs.PL       0.00      0.00      0.00         2
+             cs.RO       0.00      0.00      0.00        34
+             cs.SC       0.00      0.00      0.00         0
+             cs.SD       0.00      0.00      0.00        37
+             cs.SE       0.00      0.00      0.00         7
+             cs.SI       0.00      0.00      0.00        26
+           econ.EM       0.00      0.00      0.00         3
+           econ.GN       0.00      0.00      0.00         1
+           eess.AS       0.00      0.00      0.00        30
+           eess.IV       0.00      0.00      0.00        16
+           eess.SP       0.00      0.00      0.00        30
+           eess.SY       0.00      0.00      0.00        14
+             gr-qc       0.00      0.00      0.00         0
+           hep-lat       0.00      0.00      0.00         0
+            hep-ph       0.00      0.00      0.00         0
+            hep-th       0.00      0.00      0.00         0
+           math-ph       0.00      0.00      0.00         0
+           math.AG       0.00      0.00      0.00         1
+           math.AP       0.00      0.00      0.00         2
+           math.AT       0.00      0.00      0.00         0
+           math.CA       0.00      0.00      0.00         0
+           math.CO       0.00      0.00      0.00         1
+           math.DG       0.00      0.00      0.00         0
+           math.DS       0.00      0.00      0.00         3
+           math.FA       0.00      0.00      0.00         3
+           math.GM       0.00      0.00      0.00         0
+           math.GR       0.00      0.00      0.00         0
+           math.LO       0.00      0.00      0.00         0
+           math.NA       0.00      0.00      0.00        19
+           math.OA       0.00      0.00      0.00         0
+           math.OC       0.00      0.00      0.00        47
+           math.PR       0.00      0.00      0.00         8
+           math.RT       0.00      0.00      0.00         0
+           math.SP       0.00      0.00      0.00         0
+           math.ST       0.00      0.00      0.00        26
+           nlin.AO       0.00      0.00      0.00         1
+           nlin.CD       0.00      0.00      0.00         0
+           nlin.CG       0.00      0.00      0.00         0
+           nlin.PS       0.00      0.00      0.00         0
+           nucl-ex       0.00      0.00      0.00         0
+     physics.ao-ph       0.00      0.00      0.00         0
+    physics.app-ph       0.00      0.00      0.00         0
+    physics.bio-ph       0.00      0.00      0.00         0
+   physics.chem-ph       0.00      0.00      0.00         1
+   physics.comp-ph       0.00      0.00      0.00         3
+   physics.data-an       0.00      0.00      0.00         9
+   physics.flu-dyn       0.00      0.00      0.00         1
+    physics.geo-ph       0.00      0.00      0.00         1
+   physics.ins-det       0.00      0.00      0.00         1
+    physics.med-ph       0.00      0.00      0.00         3
+    physics.optics       0.00      0.00      0.00         0
+    physics.soc-ph       0.00      0.00      0.00         3
+             q-bio       0.00      0.00      0.00         0
+          q-bio.BM       0.00      0.00      0.00         1
+          q-bio.GN       0.00      0.00      0.00         2
+          q-bio.MN       0.00      0.00      0.00         1
+          q-bio.NC       0.00      0.00      0.00        17
+          q-bio.OT       0.00      0.00      0.00         0
+          q-bio.PE       0.00      0.00      0.00         0
+          q-bio.QM       0.00      0.00      0.00        18
+          q-bio.TO       0.00      0.00      0.00         1
+          q-fin.CP       0.00      0.00      0.00         2
+          q-fin.GN       0.00      0.00      0.00         1
+          q-fin.PM       0.00      0.00      0.00         1
+          q-fin.RM       0.00      0.00      0.00         1
+          q-fin.ST       0.00      0.00      0.00         3
+          q-fin.TR       0.00      0.00      0.00         1
+          quant-ph       0.00      0.00      0.00         1
+           stat.AP       0.00      0.00      0.00        31
+           stat.CO       0.00      0.00      0.00        15
+           stat.ME       0.00      0.00      0.00        25
+           stat.ML       0.73      0.78      0.76      1082
+           stat.OT       0.00      0.00      0.00         0
+
+         micro avg       0.83      0.68      0.75      5463
+         macro avg       0.03      0.03      0.03      5463
+      weighted avg       0.70      0.68      0.68      5463
+       samples avg       0.86      0.79      0.80      5463
+
+INFO:root:============================================================
+INFO:root:OneVsRest - Complement NB
+INFO:root:... training on 12088 samples
+INFO:root:... predicting on train set
+INFO:root:
+		 accuracy = 0.5334215751158173
+INFO:root:
+		 f1_macro = 0.029056557072855538
+INFO:root:
+                    precision    recall  f1-score   support
+
+          astro-ph       0.00      0.00      0.00         3
+       astro-ph.CO       0.00      0.00      0.00         4
+       astro-ph.EP       0.00      0.00      0.00         1
+       astro-ph.GA       0.00      0.00      0.00         6
+       astro-ph.HE       0.00      0.00      0.00         1
+       astro-ph.IM       0.00      0.00      0.00        17
+       astro-ph.SR       0.00      0.00      0.00         2
+   cond-mat.dis-nn       0.00      0.00      0.00        11
+ cond-mat.mtrl-sci       0.00      0.00      0.00         4
+cond-mat.stat-mech       0.00      0.00      0.00         6
+             cs.AI       0.79      0.66      0.72      2378
+             cs.AR       0.00      0.00      0.00         6
+             cs.CC       0.00      0.00      0.00        15
+             cs.CE       0.00      0.00      0.00        33
+             cs.CG       0.00      0.00      0.00        12
+             cs.CL       0.00      0.00      0.00       209
+             cs.CR       0.00      0.00      0.00       114
+             cs.CV       0.95      0.91      0.93      6297
+             cs.CY       0.00      0.00      0.00        86
+             cs.DB       0.00      0.00      0.00        30
+             cs.DC       0.00      0.00      0.00        70
+             cs.DL       0.00      0.00      0.00         6
+             cs.DM       0.00      0.00      0.00         8
+             cs.DS       0.00      0.00      0.00        47
+             cs.ET       0.00      0.00      0.00         6
+             cs.FL       0.00      0.00      0.00         2
+             cs.GL       0.00      0.00      0.00         2
+             cs.GR       0.00      0.00      0.00        32
+             cs.GT       0.00      0.00      0.00        22
+             cs.HC       0.00      0.00      0.00        97
+             cs.IR       0.17      0.00      0.01       223
+             cs.IT       0.00      0.00      0.00       188
+             cs.LG       0.78      0.85      0.81      5281
+             cs.LO       0.00      0.00      0.00        18
+             cs.MA       0.00      0.00      0.00        31
+             cs.MM       0.00      0.00      0.00        56
+             cs.MS       0.00      0.00      0.00         7
+             cs.NE       0.17      0.00      0.01       319
+             cs.NI       0.00      0.00      0.00        27
+             cs.OH       0.00      0.00      0.00         1
+             cs.PF       0.00      0.00      0.00        18
+             cs.PL       0.00      0.00      0.00         7
+             cs.RO       0.00      0.00      0.00       134
+             cs.SC       0.00      0.00      0.00         2
+             cs.SD       0.00      0.00      0.00       148
+             cs.SE       0.00      0.00      0.00        28
+             cs.SI       0.00      0.00      0.00       102
+           econ.EM       0.00      0.00      0.00        10
+           econ.GN       0.00      0.00      0.00         2
+           eess.AS       0.00      0.00      0.00       120
+           eess.IV       0.00      0.00      0.00        65
+           eess.SP       0.00      0.00      0.00       121
+           eess.SY       0.00      0.00      0.00        56
+             gr-qc       0.00      0.00      0.00         2
+           hep-lat       0.00      0.00      0.00         1
+            hep-ph       0.00      0.00      0.00         2
+            hep-th       0.00      0.00      0.00         2
+           math-ph       0.00      0.00      0.00         1
+           math.AG       0.00      0.00      0.00         2
+           math.AP       0.00      0.00      0.00         8
+           math.AT       0.00      0.00      0.00         2
+           math.CA       0.00      0.00      0.00         2
+           math.CO       0.00      0.00      0.00         3
+           math.DG       0.00      0.00      0.00         1
+           math.DS       0.00      0.00      0.00        12
+           math.FA       0.00      0.00      0.00        13
+           math.GM       0.00      0.00      0.00         1
+           math.GR       0.00      0.00      0.00         1
+           math.LO       0.00      0.00      0.00         2
+           math.NA       0.00      0.00      0.00        74
+           math.OA       0.00      0.00      0.00         1
+           math.OC       0.56      0.03      0.05       188
+           math.PR       0.00      0.00      0.00        32
+           math.RT       0.00      0.00      0.00         1
+           math.SP       0.00      0.00      0.00         2
+           math.ST       0.00      0.00      0.00       105
+           nlin.AO       0.00      0.00      0.00         4
+           nlin.CD       0.00      0.00      0.00         2
+           nlin.CG       0.00      0.00      0.00         1
+           nlin.PS       0.00      0.00      0.00         1
+           nucl-ex       0.00      0.00      0.00         1
+     physics.ao-ph       0.00      0.00      0.00         1
+    physics.app-ph       0.00      0.00      0.00         2
+    physics.bio-ph       0.00      0.00      0.00         2
+   physics.chem-ph       0.00      0.00      0.00         2
+   physics.comp-ph       0.00      0.00      0.00        14
+   physics.data-an       0.00      0.00      0.00        36
+   physics.flu-dyn       0.00      0.00      0.00         5
+    physics.geo-ph       0.00      0.00      0.00         5
+   physics.ins-det       0.00      0.00      0.00         3
+    physics.med-ph       0.00      0.00      0.00        14
+    physics.optics       0.00      0.00      0.00         2
+    physics.soc-ph       0.00      0.00      0.00        13
+             q-bio       0.00      0.00      0.00         1
+          q-bio.BM       0.00      0.00      0.00         5
+          q-bio.GN       0.00      0.00      0.00         9
+          q-bio.MN       0.00      0.00      0.00         3
+          q-bio.NC       0.00      0.00      0.00        67
+          q-bio.OT       0.00      0.00      0.00         1
+          q-bio.PE       0.00      0.00      0.00         2
+          q-bio.QM       0.00      0.00      0.00        71
+          q-bio.TO       0.00      0.00      0.00         5
+          q-fin.CP       0.00      0.00      0.00         7
+          q-fin.GN       0.00      0.00      0.00         3
+          q-fin.PM       0.00      0.00      0.00         4
+          q-fin.RM       0.00      0.00      0.00         2
+          q-fin.ST       0.00      0.00      0.00        12
+          q-fin.TR       0.00      0.00      0.00         3
+          quant-ph       0.00      0.00      0.00         5
+           stat.AP       0.00      0.00      0.00       123
+           stat.CO       0.00      0.00      0.00        59
+           stat.ME       0.00      0.00      0.00       100
+           stat.ML       0.73      0.85      0.79      4326
+           stat.OT       0.00      0.00      0.00         1
+
+         micro avg       0.81      0.71      0.75     21866
+         macro avg       0.04      0.03      0.03     21866
+      weighted avg       0.70      0.71      0.70     21866
+       samples avg       0.87      0.82      0.81     21866
+
+INFO:root:... predicting on test set
+INFO:root:
+		 accuracy = 0.5161716171617162
+INFO:root:
+		 f1_macro = 0.028128813703825455
+INFO:root:
+                    precision    recall  f1-score   support
+
+          astro-ph       0.00      0.00      0.00         1
+       astro-ph.CO       0.00      0.00      0.00         1
+       astro-ph.EP       0.00      0.00      0.00         0
+       astro-ph.GA       0.00      0.00      0.00         1
+       astro-ph.HE       0.00      0.00      0.00         0
+       astro-ph.IM       0.00      0.00      0.00         4
+       astro-ph.SR       0.00      0.00      0.00         0
+   cond-mat.dis-nn       0.00      0.00      0.00         3
+ cond-mat.mtrl-sci       0.00      0.00      0.00         1
+cond-mat.stat-mech       0.00      0.00      0.00         2
+             cs.AI       0.75      0.63      0.68       595
+             cs.AR       0.00      0.00      0.00         2
+             cs.CC       0.00      0.00      0.00         4
+             cs.CE       0.00      0.00      0.00         8
+             cs.CG       0.00      0.00      0.00         3
+             cs.CL       0.00      0.00      0.00        52
+             cs.CR       0.00      0.00      0.00        29
+             cs.CV       0.93      0.91      0.92      1575
+             cs.CY       0.00      0.00      0.00        22
+             cs.DB       0.00      0.00      0.00         7
+             cs.DC       0.00      0.00      0.00        17
+             cs.DL       0.00      0.00      0.00         2
+             cs.DM       0.00      0.00      0.00         2
+             cs.DS       0.00      0.00      0.00        12
+             cs.ET       0.00      0.00      0.00         2
+             cs.FL       0.00      0.00      0.00         0
+             cs.GL       0.00      0.00      0.00         0
+             cs.GR       0.00      0.00      0.00         8
+             cs.GT       0.00      0.00      0.00         6
+             cs.HC       0.00      0.00      0.00        24
+             cs.IR       0.00      0.00      0.00        56
+             cs.IT       0.00      0.00      0.00        47
+             cs.LG       0.77      0.86      0.81      1320
+             cs.LO       0.00      0.00      0.00         5
+             cs.MA       0.00      0.00      0.00         8
+             cs.MM       0.00      0.00      0.00        14
+             cs.MS       0.00      0.00      0.00         2
+             cs.NE       0.50      0.01      0.02        80
+             cs.NI       0.00      0.00      0.00         7
+             cs.OH       0.00      0.00      0.00         0
+             cs.PF       0.00      0.00      0.00         5
+             cs.PL       0.00      0.00      0.00         2
+             cs.RO       0.00      0.00      0.00        34
+             cs.SC       0.00      0.00      0.00         0
+             cs.SD       0.00      0.00      0.00        37
+             cs.SE       0.00      0.00      0.00         7
+             cs.SI       0.00      0.00      0.00        26
+           econ.EM       0.00      0.00      0.00         3
+           econ.GN       0.00      0.00      0.00         1
+           eess.AS       0.00      0.00      0.00        30
+           eess.IV       0.00      0.00      0.00        16
+           eess.SP       0.00      0.00      0.00        30
+           eess.SY       0.00      0.00      0.00        14
+             gr-qc       0.00      0.00      0.00         0
+           hep-lat       0.00      0.00      0.00         0
+            hep-ph       0.00      0.00      0.00         0
+            hep-th       0.00      0.00      0.00         0
+           math-ph       0.00      0.00      0.00         0
+           math.AG       0.00      0.00      0.00         1
+           math.AP       0.00      0.00      0.00         2
+           math.AT       0.00      0.00      0.00         0
+           math.CA       0.00      0.00      0.00         0
+           math.CO       0.00      0.00      0.00         1
+           math.DG       0.00      0.00      0.00         0
+           math.DS       0.00      0.00      0.00         3
+           math.FA       0.00      0.00      0.00         3
+           math.GM       0.00      0.00      0.00         0
+           math.GR       0.00      0.00      0.00         0
+           math.LO       0.00      0.00      0.00         0
+           math.NA       0.00      0.00      0.00        19
+           math.OA       0.00      0.00      0.00         0
+           math.OC       0.00      0.00      0.00        47
+           math.PR       0.00      0.00      0.00         8
+           math.RT       0.00      0.00      0.00         0
+           math.SP       0.00      0.00      0.00         0
+           math.ST       0.00      0.00      0.00        26
+           nlin.AO       0.00      0.00      0.00         1
+           nlin.CD       0.00      0.00      0.00         0
+           nlin.CG       0.00      0.00      0.00         0
+           nlin.PS       0.00      0.00      0.00         0
+           nucl-ex       0.00      0.00      0.00         0
+     physics.ao-ph       0.00      0.00      0.00         0
+    physics.app-ph       0.00      0.00      0.00         0
+    physics.bio-ph       0.00      0.00      0.00         0
+   physics.chem-ph       0.00      0.00      0.00         1
+   physics.comp-ph       0.00      0.00      0.00         3
+   physics.data-an       0.00      0.00      0.00         9
+   physics.flu-dyn       0.00      0.00      0.00         1
+    physics.geo-ph       0.00      0.00      0.00         1
+   physics.ins-det       0.00      0.00      0.00         1
+    physics.med-ph       0.00      0.00      0.00         3
+    physics.optics       0.00      0.00      0.00         0
+    physics.soc-ph       0.00      0.00      0.00         3
+             q-bio       0.00      0.00      0.00         0
+          q-bio.BM       0.00      0.00      0.00         1
+          q-bio.GN       0.00      0.00      0.00         2
+          q-bio.MN       0.00      0.00      0.00         1
+          q-bio.NC       0.00      0.00      0.00        17
+          q-bio.OT       0.00      0.00      0.00         0
+          q-bio.PE       0.00      0.00      0.00         0
+          q-bio.QM       0.00      0.00      0.00        18
+          q-bio.TO       0.00      0.00      0.00         1
+          q-fin.CP       0.00      0.00      0.00         2
+          q-fin.GN       0.00      0.00      0.00         1
+          q-fin.PM       0.00      0.00      0.00         1
+          q-fin.RM       0.00      0.00      0.00         1
+          q-fin.ST       0.00      0.00      0.00         3
+          q-fin.TR       0.00      0.00      0.00         1
+          quant-ph       0.00      0.00      0.00         1
+           stat.AP       0.00      0.00      0.00        31
+           stat.CO       0.00      0.00      0.00        15
+           stat.ME       0.00      0.00      0.00        25
+           stat.ML       0.71      0.83      0.76      1082
+           stat.OT       0.00      0.00      0.00         0
+
+         micro avg       0.80      0.70      0.75      5463
+         macro avg       0.03      0.03      0.03      5463
+      weighted avg       0.69      0.70      0.69      5463
+       samples avg       0.85      0.81      0.80      5463
+
+INFO:root:============================================================
+INFO:root:OneVsRest - Complement NB norm
+INFO:root:... training on 12088 samples
+INFO:root:... predicting on train set
+INFO:root:
+		 accuracy = 0.5421078755790867
+INFO:root:
+		 f1_macro = 0.027193445022644154
+INFO:root:
+                    precision    recall  f1-score   support
+
+          astro-ph       0.00      0.00      0.00         3
+       astro-ph.CO       0.00      0.00      0.00         4
+       astro-ph.EP       0.00      0.00      0.00         1
+       astro-ph.GA       0.00      0.00      0.00         6
+       astro-ph.HE       0.00      0.00      0.00         1
+       astro-ph.IM       0.00      0.00      0.00        17
+       astro-ph.SR       0.00      0.00      0.00         2
+   cond-mat.dis-nn       0.00      0.00      0.00        11
+ cond-mat.mtrl-sci       0.00      0.00      0.00         4
+cond-mat.stat-mech       0.00      0.00      0.00         6
+             cs.AI       0.95      0.41      0.57      2378
+             cs.AR       0.00      0.00      0.00         6
+             cs.CC       0.00      0.00      0.00        15
+             cs.CE       0.00      0.00      0.00        33
+             cs.CG       0.00      0.00      0.00        12
+             cs.CL       0.00      0.00      0.00       209
+             cs.CR       0.00      0.00      0.00       114
+             cs.CV       0.94      0.92      0.93      6297
+             cs.CY       0.00      0.00      0.00        86
+             cs.DB       0.00      0.00      0.00        30
+             cs.DC       0.00      0.00      0.00        70
+             cs.DL       0.00      0.00      0.00         6
+             cs.DM       0.00      0.00      0.00         8
+             cs.DS       0.00      0.00      0.00        47
+             cs.ET       0.00      0.00      0.00         6
+             cs.FL       0.00      0.00      0.00         2
+             cs.GL       0.00      0.00      0.00         2
+             cs.GR       0.00      0.00      0.00        32
+             cs.GT       0.00      0.00      0.00        22
+             cs.HC       0.00      0.00      0.00        97
+             cs.IR       0.00      0.00      0.00       223
+             cs.IT       0.00      0.00      0.00       188
+             cs.LG       0.80      0.83      0.82      5281
+             cs.LO       0.00      0.00      0.00        18
+             cs.MA       0.00      0.00      0.00        31
+             cs.MM       0.00      0.00      0.00        56
+             cs.MS       0.00      0.00      0.00         7
+             cs.NE       0.00      0.00      0.00       319
+             cs.NI       0.00      0.00      0.00        27
+             cs.OH       0.00      0.00      0.00         1
+             cs.PF       0.00      0.00      0.00        18
+             cs.PL       0.00      0.00      0.00         7
+             cs.RO       0.00      0.00      0.00       134
+             cs.SC       0.00      0.00      0.00         2
+             cs.SD       0.00      0.00      0.00       148
+             cs.SE       0.00      0.00      0.00        28
+             cs.SI       0.00      0.00      0.00       102
+           econ.EM       0.00      0.00      0.00        10
+           econ.GN       0.00      0.00      0.00         2
+           eess.AS       0.00      0.00      0.00       120
+           eess.IV       0.00      0.00      0.00        65
+           eess.SP       0.00      0.00      0.00       121
+           eess.SY       0.00      0.00      0.00        56
+             gr-qc       0.00      0.00      0.00         2
+           hep-lat       0.00      0.00      0.00         1
+            hep-ph       0.00      0.00      0.00         2
+            hep-th       0.00      0.00      0.00         2
+           math-ph       0.00      0.00      0.00         1
+           math.AG       0.00      0.00      0.00         2
+           math.AP       0.00      0.00      0.00         8
+           math.AT       0.00      0.00      0.00         2
+           math.CA       0.00      0.00      0.00         2
+           math.CO       0.00      0.00      0.00         3
+           math.DG       0.00      0.00      0.00         1
+           math.DS       0.00      0.00      0.00        12
+           math.FA       0.00      0.00      0.00        13
+           math.GM       0.00      0.00      0.00         1
+           math.GR       0.00      0.00      0.00         1
+           math.LO       0.00      0.00      0.00         2
+           math.NA       0.00      0.00      0.00        74
+           math.OA       0.00      0.00      0.00         1
+           math.OC       1.00      0.01      0.02       188
+           math.PR       0.00      0.00      0.00        32
+           math.RT       0.00      0.00      0.00         1
+           math.SP       0.00      0.00      0.00         2
+           math.ST       0.00      0.00      0.00       105
+           nlin.AO       0.00      0.00      0.00         4
+           nlin.CD       0.00      0.00      0.00         2
+           nlin.CG       0.00      0.00      0.00         1
+           nlin.PS       0.00      0.00      0.00         1
+           nucl-ex       0.00      0.00      0.00         1
+     physics.ao-ph       0.00      0.00      0.00         1
+    physics.app-ph       0.00      0.00      0.00         2
+    physics.bio-ph       0.00      0.00      0.00         2
+   physics.chem-ph       0.00      0.00      0.00         2
+   physics.comp-ph       0.00      0.00      0.00        14
+   physics.data-an       0.00      0.00      0.00        36
+   physics.flu-dyn       0.00      0.00      0.00         5
+    physics.geo-ph       0.00      0.00      0.00         5
+   physics.ins-det       0.00      0.00      0.00         3
+    physics.med-ph       0.00      0.00      0.00        14
+    physics.optics       0.00      0.00      0.00         2
+    physics.soc-ph       0.00      0.00      0.00        13
+             q-bio       0.00      0.00      0.00         1
+          q-bio.BM       0.00      0.00      0.00         5
+          q-bio.GN       0.00      0.00      0.00         9
+          q-bio.MN       0.00      0.00      0.00         3
+          q-bio.NC       0.00      0.00      0.00        67
+          q-bio.OT       0.00      0.00      0.00         1
+          q-bio.PE       0.00      0.00      0.00         2
+          q-bio.QM       0.00      0.00      0.00        71
+          q-bio.TO       0.00      0.00      0.00         5
+          q-fin.CP       0.00      0.00      0.00         7
+          q-fin.GN       0.00      0.00      0.00         3
+          q-fin.PM       0.00      0.00      0.00         4
+          q-fin.RM       0.00      0.00      0.00         2
+          q-fin.ST       0.00      0.00      0.00        12
+          q-fin.TR       0.00      0.00      0.00         3
+          quant-ph       0.00      0.00      0.00         5
+           stat.AP       0.00      0.00      0.00       123
+           stat.CO       0.00      0.00      0.00        59
+           stat.ME       0.00      0.00      0.00       100
+           stat.ML       0.80      0.73      0.76      4326
+           stat.OT       0.00      0.00      0.00         1
+
+         micro avg       0.86      0.65      0.74     21866
+         macro avg       0.04      0.03      0.03     21866
+      weighted avg       0.73      0.65      0.68     21866
+       samples avg       0.87      0.77      0.79     21866
+
+INFO:root:... predicting on test set
+INFO:root:
+		 accuracy = 0.525082508250825
+INFO:root:
+		 f1_macro = 0.02646547084617515
+INFO:root:
+                    precision    recall  f1-score   support
+
+          astro-ph       0.00      0.00      0.00         1
+       astro-ph.CO       0.00      0.00      0.00         1
+       astro-ph.EP       0.00      0.00      0.00         0
+       astro-ph.GA       0.00      0.00      0.00         1
+       astro-ph.HE       0.00      0.00      0.00         0
+       astro-ph.IM       0.00      0.00      0.00         4
+       astro-ph.SR       0.00      0.00      0.00         0
+   cond-mat.dis-nn       0.00      0.00      0.00         3
+ cond-mat.mtrl-sci       0.00      0.00      0.00         1
+cond-mat.stat-mech       0.00      0.00      0.00         2
+             cs.AI       0.95      0.39      0.55       595
+             cs.AR       0.00      0.00      0.00         2
+             cs.CC       0.00      0.00      0.00         4
+             cs.CE       0.00      0.00      0.00         8
+             cs.CG       0.00      0.00      0.00         3
+             cs.CL       0.00      0.00      0.00        52
+             cs.CR       0.00      0.00      0.00        29
+             cs.CV       0.93      0.92      0.92      1575
+             cs.CY       0.00      0.00      0.00        22
+             cs.DB       0.00      0.00      0.00         7
+             cs.DC       0.00      0.00      0.00        17
+             cs.DL       0.00      0.00      0.00         2
+             cs.DM       0.00      0.00      0.00         2
+             cs.DS       0.00      0.00      0.00        12
+             cs.ET       0.00      0.00      0.00         2
+             cs.FL       0.00      0.00      0.00         0
+             cs.GL       0.00      0.00      0.00         0
+             cs.GR       0.00      0.00      0.00         8
+             cs.GT       0.00      0.00      0.00         6
+             cs.HC       0.00      0.00      0.00        24
+             cs.IR       0.00      0.00      0.00        56
+             cs.IT       0.00      0.00      0.00        47
+             cs.LG       0.79      0.83      0.81      1320
+             cs.LO       0.00      0.00      0.00         5
+             cs.MA       0.00      0.00      0.00         8
+             cs.MM       0.00      0.00      0.00        14
+             cs.MS       0.00      0.00      0.00         2
+             cs.NE       0.00      0.00      0.00        80
+             cs.NI       0.00      0.00      0.00         7
+             cs.OH       0.00      0.00      0.00         0
+             cs.PF       0.00      0.00      0.00         5
+             cs.PL       0.00      0.00      0.00         2
+             cs.RO       0.00      0.00      0.00        34
+             cs.SC       0.00      0.00      0.00         0
+             cs.SD       0.00      0.00      0.00        37
+             cs.SE       0.00      0.00      0.00         7
+             cs.SI       0.00      0.00      0.00        26
+           econ.EM       0.00      0.00      0.00         3
+           econ.GN       0.00      0.00      0.00         1
+           eess.AS       0.00      0.00      0.00        30
+           eess.IV       0.00      0.00      0.00        16
+           eess.SP       0.00      0.00      0.00        30
+           eess.SY       0.00      0.00      0.00        14
+             gr-qc       0.00      0.00      0.00         0
+           hep-lat       0.00      0.00      0.00         0
+            hep-ph       0.00      0.00      0.00         0
+            hep-th       0.00      0.00      0.00         0
+           math-ph       0.00      0.00      0.00         0
+           math.AG       0.00      0.00      0.00         1
+           math.AP       0.00      0.00      0.00         2
+           math.AT       0.00      0.00      0.00         0
+           math.CA       0.00      0.00      0.00         0
+           math.CO       0.00      0.00      0.00         1
+           math.DG       0.00      0.00      0.00         0
+           math.DS       0.00      0.00      0.00         3
+           math.FA       0.00      0.00      0.00         3
+           math.GM       0.00      0.00      0.00         0
+           math.GR       0.00      0.00      0.00         0
+           math.LO       0.00      0.00      0.00         0
+           math.NA       0.00      0.00      0.00        19
+           math.OA       0.00      0.00      0.00         0
+           math.OC       0.00      0.00      0.00        47
+           math.PR       0.00      0.00      0.00         8
+           math.RT       0.00      0.00      0.00         0
+           math.SP       0.00      0.00      0.00         0
+           math.ST       0.00      0.00      0.00        26
+           nlin.AO       0.00      0.00      0.00         1
+           nlin.CD       0.00      0.00      0.00         0
+           nlin.CG       0.00      0.00      0.00         0
+           nlin.PS       0.00      0.00      0.00         0
+           nucl-ex       0.00      0.00      0.00         0
+     physics.ao-ph       0.00      0.00      0.00         0
+    physics.app-ph       0.00      0.00      0.00         0
+    physics.bio-ph       0.00      0.00      0.00         0
+   physics.chem-ph       0.00      0.00      0.00         1
+   physics.comp-ph       0.00      0.00      0.00         3
+   physics.data-an       0.00      0.00      0.00         9
+   physics.flu-dyn       0.00      0.00      0.00         1
+    physics.geo-ph       0.00      0.00      0.00         1
+   physics.ins-det       0.00      0.00      0.00         1
+    physics.med-ph       0.00      0.00      0.00         3
+    physics.optics       0.00      0.00      0.00         0
+    physics.soc-ph       0.00      0.00      0.00         3
+             q-bio       0.00      0.00      0.00         0
+          q-bio.BM       0.00      0.00      0.00         1
+          q-bio.GN       0.00      0.00      0.00         2
+          q-bio.MN       0.00      0.00      0.00         1
+          q-bio.NC       0.00      0.00      0.00        17
+          q-bio.OT       0.00      0.00      0.00         0
+          q-bio.PE       0.00      0.00      0.00         0
+          q-bio.QM       0.00      0.00      0.00        18
+          q-bio.TO       0.00      0.00      0.00         1
+          q-fin.CP       0.00      0.00      0.00         2
+          q-fin.GN       0.00      0.00      0.00         1
+          q-fin.PM       0.00      0.00      0.00         1
+          q-fin.RM       0.00      0.00      0.00         1
+          q-fin.ST       0.00      0.00      0.00         3
+          q-fin.TR       0.00      0.00      0.00         1
+          quant-ph       0.00      0.00      0.00         1
+           stat.AP       0.00      0.00      0.00        31
+           stat.CO       0.00      0.00      0.00        15
+           stat.ME       0.00      0.00      0.00        25
+           stat.ML       0.76      0.70      0.73      1082
+           stat.OT       0.00      0.00      0.00         0
+
+         micro avg       0.85      0.65      0.73      5463
+         macro avg       0.03      0.02      0.03      5463
+      weighted avg       0.71      0.65      0.67      5463
+       samples avg       0.86      0.77      0.78      5463
+
+INFO:root:============================================================
+INFO:root:OneVsRest - Linear SVC
+INFO:root:... training on 12088 samples
+INFO:root:... predicting on train set
+INFO:root:
+		 accuracy = 0.8785572468563865
+INFO:root:
+		 f1_macro = 0.9751625363250978
+INFO:root:
+                    precision    recall  f1-score   support
+
+          astro-ph       1.00      1.00      1.00         3
+       astro-ph.CO       1.00      1.00      1.00         4
+       astro-ph.EP       1.00      1.00      1.00         1
+       astro-ph.GA       0.86      1.00      0.92         6
+       astro-ph.HE       1.00      1.00      1.00         1
+       astro-ph.IM       1.00      1.00      1.00        17
+       astro-ph.SR       1.00      1.00      1.00         2
+   cond-mat.dis-nn       1.00      1.00      1.00        11
+ cond-mat.mtrl-sci       1.00      1.00      1.00         4
+cond-mat.stat-mech       1.00      1.00      1.00         6
+             cs.AI       0.91      1.00      0.95      2378
+             cs.AR       1.00      1.00      1.00         6
+             cs.CC       1.00      1.00      1.00        15
+             cs.CE       0.97      1.00      0.99        33
+             cs.CG       1.00      1.00      1.00        12
+             cs.CL       0.82      1.00      0.90       209
+             cs.CR       0.80      1.00      0.89       114
+             cs.CV       0.99      0.99      0.99      6297
+             cs.CY       0.91      1.00      0.95        86
+             cs.DB       0.91      1.00      0.95        30
+             cs.DC       0.93      1.00      0.97        70
+             cs.DL       1.00      1.00      1.00         6
+             cs.DM       0.89      1.00      0.94         8
+             cs.DS       1.00      1.00      1.00        47
+             cs.ET       1.00      1.00      1.00         6
+             cs.FL       1.00      1.00      1.00         2
+             cs.GL       1.00      1.00      1.00         2
+             cs.GR       0.94      1.00      0.97        32
+             cs.GT       0.85      1.00      0.92        22
+             cs.HC       0.88      1.00      0.94        97
+             cs.IR       0.85      1.00      0.92       223
+             cs.IT       0.87      1.00      0.93       188
+             cs.LG       0.94      0.97      0.95      5281
+             cs.LO       1.00      1.00      1.00        18
+             cs.MA       0.89      1.00      0.94        31
+             cs.MM       0.88      1.00      0.93        56
+             cs.MS       1.00      1.00      1.00         7
+             cs.NE       0.87      1.00      0.93       319
+             cs.NI       0.96      1.00      0.98        27
+             cs.OH       1.00      1.00      1.00         1
+             cs.PF       0.86      1.00      0.92        18
+             cs.PL       1.00      1.00      1.00         7
+             cs.RO       0.90      1.00      0.95       134
+             cs.SC       1.00      1.00      1.00         2
+             cs.SD       0.84      1.00      0.91       148
+             cs.SE       0.93      1.00      0.97        28
+             cs.SI       0.90      1.00      0.95       102
+           econ.EM       1.00      1.00      1.00        10
+           econ.GN       1.00      1.00      1.00         2
+           eess.AS       0.80      1.00      0.89       120
+           eess.IV       0.97      1.00      0.98        65
+           eess.SP       0.90      1.00      0.95       121
+           eess.SY       0.90      1.00      0.95        56
+             gr-qc       1.00      1.00      1.00         2
+           hep-lat       1.00      1.00      1.00         1
+            hep-ph       1.00      1.00      1.00         2
+            hep-th       1.00      1.00      1.00         2
+           math-ph       1.00      1.00      1.00         1
+           math.AG       1.00      1.00      1.00         2
+           math.AP       0.89      1.00      0.94         8
+           math.AT       1.00      1.00      1.00         2
+           math.CA       1.00      1.00      1.00         2
+           math.CO       1.00      1.00      1.00         3
+           math.DG       1.00      1.00      1.00         1
+           math.DS       1.00      1.00      1.00        12
+           math.FA       0.93      1.00      0.96        13
+           math.GM       1.00      1.00      1.00         1
+           math.GR       1.00      1.00      1.00         1
+           math.LO       1.00      1.00      1.00         2
+           math.NA       0.89      1.00      0.94        74
+           math.OA       1.00      1.00      1.00         1
+           math.OC       0.88      1.00      0.94       188
+           math.PR       0.86      1.00      0.93        32
+           math.RT       1.00      1.00      1.00         1
+           math.SP       1.00      1.00      1.00         2
+           math.ST       0.85      1.00      0.92       105
+           nlin.AO       1.00      1.00      1.00         4
+           nlin.CD       1.00      1.00      1.00         2
+           nlin.CG       1.00      1.00      1.00         1
+           nlin.PS       1.00      1.00      1.00         1
+           nucl-ex       1.00      1.00      1.00         1
+     physics.ao-ph       1.00      1.00      1.00         1
+    physics.app-ph       1.00      1.00      1.00         2
+    physics.bio-ph       1.00      1.00      1.00         2
+   physics.chem-ph       0.67      1.00      0.80         2
+   physics.comp-ph       1.00      1.00      1.00        14
+   physics.data-an       1.00      1.00      1.00        36
+   physics.flu-dyn       1.00      1.00      1.00         5
+    physics.geo-ph       1.00      1.00      1.00         5
+   physics.ins-det       1.00      1.00      1.00         3
+    physics.med-ph       1.00      1.00      1.00        14
+    physics.optics       1.00      1.00      1.00         2
+    physics.soc-ph       1.00      1.00      1.00        13
+             q-bio       1.00      1.00      1.00         1
+          q-bio.BM       1.00      1.00      1.00         5
+          q-bio.GN       0.90      1.00      0.95         9
+          q-bio.MN       1.00      1.00      1.00         3
+          q-bio.NC       0.88      1.00      0.94        67
+          q-bio.OT       1.00      1.00      1.00         1
+          q-bio.PE       1.00      1.00      1.00         2
+          q-bio.QM       0.91      1.00      0.95        71
+          q-bio.TO       1.00      1.00      1.00         5
+          q-fin.CP       1.00      1.00      1.00         7
+          q-fin.GN       1.00      1.00      1.00         3
+          q-fin.PM       1.00      1.00      1.00         4
+          q-fin.RM       1.00      1.00      1.00         2
+          q-fin.ST       0.75      1.00      0.86        12
+          q-fin.TR       1.00      1.00      1.00         3
+          quant-ph       0.71      1.00      0.83         5
+           stat.AP       0.97      1.00      0.98       123
+           stat.CO       0.97      1.00      0.98        59
+           stat.ME       0.93      1.00      0.96       100
+           stat.ML       0.92      0.99      0.95      4326
+           stat.OT       1.00      1.00      1.00         1
+
+         micro avg       0.94      0.98      0.96     21866
+         macro avg       0.95      1.00      0.98     21866
+      weighted avg       0.94      0.98      0.96     21866
+       samples avg       0.96      0.99      0.97     21866
+
+INFO:root:... predicting on test set
+INFO:root:
+		 accuracy = 0.5105610561056105
+INFO:root:
+		 f1_macro = 0.1887499217860623
+INFO:root:
+                    precision    recall  f1-score   support
+
+          astro-ph       1.00      1.00      1.00         1
+       astro-ph.CO       0.00      0.00      0.00         1
+       astro-ph.EP       0.00      0.00      0.00         0
+       astro-ph.GA       0.00      0.00      0.00         1
+       astro-ph.HE       0.00      0.00      0.00         0
+       astro-ph.IM       0.67      0.50      0.57         4
+       astro-ph.SR       0.00      0.00      0.00         0
+   cond-mat.dis-nn       1.00      0.33      0.50         3
+ cond-mat.mtrl-sci       0.00      0.00      0.00         1
+cond-mat.stat-mech       0.00      0.00      0.00         2
+             cs.AI       0.66      0.68      0.67       595
+             cs.AR       1.00      0.50      0.67         2
+             cs.CC       0.50      0.25      0.33         4
+             cs.CE       0.67      0.25      0.36         8
+             cs.CG       0.00      0.00      0.00         3
+             cs.CL       0.55      0.63      0.59        52
+             cs.CR       0.65      0.76      0.70        29
+             cs.CV       0.94      0.91      0.92      1575
+             cs.CY       0.56      0.23      0.32        22
+             cs.DB       0.00      0.00      0.00         7
+             cs.DC       0.50      0.47      0.48        17
+             cs.DL       0.00      0.00      0.00         2
+             cs.DM       0.00      0.00      0.00         2
+             cs.DS       0.25      0.08      0.12        12
+             cs.ET       0.00      0.00      0.00         2
+             cs.FL       0.00      0.00      0.00         0
+             cs.GL       0.00      0.00      0.00         0
+             cs.GR       1.00      0.12      0.22         8
+             cs.GT       0.50      0.33      0.40         6
+             cs.HC       0.40      0.17      0.24        24
+             cs.IR       0.46      0.55      0.50        56
+             cs.IT       0.35      0.34      0.34        47
+             cs.LG       0.79      0.82      0.81      1320
+             cs.LO       1.00      0.20      0.33         5
+             cs.MA       0.67      0.50      0.57         8
+             cs.MM       0.57      0.29      0.38        14
+             cs.MS       0.00      0.00      0.00         2
+             cs.NE       0.31      0.31      0.31        80
+             cs.NI       0.33      0.14      0.20         7
+             cs.OH       0.00      0.00      0.00         0
+             cs.PF       0.33      0.20      0.25         5
+             cs.PL       0.00      0.00      0.00         2
+             cs.RO       0.68      0.62      0.65        34
+             cs.SC       0.00      0.00      0.00         0
+             cs.SD       0.69      0.95      0.80        37
+             cs.SE       0.67      0.29      0.40         7
+             cs.SI       0.55      0.62      0.58        26
+           econ.EM       0.00      0.00      0.00         3
+           econ.GN       0.00      0.00      0.00         1
+           eess.AS       0.54      0.83      0.66        30
+           eess.IV       0.00      0.00      0.00        16
+           eess.SP       0.25      0.27      0.26        30
+           eess.SY       0.43      0.21      0.29        14
+             gr-qc       0.00      0.00      0.00         0
+           hep-lat       0.00      0.00      0.00         0
+            hep-ph       0.00      0.00      0.00         0
+            hep-th       0.00      0.00      0.00         0
+           math-ph       0.00      0.00      0.00         0
+           math.AG       0.00      0.00      0.00         1
+           math.AP       0.00      0.00      0.00         2
+           math.AT       0.00      0.00      0.00         0
+           math.CA       0.00      0.00      0.00         0
+           math.CO       0.00      0.00      0.00         1
+           math.DG       0.00      0.00      0.00         0
+           math.DS       0.00      0.00      0.00         3
+           math.FA       1.00      0.67      0.80         3
+           math.GM       0.00      0.00      0.00         0
+           math.GR       0.00      0.00      0.00         0
+           math.LO       0.00      0.00      0.00         0
+           math.NA       0.33      0.16      0.21        19
+           math.OA       0.00      0.00      0.00         0
+           math.OC       0.35      0.45      0.39        47
+           math.PR       1.00      0.38      0.55         8
+           math.RT       0.00      0.00      0.00         0
+           math.SP       0.00      0.00      0.00         0
+           math.ST       0.30      0.31      0.30        26
+           nlin.AO       0.00      0.00      0.00         1
+           nlin.CD       0.00      0.00      0.00         0
+           nlin.CG       0.00      0.00      0.00         0
+           nlin.PS       0.00      0.00      0.00         0
+           nucl-ex       0.00      0.00      0.00         0
+     physics.ao-ph       0.00      0.00      0.00         0
+    physics.app-ph       0.00      0.00      0.00         0
+    physics.bio-ph       0.00      0.00      0.00         0
+   physics.chem-ph       0.00      0.00      0.00         1
+   physics.comp-ph       0.00      0.00      0.00         3
+   physics.data-an       0.33      0.11      0.17         9
+   physics.flu-dyn       0.50      1.00      0.67         1
+    physics.geo-ph       0.00      0.00      0.00         1
+   physics.ins-det       0.00      0.00      0.00         1
+    physics.med-ph       0.00      0.00      0.00         3
+    physics.optics       0.00      0.00      0.00         0
+    physics.soc-ph       0.00      0.00      0.00         3
+             q-bio       0.00      0.00      0.00         0
+          q-bio.BM       0.00      0.00      0.00         1
+          q-bio.GN       1.00      0.50      0.67         2
+          q-bio.MN       0.00      0.00      0.00         1
+          q-bio.NC       0.38      0.29      0.33        17
+          q-bio.OT       0.00      0.00      0.00         0
+          q-bio.PE       0.00      0.00      0.00         0
+          q-bio.QM       0.27      0.22      0.24        18
+          q-bio.TO       0.00      0.00      0.00         1
+          q-fin.CP       0.00      0.00      0.00         2
+          q-fin.GN       0.00      0.00      0.00         1
+          q-fin.PM       0.00      0.00      0.00         1
+          q-fin.RM       0.00      0.00      0.00         1
+          q-fin.ST       0.33      0.67      0.44         3
+          q-fin.TR       0.00      0.00      0.00         1
+          quant-ph       0.00      0.00      0.00         1
+           stat.AP       0.09      0.03      0.05        31
+           stat.CO       0.25      0.13      0.17        15
+           stat.ME       0.43      0.24      0.31        25
+           stat.ML       0.75      0.81      0.78      1082
+           stat.OT       0.00      0.00      0.00         0
+
+         micro avg       0.76      0.76      0.76      5463
+         macro avg       0.23      0.18      0.19      5463
+      weighted avg       0.75      0.76      0.75      5463
+       samples avg       0.83      0.84      0.80      5463
+
+INFO:root:============================================================
+INFO:root:OneVsRest - Logistic Regression
+INFO:root:... training on 12088 samples
+INFO:root:... predicting on train set
+INFO:root:
+		 accuracy = 0.0
+INFO:root:
+		 f1_macro = 0.1809364621862299
+INFO:root:
+                    precision    recall  f1-score   support
+
+          astro-ph       0.00      1.00      0.00         3
+       astro-ph.CO       1.00      0.75      0.86         4
+       astro-ph.EP       0.00      0.00      0.00         1
+       astro-ph.GA       0.86      1.00      0.92         6
+       astro-ph.HE       0.00      1.00      0.00         1
+       astro-ph.IM       0.02      1.00      0.04        17
+       astro-ph.SR       0.00      1.00      0.00         2
+   cond-mat.dis-nn       0.00      1.00      0.00        11
+ cond-mat.mtrl-sci       0.07      0.50      0.12         4
+cond-mat.stat-mech       0.00      1.00      0.00         6
+             cs.AI       0.70      0.86      0.78      2378
+             cs.AR       0.00      1.00      0.01         6
+             cs.CC       0.03      0.73      0.06        15
+             cs.CE       0.02      0.85      0.04        33
+             cs.CG       0.01      0.75      0.02        12
+             cs.CL       0.30      0.98      0.46       209
+             cs.CR       0.17      0.97      0.29       114
+             cs.CV       0.97      0.93      0.95      6297
+             cs.CY       0.06      0.95      0.12        86
+             cs.DB       0.01      0.87      0.02        30
+             cs.DC       0.09      0.93      0.17        70
+             cs.DL       0.03      0.83      0.05         6
+             cs.DM       0.00      1.00      0.01         8
+             cs.DS       0.01      0.89      0.03        47
+             cs.ET       0.01      1.00      0.01         6
+             cs.FL       0.00      1.00      0.00         2
+             cs.GL       1.00      0.50      0.67         2
+             cs.GR       0.03      1.00      0.06        32
+             cs.GT       0.02      0.82      0.04        22
+             cs.HC       0.07      0.93      0.13        97
+             cs.IR       0.15      0.96      0.25       223
+             cs.IT       0.32      0.89      0.47       188
+             cs.LG       0.83      0.89      0.86      5281
+             cs.LO       0.03      0.94      0.05        18
+             cs.MA       0.04      0.87      0.08        31
+             cs.MM       0.02      0.95      0.03        56
+             cs.MS       0.03      0.43      0.05         7
+             cs.NE       0.14      0.92      0.25       319
+             cs.NI       0.02      0.85      0.05        27
+             cs.OH       0.01      1.00      0.02         1
+             cs.PF       0.01      1.00      0.03        18
+             cs.PL       0.44      0.57      0.50         7
+             cs.RO       0.11      0.96      0.20       134
+             cs.SC       0.02      1.00      0.04         2
+             cs.SD       0.48      0.98      0.64       148
+             cs.SE       0.06      0.93      0.10        28
+             cs.SI       0.33      0.75      0.46       102
+           econ.EM       0.01      0.90      0.01        10
+           econ.GN       0.17      0.50      0.25         2
+           eess.AS       0.41      0.97      0.58       120
+           eess.IV       0.03      0.63      0.06        65
+           eess.SP       0.13      0.76      0.22       121
+           eess.SY       0.03      0.93      0.07        56
+             gr-qc       0.00      1.00      0.00         2
+           hep-lat       1.00      1.00      1.00         1
+            hep-ph       0.00      1.00      0.00         2
+            hep-th       0.00      0.00      0.00         2
+           math-ph       0.00      0.00      0.00         1
+           math.AG       1.00      0.50      0.67         2
+           math.AP       0.03      1.00      0.06         8
+           math.AT       0.00      1.00      0.00         2
+           math.CA       0.01      0.50      0.01         2
+           math.CO       0.00      1.00      0.00         3
+           math.DG       0.00      0.00      0.00         1
+           math.DS       0.01      0.92      0.01        12
+           math.FA       0.03      0.92      0.06        13
+           math.GM       0.00      0.00      0.00         1
+           math.GR       1.00      1.00      1.00         1
+           math.LO       0.00      0.00      0.00         2
+           math.NA       0.06      0.93      0.11        74
+           math.OA       0.00      1.00      0.00         1
+           math.OC       0.28      0.93      0.43       188
+           math.PR       0.01      1.00      0.03        32
+           math.RT       0.00      1.00      0.00         1
+           math.SP       0.00      1.00      0.00         2
+           math.ST       0.10      0.91      0.18       105
+           nlin.AO       0.00      0.75      0.01         4
+           nlin.CD       0.01      1.00      0.02         2
+           nlin.CG       0.00      1.00      0.00         1
+           nlin.PS       0.11      1.00      0.20         1
+           nucl-ex       0.00      1.00      0.00         1
+     physics.ao-ph       0.00      0.00      0.00         1
+    physics.app-ph       0.00      1.00      0.00         2
+    physics.bio-ph       0.07      1.00      0.13         2
+   physics.chem-ph       0.00      1.00      0.00         2
+   physics.comp-ph       0.00      0.86      0.01        14
+   physics.data-an       0.05      0.53      0.09        36
+   physics.flu-dyn       0.00      1.00      0.01         5
+    physics.geo-ph       0.00      1.00      0.00         5
+   physics.ins-det       0.00      1.00      0.00         3
+    physics.med-ph       0.01      1.00      0.01        14
+    physics.optics       0.00      0.00      0.00         2
+    physics.soc-ph       0.02      0.77      0.03        13
+             q-bio       1.00      1.00      1.00         1
+          q-bio.BM       0.08      1.00      0.15         5
+          q-bio.GN       0.01      0.78      0.03         9
+          q-bio.MN       0.03      1.00      0.06         3
+          q-bio.NC       0.08      0.96      0.15        67
+          q-bio.OT       1.00      1.00      1.00         1
+          q-bio.PE       0.00      0.00      0.00         2
+          q-bio.QM       0.07      0.70      0.13        71
+          q-bio.TO       0.05      0.60      0.10         5
+          q-fin.CP       0.01      1.00      0.01         7
+          q-fin.GN       0.00      1.00      0.00         3
+          q-fin.PM       0.12      0.75      0.21         4
+          q-fin.RM       1.00      0.50      0.67         2
+          q-fin.ST       0.00      1.00      0.00        12
+          q-fin.TR       0.05      1.00      0.10         3
+          quant-ph       0.00      1.00      0.00         5
+           stat.AP       0.02      0.99      0.04       123
+           stat.CO       0.09      0.66      0.16        59
+           stat.ME       0.06      0.90      0.11       100
+           stat.ML       0.78      0.91      0.84      4326
+           stat.OT       0.50      1.00      0.67         1
+
+         micro avg       0.08      0.90      0.15     21866
+         macro avg       0.16      0.82      0.18     21866
+      weighted avg       0.74      0.90      0.77     21866
+       samples avg       0.08      0.93      0.14     21866
+
+INFO:root:... predicting on test set
+INFO:root:
+		 accuracy = 0.0
+INFO:root:
+		 f1_macro = 0.07804887006508003
+INFO:root:
+                    precision    recall  f1-score   support
+
+          astro-ph       0.00      1.00      0.00         1
+       astro-ph.CO       0.00      0.00      0.00         1
+       astro-ph.EP       0.00      0.00      0.00         0
+       astro-ph.GA       0.00      0.00      0.00         1
+       astro-ph.HE       0.00      0.00      0.00         0
+       astro-ph.IM       0.02      1.00      0.04         4
+       astro-ph.SR       0.00      0.00      0.00         0
+   cond-mat.dis-nn       0.00      1.00      0.00         3
+ cond-mat.mtrl-sci       0.00      0.00      0.00         1
+cond-mat.stat-mech       0.00      1.00      0.01         2
+             cs.AI       0.63      0.74      0.68       595
+             cs.AR       0.01      1.00      0.01         2
+             cs.CC       0.03      0.75      0.06         4
+             cs.CE       0.01      0.50      0.02         8
+             cs.CG       0.01      0.67      0.02         3
+             cs.CL       0.26      0.81      0.39        52
+             cs.CR       0.16      0.93      0.27        29
+             cs.CV       0.94      0.91      0.92      1575
+             cs.CY       0.04      0.68      0.08        22
+             cs.DB       0.01      0.71      0.01         7
+             cs.DC       0.06      0.71      0.12        17
+             cs.DL       0.00      0.00      0.00         2
+             cs.DM       0.00      1.00      0.01         2
+             cs.DS       0.01      0.83      0.03        12
+             cs.ET       0.00      0.50      0.01         2
+             cs.FL       0.00      0.00      0.00         0
+             cs.GL       0.00      0.00      0.00         0
+             cs.GR       0.02      0.62      0.03         8
+             cs.GT       0.02      0.83      0.04         6
+             cs.HC       0.06      0.75      0.11        24
+             cs.IR       0.13      0.91      0.22        56
+             cs.IT       0.22      0.53      0.31        47
+             cs.LG       0.79      0.87      0.83      1320
+             cs.LO       0.03      1.00      0.06         5
+             cs.MA       0.04      0.75      0.07         8
+             cs.MM       0.01      0.86      0.03        14
+             cs.MS       0.00      0.00      0.00         2
+             cs.NE       0.10      0.71      0.18        80
+             cs.NI       0.02      0.86      0.05         7
+             cs.OH       0.00      0.00      0.00         0
+             cs.PF       0.01      0.40      0.01         5
+             cs.PL       0.00      0.00      0.00         2
+             cs.RO       0.11      0.91      0.19        34
+             cs.SC       0.00      0.00      0.00         0
+             cs.SD       0.48      0.95      0.64        37
+             cs.SE       0.04      0.71      0.08         7
+             cs.SI       0.27      0.58      0.37        26
+           econ.EM       0.01      1.00      0.01         3
+           econ.GN       0.00      0.00      0.00         1
+           eess.AS       0.39      0.90      0.55        30
+           eess.IV       0.02      0.50      0.04        16
+           eess.SP       0.08      0.50      0.13        30
+           eess.SY       0.04      0.93      0.07        14
+             gr-qc       0.00      0.00      0.00         0
+           hep-lat       0.00      0.00      0.00         0
+            hep-ph       0.00      0.00      0.00         0
+            hep-th       0.00      0.00      0.00         0
+           math-ph       0.00      0.00      0.00         0
+           math.AG       0.00      0.00      0.00         1
+           math.AP       0.02      0.50      0.03         2
+           math.AT       0.00      0.00      0.00         0
+           math.CA       0.00      0.00      0.00         0
+           math.CO       0.00      1.00      0.00         1
+           math.DG       0.00      0.00      0.00         0
+           math.DS       0.00      0.67      0.01         3
+           math.FA       0.03      1.00      0.06         3
+           math.GM       0.00      0.00      0.00         0
+           math.GR       0.00      0.00      0.00         0
+           math.LO       0.00      0.00      0.00         0
+           math.NA       0.06      0.84      0.10        19
+           math.OA       0.00      0.00      0.00         0
+           math.OC       0.18      0.66      0.28        47
+           math.PR       0.02      1.00      0.03         8
+           math.RT       0.00      0.00      0.00         0
+           math.SP       0.00      0.00      0.00         0
+           math.ST       0.08      0.81      0.15        26
+           nlin.AO       0.00      0.00      0.00         1
+           nlin.CD       0.00      0.00      0.00         0
+           nlin.CG       0.00      0.00      0.00         0
+           nlin.PS       0.00      0.00      0.00         0
+           nucl-ex       0.00      0.00      0.00         0
+     physics.ao-ph       0.00      0.00      0.00         0
+    physics.app-ph       0.00      0.00      0.00         0
+    physics.bio-ph       0.00      0.00      0.00         0
+   physics.chem-ph       0.00      1.00      0.00         1
+   physics.comp-ph       0.00      1.00      0.01         3
+   physics.data-an       0.01      0.11      0.02         9
+   physics.flu-dyn       0.00      1.00      0.01         1
+    physics.geo-ph       0.00      0.00      0.00         1
+   physics.ins-det       0.00      0.00      0.00         1
+    physics.med-ph       0.00      1.00      0.01         3
+    physics.optics       0.00      0.00      0.00         0
+    physics.soc-ph       0.01      0.67      0.03         3
+             q-bio       0.00      0.00      0.00         0
+          q-bio.BM       0.07      1.00      0.12         1
+          q-bio.GN       0.01      0.50      0.02         2
+          q-bio.MN       0.04      1.00      0.07         1
+          q-bio.NC       0.07      0.82      0.12        17
+          q-bio.OT       0.00      0.00      0.00         0
+          q-bio.PE       0.00      0.00      0.00         0
+          q-bio.QM       0.03      0.33      0.06        18
+          q-bio.TO       0.00      0.00      0.00         1
+          q-fin.CP       0.00      0.50      0.01         2
+          q-fin.GN       0.00      1.00      0.00         1
+          q-fin.PM       0.00      0.00      0.00         1
+          q-fin.RM       0.00      0.00      0.00         1
+          q-fin.ST       0.00      1.00      0.00         3
+          q-fin.TR       0.00      0.00      0.00         1
+          quant-ph       0.00      1.00      0.00         1
+           stat.AP       0.02      0.97      0.04        31
+           stat.CO       0.07      0.47      0.13        15
+           stat.ME       0.05      0.72      0.09        25
+           stat.ML       0.72      0.85      0.78      1082
+           stat.OT       0.00      0.00      0.00         0
+
+         micro avg       0.07      0.84      0.14      5463
+         macro avg       0.06      0.46      0.08      5463
+      weighted avg       0.69      0.84      0.73      5463
+       samples avg       0.07      0.89      0.14      5463
+
+INFO:root:============================================================
+INFO:root:OneVsRest - Dummy Uniform
+INFO:root:... training on 12088 samples
+INFO:root:... predicting on train set
+INFO:root:
+		 accuracy = 0.0
+INFO:root:
+		 f1_macro = 0.0
+INFO:root:
+                    precision    recall  f1-score   support
+
+          astro-ph       0.00      0.00      0.00         3
+       astro-ph.CO       0.00      0.00      0.00         4
+       astro-ph.EP       0.00      0.00      0.00         1
+       astro-ph.GA       0.00      0.00      0.00         6
+       astro-ph.HE       0.00      0.00      0.00         1
+       astro-ph.IM       0.00      0.00      0.00        17
+       astro-ph.SR       0.00      0.00      0.00         2
+   cond-mat.dis-nn       0.00      0.00      0.00        11
+ cond-mat.mtrl-sci       0.00      0.00      0.00         4
+cond-mat.stat-mech       0.00      0.00      0.00         6
+             cs.AI       0.00      0.00      0.00      2378
+             cs.AR       0.00      0.00      0.00         6
+             cs.CC       0.00      0.00      0.00        15
+             cs.CE       0.00      0.00      0.00        33
+             cs.CG       0.00      0.00      0.00        12
+             cs.CL       0.00      0.00      0.00       209
+             cs.CR       0.00      0.00      0.00       114
+             cs.CV       0.00      0.00      0.00      6297
+             cs.CY       0.00      0.00      0.00        86
+             cs.DB       0.00      0.00      0.00        30
+             cs.DC       0.00      0.00      0.00        70
+             cs.DL       0.00      0.00      0.00         6
+             cs.DM       0.00      0.00      0.00         8
+             cs.DS       0.00      0.00      0.00        47
+             cs.ET       0.00      0.00      0.00         6
+             cs.FL       0.00      0.00      0.00         2
+             cs.GL       0.00      0.00      0.00         2
+             cs.GR       0.00      0.00      0.00        32
+             cs.GT       0.00      0.00      0.00        22
+             cs.HC       0.00      0.00      0.00        97
+             cs.IR       0.00      0.00      0.00       223
+             cs.IT       0.00      0.00      0.00       188
+             cs.LG       0.00      0.00      0.00      5281
+             cs.LO       0.00      0.00      0.00        18
+             cs.MA       0.00      0.00      0.00        31
+             cs.MM       0.00      0.00      0.00        56
+             cs.MS       0.00      0.00      0.00         7
+             cs.NE       0.00      0.00      0.00       319
+             cs.NI       0.00      0.00      0.00        27
+             cs.OH       0.00      0.00      0.00         1
+             cs.PF       0.00      0.00      0.00        18
+             cs.PL       0.00      0.00      0.00         7
+             cs.RO       0.00      0.00      0.00       134
+             cs.SC       0.00      0.00      0.00         2
+             cs.SD       0.00      0.00      0.00       148
+             cs.SE       0.00      0.00      0.00        28
+             cs.SI       0.00      0.00      0.00       102
+           econ.EM       0.00      0.00      0.00        10
+           econ.GN       0.00      0.00      0.00         2
+           eess.AS       0.00      0.00      0.00       120
+           eess.IV       0.00      0.00      0.00        65
+           eess.SP       0.00      0.00      0.00       121
+           eess.SY       0.00      0.00      0.00        56
+             gr-qc       0.00      0.00      0.00         2
+           hep-lat       0.00      0.00      0.00         1
+            hep-ph       0.00      0.00      0.00         2
+            hep-th       0.00      0.00      0.00         2
+           math-ph       0.00      0.00      0.00         1
+           math.AG       0.00      0.00      0.00         2
+           math.AP       0.00      0.00      0.00         8
+           math.AT       0.00      0.00      0.00         2
+           math.CA       0.00      0.00      0.00         2
+           math.CO       0.00      0.00      0.00         3
+           math.DG       0.00      0.00      0.00         1
+           math.DS       0.00      0.00      0.00        12
+           math.FA       0.00      0.00      0.00        13
+           math.GM       0.00      0.00      0.00         1
+           math.GR       0.00      0.00      0.00         1
+           math.LO       0.00      0.00      0.00         2
+           math.NA       0.00      0.00      0.00        74
+           math.OA       0.00      0.00      0.00         1
+           math.OC       0.00      0.00      0.00       188
+           math.PR       0.00      0.00      0.00        32
+           math.RT       0.00      0.00      0.00         1
+           math.SP       0.00      0.00      0.00         2
+           math.ST       0.00      0.00      0.00       105
+           nlin.AO       0.00      0.00      0.00         4
+           nlin.CD       0.00      0.00      0.00         2
+           nlin.CG       0.00      0.00      0.00         1
+           nlin.PS       0.00      0.00      0.00         1
+           nucl-ex       0.00      0.00      0.00         1
+     physics.ao-ph       0.00      0.00      0.00         1
+    physics.app-ph       0.00      0.00      0.00         2
+    physics.bio-ph       0.00      0.00      0.00         2
+   physics.chem-ph       0.00      0.00      0.00         2
+   physics.comp-ph       0.00      0.00      0.00        14
+   physics.data-an       0.00      0.00      0.00        36
+   physics.flu-dyn       0.00      0.00      0.00         5
+    physics.geo-ph       0.00      0.00      0.00         5
+   physics.ins-det       0.00      0.00      0.00         3
+    physics.med-ph       0.00      0.00      0.00        14
+    physics.optics       0.00      0.00      0.00         2
+    physics.soc-ph       0.00      0.00      0.00        13
+             q-bio       0.00      0.00      0.00         1
+          q-bio.BM       0.00      0.00      0.00         5
+          q-bio.GN       0.00      0.00      0.00         9
+          q-bio.MN       0.00      0.00      0.00         3
+          q-bio.NC       0.00      0.00      0.00        67
+          q-bio.OT       0.00      0.00      0.00         1
+          q-bio.PE       0.00      0.00      0.00         2
+          q-bio.QM       0.00      0.00      0.00        71
+          q-bio.TO       0.00      0.00      0.00         5
+          q-fin.CP       0.00      0.00      0.00         7
+          q-fin.GN       0.00      0.00      0.00         3
+          q-fin.PM       0.00      0.00      0.00         4
+          q-fin.RM       0.00      0.00      0.00         2
+          q-fin.ST       0.00      0.00      0.00        12
+          q-fin.TR       0.00      0.00      0.00         3
+          quant-ph       0.00      0.00      0.00         5
+           stat.AP       0.00      0.00      0.00       123
+           stat.CO       0.00      0.00      0.00        59
+           stat.ME       0.00      0.00      0.00       100
+           stat.ML       0.00      0.00      0.00      4326
+           stat.OT       0.00      0.00      0.00         1
+
+         micro avg       0.00      0.00      0.00     21866
+         macro avg       0.00      0.00      0.00     21866
+      weighted avg       0.00      0.00      0.00     21866
+       samples avg       0.00      0.00      0.00     21866
+
+INFO:root:... predicting on test set
+INFO:root:
+		 accuracy = 0.0
+INFO:root:
+		 f1_macro = 0.0
+INFO:root:
+                    precision    recall  f1-score   support
+
+          astro-ph       0.00      0.00      0.00         1
+       astro-ph.CO       0.00      0.00      0.00         1
+       astro-ph.EP       0.00      0.00      0.00         0
+       astro-ph.GA       0.00      0.00      0.00         1
+       astro-ph.HE       0.00      0.00      0.00         0
+       astro-ph.IM       0.00      0.00      0.00         4
+       astro-ph.SR       0.00      0.00      0.00         0
+   cond-mat.dis-nn       0.00      0.00      0.00         3
+ cond-mat.mtrl-sci       0.00      0.00      0.00         1
+cond-mat.stat-mech       0.00      0.00      0.00         2
+             cs.AI       0.00      0.00      0.00       595
+             cs.AR       0.00      0.00      0.00         2
+             cs.CC       0.00      0.00      0.00         4
+             cs.CE       0.00      0.00      0.00         8
+             cs.CG       0.00      0.00      0.00         3
+             cs.CL       0.00      0.00      0.00        52
+             cs.CR       0.00      0.00      0.00        29
+             cs.CV       0.00      0.00      0.00      1575
+             cs.CY       0.00      0.00      0.00        22
+             cs.DB       0.00      0.00      0.00         7
+             cs.DC       0.00      0.00      0.00        17
+             cs.DL       0.00      0.00      0.00         2
+             cs.DM       0.00      0.00      0.00         2
+             cs.DS       0.00      0.00      0.00        12
+             cs.ET       0.00      0.00      0.00         2
+             cs.FL       0.00      0.00      0.00         0
+             cs.GL       0.00      0.00      0.00         0
+             cs.GR       0.00      0.00      0.00         8
+             cs.GT       0.00      0.00      0.00         6
+             cs.HC       0.00      0.00      0.00        24
+             cs.IR       0.00      0.00      0.00        56
+             cs.IT       0.00      0.00      0.00        47
+             cs.LG       0.00      0.00      0.00      1320
+             cs.LO       0.00      0.00      0.00         5
+             cs.MA       0.00      0.00      0.00         8
+             cs.MM       0.00      0.00      0.00        14
+             cs.MS       0.00      0.00      0.00         2
+             cs.NE       0.00      0.00      0.00        80
+             cs.NI       0.00      0.00      0.00         7
+             cs.OH       0.00      0.00      0.00         0
+             cs.PF       0.00      0.00      0.00         5
+             cs.PL       0.00      0.00      0.00         2
+             cs.RO       0.00      0.00      0.00        34
+             cs.SC       0.00      0.00      0.00         0
+             cs.SD       0.00      0.00      0.00        37
+             cs.SE       0.00      0.00      0.00         7
+             cs.SI       0.00      0.00      0.00        26
+           econ.EM       0.00      0.00      0.00         3
+           econ.GN       0.00      0.00      0.00         1
+           eess.AS       0.00      0.00      0.00        30
+           eess.IV       0.00      0.00      0.00        16
+           eess.SP       0.00      0.00      0.00        30
+           eess.SY       0.00      0.00      0.00        14
+             gr-qc       0.00      0.00      0.00         0
+           hep-lat       0.00      0.00      0.00         0
+            hep-ph       0.00      0.00      0.00         0
+            hep-th       0.00      0.00      0.00         0
+           math-ph       0.00      0.00      0.00         0
+           math.AG       0.00      0.00      0.00         1
+           math.AP       0.00      0.00      0.00         2
+           math.AT       0.00      0.00      0.00         0
+           math.CA       0.00      0.00      0.00         0
+           math.CO       0.00      0.00      0.00         1
+           math.DG       0.00      0.00      0.00         0
+           math.DS       0.00      0.00      0.00         3
+           math.FA       0.00      0.00      0.00         3
+           math.GM       0.00      0.00      0.00         0
+           math.GR       0.00      0.00      0.00         0
+           math.LO       0.00      0.00      0.00         0
+           math.NA       0.00      0.00      0.00        19
+           math.OA       0.00      0.00      0.00         0
+           math.OC       0.00      0.00      0.00        47
+           math.PR       0.00      0.00      0.00         8
+           math.RT       0.00      0.00      0.00         0
+           math.SP       0.00      0.00      0.00         0
+           math.ST       0.00      0.00      0.00        26
+           nlin.AO       0.00      0.00      0.00         1
+           nlin.CD       0.00      0.00      0.00         0
+           nlin.CG       0.00      0.00      0.00         0
+           nlin.PS       0.00      0.00      0.00         0
+           nucl-ex       0.00      0.00      0.00         0
+     physics.ao-ph       0.00      0.00      0.00         0
+    physics.app-ph       0.00      0.00      0.00         0
+    physics.bio-ph       0.00      0.00      0.00         0
+   physics.chem-ph       0.00      0.00      0.00         1
+   physics.comp-ph       0.00      0.00      0.00         3
+   physics.data-an       0.00      0.00      0.00         9
+   physics.flu-dyn       0.00      0.00      0.00         1
+    physics.geo-ph       0.00      0.00      0.00         1
+   physics.ins-det       0.00      0.00      0.00         1
+    physics.med-ph       0.00      0.00      0.00         3
+    physics.optics       0.00      0.00      0.00         0
+    physics.soc-ph       0.00      0.00      0.00         3
+             q-bio       0.00      0.00      0.00         0
+          q-bio.BM       0.00      0.00      0.00         1
+          q-bio.GN       0.00      0.00      0.00         2
+          q-bio.MN       0.00      0.00      0.00         1
+          q-bio.NC       0.00      0.00      0.00        17
+          q-bio.OT       0.00      0.00      0.00         0
+          q-bio.PE       0.00      0.00      0.00         0
+          q-bio.QM       0.00      0.00      0.00        18
+          q-bio.TO       0.00      0.00      0.00         1
+          q-fin.CP       0.00      0.00      0.00         2
+          q-fin.GN       0.00      0.00      0.00         1
+          q-fin.PM       0.00      0.00      0.00         1
+          q-fin.RM       0.00      0.00      0.00         1
+          q-fin.ST       0.00      0.00      0.00         3
+          q-fin.TR       0.00      0.00      0.00         1
+          quant-ph       0.00      0.00      0.00         1
+           stat.AP       0.00      0.00      0.00        31
+           stat.CO       0.00      0.00      0.00        15
+           stat.ME       0.00      0.00      0.00        25
+           stat.ML       0.00      0.00      0.00      1082
+           stat.OT       0.00      0.00      0.00         0
+
+         micro avg       0.00      0.00      0.00      5463
+         macro avg       0.00      0.00      0.00      5463
+      weighted avg       0.00      0.00      0.00      5463
+       samples avg       0.00      0.00      0.00      5463
+
+INFO:root:============================================================
+INFO:root:OneVsRest - Dummy Most-Frequent
+INFO:root:... training on 12088 samples
+INFO:root:... predicting on train set
+INFO:root:
+		 accuracy = 0.3970880211780278
+INFO:root:
+		 f1_macro = 0.006008903139000615
+INFO:root:
+                    precision    recall  f1-score   support
+
+          astro-ph       0.00      0.00      0.00         3
+       astro-ph.CO       0.00      0.00      0.00         4
+       astro-ph.EP       0.00      0.00      0.00         1
+       astro-ph.GA       0.00      0.00      0.00         6
+       astro-ph.HE       0.00      0.00      0.00         1
+       astro-ph.IM       0.00      0.00      0.00        17
+       astro-ph.SR       0.00      0.00      0.00         2
+   cond-mat.dis-nn       0.00      0.00      0.00        11
+ cond-mat.mtrl-sci       0.00      0.00      0.00         4
+cond-mat.stat-mech       0.00      0.00      0.00         6
+             cs.AI       0.00      0.00      0.00      2378
+             cs.AR       0.00      0.00      0.00         6
+             cs.CC       0.00      0.00      0.00        15
+             cs.CE       0.00      0.00      0.00        33
+             cs.CG       0.00      0.00      0.00        12
+             cs.CL       0.00      0.00      0.00       209
+             cs.CR       0.00      0.00      0.00       114
+             cs.CV       0.52      1.00      0.69      6297
+             cs.CY       0.00      0.00      0.00        86
+             cs.DB       0.00      0.00      0.00        30
+             cs.DC       0.00      0.00      0.00        70
+             cs.DL       0.00      0.00      0.00         6
+             cs.DM       0.00      0.00      0.00         8
+             cs.DS       0.00      0.00      0.00        47
+             cs.ET       0.00      0.00      0.00         6
+             cs.FL       0.00      0.00      0.00         2
+             cs.GL       0.00      0.00      0.00         2
+             cs.GR       0.00      0.00      0.00        32
+             cs.GT       0.00      0.00      0.00        22
+             cs.HC       0.00      0.00      0.00        97
+             cs.IR       0.00      0.00      0.00       223
+             cs.IT       0.00      0.00      0.00       188
+             cs.LG       0.00      0.00      0.00      5281
+             cs.LO       0.00      0.00      0.00        18
+             cs.MA       0.00      0.00      0.00        31
+             cs.MM       0.00      0.00      0.00        56
+             cs.MS       0.00      0.00      0.00         7
+             cs.NE       0.00      0.00      0.00       319
+             cs.NI       0.00      0.00      0.00        27
+             cs.OH       0.00      0.00      0.00         1
+             cs.PF       0.00      0.00      0.00        18
+             cs.PL       0.00      0.00      0.00         7
+             cs.RO       0.00      0.00      0.00       134
+             cs.SC       0.00      0.00      0.00         2
+             cs.SD       0.00      0.00      0.00       148
+             cs.SE       0.00      0.00      0.00        28
+             cs.SI       0.00      0.00      0.00       102
+           econ.EM       0.00      0.00      0.00        10
+           econ.GN       0.00      0.00      0.00         2
+           eess.AS       0.00      0.00      0.00       120
+           eess.IV       0.00      0.00      0.00        65
+           eess.SP       0.00      0.00      0.00       121
+           eess.SY       0.00      0.00      0.00        56
+             gr-qc       0.00      0.00      0.00         2
+           hep-lat       0.00      0.00      0.00         1
+            hep-ph       0.00      0.00      0.00         2
+            hep-th       0.00      0.00      0.00         2
+           math-ph       0.00      0.00      0.00         1
+           math.AG       0.00      0.00      0.00         2
+           math.AP       0.00      0.00      0.00         8
+           math.AT       0.00      0.00      0.00         2
+           math.CA       0.00      0.00      0.00         2
+           math.CO       0.00      0.00      0.00         3
+           math.DG       0.00      0.00      0.00         1
+           math.DS       0.00      0.00      0.00        12
+           math.FA       0.00      0.00      0.00        13
+           math.GM       0.00      0.00      0.00         1
+           math.GR       0.00      0.00      0.00         1
+           math.LO       0.00      0.00      0.00         2
+           math.NA       0.00      0.00      0.00        74
+           math.OA       0.00      0.00      0.00         1
+           math.OC       0.00      0.00      0.00       188
+           math.PR       0.00      0.00      0.00        32
+           math.RT       0.00      0.00      0.00         1
+           math.SP       0.00      0.00      0.00         2
+           math.ST       0.00      0.00      0.00       105
+           nlin.AO       0.00      0.00      0.00         4
+           nlin.CD       0.00      0.00      0.00         2
+           nlin.CG       0.00      0.00      0.00         1
+           nlin.PS       0.00      0.00      0.00         1
+           nucl-ex       0.00      0.00      0.00         1
+     physics.ao-ph       0.00      0.00      0.00         1
+    physics.app-ph       0.00      0.00      0.00         2
+    physics.bio-ph       0.00      0.00      0.00         2
+   physics.chem-ph       0.00      0.00      0.00         2
+   physics.comp-ph       0.00      0.00      0.00        14
+   physics.data-an       0.00      0.00      0.00        36
+   physics.flu-dyn       0.00      0.00      0.00         5
+    physics.geo-ph       0.00      0.00      0.00         5
+   physics.ins-det       0.00      0.00      0.00         3
+    physics.med-ph       0.00      0.00      0.00        14
+    physics.optics       0.00      0.00      0.00         2
+    physics.soc-ph       0.00      0.00      0.00        13
+             q-bio       0.00      0.00      0.00         1
+          q-bio.BM       0.00      0.00      0.00         5
+          q-bio.GN       0.00      0.00      0.00         9
+          q-bio.MN       0.00      0.00      0.00         3
+          q-bio.NC       0.00      0.00      0.00        67
+          q-bio.OT       0.00      0.00      0.00         1
+          q-bio.PE       0.00      0.00      0.00         2
+          q-bio.QM       0.00      0.00      0.00        71
+          q-bio.TO       0.00      0.00      0.00         5
+          q-fin.CP       0.00      0.00      0.00         7
+          q-fin.GN       0.00      0.00      0.00         3
+          q-fin.PM       0.00      0.00      0.00         4
+          q-fin.RM       0.00      0.00      0.00         2
+          q-fin.ST       0.00      0.00      0.00        12
+          q-fin.TR       0.00      0.00      0.00         3
+          quant-ph       0.00      0.00      0.00         5
+           stat.AP       0.00      0.00      0.00       123
+           stat.CO       0.00      0.00      0.00        59
+           stat.ME       0.00      0.00      0.00       100
+           stat.ML       0.00      0.00      0.00      4326
+           stat.OT       0.00      0.00      0.00         1
+
+         micro avg       0.52      0.29      0.37     21866
+         macro avg       0.00      0.01      0.01     21866
+      weighted avg       0.15      0.29      0.20     21866
+       samples avg       0.52      0.44      0.46     21866
+
+INFO:root:... predicting on test set
+INFO:root:
+		 accuracy = 0.4056105610561056
+INFO:root:
+		 f1_macro = 0.006000342876735813
+INFO:root:
+                    precision    recall  f1-score   support
+
+          astro-ph       0.00      0.00      0.00         1
+       astro-ph.CO       0.00      0.00      0.00         1
+       astro-ph.EP       0.00      0.00      0.00         0
+       astro-ph.GA       0.00      0.00      0.00         1
+       astro-ph.HE       0.00      0.00      0.00         0
+       astro-ph.IM       0.00      0.00      0.00         4
+       astro-ph.SR       0.00      0.00      0.00         0
+   cond-mat.dis-nn       0.00      0.00      0.00         3
+ cond-mat.mtrl-sci       0.00      0.00      0.00         1
+cond-mat.stat-mech       0.00      0.00      0.00         2
+             cs.AI       0.00      0.00      0.00       595
+             cs.AR       0.00      0.00      0.00         2
+             cs.CC       0.00      0.00      0.00         4
+             cs.CE       0.00      0.00      0.00         8
+             cs.CG       0.00      0.00      0.00         3
+             cs.CL       0.00      0.00      0.00        52
+             cs.CR       0.00      0.00      0.00        29
+             cs.CV       0.52      1.00      0.68      1575
+             cs.CY       0.00      0.00      0.00        22
+             cs.DB       0.00      0.00      0.00         7
+             cs.DC       0.00      0.00      0.00        17
+             cs.DL       0.00      0.00      0.00         2
+             cs.DM       0.00      0.00      0.00         2
+             cs.DS       0.00      0.00      0.00        12
+             cs.ET       0.00      0.00      0.00         2
+             cs.FL       0.00      0.00      0.00         0
+             cs.GL       0.00      0.00      0.00         0
+             cs.GR       0.00      0.00      0.00         8
+             cs.GT       0.00      0.00      0.00         6
+             cs.HC       0.00      0.00      0.00        24
+             cs.IR       0.00      0.00      0.00        56
+             cs.IT       0.00      0.00      0.00        47
+             cs.LG       0.00      0.00      0.00      1320
+             cs.LO       0.00      0.00      0.00         5
+             cs.MA       0.00      0.00      0.00         8
+             cs.MM       0.00      0.00      0.00        14
+             cs.MS       0.00      0.00      0.00         2
+             cs.NE       0.00      0.00      0.00        80
+             cs.NI       0.00      0.00      0.00         7
+             cs.OH       0.00      0.00      0.00         0
+             cs.PF       0.00      0.00      0.00         5
+             cs.PL       0.00      0.00      0.00         2
+             cs.RO       0.00      0.00      0.00        34
+             cs.SC       0.00      0.00      0.00         0
+             cs.SD       0.00      0.00      0.00        37
+             cs.SE       0.00      0.00      0.00         7
+             cs.SI       0.00      0.00      0.00        26
+           econ.EM       0.00      0.00      0.00         3
+           econ.GN       0.00      0.00      0.00         1
+           eess.AS       0.00      0.00      0.00        30
+           eess.IV       0.00      0.00      0.00        16
+           eess.SP       0.00      0.00      0.00        30
+           eess.SY       0.00      0.00      0.00        14
+             gr-qc       0.00      0.00      0.00         0
+           hep-lat       0.00      0.00      0.00         0
+            hep-ph       0.00      0.00      0.00         0
+            hep-th       0.00      0.00      0.00         0
+           math-ph       0.00      0.00      0.00         0
+           math.AG       0.00      0.00      0.00         1
+           math.AP       0.00      0.00      0.00         2
+           math.AT       0.00      0.00      0.00         0
+           math.CA       0.00      0.00      0.00         0
+           math.CO       0.00      0.00      0.00         1
+           math.DG       0.00      0.00      0.00         0
+           math.DS       0.00      0.00      0.00         3
+           math.FA       0.00      0.00      0.00         3
+           math.GM       0.00      0.00      0.00         0
+           math.GR       0.00      0.00      0.00         0
+           math.LO       0.00      0.00      0.00         0
+           math.NA       0.00      0.00      0.00        19
+           math.OA       0.00      0.00      0.00         0
+           math.OC       0.00      0.00      0.00        47
+           math.PR       0.00      0.00      0.00         8
+           math.RT       0.00      0.00      0.00         0
+           math.SP       0.00      0.00      0.00         0
+           math.ST       0.00      0.00      0.00        26
+           nlin.AO       0.00      0.00      0.00         1
+           nlin.CD       0.00      0.00      0.00         0
+           nlin.CG       0.00      0.00      0.00         0
+           nlin.PS       0.00      0.00      0.00         0
+           nucl-ex       0.00      0.00      0.00         0
+     physics.ao-ph       0.00      0.00      0.00         0
+    physics.app-ph       0.00      0.00      0.00         0
+    physics.bio-ph       0.00      0.00      0.00         0
+   physics.chem-ph       0.00      0.00      0.00         1
+   physics.comp-ph       0.00      0.00      0.00         3
+   physics.data-an       0.00      0.00      0.00         9
+   physics.flu-dyn       0.00      0.00      0.00         1
+    physics.geo-ph       0.00      0.00      0.00         1
+   physics.ins-det       0.00      0.00      0.00         1
+    physics.med-ph       0.00      0.00      0.00         3
+    physics.optics       0.00      0.00      0.00         0
+    physics.soc-ph       0.00      0.00      0.00         3
+             q-bio       0.00      0.00      0.00         0
+          q-bio.BM       0.00      0.00      0.00         1
+          q-bio.GN       0.00      0.00      0.00         2
+          q-bio.MN       0.00      0.00      0.00         1
+          q-bio.NC       0.00      0.00      0.00        17
+          q-bio.OT       0.00      0.00      0.00         0
+          q-bio.PE       0.00      0.00      0.00         0
+          q-bio.QM       0.00      0.00      0.00        18
+          q-bio.TO       0.00      0.00      0.00         1
+          q-fin.CP       0.00      0.00      0.00         2
+          q-fin.GN       0.00      0.00      0.00         1
+          q-fin.PM       0.00      0.00      0.00         1
+          q-fin.RM       0.00      0.00      0.00         1
+          q-fin.ST       0.00      0.00      0.00         3
+          q-fin.TR       0.00      0.00      0.00         1
+          quant-ph       0.00      0.00      0.00         1
+           stat.AP       0.00      0.00      0.00        31
+           stat.CO       0.00      0.00      0.00        15
+           stat.ME       0.00      0.00      0.00        25
+           stat.ML       0.00      0.00      0.00      1082
+           stat.OT       0.00      0.00      0.00         0
+
+         micro avg       0.52      0.29      0.37      5463
+         macro avg       0.00      0.01      0.01      5463
+      weighted avg       0.15      0.29      0.20      5463
+       samples avg       0.52      0.45      0.47      5463
+
+INFO:root:============================================================
+INFO:root:OneVsRest - Dummy Stratified
+INFO:root:... training on 12088 samples
+INFO:root:... predicting on train set
+INFO:root:
+		 accuracy = 0.0636168100595632
+INFO:root:
+		 f1_macro = 0.01675006038443239
+INFO:root:
+                    precision    recall  f1-score   support
+
+          astro-ph       0.00      0.00      0.00         3
+       astro-ph.CO       0.00      0.00      0.00         4
+       astro-ph.EP       0.00      0.00      0.00         1
+       astro-ph.GA       0.00      0.00      0.00         6
+       astro-ph.HE       0.00      0.00      0.00         1
+       astro-ph.IM       0.00      0.00      0.00        17
+       astro-ph.SR       0.00      0.00      0.00         2
+   cond-mat.dis-nn       0.12      0.09      0.11        11
+ cond-mat.mtrl-sci       0.00      0.00      0.00         4
+cond-mat.stat-mech       0.00      0.00      0.00         6
+             cs.AI       0.19      0.19      0.19      2378
+             cs.AR       0.00      0.00      0.00         6
+             cs.CC       0.00      0.00      0.00        15
+             cs.CE       0.00      0.00      0.00        33
+             cs.CG       0.00      0.00      0.00        12
+             cs.CL       0.01      0.01      0.01       209
+             cs.CR       0.05      0.04      0.05       114
+             cs.CV       0.52      0.52      0.52      6297
+             cs.CY       0.01      0.01      0.01        86
+             cs.DB       0.00      0.00      0.00        30
+             cs.DC       0.01      0.01      0.01        70
+             cs.DL       0.00      0.00      0.00         6
+             cs.DM       0.00      0.00      0.00         8
+             cs.DS       0.00      0.00      0.00        47
+             cs.ET       0.00      0.00      0.00         6
+             cs.FL       0.00      0.00      0.00         2
+             cs.GL       0.00      0.00      0.00         2
+             cs.GR       0.00      0.00      0.00        32
+             cs.GT       0.00      0.00      0.00        22
+             cs.HC       0.00      0.00      0.00        97
+             cs.IR       0.02      0.02      0.02       223
+             cs.IT       0.02      0.03      0.03       188
+             cs.LG       0.44      0.43      0.44      5281
+             cs.LO       0.00      0.00      0.00        18
+             cs.MA       0.00      0.00      0.00        31
+             cs.MM       0.01      0.02      0.02        56
+             cs.MS       0.00      0.00      0.00         7
+             cs.NE       0.02      0.02      0.02       319
+             cs.NI       0.00      0.00      0.00        27
+             cs.OH       0.00      0.00      0.00         1
+             cs.PF       0.00      0.00      0.00        18
+             cs.PL       0.00      0.00      0.00         7
+             cs.RO       0.01      0.01      0.01       134
+             cs.SC       0.00      0.00      0.00         2
+             cs.SD       0.02      0.02      0.02       148
+             cs.SE       0.00      0.00      0.00        28
+             cs.SI       0.02      0.02      0.02       102
+           econ.EM       0.00      0.00      0.00        10
+           econ.GN       0.00      0.00      0.00         2
+           eess.AS       0.01      0.01      0.01       120
+           eess.IV       0.01      0.02      0.01        65
+           eess.SP       0.02      0.02      0.02       121
+           eess.SY       0.00      0.00      0.00        56
+             gr-qc       0.00      0.00      0.00         2
+           hep-lat       0.00      0.00      0.00         1
+            hep-ph       0.00      0.00      0.00         2
+            hep-th       0.00      0.00      0.00         2
+           math-ph       0.00      0.00      0.00         1
+           math.AG       0.00      0.00      0.00         2
+           math.AP       0.00      0.00      0.00         8
+           math.AT       0.00      0.00      0.00         2
+           math.CA       0.00      0.00      0.00         2
+           math.CO       0.00      0.00      0.00         3
+           math.DG       0.00      0.00      0.00         1
+           math.DS       0.00      0.00      0.00        12
+           math.FA       0.00      0.00      0.00        13
+           math.GM       0.00      0.00      0.00         1
+           math.GR       0.00      0.00      0.00         1
+           math.LO       0.00      0.00      0.00         2
+           math.NA       0.00      0.00      0.00        74
+           math.OA       0.00      0.00      0.00         1
+           math.OC       0.00      0.00      0.00       188
+           math.PR       0.00      0.00      0.00        32
+           math.RT       0.00      0.00      0.00         1
+           math.SP       0.00      0.00      0.00         2
+           math.ST       0.00      0.00      0.00       105
+           nlin.AO       0.00      0.00      0.00         4
+           nlin.CD       0.00      0.00      0.00         2
+           nlin.CG       0.00      0.00      0.00         1
+           nlin.PS       0.00      0.00      0.00         1
+           nucl-ex       0.00      0.00      0.00         1
+     physics.ao-ph       0.00      0.00      0.00         1
+    physics.app-ph       0.00      0.00      0.00         2
+    physics.bio-ph       0.00      0.00      0.00         2
+   physics.chem-ph       0.00      0.00      0.00         2
+   physics.comp-ph       0.00      0.00      0.00        14
+   physics.data-an       0.00      0.00      0.00        36
+   physics.flu-dyn       0.00      0.00      0.00         5
+    physics.geo-ph       0.00      0.00      0.00         5
+   physics.ins-det       0.00      0.00      0.00         3
+    physics.med-ph       0.00      0.00      0.00        14
+    physics.optics       0.00      0.00      0.00         2
+    physics.soc-ph       0.00      0.00      0.00        13
+             q-bio       0.00      0.00      0.00         1
+          q-bio.BM       0.00      0.00      0.00         5
+          q-bio.GN       0.00      0.00      0.00         9
+          q-bio.MN       0.00      0.00      0.00         3
+          q-bio.NC       0.02      0.01      0.02        67
+          q-bio.OT       0.00      0.00      0.00         1
+          q-bio.PE       0.00      0.00      0.00         2
+          q-bio.QM       0.03      0.03      0.03        71
+          q-bio.TO       0.00      0.00      0.00         5
+          q-fin.CP       0.00      0.00      0.00         7
+          q-fin.GN       0.00      0.00      0.00         3
+          q-fin.PM       0.00      0.00      0.00         4
+          q-fin.RM       0.00      0.00      0.00         2
+          q-fin.ST       0.00      0.00      0.00        12
+          q-fin.TR       0.00      0.00      0.00         3
+          quant-ph       0.00      0.00      0.00         5
+           stat.AP       0.02      0.02      0.02       123
+           stat.CO       0.00      0.00      0.00        59
+           stat.ME       0.00      0.00      0.00       100
+           stat.ML       0.36      0.35      0.35      4326
+           stat.OT       0.00      0.00      0.00         1
+
+         micro avg       0.35      0.35      0.35     21866
+         macro avg       0.02      0.02      0.02     21866
+      weighted avg       0.35      0.35      0.35     21866
+       samples avg       0.32      0.39      0.32     21866
+
+INFO:root:... predicting on test set
+INFO:root:
+		 accuracy = 0.05676567656765676
+INFO:root:
+		 f1_macro = 0.015257015747431399
+INFO:root:
+                    precision    recall  f1-score   support
+
+          astro-ph       0.00      0.00      0.00         1
+       astro-ph.CO       0.00      0.00      0.00         1
+       astro-ph.EP       0.00      0.00      0.00         0
+       astro-ph.GA       0.00      0.00      0.00         1
+       astro-ph.HE       0.00      0.00      0.00         0
+       astro-ph.IM       0.00      0.00      0.00         4
+       astro-ph.SR       0.00      0.00      0.00         0
+   cond-mat.dis-nn       0.00      0.00      0.00         3
+ cond-mat.mtrl-sci       0.00      0.00      0.00         1
+cond-mat.stat-mech       0.00      0.00      0.00         2
+             cs.AI       0.20      0.20      0.20       595
+             cs.AR       0.00      0.00      0.00         2
+             cs.CC       0.00      0.00      0.00         4
+             cs.CE       0.00      0.00      0.00         8
+             cs.CG       0.00      0.00      0.00         3
+             cs.CL       0.04      0.04      0.04        52
+             cs.CR       0.00      0.00      0.00        29
+             cs.CV       0.52      0.53      0.53      1575
+             cs.CY       0.00      0.00      0.00        22
+             cs.DB       0.00      0.00      0.00         7
+             cs.DC       0.00      0.00      0.00        17
+             cs.DL       0.00      0.00      0.00         2
+             cs.DM       0.00      0.00      0.00         2
+             cs.DS       0.00      0.00      0.00        12
+             cs.ET       0.00      0.00      0.00         2
+             cs.FL       0.00      0.00      0.00         0
+             cs.GL       0.00      0.00      0.00         0
+             cs.GR       0.00      0.00      0.00         8
+             cs.GT       0.00      0.00      0.00         6
+             cs.HC       0.00      0.00      0.00        24
+             cs.IR       0.02      0.02      0.02        56
+             cs.IT       0.02      0.02      0.02        47
+             cs.LG       0.44      0.44      0.44      1320
+             cs.LO       0.00      0.00      0.00         5
+             cs.MA       0.00      0.00      0.00         8
+             cs.MM       0.00      0.00      0.00        14
+             cs.MS       0.00      0.00      0.00         2
+             cs.NE       0.01      0.01      0.01        80
+             cs.NI       0.00      0.00      0.00         7
+             cs.OH       0.00      0.00      0.00         0
+             cs.PF       0.00      0.00      0.00         5
+             cs.PL       0.00      0.00      0.00         2
+             cs.RO       0.00      0.00      0.00        34
+             cs.SC       0.00      0.00      0.00         0
+             cs.SD       0.00      0.00      0.00        37
+             cs.SE       0.00      0.00      0.00         7
+             cs.SI       0.00      0.00      0.00        26
+           econ.EM       0.00      0.00      0.00         3
+           econ.GN       0.00      0.00      0.00         1
+           eess.AS       0.00      0.00      0.00        30
+           eess.IV       0.00      0.00      0.00        16
+           eess.SP       0.10      0.10      0.10        30
+           eess.SY       0.00      0.00      0.00        14
+             gr-qc       0.00      0.00      0.00         0
+           hep-lat       0.00      0.00      0.00         0
+            hep-ph       0.00      0.00      0.00         0
+            hep-th       0.00      0.00      0.00         0
+           math-ph       0.00      0.00      0.00         0
+           math.AG       0.00      0.00      0.00         1
+           math.AP       0.00      0.00      0.00         2
+           math.AT       0.00      0.00      0.00         0
+           math.CA       0.00      0.00      0.00         0
+           math.CO       0.00      0.00      0.00         1
+           math.DG       0.00      0.00      0.00         0
+           math.DS       0.00      0.00      0.00         3
+           math.FA       0.00      0.00      0.00         3
+           math.GM       0.00      0.00      0.00         0
+           math.GR       0.00      0.00      0.00         0
+           math.LO       0.00      0.00      0.00         0
+           math.NA       0.00      0.00      0.00        19
+           math.OA       0.00      0.00      0.00         0
+           math.OC       0.00      0.00      0.00        47
+           math.PR       0.00      0.00      0.00         8
+           math.RT       0.00      0.00      0.00         0
+           math.SP       0.00      0.00      0.00         0
+           math.ST       0.00      0.00      0.00        26
+           nlin.AO       0.00      0.00      0.00         1
+           nlin.CD       0.00      0.00      0.00         0
+           nlin.CG       0.00      0.00      0.00         0
+           nlin.PS       0.00      0.00      0.00         0
+           nucl-ex       0.00      0.00      0.00         0
+     physics.ao-ph       0.00      0.00      0.00         0
+    physics.app-ph       0.00      0.00      0.00         0
+    physics.bio-ph       0.00      0.00      0.00         0
+   physics.chem-ph       0.00      0.00      0.00         1
+   physics.comp-ph       0.00      0.00      0.00         3
+   physics.data-an       0.00      0.00      0.00         9
+   physics.flu-dyn       0.00      0.00      0.00         1
+    physics.geo-ph       0.00      0.00      0.00         1
+   physics.ins-det       0.00      0.00      0.00         1
+    physics.med-ph       0.00      0.00      0.00         3
+    physics.optics       0.00      0.00      0.00         0
+    physics.soc-ph       0.00      0.00      0.00         3
+             q-bio       0.00      0.00      0.00         0
+          q-bio.BM       0.00      0.00      0.00         1
+          q-bio.GN       0.00      0.00      0.00         2
+          q-bio.MN       0.00      0.00      0.00         1
+          q-bio.NC       0.00      0.00      0.00        17
+          q-bio.OT       0.00      0.00      0.00         0
+          q-bio.PE       0.00      0.00      0.00         0
+          q-bio.QM       0.00      0.00      0.00        18
+          q-bio.TO       0.00      0.00      0.00         1
+          q-fin.CP       0.00      0.00      0.00         2
+          q-fin.GN       0.00      0.00      0.00         1
+          q-fin.PM       0.00      0.00      0.00         1
+          q-fin.RM       0.00      0.00      0.00         1
+          q-fin.ST       0.00      0.00      0.00         3
+          q-fin.TR       0.00      0.00      0.00         1
+          quant-ph       0.00      0.00      0.00         1
+           stat.AP       0.00      0.00      0.00        31
+           stat.CO       0.00      0.00      0.00        15
+           stat.ME       0.00      0.00      0.00        25
+           stat.ML       0.37      0.38      0.38      1082
+           stat.OT       0.00      0.00      0.00         0
+
+         micro avg       0.36      0.36      0.36      5463
+         macro avg       0.02      0.02      0.02      5463
+      weighted avg       0.35      0.36      0.36      5463
+       samples avg       0.33      0.41      0.33      5463
+
+INFO:root:============================================================
+INFO:root:
+
+>>> TAXONOMY WITH 56 SUBJECTS
+
+
+INFO:root:OneVsRest - Multinomial NB
+INFO:root:... training on 12088 samples
+INFO:root:... predicting on train set
+INFO:root:
+		 accuracy = 0.5449205823957644
+INFO:root:
+		 f1_macro = 0.05738377537348684
+INFO:root:
+              precision    recall  f1-score   support
+
+    astro-ph       0.00      0.00      0.00        26
+    cond-mat       0.00      0.00      0.00        21
+       gr-qc       0.00      0.00      0.00         2
+     math-ph       0.00      0.00      0.00         1
+        nlin       0.00      0.00      0.00         6
+     physics       0.00      0.00      0.00        86
+    quant-ph       0.00      0.00      0.00         5
+        math       0.75      0.01      0.02       395
+       cs.AI       0.90      0.53      0.67      2378
+       cs.CL       0.00      0.00      0.00       209
+       cs.CC       0.00      0.00      0.00        15
+       cs.CE       0.00      0.00      0.00        33
+       cs.CG       0.00      0.00      0.00        12
+       cs.GT       0.00      0.00      0.00        22
+       cs.CV       0.94      0.91      0.93      6297
+       cs.CY       0.00      0.00      0.00        86
+       cs.CR       0.00      0.00      0.00       114
+       cs.DS       0.00      0.00      0.00        47
+       cs.DB       0.00      0.00      0.00        30
+       cs.DL       0.00      0.00      0.00         6
+       cs.DM       0.00      0.00      0.00         8
+       cs.DC       0.00      0.00      0.00        70
+       cs.ET       0.00      0.00      0.00         6
+       cs.FL       0.00      0.00      0.00         2
+       cs.GL       0.00      0.00      0.00         2
+       cs.GR       0.00      0.00      0.00        32
+       cs.AR       0.00      0.00      0.00         6
+       cs.HC       0.00      0.00      0.00        97
+       cs.IR       0.00      0.00      0.00       223
+       cs.IT       0.00      0.00      0.00       188
+       cs.LO       0.00      0.00      0.00        18
+       cs.LG       0.79      0.84      0.82      5281
+       cs.MS       0.00      0.00      0.00         7
+       cs.MA       0.00      0.00      0.00        31
+       cs.MM       0.00      0.00      0.00        56
+       cs.NI       0.00      0.00      0.00        27
+       cs.NE       0.00      0.00      0.00       319
+       cs.NA       0.00      0.00      0.00         0
+       cs.OS       0.00      0.00      0.00         0
+       cs.OH       0.00      0.00      0.00         1
+       cs.PF       0.00      0.00      0.00        18
+       cs.PL       0.00      0.00      0.00         7
+       cs.RO       0.00      0.00      0.00       134
+       cs.SI       0.00      0.00      0.00       102
+       cs.SE       0.00      0.00      0.00        28
+       cs.SD       0.00      0.00      0.00       148
+       cs.SC       0.00      0.00      0.00         2
+       cs.SY       0.00      0.00      0.00         0
+       q-bio       0.00      0.00      0.00       156
+       q-fin       0.00      0.00      0.00        29
+     stat.ML       0.77      0.80      0.78      4326
+        stat       0.00      0.00      0.00       257
+        eess       0.00      0.00      0.00       341
+        econ       0.00      0.00      0.00        12
+         hep       0.00      0.00      0.00         4
+        nucl       0.00      0.00      0.00         1
+
+   micro avg       0.85      0.69      0.76     21730
+   macro avg       0.07      0.06      0.06     21730
+weighted avg       0.73      0.69      0.70     21730
+ samples avg       0.87      0.80      0.80     21730
+
+INFO:root:... predicting on test set
+INFO:root:
+		 accuracy = 0.5287128712871287
+INFO:root:
+		 f1_macro = 0.056201996560642224
+INFO:root:
+              precision    recall  f1-score   support
+
+    astro-ph       0.00      0.00      0.00         5
+    cond-mat       0.00      0.00      0.00         5
+       gr-qc       0.00      0.00      0.00         0
+     math-ph       0.00      0.00      0.00         0
+        nlin       0.00      0.00      0.00         1
+     physics       0.00      0.00      0.00        19
+    quant-ph       0.00      0.00      0.00         1
+        math       0.00      0.00      0.00        99
+       cs.AI       0.90      0.51      0.65       595
+       cs.CL       0.00      0.00      0.00        52
+       cs.CC       0.00      0.00      0.00         4
+       cs.CE       0.00      0.00      0.00         8
+       cs.CG       0.00      0.00      0.00         3
+       cs.GT       0.00      0.00      0.00         6
+       cs.CV       0.93      0.91      0.92      1575
+       cs.CY       0.00      0.00      0.00        22
+       cs.CR       0.00      0.00      0.00        29
+       cs.DS       0.00      0.00      0.00        12
+       cs.DB       0.00      0.00      0.00         7
+       cs.DL       0.00      0.00      0.00         2
+       cs.DM       0.00      0.00      0.00         2
+       cs.DC       0.00      0.00      0.00        17
+       cs.ET       0.00      0.00      0.00         2
+       cs.FL       0.00      0.00      0.00         0
+       cs.GL       0.00      0.00      0.00         0
+       cs.GR       0.00      0.00      0.00         8
+       cs.AR       0.00      0.00      0.00         2
+       cs.HC       0.00      0.00      0.00        24
+       cs.IR       0.00      0.00      0.00        56
+       cs.IT       0.00      0.00      0.00        47
+       cs.LO       0.00      0.00      0.00         5
+       cs.LG       0.79      0.84      0.82      1320
+       cs.MS       0.00      0.00      0.00         2
+       cs.MA       0.00      0.00      0.00         8
+       cs.MM       0.00      0.00      0.00        14
+       cs.NI       0.00      0.00      0.00         7
+       cs.NE       0.00      0.00      0.00        80
+       cs.NA       0.00      0.00      0.00         0
+       cs.OS       0.00      0.00      0.00         0
+       cs.OH       0.00      0.00      0.00         0
+       cs.PF       0.00      0.00      0.00         5
+       cs.PL       0.00      0.00      0.00         2
+       cs.RO       0.00      0.00      0.00        34
+       cs.SI       0.00      0.00      0.00        26
+       cs.SE       0.00      0.00      0.00         7
+       cs.SD       0.00      0.00      0.00        37
+       cs.SC       0.00      0.00      0.00         0
+       cs.SY       0.00      0.00      0.00         0
+       q-bio       0.00      0.00      0.00        40
+       q-fin       0.00      0.00      0.00         6
+     stat.ML       0.73      0.78      0.76      1082
+        stat       0.00      0.00      0.00        64
+        eess       0.00      0.00      0.00        86
+        econ       0.00      0.00      0.00         4
+         hep       0.00      0.00      0.00         0
+        nucl       0.00      0.00      0.00         0
+
+   micro avg       0.83      0.68      0.75      5432
+   macro avg       0.06      0.05      0.06      5432
+weighted avg       0.71      0.68      0.69      5432
+ samples avg       0.86      0.79      0.80      5432
+
+INFO:root:============================================================
+INFO:root:OneVsRest - Complement NB
+INFO:root:... training on 12088 samples
+INFO:root:... predicting on train set
+INFO:root:
+		 accuracy = 0.53524156187955
+INFO:root:
+		 f1_macro = 0.06165857566647678
+INFO:root:
+              precision    recall  f1-score   support
+
+    astro-ph       0.00      0.00      0.00        26
+    cond-mat       0.00      0.00      0.00        21
+       gr-qc       0.00      0.00      0.00         2
+     math-ph       0.00      0.00      0.00         1
+        nlin       0.00      0.00      0.00         6
+     physics       0.00      0.00      0.00        86
+    quant-ph       0.00      0.00      0.00         5
+        math       0.72      0.11      0.19       395
+       cs.AI       0.79      0.66      0.72      2378
+       cs.CL       0.00      0.00      0.00       209
+       cs.CC       0.00      0.00      0.00        15
+       cs.CE       0.00      0.00      0.00        33
+       cs.CG       0.00      0.00      0.00        12
+       cs.GT       0.00      0.00      0.00        22
+       cs.CV       0.95      0.91      0.93      6297
+       cs.CY       0.00      0.00      0.00        86
+       cs.CR       0.00      0.00      0.00       114
+       cs.DS       0.00      0.00      0.00        47
+       cs.DB       0.00      0.00      0.00        30
+       cs.DL       0.00      0.00      0.00         6
+       cs.DM       0.00      0.00      0.00         8
+       cs.DC       0.00      0.00      0.00        70
+       cs.ET       0.00      0.00      0.00         6
+       cs.FL       0.00      0.00      0.00         2
+       cs.GL       0.00      0.00      0.00         2
+       cs.GR       0.00      0.00      0.00        32
+       cs.AR       0.00      0.00      0.00         6
+       cs.HC       0.00      0.00      0.00        97
+       cs.IR       0.17      0.00      0.01       223
+       cs.IT       0.00      0.00      0.00       188
+       cs.LO       0.00      0.00      0.00        18
+       cs.LG       0.78      0.85      0.81      5281
+       cs.MS       0.00      0.00      0.00         7
+       cs.MA       0.00      0.00      0.00        31
+       cs.MM       0.00      0.00      0.00        56
+       cs.NI       0.00      0.00      0.00        27
+       cs.NE       0.17      0.00      0.01       319
+       cs.NA       0.00      0.00      0.00         0
+       cs.OS       0.00      0.00      0.00         0
+       cs.OH       0.00      0.00      0.00         1
+       cs.PF       0.00      0.00      0.00        18
+       cs.PL       0.00      0.00      0.00         7
+       cs.RO       0.00      0.00      0.00       134
+       cs.SI       0.00      0.00      0.00       102
+       cs.SE       0.00      0.00      0.00        28
+       cs.SD       0.00      0.00      0.00       148
+       cs.SC       0.00      0.00      0.00         2
+       cs.SY       0.00      0.00      0.00         0
+       q-bio       0.00      0.00      0.00       156
+       q-fin       0.00      0.00      0.00        29
+     stat.ML       0.73      0.85      0.79      4326
+        stat       0.00      0.00      0.00       257
+        eess       0.17      0.00      0.01       341
+        econ       0.00      0.00      0.00        12
+         hep       0.00      0.00      0.00         4
+        nucl       0.00      0.00      0.00         1
+
+   micro avg       0.81      0.71      0.76     21730
+   macro avg       0.08      0.06      0.06     21730
+weighted avg       0.71      0.71      0.71     21730
+ samples avg       0.87      0.82      0.81     21730
+
+INFO:root:... predicting on test set
+INFO:root:
+		 accuracy = 0.5178217821782178
+INFO:root:
+		 f1_macro = 0.05972528208426537
+INFO:root:
+              precision    recall  f1-score   support
+
+    astro-ph       0.00      0.00      0.00         5
+    cond-mat       0.00      0.00      0.00         5
+       gr-qc       0.00      0.00      0.00         0
+     math-ph       0.00      0.00      0.00         0
+        nlin       0.00      0.00      0.00         1
+     physics       0.00      0.00      0.00        19
+    quant-ph       0.00      0.00      0.00         1
+        math       0.47      0.08      0.14        99
+       cs.AI       0.75      0.63      0.68       595
+       cs.CL       0.00      0.00      0.00        52
+       cs.CC       0.00      0.00      0.00         4
+       cs.CE       0.00      0.00      0.00         8
+       cs.CG       0.00      0.00      0.00         3
+       cs.GT       0.00      0.00      0.00         6
+       cs.CV       0.93      0.91      0.92      1575
+       cs.CY       0.00      0.00      0.00        22
+       cs.CR       0.00      0.00      0.00        29
+       cs.DS       0.00      0.00      0.00        12
+       cs.DB       0.00      0.00      0.00         7
+       cs.DL       0.00      0.00      0.00         2
+       cs.DM       0.00      0.00      0.00         2
+       cs.DC       0.00      0.00      0.00        17
+       cs.ET       0.00      0.00      0.00         2
+       cs.FL       0.00      0.00      0.00         0
+       cs.GL       0.00      0.00      0.00         0
+       cs.GR       0.00      0.00      0.00         8
+       cs.AR       0.00      0.00      0.00         2
+       cs.HC       0.00      0.00      0.00        24
+       cs.IR       0.00      0.00      0.00        56
+       cs.IT       0.00      0.00      0.00        47
+       cs.LO       0.00      0.00      0.00         5
+       cs.LG       0.77      0.86      0.81      1320
+       cs.MS       0.00      0.00      0.00         2
+       cs.MA       0.00      0.00      0.00         8
+       cs.MM       0.00      0.00      0.00        14
+       cs.NI       0.00      0.00      0.00         7
+       cs.NE       0.50      0.01      0.02        80
+       cs.NA       0.00      0.00      0.00         0
+       cs.OS       0.00      0.00      0.00         0
+       cs.OH       0.00      0.00      0.00         0
+       cs.PF       0.00      0.00      0.00         5
+       cs.PL       0.00      0.00      0.00         2
+       cs.RO       0.00      0.00      0.00        34
+       cs.SI       0.00      0.00      0.00        26
+       cs.SE       0.00      0.00      0.00         7
+       cs.SD       0.00      0.00      0.00        37
+       cs.SC       0.00      0.00      0.00         0
+       cs.SY       0.00      0.00      0.00         0
+       q-bio       0.00      0.00      0.00        40
+       q-fin       0.00      0.00      0.00         6
+     stat.ML       0.71      0.83      0.76      1082
+        stat       0.00      0.00      0.00        64
+        eess       0.00      0.00      0.00        86
+        econ       0.00      0.00      0.00         4
+         hep       0.00      0.00      0.00         0
+        nucl       0.00      0.00      0.00         0
+
+   micro avg       0.80      0.71      0.75      5432
+   macro avg       0.07      0.06      0.06      5432
+weighted avg       0.70      0.71      0.69      5432
+ samples avg       0.85      0.82      0.80      5432
+
+INFO:root:============================================================
+INFO:root:OneVsRest - Complement NB norm
+INFO:root:... training on 12088 samples
+INFO:root:... predicting on train set
+INFO:root:
+		 accuracy = 0.5421078755790867
+INFO:root:
+		 f1_macro = 0.05525134781940907
+INFO:root:
+              precision    recall  f1-score   support
+
+    astro-ph       0.00      0.00      0.00        26
+    cond-mat       0.00      0.00      0.00        21
+       gr-qc       0.00      0.00      0.00         2
+     math-ph       0.00      0.00      0.00         1
+        nlin       0.00      0.00      0.00         6
+     physics       0.00      0.00      0.00        86
+    quant-ph       0.00      0.00      0.00         5
+        math       1.00      0.01      0.02       395
+       cs.AI       0.95      0.41      0.57      2378
+       cs.CL       0.00      0.00      0.00       209
+       cs.CC       0.00      0.00      0.00        15
+       cs.CE       0.00      0.00      0.00        33
+       cs.CG       0.00      0.00      0.00        12
+       cs.GT       0.00      0.00      0.00        22
+       cs.CV       0.94      0.92      0.93      6297
+       cs.CY       0.00      0.00      0.00        86
+       cs.CR       0.00      0.00      0.00       114
+       cs.DS       0.00      0.00      0.00        47
+       cs.DB       0.00      0.00      0.00        30
+       cs.DL       0.00      0.00      0.00         6
+       cs.DM       0.00      0.00      0.00         8
+       cs.DC       0.00      0.00      0.00        70
+       cs.ET       0.00      0.00      0.00         6
+       cs.FL       0.00      0.00      0.00         2
+       cs.GL       0.00      0.00      0.00         2
+       cs.GR       0.00      0.00      0.00        32
+       cs.AR       0.00      0.00      0.00         6
+       cs.HC       0.00      0.00      0.00        97
+       cs.IR       0.00      0.00      0.00       223
+       cs.IT       0.00      0.00      0.00       188
+       cs.LO       0.00      0.00      0.00        18
+       cs.LG       0.80      0.83      0.82      5281
+       cs.MS       0.00      0.00      0.00         7
+       cs.MA       0.00      0.00      0.00        31
+       cs.MM       0.00      0.00      0.00        56
+       cs.NI       0.00      0.00      0.00        27
+       cs.NE       0.00      0.00      0.00       319
+       cs.NA       0.00      0.00      0.00         0
+       cs.OS       0.00      0.00      0.00         0
+       cs.OH       0.00      0.00      0.00         1
+       cs.PF       0.00      0.00      0.00        18
+       cs.PL       0.00      0.00      0.00         7
+       cs.RO       0.00      0.00      0.00       134
+       cs.SI       0.00      0.00      0.00       102
+       cs.SE       0.00      0.00      0.00        28
+       cs.SD       0.00      0.00      0.00       148
+       cs.SC       0.00      0.00      0.00         2
+       cs.SY       0.00      0.00      0.00         0
+       q-bio       0.00      0.00      0.00       156
+       q-fin       0.00      0.00      0.00        29
+     stat.ML       0.80      0.73      0.76      4326
+        stat       0.00      0.00      0.00       257
+        eess       0.00      0.00      0.00       341
+        econ       0.00      0.00      0.00        12
+         hep       0.00      0.00      0.00         4
+        nucl       0.00      0.00      0.00         1
+
+   micro avg       0.86      0.66      0.75     21730
+   macro avg       0.08      0.05      0.06     21730
+weighted avg       0.75      0.66      0.68     21730
+ samples avg       0.87      0.77      0.79     21730
+
+INFO:root:... predicting on test set
+INFO:root:
+		 accuracy = 0.525082508250825
+INFO:root:
+		 f1_macro = 0.05387613707971369
+INFO:root:
+              precision    recall  f1-score   support
+
+    astro-ph       0.00      0.00      0.00         5
+    cond-mat       0.00      0.00      0.00         5
+       gr-qc       0.00      0.00      0.00         0
+     math-ph       0.00      0.00      0.00         0
+        nlin       0.00      0.00      0.00         1
+     physics       0.00      0.00      0.00        19
+    quant-ph       0.00      0.00      0.00         1
+        math       0.00      0.00      0.00        99
+       cs.AI       0.95      0.39      0.55       595
+       cs.CL       0.00      0.00      0.00        52
+       cs.CC       0.00      0.00      0.00         4
+       cs.CE       0.00      0.00      0.00         8
+       cs.CG       0.00      0.00      0.00         3
+       cs.GT       0.00      0.00      0.00         6
+       cs.CV       0.93      0.92      0.92      1575
+       cs.CY       0.00      0.00      0.00        22
+       cs.CR       0.00      0.00      0.00        29
+       cs.DS       0.00      0.00      0.00        12
+       cs.DB       0.00      0.00      0.00         7
+       cs.DL       0.00      0.00      0.00         2
+       cs.DM       0.00      0.00      0.00         2
+       cs.DC       0.00      0.00      0.00        17
+       cs.ET       0.00      0.00      0.00         2
+       cs.FL       0.00      0.00      0.00         0
+       cs.GL       0.00      0.00      0.00         0
+       cs.GR       0.00      0.00      0.00         8
+       cs.AR       0.00      0.00      0.00         2
+       cs.HC       0.00      0.00      0.00        24
+       cs.IR       0.00      0.00      0.00        56
+       cs.IT       0.00      0.00      0.00        47
+       cs.LO       0.00      0.00      0.00         5
+       cs.LG       0.79      0.83      0.81      1320
+       cs.MS       0.00      0.00      0.00         2
+       cs.MA       0.00      0.00      0.00         8
+       cs.MM       0.00      0.00      0.00        14
+       cs.NI       0.00      0.00      0.00         7
+       cs.NE       0.00      0.00      0.00        80
+       cs.NA       0.00      0.00      0.00         0
+       cs.OS       0.00      0.00      0.00         0
+       cs.OH       0.00      0.00      0.00         0
+       cs.PF       0.00      0.00      0.00         5
+       cs.PL       0.00      0.00      0.00         2
+       cs.RO       0.00      0.00      0.00        34
+       cs.SI       0.00      0.00      0.00        26
+       cs.SE       0.00      0.00      0.00         7
+       cs.SD       0.00      0.00      0.00        37
+       cs.SC       0.00      0.00      0.00         0
+       cs.SY       0.00      0.00      0.00         0
+       q-bio       0.00      0.00      0.00        40
+       q-fin       0.00      0.00      0.00         6
+     stat.ML       0.76      0.70      0.73      1082
+        stat       0.00      0.00      0.00        64
+        eess       0.00      0.00      0.00        86
+        econ       0.00      0.00      0.00         4
+         hep       0.00      0.00      0.00         0
+        nucl       0.00      0.00      0.00         0
+
+   micro avg       0.85      0.65      0.74      5432
+   macro avg       0.06      0.05      0.05      5432
+weighted avg       0.72      0.65      0.67      5432
+ samples avg       0.86      0.77      0.78      5432
+
+INFO:root:============================================================
+INFO:root:OneVsRest - Linear SVC
+INFO:root:... training on 12088 samples
+INFO:root:... predicting on train set
+INFO:root:
+		 accuracy = 0.875
+INFO:root:
+		 f1_macro = 0.9115589173319592
+INFO:root:
+              precision    recall  f1-score   support
+
+    astro-ph       1.00      1.00      1.00        26
+    cond-mat       1.00      1.00      1.00        21
+       gr-qc       1.00      1.00      1.00         2
+     math-ph       1.00      1.00      1.00         1
+        nlin       1.00      1.00      1.00         6
+     physics       0.97      1.00      0.98        86
+    quant-ph       0.71      1.00      0.83         5
+        math       0.81      1.00      0.89       395
+       cs.AI       0.91      1.00      0.95      2378
+       cs.CL       0.82      1.00      0.90       209
+       cs.CC       1.00      1.00      1.00        15
+       cs.CE       0.97      1.00      0.99        33
+       cs.CG       1.00      1.00      1.00        12
+       cs.GT       0.85      1.00      0.92        22
+       cs.CV       0.99      0.99      0.99      6297
+       cs.CY       0.91      1.00      0.95        86
+       cs.CR       0.80      1.00      0.89       114
+       cs.DS       1.00      1.00      1.00        47
+       cs.DB       0.91      1.00      0.95        30
+       cs.DL       1.00      1.00      1.00         6
+       cs.DM       0.89      1.00      0.94         8
+       cs.DC       0.93      1.00      0.97        70
+       cs.ET       1.00      1.00      1.00         6
+       cs.FL       1.00      1.00      1.00         2
+       cs.GL       1.00      1.00      1.00         2
+       cs.GR       0.94      1.00      0.97        32
+       cs.AR       1.00      1.00      1.00         6
+       cs.HC       0.88      1.00      0.94        97
+       cs.IR       0.85      1.00      0.92       223
+       cs.IT       0.87      1.00      0.93       188
+       cs.LO       1.00      1.00      1.00        18
+       cs.LG       0.94      0.97      0.95      5281
+       cs.MS       1.00      1.00      1.00         7
+       cs.MA       0.89      1.00      0.94        31
+       cs.MM       0.88      1.00      0.93        56
+       cs.NI       0.96      1.00      0.98        27
+       cs.NE       0.87      1.00      0.93       319
+       cs.NA       0.00      0.00      0.00         0
+       cs.OS       0.00      0.00      0.00         0
+       cs.OH       1.00      1.00      1.00         1
+       cs.PF       0.86      1.00      0.92        18
+       cs.PL       1.00      1.00      1.00         7
+       cs.RO       0.90      1.00      0.95       134
+       cs.SI       0.90      1.00      0.95       102
+       cs.SE       0.93      1.00      0.97        28
+       cs.SD       0.84      1.00      0.91       148
+       cs.SC       1.00      1.00      1.00         2
+       cs.SY       0.00      0.00      0.00         0
+       q-bio       0.89      1.00      0.94       156
+       q-fin       0.91      1.00      0.95        29
+     stat.ML       0.92      0.99      0.95      4326
+        stat       0.92      1.00      0.96       257
+        eess       0.82      1.00      0.90       341
+        econ       1.00      1.00      1.00        12
+         hep       1.00      1.00      1.00         4
+        nucl       1.00      1.00      1.00         1
+
+   micro avg       0.94      0.98      0.96     21730
+   macro avg       0.88      0.95      0.91     21730
+weighted avg       0.94      0.98      0.96     21730
+ samples avg       0.96      0.99      0.97     21730
+
+INFO:root:... predicting on test set
+INFO:root:
+		 accuracy = 0.5135313531353135
+INFO:root:
+		 f1_macro = 0.2958399501536285
+INFO:root:
+              precision    recall  f1-score   support
+
+    astro-ph       0.83      1.00      0.91         5
+    cond-mat       1.00      0.40      0.57         5
+       gr-qc       0.00      0.00      0.00         0
+     math-ph       0.00      0.00      0.00         0
+        nlin       0.00      0.00      0.00         1
+     physics       0.27      0.16      0.20        19
+    quant-ph       0.00      0.00      0.00         1
+        math       0.36      0.51      0.42        99
+       cs.AI       0.66      0.68      0.67       595
+       cs.CL       0.55      0.63      0.59        52
+       cs.CC       0.50      0.25      0.33         4
+       cs.CE       0.67      0.25      0.36         8
+       cs.CG       0.00      0.00      0.00         3
+       cs.GT       0.50      0.33      0.40         6
+       cs.CV       0.94      0.91      0.92      1575
+       cs.CY       0.56      0.23      0.32        22
+       cs.CR       0.65      0.76      0.70        29
+       cs.DS       0.25      0.08      0.12        12
+       cs.DB       0.00      0.00      0.00         7
+       cs.DL       0.00      0.00      0.00         2
+       cs.DM       0.00      0.00      0.00         2
+       cs.DC       0.50      0.47      0.48        17
+       cs.ET       0.00      0.00      0.00         2
+       cs.FL       0.00      0.00      0.00         0
+       cs.GL       0.00      0.00      0.00         0
+       cs.GR       1.00      0.12      0.22         8
+       cs.AR       1.00      0.50      0.67         2
+       cs.HC       0.40      0.17      0.24        24
+       cs.IR       0.46      0.55      0.50        56
+       cs.IT       0.35      0.34      0.34        47
+       cs.LO       1.00      0.20      0.33         5
+       cs.LG       0.79      0.82      0.81      1320
+       cs.MS       0.00      0.00      0.00         2
+       cs.MA       0.67      0.50      0.57         8
+       cs.MM       0.57      0.29      0.38        14
+       cs.NI       0.33      0.14      0.20         7
+       cs.NE       0.31      0.31      0.31        80
+       cs.NA       0.00      0.00      0.00         0
+       cs.OS       0.00      0.00      0.00         0
+       cs.OH       0.00      0.00      0.00         0
+       cs.PF       0.33      0.20      0.25         5
+       cs.PL       0.00      0.00      0.00         2
+       cs.RO       0.68      0.62      0.65        34
+       cs.SI       0.55      0.62      0.58        26
+       cs.SE       0.67      0.29      0.40         7
+       cs.SD       0.69      0.95      0.80        37
+       cs.SC       0.00      0.00      0.00         0
+       cs.SY       0.00      0.00      0.00         0
+       q-bio       0.33      0.30      0.32        40
+       q-fin       0.44      0.67      0.53         6
+     stat.ML       0.75      0.81      0.78      1082
+        stat       0.32      0.23      0.27        64
+        eess       0.38      0.43      0.40        86
+        econ       0.00      0.00      0.00         4
+         hep       0.00      0.00      0.00         0
+        nucl       0.00      0.00      0.00         0
+
+   micro avg       0.76      0.77      0.76      5432
+   macro avg       0.36      0.28      0.30      5432
+weighted avg       0.75      0.77      0.76      5432
+ samples avg       0.82      0.84      0.80      5432
+
+INFO:root:============================================================
+INFO:root:OneVsRest - Logistic Regression
+INFO:root:... training on 12088 samples
+INFO:root:... predicting on train set
+INFO:root:
+		 accuracy = 0.0
+INFO:root:
+		 f1_macro = 0.2127390819612664
+INFO:root:
+              precision    recall  f1-score   support
+
+    astro-ph       0.03      0.96      0.06        26
+    cond-mat       0.01      0.86      0.03        21
+       gr-qc       1.00      0.50      0.67         2
+     math-ph       0.00      1.00      0.01         1
+        nlin       0.02      0.67      0.04         6
+     physics       0.03      0.94      0.06        86
+    quant-ph       0.01      0.80      0.01         5
+        math       0.35      0.95      0.51       395
+       cs.AI       0.70      0.86      0.78      2378
+       cs.CL       0.39      0.99      0.56       209
+       cs.CC       0.03      0.80      0.05        15
+       cs.CE       0.01      0.94      0.02        33
+       cs.CG       0.01      1.00      0.01        12
+       cs.GT       0.03      0.64      0.06        22
+       cs.CV       0.97      0.93      0.95      6297
+       cs.CY       0.04      0.98      0.08        86
+       cs.CR       0.11      0.99      0.20       114
+       cs.DS       0.02      0.85      0.04        47
+       cs.DB       0.00      1.00      0.01        30
+       cs.DL       0.00      1.00      0.01         6
+       cs.DM       0.00      0.50      0.01         8
+       cs.DC       0.26      0.86      0.40        70
+       cs.ET       0.16      0.83      0.27         6
+       cs.FL       0.00      0.00      0.00         2
+       cs.GL       0.00      1.00      0.00         2
+       cs.GR       0.02      0.72      0.04        32
+       cs.AR       0.05      1.00      0.10         6
+       cs.HC       0.08      0.97      0.15        97
+       cs.IR       0.35      0.91      0.51       223
+       cs.IT       0.09      0.95      0.16       188
+       cs.LO       0.08      0.83      0.15        18
+       cs.LG       0.83      0.89      0.86      5281
+       cs.MS       0.01      1.00      0.01         7
+       cs.MA       0.02      1.00      0.03        31
+       cs.MM       0.06      0.71      0.11        56
+       cs.NI       0.03      0.89      0.05        27
+       cs.NE       0.25      0.87      0.39       319
+       cs.NA       0.00      0.00      0.00         0
+       cs.OS       0.00      0.00      0.00         0
+       cs.OH       0.00      1.00      0.00         1
+       cs.PF       0.01      1.00      0.03        18
+       cs.PL       0.18      0.86      0.29         7
+       cs.RO       0.14      0.88      0.25       134
+       cs.SI       0.19      0.93      0.31       102
+       cs.SE       0.32      0.43      0.36        28
+       cs.SD       0.51      0.95      0.67       148
+       cs.SC       0.50      0.50      0.50         2
+       cs.SY       0.00      0.00      0.00         0
+       q-bio       0.14      0.91      0.24       156
+       q-fin       0.01      1.00      0.01        29
+     stat.ML       0.78      0.91      0.84      4326
+        stat       0.39      0.58      0.46       257
+        eess       0.36      0.83      0.50       341
+        econ       0.02      0.25      0.04        12
+         hep       0.00      0.50      0.00         4
+        nucl       0.00      0.00      0.00         1
+
+   micro avg       0.22      0.90      0.35     21730
+   macro avg       0.17      0.77      0.21     21730
+weighted avg       0.75      0.90      0.79     21730
+ samples avg       0.23      0.93      0.35     21730
+
+INFO:root:... predicting on test set
+INFO:root:
+		 accuracy = 0.0
+INFO:root:
+		 f1_macro = 0.14666243237064913
+INFO:root:
+              precision    recall  f1-score   support
+
+    astro-ph       0.02      1.00      0.05         5
+    cond-mat       0.01      0.80      0.02         5
+       gr-qc       0.00      0.00      0.00         0
+     math-ph       0.00      0.00      0.00         0
+        nlin       0.00      0.00      0.00         1
+     physics       0.02      0.74      0.04        19
+    quant-ph       0.01      1.00      0.01         1
+        math       0.24      0.66      0.35        99
+       cs.AI       0.63      0.74      0.68       595
+       cs.CL       0.32      0.67      0.43        52
+       cs.CC       0.02      0.50      0.04         4
+       cs.CE       0.01      0.62      0.01         8
+       cs.CG       0.00      0.67      0.01         3
+       cs.GT       0.04      0.67      0.07         6
+       cs.CV       0.94      0.91      0.92      1575
+       cs.CY       0.03      0.82      0.06        22
+       cs.CR       0.11      0.93      0.20        29
+       cs.DS       0.02      0.83      0.04        12
+       cs.DB       0.00      1.00      0.01         7
+       cs.DL       0.00      0.50      0.01         2
+       cs.DM       0.00      0.50      0.01         2
+       cs.DC       0.20      0.76      0.32        17
+       cs.ET       0.10      0.50      0.17         2
+       cs.FL       0.00      0.00      0.00         0
+       cs.GL       0.00      0.00      0.00         0
+       cs.GR       0.01      0.38      0.02         8
+       cs.AR       0.07      1.00      0.12         2
+       cs.HC       0.07      0.79      0.13        24
+       cs.IR       0.27      0.70      0.39        56
+       cs.IT       0.07      0.77      0.13        47
+       cs.LO       0.09      0.80      0.17         5
+       cs.LG       0.79      0.87      0.83      1320
+       cs.MS       0.00      0.00      0.00         2
+       cs.MA       0.01      0.88      0.03         8
+       cs.MM       0.02      0.29      0.04        14
+       cs.NI       0.01      0.43      0.03         7
+       cs.NE       0.18      0.60      0.27        80
+       cs.NA       0.00      0.00      0.00         0
+       cs.OS       0.00      0.00      0.00         0
+       cs.OH       0.00      0.00      0.00         0
+       cs.PF       0.01      0.80      0.02         5
+       cs.PL       0.00      0.00      0.00         2
+       cs.RO       0.12      0.71      0.20        34
+       cs.SI       0.15      0.69      0.24        26
+       cs.SE       0.00      0.00      0.00         7
+       cs.SD       0.50      0.92      0.65        37
+       cs.SC       0.00      0.00      0.00         0
+       cs.SY       0.00      0.00      0.00         0
+       q-bio       0.11      0.75      0.19        40
+       q-fin       0.00      1.00      0.01         6
+     stat.ML       0.72      0.85      0.78      1082
+        stat       0.14      0.17      0.16        64
+        eess       0.25      0.52      0.34        86
+        econ       0.00      0.00      0.00         4
+         hep       0.00      0.00      0.00         0
+        nucl       0.00      0.00      0.00         0
+
+   micro avg       0.20      0.83      0.32      5432
+   macro avg       0.11      0.51      0.15      5432
+weighted avg       0.71      0.83      0.74      5432
+ samples avg       0.21      0.88      0.33      5432
+
+INFO:root:============================================================
+INFO:root:OneVsRest - Dummy Uniform
+INFO:root:... training on 12088 samples
+INFO:root:... predicting on train set
+INFO:root:
+		 accuracy = 0.0
+INFO:root:
+		 f1_macro = 0.0
+INFO:root:
+              precision    recall  f1-score   support
+
+    astro-ph       0.00      0.00      0.00        26
+    cond-mat       0.00      0.00      0.00        21
+       gr-qc       0.00      0.00      0.00         2
+     math-ph       0.00      0.00      0.00         1
+        nlin       0.00      0.00      0.00         6
+     physics       0.00      0.00      0.00        86
+    quant-ph       0.00      0.00      0.00         5
+        math       0.00      0.00      0.00       395
+       cs.AI       0.00      0.00      0.00      2378
+       cs.CL       0.00      0.00      0.00       209
+       cs.CC       0.00      0.00      0.00        15
+       cs.CE       0.00      0.00      0.00        33
+       cs.CG       0.00      0.00      0.00        12
+       cs.GT       0.00      0.00      0.00        22
+       cs.CV       0.00      0.00      0.00      6297
+       cs.CY       0.00      0.00      0.00        86
+       cs.CR       0.00      0.00      0.00       114
+       cs.DS       0.00      0.00      0.00        47
+       cs.DB       0.00      0.00      0.00        30
+       cs.DL       0.00      0.00      0.00         6
+       cs.DM       0.00      0.00      0.00         8
+       cs.DC       0.00      0.00      0.00        70
+       cs.ET       0.00      0.00      0.00         6
+       cs.FL       0.00      0.00      0.00         2
+       cs.GL       0.00      0.00      0.00         2
+       cs.GR       0.00      0.00      0.00        32
+       cs.AR       0.00      0.00      0.00         6
+       cs.HC       0.00      0.00      0.00        97
+       cs.IR       0.00      0.00      0.00       223
+       cs.IT       0.00      0.00      0.00       188
+       cs.LO       0.00      0.00      0.00        18
+       cs.LG       0.00      0.00      0.00      5281
+       cs.MS       0.00      0.00      0.00         7
+       cs.MA       0.00      0.00      0.00        31
+       cs.MM       0.00      0.00      0.00        56
+       cs.NI       0.00      0.00      0.00        27
+       cs.NE       0.00      0.00      0.00       319
+       cs.NA       0.00      0.00      0.00         0
+       cs.OS       0.00      0.00      0.00         0
+       cs.OH       0.00      0.00      0.00         1
+       cs.PF       0.00      0.00      0.00        18
+       cs.PL       0.00      0.00      0.00         7
+       cs.RO       0.00      0.00      0.00       134
+       cs.SI       0.00      0.00      0.00       102
+       cs.SE       0.00      0.00      0.00        28
+       cs.SD       0.00      0.00      0.00       148
+       cs.SC       0.00      0.00      0.00         2
+       cs.SY       0.00      0.00      0.00         0
+       q-bio       0.00      0.00      0.00       156
+       q-fin       0.00      0.00      0.00        29
+     stat.ML       0.00      0.00      0.00      4326
+        stat       0.00      0.00      0.00       257
+        eess       0.00      0.00      0.00       341
+        econ       0.00      0.00      0.00        12
+         hep       0.00      0.00      0.00         4
+        nucl       0.00      0.00      0.00         1
+
+   micro avg       0.00      0.00      0.00     21730
+   macro avg       0.00      0.00      0.00     21730
+weighted avg       0.00      0.00      0.00     21730
+ samples avg       0.00      0.00      0.00     21730
+
+INFO:root:... predicting on test set
+INFO:root:
+		 accuracy = 0.0
+INFO:root:
+		 f1_macro = 0.0
+INFO:root:
+              precision    recall  f1-score   support
+
+    astro-ph       0.00      0.00      0.00         5
+    cond-mat       0.00      0.00      0.00         5
+       gr-qc       0.00      0.00      0.00         0
+     math-ph       0.00      0.00      0.00         0
+        nlin       0.00      0.00      0.00         1
+     physics       0.00      0.00      0.00        19
+    quant-ph       0.00      0.00      0.00         1
+        math       0.00      0.00      0.00        99
+       cs.AI       0.00      0.00      0.00       595
+       cs.CL       0.00      0.00      0.00        52
+       cs.CC       0.00      0.00      0.00         4
+       cs.CE       0.00      0.00      0.00         8
+       cs.CG       0.00      0.00      0.00         3
+       cs.GT       0.00      0.00      0.00         6
+       cs.CV       0.00      0.00      0.00      1575
+       cs.CY       0.00      0.00      0.00        22
+       cs.CR       0.00      0.00      0.00        29
+       cs.DS       0.00      0.00      0.00        12
+       cs.DB       0.00      0.00      0.00         7
+       cs.DL       0.00      0.00      0.00         2
+       cs.DM       0.00      0.00      0.00         2
+       cs.DC       0.00      0.00      0.00        17
+       cs.ET       0.00      0.00      0.00         2
+       cs.FL       0.00      0.00      0.00         0
+       cs.GL       0.00      0.00      0.00         0
+       cs.GR       0.00      0.00      0.00         8
+       cs.AR       0.00      0.00      0.00         2
+       cs.HC       0.00      0.00      0.00        24
+       cs.IR       0.00      0.00      0.00        56
+       cs.IT       0.00      0.00      0.00        47
+       cs.LO       0.00      0.00      0.00         5
+       cs.LG       0.00      0.00      0.00      1320
+       cs.MS       0.00      0.00      0.00         2
+       cs.MA       0.00      0.00      0.00         8
+       cs.MM       0.00      0.00      0.00        14
+       cs.NI       0.00      0.00      0.00         7
+       cs.NE       0.00      0.00      0.00        80
+       cs.NA       0.00      0.00      0.00         0
+       cs.OS       0.00      0.00      0.00         0
+       cs.OH       0.00      0.00      0.00         0
+       cs.PF       0.00      0.00      0.00         5
+       cs.PL       0.00      0.00      0.00         2
+       cs.RO       0.00      0.00      0.00        34
+       cs.SI       0.00      0.00      0.00        26
+       cs.SE       0.00      0.00      0.00         7
+       cs.SD       0.00      0.00      0.00        37
+       cs.SC       0.00      0.00      0.00         0
+       cs.SY       0.00      0.00      0.00         0
+       q-bio       0.00      0.00      0.00        40
+       q-fin       0.00      0.00      0.00         6
+     stat.ML       0.00      0.00      0.00      1082
+        stat       0.00      0.00      0.00        64
+        eess       0.00      0.00      0.00        86
+        econ       0.00      0.00      0.00         4
+         hep       0.00      0.00      0.00         0
+        nucl       0.00      0.00      0.00         0
+
+   micro avg       0.00      0.00      0.00      5432
+   macro avg       0.00      0.00      0.00      5432
+weighted avg       0.00      0.00      0.00      5432
+ samples avg       0.00      0.00      0.00      5432
+
+INFO:root:============================================================
+INFO:root:OneVsRest - Dummy Most-Frequent
+INFO:root:... training on 12088 samples
+INFO:root:... predicting on train set
+INFO:root:
+		 accuracy = 0.3970880211780278
+INFO:root:
+		 f1_macro = 0.012232409961536966
+INFO:root:
+              precision    recall  f1-score   support
+
+    astro-ph       0.00      0.00      0.00        26
+    cond-mat       0.00      0.00      0.00        21
+       gr-qc       0.00      0.00      0.00         2
+     math-ph       0.00      0.00      0.00         1
+        nlin       0.00      0.00      0.00         6
+     physics       0.00      0.00      0.00        86
+    quant-ph       0.00      0.00      0.00         5
+        math       0.00      0.00      0.00       395
+       cs.AI       0.00      0.00      0.00      2378
+       cs.CL       0.00      0.00      0.00       209
+       cs.CC       0.00      0.00      0.00        15
+       cs.CE       0.00      0.00      0.00        33
+       cs.CG       0.00      0.00      0.00        12
+       cs.GT       0.00      0.00      0.00        22
+       cs.CV       0.52      1.00      0.69      6297
+       cs.CY       0.00      0.00      0.00        86
+       cs.CR       0.00      0.00      0.00       114
+       cs.DS       0.00      0.00      0.00        47
+       cs.DB       0.00      0.00      0.00        30
+       cs.DL       0.00      0.00      0.00         6
+       cs.DM       0.00      0.00      0.00         8
+       cs.DC       0.00      0.00      0.00        70
+       cs.ET       0.00      0.00      0.00         6
+       cs.FL       0.00      0.00      0.00         2
+       cs.GL       0.00      0.00      0.00         2
+       cs.GR       0.00      0.00      0.00        32
+       cs.AR       0.00      0.00      0.00         6
+       cs.HC       0.00      0.00      0.00        97
+       cs.IR       0.00      0.00      0.00       223
+       cs.IT       0.00      0.00      0.00       188
+       cs.LO       0.00      0.00      0.00        18
+       cs.LG       0.00      0.00      0.00      5281
+       cs.MS       0.00      0.00      0.00         7
+       cs.MA       0.00      0.00      0.00        31
+       cs.MM       0.00      0.00      0.00        56
+       cs.NI       0.00      0.00      0.00        27
+       cs.NE       0.00      0.00      0.00       319
+       cs.NA       0.00      0.00      0.00         0
+       cs.OS       0.00      0.00      0.00         0
+       cs.OH       0.00      0.00      0.00         1
+       cs.PF       0.00      0.00      0.00        18
+       cs.PL       0.00      0.00      0.00         7
+       cs.RO       0.00      0.00      0.00       134
+       cs.SI       0.00      0.00      0.00       102
+       cs.SE       0.00      0.00      0.00        28
+       cs.SD       0.00      0.00      0.00       148
+       cs.SC       0.00      0.00      0.00         2
+       cs.SY       0.00      0.00      0.00         0
+       q-bio       0.00      0.00      0.00       156
+       q-fin       0.00      0.00      0.00        29
+     stat.ML       0.00      0.00      0.00      4326
+        stat       0.00      0.00      0.00       257
+        eess       0.00      0.00      0.00       341
+        econ       0.00      0.00      0.00        12
+         hep       0.00      0.00      0.00         4
+        nucl       0.00      0.00      0.00         1
+
+   micro avg       0.52      0.29      0.37     21730
+   macro avg       0.01      0.02      0.01     21730
+weighted avg       0.15      0.29      0.20     21730
+ samples avg       0.52      0.44      0.46     21730
+
+INFO:root:... predicting on test set
+INFO:root:
+		 accuracy = 0.4056105610561056
+INFO:root:
+		 f1_macro = 0.012214983713355049
+INFO:root:
+              precision    recall  f1-score   support
+
+    astro-ph       0.00      0.00      0.00         5
+    cond-mat       0.00      0.00      0.00         5
+       gr-qc       0.00      0.00      0.00         0
+     math-ph       0.00      0.00      0.00         0
+        nlin       0.00      0.00      0.00         1
+     physics       0.00      0.00      0.00        19
+    quant-ph       0.00      0.00      0.00         1
+        math       0.00      0.00      0.00        99
+       cs.AI       0.00      0.00      0.00       595
+       cs.CL       0.00      0.00      0.00        52
+       cs.CC       0.00      0.00      0.00         4
+       cs.CE       0.00      0.00      0.00         8
+       cs.CG       0.00      0.00      0.00         3
+       cs.GT       0.00      0.00      0.00         6
+       cs.CV       0.52      1.00      0.68      1575
+       cs.CY       0.00      0.00      0.00        22
+       cs.CR       0.00      0.00      0.00        29
+       cs.DS       0.00      0.00      0.00        12
+       cs.DB       0.00      0.00      0.00         7
+       cs.DL       0.00      0.00      0.00         2
+       cs.DM       0.00      0.00      0.00         2
+       cs.DC       0.00      0.00      0.00        17
+       cs.ET       0.00      0.00      0.00         2
+       cs.FL       0.00      0.00      0.00         0
+       cs.GL       0.00      0.00      0.00         0
+       cs.GR       0.00      0.00      0.00         8
+       cs.AR       0.00      0.00      0.00         2
+       cs.HC       0.00      0.00      0.00        24
+       cs.IR       0.00      0.00      0.00        56
+       cs.IT       0.00      0.00      0.00        47
+       cs.LO       0.00      0.00      0.00         5
+       cs.LG       0.00      0.00      0.00      1320
+       cs.MS       0.00      0.00      0.00         2
+       cs.MA       0.00      0.00      0.00         8
+       cs.MM       0.00      0.00      0.00        14
+       cs.NI       0.00      0.00      0.00         7
+       cs.NE       0.00      0.00      0.00        80
+       cs.NA       0.00      0.00      0.00         0
+       cs.OS       0.00      0.00      0.00         0
+       cs.OH       0.00      0.00      0.00         0
+       cs.PF       0.00      0.00      0.00         5
+       cs.PL       0.00      0.00      0.00         2
+       cs.RO       0.00      0.00      0.00        34
+       cs.SI       0.00      0.00      0.00        26
+       cs.SE       0.00      0.00      0.00         7
+       cs.SD       0.00      0.00      0.00        37
+       cs.SC       0.00      0.00      0.00         0
+       cs.SY       0.00      0.00      0.00         0
+       q-bio       0.00      0.00      0.00        40
+       q-fin       0.00      0.00      0.00         6
+     stat.ML       0.00      0.00      0.00      1082
+        stat       0.00      0.00      0.00        64
+        eess       0.00      0.00      0.00        86
+        econ       0.00      0.00      0.00         4
+         hep       0.00      0.00      0.00         0
+        nucl       0.00      0.00      0.00         0
+
+   micro avg       0.52      0.29      0.37      5432
+   macro avg       0.01      0.02      0.01      5432
+weighted avg       0.15      0.29      0.20      5432
+ samples avg       0.52      0.45      0.47      5432
+
+INFO:root:============================================================
+INFO:root:OneVsRest - Dummy Stratified
+INFO:root:... training on 12088 samples
+INFO:root:... predicting on train set
+INFO:root:
+		 accuracy = 0.059149569821310394
+INFO:root:
+		 f1_macro = 0.03296081124435047
+INFO:root:
+              precision    recall  f1-score   support
+
+    astro-ph       0.00      0.00      0.00        26
+    cond-mat       0.00      0.00      0.00        21
+       gr-qc       0.00      0.00      0.00         2
+     math-ph       0.00      0.00      0.00         1
+        nlin       0.00      0.00      0.00         6
+     physics       0.01      0.01      0.01        86
+    quant-ph       0.00      0.00      0.00         5
+        math       0.04      0.04      0.04       395
+       cs.AI       0.19      0.19      0.19      2378
+       cs.CL       0.00      0.00      0.00       209
+       cs.CC       0.00      0.00      0.00        15
+       cs.CE       0.03      0.03      0.03        33
+       cs.CG       0.00      0.00      0.00        12
+       cs.GT       0.00      0.00      0.00        22
+       cs.CV       0.52      0.51      0.51      6297
+       cs.CY       0.03      0.02      0.02        86
+       cs.CR       0.01      0.01      0.01       114
+       cs.DS       0.00      0.00      0.00        47
+       cs.DB       0.00      0.00      0.00        30
+       cs.DL       0.00      0.00      0.00         6
+       cs.DM       0.00      0.00      0.00         8
+       cs.DC       0.00      0.00      0.00        70
+       cs.ET       0.00      0.00      0.00         6
+       cs.FL       0.00      0.00      0.00         2
+       cs.GL       0.00      0.00      0.00         2
+       cs.GR       0.00      0.00      0.00        32
+       cs.AR       0.00      0.00      0.00         6
+       cs.HC       0.01      0.01      0.01        97
+       cs.IR       0.01      0.01      0.01       223
+       cs.IT       0.01      0.02      0.01       188
+       cs.LO       0.00      0.00      0.00        18
+       cs.LG       0.45      0.45      0.45      5281
+       cs.MS       0.00      0.00      0.00         7
+       cs.MA       0.04      0.03      0.04        31
+       cs.MM       0.03      0.04      0.03        56
+       cs.NI       0.00      0.00      0.00        27
+       cs.NE       0.04      0.05      0.05       319
+       cs.NA       0.00      0.00      0.00         0
+       cs.OS       0.00      0.00      0.00         0
+       cs.OH       0.00      0.00      0.00         1
+       cs.PF       0.00      0.00      0.00        18
+       cs.PL       0.00      0.00      0.00         7
+       cs.RO       0.02      0.02      0.02       134
+       cs.SI       0.01      0.01      0.01       102
+       cs.SE       0.00      0.00      0.00        28
+       cs.SD       0.00      0.00      0.00       148
+       cs.SC       0.00      0.00      0.00         2
+       cs.SY       0.00      0.00      0.00         0
+       q-bio       0.02      0.01      0.01       156
+       q-fin       0.00      0.00      0.00        29
+     stat.ML       0.34      0.34      0.34      4326
+        stat       0.01      0.01      0.01       257
+        eess       0.03      0.03      0.03       341
+        econ       0.00      0.00      0.00        12
+         hep       0.00      0.00      0.00         4
+        nucl       0.00      0.00      0.00         1
+
+   micro avg       0.35      0.35      0.35     21730
+   macro avg       0.03      0.03      0.03     21730
+weighted avg       0.35      0.35      0.35     21730
+ samples avg       0.32      0.39      0.31     21730
+
+INFO:root:... predicting on test set
+INFO:root:
+		 accuracy = 0.06105610561056106
+INFO:root:
+		 f1_macro = 0.031010954427732777
+INFO:root:
+              precision    recall  f1-score   support
+
+    astro-ph       0.00      0.00      0.00         5
+    cond-mat       0.00      0.00      0.00         5
+       gr-qc       0.00      0.00      0.00         0
+     math-ph       0.00      0.00      0.00         0
+        nlin       0.00      0.00      0.00         1
+     physics       0.00      0.00      0.00        19
+    quant-ph       0.00      0.00      0.00         1
+        math       0.02      0.02      0.02        99
+       cs.AI       0.19      0.18      0.19       595
+       cs.CL       0.02      0.02      0.02        52
+       cs.CC       0.00      0.00      0.00         4
+       cs.CE       0.00      0.00      0.00         8
+       cs.CG       0.00      0.00      0.00         3
+       cs.GT       0.00      0.00      0.00         6
+       cs.CV       0.53      0.55      0.54      1575
+       cs.CY       0.00      0.00      0.00        22
+       cs.CR       0.00      0.00      0.00        29
+       cs.DS       0.00      0.00      0.00        12
+       cs.DB       0.00      0.00      0.00         7
+       cs.DL       0.00      0.00      0.00         2
+       cs.DM       0.00      0.00      0.00         2
+       cs.DC       0.00      0.00      0.00        17
+       cs.ET       0.00      0.00      0.00         2
+       cs.FL       0.00      0.00      0.00         0
+       cs.GL       0.00      0.00      0.00         0
+       cs.GR       0.00      0.00      0.00         8
+       cs.AR       0.00      0.00      0.00         2
+       cs.HC       0.04      0.04      0.04        24
+       cs.IR       0.05      0.05      0.05        56
+       cs.IT       0.00      0.00      0.00        47
+       cs.LO       0.00      0.00      0.00         5
+       cs.LG       0.45      0.45      0.45      1320
+       cs.MS       0.00      0.00      0.00         2
+       cs.MA       0.00      0.00      0.00         8
+       cs.MM       0.00      0.00      0.00        14
+       cs.NI       0.00      0.00      0.00         7
+       cs.NE       0.02      0.03      0.02        80
+       cs.NA       0.00      0.00      0.00         0
+       cs.OS       0.00      0.00      0.00         0
+       cs.OH       0.00      0.00      0.00         0
+       cs.PF       0.00      0.00      0.00         5
+       cs.PL       0.00      0.00      0.00         2
+       cs.RO       0.00      0.00      0.00        34
+       cs.SI       0.00      0.00      0.00        26
+       cs.SE       0.00      0.00      0.00         7
+       cs.SD       0.00      0.00      0.00        37
+       cs.SC       0.00      0.00      0.00         0
+       cs.SY       0.00      0.00      0.00         0
+       q-bio       0.00      0.00      0.00        40
+       q-fin       0.00      0.00      0.00         6
+     stat.ML       0.35      0.35      0.35      1082
+        stat       0.03      0.03      0.03        64
+        eess       0.02      0.02      0.02        86
+        econ       0.00      0.00      0.00         4
+         hep       0.00      0.00      0.00         0
+        nucl       0.00      0.00      0.00         0
+
+   micro avg       0.36      0.36      0.36      5432
+   macro avg       0.03      0.03      0.03      5432
+weighted avg       0.36      0.36      0.36      5432
+ samples avg       0.33      0.41      0.33      5432
+
+INFO:root:============================================================

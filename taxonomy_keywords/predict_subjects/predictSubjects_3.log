@@ -1,0 +1,698 @@
+INFO:root:
+
+>>> TAXONOMY WITH 8 SUBJECTS - PART 1
+
+
+INFO:root:OneVsRest - Multinomial NB     
+INFO:root:... training on 29894 samples
+INFO:root:... predicting on train set
+INFO:root:
+		 accuracy = 0.7886532414531344
+INFO:root:
+		 f1_macro = 0.11414222292411062
+INFO:root:
+              precision    recall  f1-score   support
+
+         phy       0.00      0.00      0.00       442
+        math       0.53      0.40      0.46      1209
+          cs       0.69      0.34      0.45      4856
+       q-bio       0.00      0.00      0.00       414
+       q-fin       0.00      0.00      0.00        50
+        stat       0.00      0.00      0.00       600
+        eess       0.00      0.00      0.00       594
+        econ       0.00      0.00      0.00        28
+
+   micro avg       0.65      0.26      0.37      8193
+   macro avg       0.15      0.09      0.11      8193
+weighted avg       0.49      0.26      0.34      8193
+ samples avg       0.07      0.07      0.07      8193
+
+INFO:root:... predicting on test set
+INFO:root:
+		 accuracy = 0.7841851752742842
+INFO:root:
+		 f1_macro = 0.10794857268750198
+INFO:root:
+              precision    recall  f1-score   support
+
+         phy       0.00      0.00      0.00       110
+        math       0.50      0.38      0.43       302
+          cs       0.67      0.32      0.43      1214
+       q-bio       0.00      0.00      0.00       104
+       q-fin       0.00      0.00      0.00        12
+        stat       0.00      0.00      0.00       150
+        eess       0.00      0.00      0.00       148
+        econ       0.00      0.00      0.00         7
+
+   micro avg       0.62      0.24      0.35      2047
+   macro avg       0.15      0.09      0.11      2047
+weighted avg       0.47      0.24      0.32      2047
+ samples avg       0.07      0.06      0.06      2047
+
+INFO:root:============================================================
+INFO:root:OneVsRest - Complement NB      
+INFO:root:... training on 29894 samples
+INFO:root:... predicting on train set
+INFO:root:
+		 accuracy = 0.7195758346156419
+INFO:root:
+		 f1_macro = 0.13765664860967647
+INFO:root:
+              precision    recall  f1-score   support
+
+         phy       0.27      0.02      0.04       442
+        math       0.33      0.68      0.44      1209
+          cs       0.47      0.67      0.55      4856
+       q-bio       0.20      0.01      0.02       414
+       q-fin       0.00      0.00      0.00        50
+        stat       0.10      0.01      0.02       600
+        eess       0.23      0.02      0.03       594
+        econ       0.00      0.00      0.00        28
+
+   micro avg       0.43      0.50      0.46      8193
+   macro avg       0.20      0.18      0.14      8193
+weighted avg       0.38      0.50      0.40      8193
+ samples avg       0.13      0.12      0.12      8193
+
+INFO:root:... predicting on test set
+INFO:root:
+		 accuracy = 0.7083221835697083
+INFO:root:
+		 f1_macro = 0.1363205028783354
+INFO:root:
+              precision    recall  f1-score   support
+
+         phy       0.14      0.01      0.02       110
+        math       0.32      0.67      0.43       302
+          cs       0.44      0.64      0.52      1214
+       q-bio       0.29      0.02      0.04       104
+       q-fin       0.00      0.00      0.00        12
+        stat       0.09      0.01      0.01       150
+        eess       0.55      0.04      0.08       148
+        econ       0.00      0.00      0.00         7
+
+   micro avg       0.40      0.48      0.44      2047
+   macro avg       0.23      0.17      0.14      2047
+weighted avg       0.38      0.48      0.38      2047
+ samples avg       0.12      0.12      0.12      2047
+
+INFO:root:============================================================
+INFO:root:OneVsRest - Complement NB norm 
+INFO:root:... training on 29894 samples
+INFO:root:... predicting on train set
+INFO:root:
+		 accuracy = 0.7872482772462701
+INFO:root:
+		 f1_macro = 0.07516069772985325
+INFO:root:
+              precision    recall  f1-score   support
+
+         phy       0.00      0.00      0.00       442
+        math       0.69      0.18      0.28      1209
+          cs       0.82      0.19      0.31      4856
+       q-bio       0.17      0.00      0.00       414
+       q-fin       0.00      0.00      0.00        50
+        stat       0.12      0.00      0.00       600
+        eess       0.00      0.00      0.00       594
+        econ       0.00      0.00      0.00        28
+
+   micro avg       0.77      0.14      0.24      8193
+   macro avg       0.22      0.05      0.08      8193
+weighted avg       0.61      0.14      0.23      8193
+ samples avg       0.04      0.04      0.04      8193
+
+INFO:root:... predicting on test set
+INFO:root:
+		 accuracy = 0.7828472036392828
+INFO:root:
+		 f1_macro = 0.0664310792524595
+INFO:root:
+              precision    recall  f1-score   support
+
+         phy       0.00      0.00      0.00       110
+        math       0.71      0.16      0.26       302
+          cs       0.76      0.17      0.27      1214
+       q-bio       0.00      0.00      0.00       104
+       q-fin       0.00      0.00      0.00        12
+        stat       0.00      0.00      0.00       150
+        eess       0.00      0.00      0.00       148
+        econ       0.00      0.00      0.00         7
+
+   micro avg       0.73      0.12      0.21      2047
+   macro avg       0.18      0.04      0.07      2047
+weighted avg       0.56      0.12      0.20      2047
+ samples avg       0.03      0.03      0.03      2047
+
+INFO:root:============================================================
+INFO:root:OneVsRest - Linear SVC         
+INFO:root:... training on 29894 samples
+INFO:root:... predicting on train set
+INFO:root:
+		 accuracy = 0.9141299257376062
+INFO:root:
+		 f1_macro = 0.8824803267251247
+INFO:root:
+              precision    recall  f1-score   support
+
+         phy       0.86      1.00      0.93       442
+        math       0.71      1.00      0.83      1209
+          cs       0.75      0.99      0.86      4856
+       q-bio       0.77      1.00      0.87       414
+       q-fin       0.81      1.00      0.89        50
+        stat       0.75      1.00      0.86       600
+        eess       0.76      1.00      0.86       594
+        econ       0.93      1.00      0.97        28
+
+   micro avg       0.75      0.99      0.86      8193
+   macro avg       0.79      1.00      0.88      8193
+weighted avg       0.75      0.99      0.86      8193
+ samples avg       0.23      0.24      0.23      8193
+
+INFO:root:... predicting on test set
+INFO:root:
+		 accuracy = 0.7291945410757292
+INFO:root:
+		 f1_macro = 0.45159515044755266
+INFO:root:
+              precision    recall  f1-score   support
+
+         phy       0.46      0.46      0.46       110
+        math       0.40      0.61      0.48       302
+          cs       0.49      0.64      0.55      1214
+       q-bio       0.46      0.46      0.46       104
+       q-fin       0.62      0.67      0.64        12
+        stat       0.23      0.29      0.25       150
+        eess       0.32      0.43      0.37       148
+        econ       0.67      0.29      0.40         7
+
+   micro avg       0.44      0.58      0.50      2047
+   macro avg       0.45      0.48      0.45      2047
+weighted avg       0.44      0.58      0.50      2047
+ samples avg       0.13      0.14      0.13      2047
+
+INFO:root:============================================================
+INFO:root:OneVsRest - Logistic Regression
+INFO:root:... training on 29894 samples
+INFO:root:... predicting on train set
+INFO:root:
+		 accuracy = 0.5629557770790126
+INFO:root:
+		 f1_macro = 0.30692710471799506
+INFO:root:
+              precision    recall  f1-score   support
+
+         phy       0.21      0.87      0.33       442
+        math       0.33      0.95      0.49      1209
+          cs       0.55      0.87      0.67      4856
+       q-bio       0.18      0.92      0.30       414
+       q-fin       0.02      0.94      0.04        50
+        stat       0.14      0.86      0.24       600
+        eess       0.23      0.75      0.35       594
+        econ       0.01      0.79      0.02        28
+
+   micro avg       0.28      0.87      0.43      8193
+   macro avg       0.21      0.87      0.31      8193
+weighted avg       0.42      0.87      0.55      8193
+ samples avg       0.15      0.21      0.17      8193
+
+INFO:root:... predicting on test set
+INFO:root:
+		 accuracy = 0.5200695745250201
+INFO:root:
+		 f1_macro = 0.23633349818923988
+INFO:root:
+              precision    recall  f1-score   support
+
+         phy       0.14      0.63      0.23       110
+        math       0.27      0.80      0.40       302
+          cs       0.46      0.72      0.56      1214
+       q-bio       0.13      0.66      0.22       104
+       q-fin       0.02      0.92      0.03        12
+        stat       0.10      0.58      0.18       150
+        eess       0.16      0.55      0.25       148
+        econ       0.01      0.71      0.02         7
+
+   micro avg       0.23      0.70      0.34      2047
+   macro avg       0.16      0.70      0.24      2047
+weighted avg       0.35      0.70      0.45      2047
+ samples avg       0.12      0.17      0.13      2047
+
+INFO:root:============================================================
+INFO:root:OneVsRest - Dummy Uniform      
+INFO:root:... training on 29894 samples
+INFO:root:... predicting on train set
+INFO:root:
+		 accuracy = 0.7630962734996989
+INFO:root:
+		 f1_macro = 0.0
+INFO:root:
+              precision    recall  f1-score   support
+
+         phy       0.00      0.00      0.00       442
+        math       0.00      0.00      0.00      1209
+          cs       0.00      0.00      0.00      4856
+       q-bio       0.00      0.00      0.00       414
+       q-fin       0.00      0.00      0.00        50
+        stat       0.00      0.00      0.00       600
+        eess       0.00      0.00      0.00       594
+        econ       0.00      0.00      0.00        28
+
+   micro avg       0.00      0.00      0.00      8193
+   macro avg       0.00      0.00      0.00      8193
+weighted avg       0.00      0.00      0.00      8193
+ samples avg       0.00      0.00      0.00      8193
+
+INFO:root:... predicting on test set
+INFO:root:
+		 accuracy = 0.7643831950762644
+INFO:root:
+		 f1_macro = 0.0
+INFO:root:
+              precision    recall  f1-score   support
+
+         phy       0.00      0.00      0.00       110
+        math       0.00      0.00      0.00       302
+          cs       0.00      0.00      0.00      1214
+       q-bio       0.00      0.00      0.00       104
+       q-fin       0.00      0.00      0.00        12
+        stat       0.00      0.00      0.00       150
+        eess       0.00      0.00      0.00       148
+        econ       0.00      0.00      0.00         7
+
+   micro avg       0.00      0.00      0.00      2047
+   macro avg       0.00      0.00      0.00      2047
+weighted avg       0.00      0.00      0.00      2047
+ samples avg       0.00      0.00      0.00      2047
+
+INFO:root:============================================================
+INFO:root:OneVsRest - Dummy Most-Frequent
+INFO:root:... training on 29894 samples
+INFO:root:... predicting on train set
+INFO:root:
+		 accuracy = 0.7630962734996989
+INFO:root:
+		 f1_macro = 0.0
+INFO:root:
+              precision    recall  f1-score   support
+
+         phy       0.00      0.00      0.00       442
+        math       0.00      0.00      0.00      1209
+          cs       0.00      0.00      0.00      4856
+       q-bio       0.00      0.00      0.00       414
+       q-fin       0.00      0.00      0.00        50
+        stat       0.00      0.00      0.00       600
+        eess       0.00      0.00      0.00       594
+        econ       0.00      0.00      0.00        28
+
+   micro avg       0.00      0.00      0.00      8193
+   macro avg       0.00      0.00      0.00      8193
+weighted avg       0.00      0.00      0.00      8193
+ samples avg       0.00      0.00      0.00      8193
+
+INFO:root:... predicting on test set
+INFO:root:
+		 accuracy = 0.7643831950762644
+INFO:root:
+		 f1_macro = 0.0
+INFO:root:
+              precision    recall  f1-score   support
+
+         phy       0.00      0.00      0.00       110
+        math       0.00      0.00      0.00       302
+          cs       0.00      0.00      0.00      1214
+       q-bio       0.00      0.00      0.00       104
+       q-fin       0.00      0.00      0.00        12
+        stat       0.00      0.00      0.00       150
+        eess       0.00      0.00      0.00       148
+        econ       0.00      0.00      0.00         7
+
+   micro avg       0.00      0.00      0.00      2047
+   macro avg       0.00      0.00      0.00      2047
+weighted avg       0.00      0.00      0.00      2047
+ samples avg       0.00      0.00      0.00      2047
+
+INFO:root:============================================================
+INFO:root:OneVsRest - Dummy Stratified   
+INFO:root:... training on 29894 samples
+INFO:root:... predicting on train set
+INFO:root:
+		 accuracy = 0.5927276376530407
+INFO:root:
+		 f1_macro = 0.035109016458555874
+INFO:root:
+              precision    recall  f1-score   support
+
+         phy       0.02      0.02      0.02       442
+        math       0.03      0.03      0.03      1209
+          cs       0.16      0.16      0.16      4856
+       q-bio       0.01      0.01      0.01       414
+       q-fin       0.00      0.00      0.00        50
+        stat       0.03      0.03      0.03       600
+        eess       0.02      0.03      0.02       594
+        econ       0.00      0.00      0.00        28
+
+   micro avg       0.11      0.11      0.11      8193
+   macro avg       0.04      0.04      0.04      8193
+weighted avg       0.11      0.11      0.11      8193
+ samples avg       0.03      0.03      0.03      8193
+
+INFO:root:... predicting on test set
+INFO:root:
+		 accuracy = 0.5893765052180894
+INFO:root:
+		 f1_macro = 0.03021675667889793
+INFO:root:
+              precision    recall  f1-score   support
+
+         phy       0.02      0.03      0.03       110
+        math       0.02      0.02      0.02       302
+          cs       0.16      0.16      0.16      1214
+       q-bio       0.02      0.02      0.02       104
+       q-fin       0.00      0.00      0.00        12
+        stat       0.01      0.01      0.01       150
+        eess       0.01      0.01      0.01       148
+        econ       0.00      0.00      0.00         7
+
+   micro avg       0.10      0.10      0.10      2047
+   macro avg       0.03      0.03      0.03      2047
+weighted avg       0.10      0.10      0.10      2047
+ samples avg       0.03      0.02      0.02      2047
+
+INFO:root:============================================================
+INFO:root:
+
+>>> TAXONOMY WITH 4 SUBJECTS - PART 2
+
+
+INFO:root:OneVsRest - Multinomial NB     
+INFO:root:... training on 29863 samples
+INFO:root:... predicting on train set
+INFO:root:
+		 accuracy = 0.6210360646954425
+INFO:root:
+		 f1_macro = 0.8166827045269117
+INFO:root:
+              precision    recall  f1-score   support
+
+       cs.AI       0.77      0.68      0.72      6944
+       cs.CV       0.91      0.91      0.91     13253
+       cs.LG       0.81      0.86      0.83     15005
+     stat.ML       0.77      0.83      0.80     12413
+
+   micro avg       0.82      0.84      0.83     47615
+   macro avg       0.82      0.82      0.82     47615
+weighted avg       0.82      0.84      0.83     47615
+ samples avg       0.86      0.88      0.85     47615
+
+INFO:root:... predicting on test set
+INFO:root:
+		 accuracy = 0.6235842771485676
+INFO:root:
+		 f1_macro = 0.8162636694959322
+INFO:root:
+              precision    recall  f1-score   support
+
+       cs.AI       0.75      0.67      0.71      1736
+       cs.CV       0.92      0.91      0.92      3314
+       cs.LG       0.81      0.87      0.84      3751
+     stat.ML       0.77      0.84      0.80      3103
+
+   micro avg       0.82      0.84      0.83     11904
+   macro avg       0.81      0.82      0.82     11904
+weighted avg       0.82      0.84      0.83     11904
+ samples avg       0.86      0.88      0.85     11904
+
+INFO:root:============================================================
+INFO:root:OneVsRest - Complement NB      
+INFO:root:... training on 29863 samples
+INFO:root:... predicting on train set
+INFO:root:
+		 accuracy = 0.5918025650470482
+INFO:root:
+		 f1_macro = 0.8111369684962757
+INFO:root:
+              precision    recall  f1-score   support
+
+       cs.AI       0.65      0.76      0.70      6944
+       cs.CV       0.91      0.91      0.91     13253
+       cs.LG       0.82      0.86      0.84     15005
+     stat.ML       0.75      0.85      0.80     12413
+
+   micro avg       0.80      0.86      0.83     47615
+   macro avg       0.78      0.85      0.81     47615
+weighted avg       0.80      0.86      0.83     47615
+ samples avg       0.85      0.90      0.84     47615
+
+INFO:root:... predicting on test set
+INFO:root:
+		 accuracy = 0.591072618254497
+INFO:root:
+		 f1_macro = 0.8080554310300959
+INFO:root:
+              precision    recall  f1-score   support
+
+       cs.AI       0.62      0.74      0.68      1736
+       cs.CV       0.92      0.92      0.92      3314
+       cs.LG       0.81      0.87      0.84      3751
+     stat.ML       0.75      0.86      0.80      3103
+
+   micro avg       0.79      0.86      0.82     11904
+   macro avg       0.77      0.85      0.81     11904
+weighted avg       0.80      0.86      0.83     11904
+ samples avg       0.84      0.90      0.84     11904
+
+INFO:root:============================================================
+INFO:root:OneVsRest - Complement NB norm 
+INFO:root:... training on 29863 samples
+INFO:root:... predicting on train set
+INFO:root:
+		 accuracy = 0.6250879014164685
+INFO:root:
+		 f1_macro = 0.8155563080289465
+INFO:root:
+              precision    recall  f1-score   support
+
+       cs.AI       0.80      0.66      0.72      6944
+       cs.CV       0.91      0.91      0.91     13253
+       cs.LG       0.82      0.85      0.83     15005
+     stat.ML       0.77      0.83      0.80     12413
+
+   micro avg       0.83      0.83      0.83     47615
+   macro avg       0.82      0.81      0.82     47615
+weighted avg       0.83      0.83      0.83     47615
+ samples avg       0.86      0.88      0.85     47615
+
+INFO:root:... predicting on test set
+INFO:root:
+		 accuracy = 0.6302465023317788
+INFO:root:
+		 f1_macro = 0.8153925280406209
+INFO:root:
+              precision    recall  f1-score   support
+
+       cs.AI       0.78      0.65      0.71      1736
+       cs.CV       0.92      0.92      0.92      3314
+       cs.LG       0.81      0.86      0.84      3751
+     stat.ML       0.77      0.83      0.80      3103
+
+   micro avg       0.83      0.84      0.83     11904
+   macro avg       0.82      0.81      0.82     11904
+weighted avg       0.83      0.84      0.83     11904
+ samples avg       0.86      0.88      0.85     11904
+
+INFO:root:============================================================
+INFO:root:OneVsRest - Linear SVC         
+INFO:root:... training on 29863 samples
+INFO:root:... predicting on train set
+INFO:root:
+		 accuracy = 0.8432843317818036
+INFO:root:
+		 f1_macro = 0.9404391467552022
+INFO:root:
+              precision    recall  f1-score   support
+
+       cs.AI       0.86      0.96      0.91      6944
+       cs.CV       0.98      0.98      0.98     13253
+       cs.LG       0.93      0.94      0.94     15005
+     stat.ML       0.91      0.96      0.94     12413
+
+   micro avg       0.93      0.96      0.94     47615
+   macro avg       0.92      0.96      0.94     47615
+weighted avg       0.93      0.96      0.94     47615
+ samples avg       0.95      0.97      0.95     47615
+
+INFO:root:... predicting on test set
+INFO:root:
+		 accuracy = 0.6071952031978681
+INFO:root:
+		 f1_macro = 0.8134477123899081
+INFO:root:
+              precision    recall  f1-score   support
+
+       cs.AI       0.65      0.72      0.69      1736
+       cs.CV       0.94      0.91      0.92      3314
+       cs.LG       0.82      0.85      0.83      3751
+     stat.ML       0.78      0.84      0.81      3103
+
+   micro avg       0.81      0.85      0.83     11904
+   macro avg       0.80      0.83      0.81     11904
+weighted avg       0.82      0.85      0.83     11904
+ samples avg       0.85      0.88      0.84     11904
+
+INFO:root:============================================================
+INFO:root:OneVsRest - Logistic Regression
+INFO:root:... training on 29863 samples
+INFO:root:... predicting on train set
+INFO:root:
+		 accuracy = 0.6746140709238857
+INFO:root:
+		 f1_macro = 0.8592266179936656
+INFO:root:
+              precision    recall  f1-score   support
+
+       cs.AI       0.73      0.82      0.77      6944
+       cs.CV       0.94      0.93      0.93     13253
+       cs.LG       0.86      0.89      0.87     15005
+     stat.ML       0.81      0.90      0.86     12413
+
+   micro avg       0.85      0.89      0.87     47615
+   macro avg       0.84      0.88      0.86     47615
+weighted avg       0.85      0.89      0.87     47615
+ samples avg       0.89      0.92      0.88     47615
+
+INFO:root:... predicting on test set
+INFO:root:
+		 accuracy = 0.6169220519653564
+INFO:root:
+		 f1_macro = 0.8226654264381617
+INFO:root:
+              precision    recall  f1-score   support
+
+       cs.AI       0.65      0.75      0.70      1736
+       cs.CV       0.94      0.92      0.93      3314
+       cs.LG       0.83      0.87      0.85      3751
+     stat.ML       0.78      0.87      0.82      3103
+
+   micro avg       0.81      0.86      0.84     11904
+   macro avg       0.80      0.85      0.82     11904
+weighted avg       0.82      0.86      0.84     11904
+ samples avg       0.86      0.90      0.85     11904
+
+INFO:root:============================================================
+INFO:root:OneVsRest - Dummy Uniform      
+INFO:root:... training on 29863 samples
+INFO:root:... predicting on train set
+INFO:root:
+		 accuracy = 0.0002009175233566621
+INFO:root:
+		 f1_macro = 0.0
+INFO:root:
+              precision    recall  f1-score   support
+
+       cs.AI       0.00      0.00      0.00      6944
+       cs.CV       0.00      0.00      0.00     13253
+       cs.LG       0.00      0.00      0.00     15005
+     stat.ML       0.00      0.00      0.00     12413
+
+   micro avg       0.00      0.00      0.00     47615
+   macro avg       0.00      0.00      0.00     47615
+weighted avg       0.00      0.00      0.00     47615
+ samples avg       0.00      0.00      0.00     47615
+
+INFO:root:... predicting on test set
+INFO:root:
+		 accuracy = 0.0
+INFO:root:
+		 f1_macro = 0.0
+INFO:root:
+              precision    recall  f1-score   support
+
+       cs.AI       0.00      0.00      0.00      1736
+       cs.CV       0.00      0.00      0.00      3314
+       cs.LG       0.00      0.00      0.00      3751
+     stat.ML       0.00      0.00      0.00      3103
+
+   micro avg       0.00      0.00      0.00     11904
+   macro avg       0.00      0.00      0.00     11904
+weighted avg       0.00      0.00      0.00     11904
+ samples avg       0.00      0.00      0.00     11904
+
+INFO:root:============================================================
+INFO:root:OneVsRest - Dummy Most-Frequent
+INFO:root:... training on 29863 samples
+INFO:root:... predicting on train set
+INFO:root:
+		 accuracy = 0.0412215785420085
+INFO:root:
+		 f1_macro = 0.16721271284657216
+INFO:root:
+              precision    recall  f1-score   support
+
+       cs.AI       0.00      0.00      0.00      6944
+       cs.CV       0.00      0.00      0.00     13253
+       cs.LG       0.50      1.00      0.67     15005
+     stat.ML       0.00      0.00      0.00     12413
+
+   micro avg       0.50      0.32      0.39     47615
+   macro avg       0.13      0.25      0.17     47615
+weighted avg       0.16      0.32      0.21     47615
+ samples avg       0.50      0.26      0.33     47615
+
+INFO:root:... predicting on test set
+INFO:root:
+		 accuracy = 0.04223850766155896
+INFO:root:
+		 f1_macro = 0.1666222459132907
+INFO:root:
+              precision    recall  f1-score   support
+
+       cs.AI       0.00      0.00      0.00      1736
+       cs.CV       0.00      0.00      0.00      3314
+       cs.LG       0.50      1.00      0.67      3751
+     stat.ML       0.00      0.00      0.00      3103
+
+   micro avg       0.50      0.32      0.39     11904
+   macro avg       0.12      0.25      0.17     11904
+weighted avg       0.16      0.32      0.21     11904
+ samples avg       0.50      0.26      0.33     11904
+
+INFO:root:============================================================
+INFO:root:OneVsRest - Dummy Stratified   
+INFO:root:... training on 29863 samples
+INFO:root:... predicting on train set
+INFO:root:
+		 accuracy = 0.08140508321334092
+INFO:root:
+		 f1_macro = 0.39788110264233295
+INFO:root:
+              precision    recall  f1-score   support
+
+       cs.AI       0.23      0.23      0.23      6944
+       cs.CV       0.45      0.45      0.45     13253
+       cs.LG       0.50      0.50      0.50     15005
+     stat.ML       0.41      0.42      0.41     12413
+
+   micro avg       0.42      0.42      0.42     47615
+   macro avg       0.40      0.40      0.40     47615
+weighted avg       0.42      0.42      0.42     47615
+ samples avg       0.37      0.42      0.36     47615
+
+INFO:root:... predicting on test set
+INFO:root:
+		 accuracy = 0.08154563624250499
+INFO:root:
+		 f1_macro = 0.3935659477481943
+INFO:root:
+              precision    recall  f1-score   support
+
+       cs.AI       0.23      0.23      0.23      1736
+       cs.CV       0.44      0.44      0.44      3314
+       cs.LG       0.50      0.49      0.49      3751
+     stat.ML       0.41      0.42      0.41      3103
+
+   micro avg       0.42      0.42      0.42     11904
+   macro avg       0.39      0.39      0.39     11904
+weighted avg       0.42      0.42      0.42     11904
+ samples avg       0.37      0.41      0.36     11904
+
+INFO:root:============================================================
