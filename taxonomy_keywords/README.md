@@ -31,7 +31,7 @@ In files [simplest_taxonomy](./predict_subjects/simplest_taxonomy.ipynb) and [si
 
 3. In the file [predictSubjects_2](./predict_subjects/predictSubjects_2.ipynb) the subjects are predicted for each arxiv paper. To this end, several attempts are made with different classifiers and some new tricks and metrics to consider the imbalance of the dataset.
 4. In files [predictSubjects_3](./predict_subjects/predictSubjects_3.ipynb) and [predictSubjects_3-v2](./predict_subjects/predictSubjects_3-v2.ipynb) the subjects are predicted for each arxiv paper, using the two different versions of the simplest taxonomy respectively.
-
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
 1. In the file [datasetPaperKeywordsSubject](./predict_subjects/datasetPaperKeywordsSubject.ipynb) you see the relationship between arxiv papers with keywords and the subjects of the taxonomy. You also prepare a text-clean dataset useful for prediction.
 2. In the file [predictSubjects_k](./predict_subjects/predictSubjects_k.ipynb) the subjects are predicted for each arxiv paper with keywords. To this end, several attempts are made with different classifiers.
 
@@ -46,7 +46,7 @@ In files [simplest_taxonomy](./predict_subjects/simplest_taxonomy.ipynb) and [si
 
 3. In the file [predictSubjects_k_2](./predict_subjects/predictSubjects_k_2.ipynb) the subjects are predicted for each arxiv paper with keywords. To this end, several attempts are made with different classifiers and some new tricks and metrics to consider the imbalance of the dataset.
 4. In files [predictSubjects_k_3](./predict_subjects/predictSubjects_k_3.ipynb) and [predictSubjects_k_3-v2](./predict_subjects/predictSubjects_3-v2.ipynb) the subjects are predicted for each arxiv paper, using the two different versions of the simplest taxonomy respectively.
-
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
 1. In files [create_intersting_arxiv_Dataset](./predict_subjects/create_intersting_arxiv_Dataset.ipynb) and [create_intersting_arxiv_textclean_Dataset](./predict_subjects/create_intersting_arxiv_textclean_Dataset.ipynb) two datasets are created, one of which is text-clean, and they contain all the interesting paragraphs of all analyzable arxiv papers.
 A paragraph was considered "interesting" if:
 	- it is a "problem description"
