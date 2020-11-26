@@ -77,6 +77,7 @@ __The results of all files in steps 3 and 4 are visible in this Excell [file](./
 ##### Important Resources:
 - [taxonomy](./resources/taxonomy.json)
 - [simplified taxonomy](./resources/taxonomy-56.json)
+- [simplest taxonomy](./resources/simplest_taxonomy.json), [simplest taxonomy v2](./resources/simplest_taxonomy-v2.json)
 - [paper and subjects](./resources/papers_subjects.json) (for all arxiv papers: 37368)
 - [paper and information](./resources/papers_info.json) (for all arxiv papers: 37368)
 - [paper and keywords](./resources/papers_keywords.json) (for all arxiv papers that have explicit keywords: 15118)
