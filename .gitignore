@@ -38,3 +38,7 @@ taxonomy_keywords/resources/interesting_arxiv_papers_textclean.pkl
 taxonomy_keywords/resources/tdidf_bigram_vectorizer.pkl
 taxonomy_keywords/resources/tdidf_bigram_k_vectorizer.pkl
 taxonomy_keywords/resources/tdidf_bigram_interesting_vectorizer.pkl
+taxonomy_keywords/resources/classifiers_3.pkl
+
+filtering/
+filtering.zip
